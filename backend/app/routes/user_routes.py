@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from app.utils.security import hash_password
 from app.schemas.auth_schema import LoginRequest
 from app.utils.security import verify_password, create_access_token
-
+from fastapi.security import OAuth2PasswordRequestForm
 from app.database import SessionLocal
 from app.models.user import User
 from app.schemas.user_schema import UserCreate
@@ -41,14 +41,19 @@ def register_user(user: UserCreate, db: Session = Depends(get_db)):
     }
 
 @router.post("/login")
-def login(user: LoginRequest, db: Session = Depends(get_db)):
+def login(
+    form_data: OAuth2PasswordRequestForm = Depends(),
+    db: Session = Depends(get_db)
+):
 
-    db_user = db.query(User).filter(User.email == user.email).first()
+    db_user = db.query(User).filter(
+        User.email == form_data.username
+    ).first()
 
     if not db_user:
         return {"message": "Invalid Email"}
 
-    if not verify_password(user.password, db_user.password):
+    if not verify_password(form_data.password, db_user.password):
         return {"message": "Invalid Password"}
 
     access_token = create_access_token(

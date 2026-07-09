@@ -10,6 +10,7 @@ class Complaint(Base):
 
     title=Column(String(200),nullable=False)
     description=Column(Text, nullable=False)
+    media_path=Column(String, nullable=True)
 
     language=Column(String(30))
     translated_text=Column(Text)

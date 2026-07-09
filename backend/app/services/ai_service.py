@@ -36,4 +36,17 @@ def predict_priority(text):
 def summarize_complaint(text):
     return text[:100]
 
+def get_department_id(department: str):
+    department_map = {
+        "Water Supply": 1,
+        "Electricity": 2,
+        "Roads & Transport": 3,
+        "Sanitation": 4,
+        "Police": 5,
+        "Healthcare": 6,
+        "Education": 7,
+        "Municipal Corporation": 8
+    }
+
+    return department_map.get(department, 8)
 
