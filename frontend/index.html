@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CivicFlow AI — National Grievance Intelligence Platform</title>
+<meta name="description" content="CivicFlow AI is an artificial intelligence platform for public grievance routing, classification and resolution across government departments.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ SKIP LINK ============ -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ============ NAVBAR ============ -->
+<header class="navbar" id="navbar">
+  <div class="navbar__inner">
+    <a href="#top" class="brand">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="34" height="34">
+          <circle cx="20" cy="20" r="18" fill="none" stroke="url(#brandGrad)" stroke-width="2.4"/>
+          <circle cx="20" cy="20" r="10" fill="none" stroke="url(#brandGrad)" stroke-width="2"/>
+          <circle cx="20" cy="20" r="2.6" fill="#10b981"/>
+          <defs>
+            <linearGradient id="brandGrad" x1="0" y1="0" x2="40" y2="40">
+              <stop offset="0" stop-color="#2563eb"/>
+              <stop offset="1" stop-color="#06b6d4"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </span>
+      <span class="brand__text">CivicFlow <b>AI</b></span>
+    </a>
+
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="#top">Home</a>
+      <a href="#about">About</a>
+      <a href="#features">Services</a>
+      <a href="#departments">Departments</a>
+      <a href="#faq">FAQs</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="navbar__actions">
+      <a href="login.html" class="btn btn--ghost">Login</a>
+      <a href="#" class="btn btn--primary">Register</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="hero__bg" aria-hidden="true">
+      <div class="hero__grid"></div>
+      <div class="hero__glow hero__glow--1"></div>
+      <div class="hero__glow hero__glow--2"></div>
+    </div>
+
+    <div class="hero__inner">
+      <div class="hero__copy">
+        <p class="eyebrow"><span class="eyebrow__dot"></span>National Grievance Intelligence Network · Live</p>
+        <h1 class="hero__heading">
+          Transforming Public Grievance Management with <span class="text-gradient">Artificial Intelligence</span>
+        </h1>
+        <p class="hero__paragraph">
+          CivicFlow AI reads, understands and routes every citizen complaint in real time — detecting language, predicting the right department and prioritising urgency in under a second, across every state and every desk.
+        </p>
+
+        <div class="hero__cta">
+          <a href="#" class="btn btn--primary btn--lg">
+            Lodge Complaint
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#" class="btn btn--outline btn--lg">Track Complaint</a>
+        </div>
+
+        <ul class="hero__badges">
+          <li><span class="check">✓</span>AI Classification</li>
+          <li><span class="check">✓</span>Live Tracking</li>
+          <li><span class="check">✓</span>Multilingual</li>
+          <li><span class="check">✓</span>Smart Routing</li>
+        </ul>
+      </div>
+
+      <div class="hero__visual" aria-hidden="true">
+        <div class="ai-core">
+          <div class="ai-core__ring ai-core__ring--1"></div>
+          <div class="ai-core__ring ai-core__ring--2"></div>
+          <div class="ai-core__ring ai-core__ring--3"></div>
+          <div class="ai-core__orbit ai-core__orbit--1"><span class="ai-core__node"></span></div>
+          <div class="ai-core__orbit ai-core__orbit--2"><span class="ai-core__node ai-core__node--b"></span></div>
+          <div class="ai-core__orbit ai-core__orbit--3"><span class="ai-core__node ai-core__node--c"></span></div>
+          <div class="ai-core__core">
+            <span class="ai-core__pulse"></span>
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="none"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="3.4" fill="#fff"/></svg>
+          </div>
+          <div class="ai-core__label ai-core__label--1">भाषा · Language</div>
+          <div class="ai-core__label ai-core__label--2">Priority</div>
+          <div class="ai-core__label ai-core__label--3">Routing</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LIVE NATIONAL DASHBOARD ============ -->
+  <section class="dashboard" id="about">
+    <div class="section-inner">
+      <div class="section-head">
+        <p class="eyebrow eyebrow--dark"><span class="eyebrow__dot"></span>Live National Dashboard</p>
+        <h2>The grievance network, at a glance</h2>
+        <p class="section-sub">Figures update continuously as complaints are lodged, classified and resolved across the country.</p>
+      </div>
+
+      <div class="stat-grid">
+        <article class="stat-card">
+          <div class="stat-card__top">
+            <span class="stat-card__icon stat-card__icon--blue">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 19V5a2 2 0 0 1 2-2h8l6 6v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z" stroke="currentColor" stroke-width="1.6"/><path d="M14 3v5h5" stroke="currentColor" stroke-width="1.6"/></svg>
+            </span>
+            <span class="stat-card__trend stat-card__trend--up">▲ 12.4%</span>
+          </div>
+          <p class="stat-card__value" id="totalComplaints">0</p>
+          <p class="stat-card__label">Complaints Today</p>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-card__top">
+            <span class="stat-card__icon stat-card__icon--green">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="stat-card__trend stat-card__trend--up">▲ 8.1%</span>
+          </div>
+          <p class="stat-card__value" id="resolvedComplaints">0</p>
+          <p class="stat-card__label">Resolved Today</p>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-card__top">
+            <span class="stat-card__icon stat-card__icon--amber">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3.2 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </span>
+            <span class="stat-card__trend stat-card__trend--down">▼ 3.6%</span>
+          </div>
+          <p class="stat-card__value" id="pendingComplaints">0</p>
+          <p class="stat-card__label">Pending Cases</p>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-card__top">
+            <span class="stat-card__icon stat-card__icon--cyan">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.4" stroke="currentColor" stroke-width="1.6"/><rect x="14" y="3" width="7" height="7" rx="1.4" stroke="currentColor" stroke-width="1.6"/><rect x="3" y="14" width="7" height="7" rx="1.4" stroke="currentColor" stroke-width="1.6"/><rect x="14" y="14" width="7" height="7" rx="1.4" stroke="currentColor" stroke-width="1.6"/></svg>
+            </span>
+            <span class="stat-card__trend stat-card__trend--up">▲ Active</span>
+          </div>
+          <p class="stat-card__value" id="departmentCount">0</p>
+          <p class="stat-card__label">Departments Active</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AI FEATURES ============ -->
+  <section class="features" id="features">
+    <div class="section-inner">
+      <div class="section-head">
+        <p class="eyebrow eyebrow--dark"><span class="eyebrow__dot"></span>Core AI Services</p>
+        <h2>Four models, one seamless pipeline</h2>
+        <p class="section-sub">Every complaint moves through the same intelligence stack before it ever reaches a human officer.</p>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <span class="feature-card__index">01</span>
+          <span class="feature-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 5h11M9.5 3v2M6 6c0 4 2.4 6.6 6 8M13.5 6c-.8 4.6-4 8-9.5 10M14 21l4-9 4 9M15.4 18h5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <h3>Language Detection</h3>
+          <p>Identifies the citizen's language automatically from free-form text or voice, across 22 scheduled languages and regional dialects.</p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-card__index">02</span>
+          <span class="feature-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M7 8h10M7 12h6M7 16h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M3 20V6a2 2 0 0 1 2-2h6l6 6v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z" stroke="currentColor" stroke-width="1.6"/></svg>
+          </span>
+          <h3>Translation</h3>
+          <p>Converts every complaint into a standardised working language for officers, without losing local nuance or intent.</p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-card__index">03</span>
+          <span class="feature-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.2 2.2M16.2 16.2l2.2 2.2M5.6 18.4l2.2-2.2M16.2 7.8l2.2-2.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </span>
+          <h3>Department Prediction</h3>
+          <p>Maps complaint content to the correct department — Water, Roads, Electricity and more — with a confidence score attached.</p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-card__index">04</span>
+          <span class="feature-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2 4 5.5v6C4 16.5 7.4 20.7 12 22c4.6-1.3 8-5.5 8-10.5v-6L12 2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 8v4.5l3 1.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </span>
+          <h3>Priority Detection</h3>
+          <p>Flags urgency and public-safety risk instantly, so critical cases surface at the top of an officer's queue.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NATIONAL COMMAND CENTER ============ -->
+  <section class="command" id="command">
+    <div class="section-inner">
+      <div class="section-head section-head--light">
+        <p class="eyebrow"><span class="eyebrow__dot"></span>National Command Center</p>
+        <h2>Every complaint, mapped in real time</h2>
+        <p class="section-sub section-sub--light">A live operational view of grievance activity across Indian states, refreshed as officers act.</p>
+      </div>
+
+      <div class="command__grid">
+        <div class="command__map">
+          <div class="map-placeholder">
+            <svg viewBox="0 0 300 340" width="100%" height="100%" role="img" aria-label="Stylised map of India showing grievance activity">
+              <path d="M110 20 L160 15 L190 45 L210 60 L235 70 L245 95 L235 120 L245 145 L230 175 L235 205 L215 235 L200 265 L185 300 L165 320 L150 300 L140 270 L120 250 L100 260 L85 235 L95 200 L75 180 L65 150 L80 120 L70 90 L90 65 L95 40 Z"
+                fill="rgba(37,99,235,0.14)" stroke="rgba(6,182,212,0.65)" stroke-width="1.4"/>
+              <circle class="map-dot map-dot--critical" cx="150" cy="230" r="5"/>
+              <circle class="map-dot map-dot--critical" cx="120" cy="70" r="5"/>
+              <circle class="map-dot map-dot--medium" cx="170" cy="150" r="4.5"/>
+              <circle class="map-dot map-dot--medium" cx="200" cy="100" r="4.5"/>
+              <circle class="map-dot map-dot--resolved" cx="140" cy="180" r="4"/>
+              <circle class="map-dot map-dot--resolved" cx="190" cy="230" r="4"/>
+              <circle class="map-dot map-dot--resolved" cx="110" cy="260" r="4"/>
+            </svg>
+            <p class="map-placeholder__caption">Interactive state-level map · rendered live from grievance coordinates</p>
+          </div>
+
+          <ul class="map-legend">
+            <li><span class="legend-dot legend-dot--critical"></span>Critical</li>
+            <li><span class="legend-dot legend-dot--medium"></span>Medium</li>
+            <li><span class="legend-dot legend-dot--resolved"></span>Resolved</li>
+          </ul>
+        </div>
+
+        <div class="command__side">
+          <div class="activity-panel">
+            <div class="activity-panel__head">
+              <h3>Live Complaint Activity</h3>
+              <span class="live-tag"><span class="live-tag__dot"></span>Live</span>
+            </div>
+            <ul class="activity-feed" id="activityFeed">
+            </ul>
+          </div>
+
+          <div class="top-states", id="topStates">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DEPARTMENT PERFORMANCE ============ -->
+  <section class="departments" id="departments">
+    <div class="section-inner">
+      <div class="section-head">
+        <p class="eyebrow eyebrow--dark"><span class="eyebrow__dot"></span>Department Performance</p>
+        <h2>Accountability, department by department</h2>
+        <p class="section-sub">Resolution rates are tracked per department and published back to the public dashboard.</p>
+      </div>
+
+      <div class="dept-list" id="departmentPerformance">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMPLAINT JOURNEY ============ -->
+  <section class="journey">
+    <div class="section-inner">
+      <div class="section-head">
+        <p class="eyebrow eyebrow--dark"><span class="eyebrow__dot"></span>How It Works</p>
+        <h2>The complaint journey</h2>
+        <p class="section-sub">From the moment a citizen submits a grievance to the moment it's closed — fully tracked, fully transparent.</p>
+      </div>
+
+      <ol class="timeline">
+        <li class="timeline__item">
+          <div class="timeline__marker"></div>
+          <div class="timeline__content">
+            <h3>Complaint Submitted</h3>
+            <p>Citizen lodges a grievance via web, app or IVR in their own language.</p>
+          </div>
+        </li>
+        <li class="timeline__item">
+          <div class="timeline__marker"></div>
+          <div class="timeline__content">
+            <h3>AI Classification</h3>
+            <p>Language, category and urgency are detected automatically, in under a second.</p>
+          </div>
+        </li>
+        <li class="timeline__item">
+          <div class="timeline__marker"></div>
+          <div class="timeline__content">
+            <h3>Department Assigned</h3>
+            <p>The complaint is routed to the correct department and jurisdiction with no manual sorting.</p>
+          </div>
+        </li>
+        <li class="timeline__item">
+          <div class="timeline__marker"></div>
+          <div class="timeline__content">
+            <h3>Officer Review</h3>
+            <p>An assigned officer verifies details and takes ownership, with SLA timers running.</p>
+          </div>
+        </li>
+        <li class="timeline__item timeline__item--final">
+          <div class="timeline__marker timeline__marker--final">✓</div>
+          <div class="timeline__content">
+            <h3>Resolved</h3>
+            <p>The citizen is notified and asked to confirm resolution, closing the loop.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ WHY CIVICFLOW AI ============ -->
+  <section class="why">
+    <div class="section-inner">
+      <div class="section-head section-head--light">
+        <p class="eyebrow"><span class="eyebrow__dot"></span>Why CivicFlow AI</p>
+        <h2>Built for national scale</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <p class="why-card__num" data-count="98.4" data-suffix="%" data-decimals="1">0%</p>
+          <p class="why-card__label">AI Classification Accuracy</p>
+        </div>
+        <div class="why-card">
+          <p class="why-card__num" data-count="0.8" data-suffix=" sec" data-decimals="1">0 sec</p>
+          <p class="why-card__label">Average Classification Time</p>
+        </div>
+        <div class="why-card">
+          <p class="why-card__num" data-count="7">0</p>
+          <p class="why-card__label">Departments Connected</p>
+        </div>
+        <div class="why-card">
+          <p class="why-card__num" data-count="24" data-suffix="×7">0</p>
+          <p class="why-card__label">Continuous Monitoring</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="faq" id="faq">
+    <div class="section-inner section-inner--narrow">
+      <div class="section-head">
+        <p class="eyebrow eyebrow--dark"><span class="eyebrow__dot"></span>Frequently Asked</p>
+        <h2>Questions, answered</h2>
+      </div>
+
+      <div class="accordion" id="accordion">
+        <div class="accordion__item">
+          <button class="accordion__trigger" aria-expanded="false">
+            <span>How does CivicFlow AI decide which department handles my complaint?</span>
+            <span class="accordion__icon">+</span>
+          </button>
+          <div class="accordion__panel">
+            <p>Our department prediction model reads the complaint text, compares it against millions of historically resolved cases, and assigns it to the department with the highest confidence score. Every routing decision can be reviewed by a human officer.</p>
+          </div>
+        </div>
+
+        <div class="accordion__item">
+          <button class="accordion__trigger" aria-expanded="false">
+            <span>Which languages are supported?</span>
+            <span class="accordion__icon">+</span>
+          </button>
+          <div class="accordion__panel">
+            <p>CivicFlow AI currently detects and processes all 22 scheduled languages of India, along with several regional dialects, and continues to expand coverage as more training data becomes available.</p>
+          </div>
+        </div>
+
+        <div class="accordion__item">
+          <button class="accordion__trigger" aria-expanded="false">
+            <span>How is complaint priority determined?</span>
+            <span class="accordion__icon">+</span>
+          </button>
+          <div class="accordion__panel">
+            <p>The priority model weighs public-safety risk, urgency language, complaint history and location density to flag critical cases, which are surfaced at the top of an officer's queue immediately.</p>
+          </div>
+        </div>
+
+        <div class="accordion__item">
+          <button class="accordion__trigger" aria-expanded="false">
+            <span>Can I track my complaint after submission?</span>
+            <span class="accordion__icon">+</span>
+          </button>
+          <div class="accordion__panel">
+            <p>Yes. Every complaint receives a unique tracking ID the moment it's submitted, and its status moves through Submitted, Classified, Assigned, Under Review and Resolved in real time.</p>
+          </div>
+        </div>
+
+        <div class="accordion__item">
+          <button class="accordion__trigger" aria-expanded="false">
+            <span>Is my data secure?</span>
+            <span class="accordion__icon">+</span>
+          </button>
+          <div class="accordion__panel">
+            <p>All complaint data is encrypted in transit and at rest, access is authenticated per officer, and every action on a case is logged for audit purposes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact" id="contact">
+    <div class="section-inner">
+      <div class="contact-card">
+        <div class="contact-card__info">
+          <p class="eyebrow eyebrow--dark"><span class="eyebrow__dot"></span>Get in Touch</p>
+          <h2>Reach the CivicFlow AI Program Office</h2>
+          <p class="section-sub">For technical partnerships, department onboarding or media queries, contact the program office directly.</p>
+          <ul class="contact-details">
+            <li><b>Helpline</b><span>1800-11-CIVIC (24747)</span></li>
+            <li><b>Email</b><span>program.office@civicflow.gov.in</span></li>
+            <li><b>Address</b><span>CivicFlow AI Program Office, Electronics Niketan, New Delhi</span></li>
+          </ul>
+        </div>
+
+        <form class="contact-form" onsubmit="return false;">
+          <div class="contact-form__row">
+            <label>Full name<input type="text" name="name" placeholder="Enter your name" required></label>
+            <label>Email address<input type="email" name="email" placeholder="you@example.com" required></label>
+          </div>
+          <label>Subject<input type="text" name="subject" placeholder="What is this regarding?" required></label>
+          <label>Message<textarea name="message" rows="4" placeholder="Tell us more..." required></textarea></label>
+          <button type="submit" class="btn btn--primary btn--lg">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="section-inner footer__inner">
+    <div class="footer__brand">
+      <span class="brand__text brand__text--light">CivicFlow <b>AI</b></span>
+      <p>A Government of India digital initiative for AI-assisted public grievance redressal.</p>
+    </div>
+
+    <div class="footer__col">
+      <h4>Resources</h4>
+      <a href="#about">About the Platform</a>
+      <a href="#features">AI Services</a>
+      <a href="#departments">Departments</a>
+      <a href="#faq">FAQs</a>
+    </div>
+
+    <div class="footer__col">
+      <h4>Support</h4>
+      <a href="#contact">Contact Program Office</a>
+      <a href="#">Helpline: 1800-11-24747</a>
+      <a href="#">Grievance Escalation</a>
+    </div>
+
+    <div class="footer__col">
+      <h4>Legal</h4>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Accessibility Statement</a>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <p>© 2026 CivicFlow AI. Final Year Major Project — Department of Computer Science &amp; Engineering.</p>
+  </div>
+</footer>
+
+<script src="js/index.js"></script>
+
+</body>
+</html>

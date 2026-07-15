@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CivicFlow AI | Register</title>
+
+    <link rel="stylesheet" href="css/register.css">
+    
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="auth-container">
+
+    <div class="left-panel">
+
+        <div class="left-content">
+
+            <h1>Create Account</h1>
+
+            <p>
+
+                Join CivicFlow AI and help build smarter public services across India.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="right-panel">
+
+        <form id="registerForm">
+
+            <h2>Citizen Registration</h2>
+
+            <div class="input-box">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" id="full_name" placeholder="Full Name" required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" id="email" placeholder="Email" required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-phone"></i>
+                <input type="text" id="phone" placeholder="Phone Number" required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-location-dot"></i>
+                <select id="state" required><option value="">Select State</option></select>
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-city"></i>
+               <select id="district" required><option value="">Select District</option></select>
+            </div>
+            <div class="input-box">
+    <i class="fa-solid fa-map-location-dot"></i>
+    <input type="text" id="area" placeholder="Area / Locality">
+</div>
+
+<div class="input-box">
+    <i class="fa-solid fa-location-dot"></i>
+    <input type="text" id="landmark" placeholder="Nearby Landmark">
+</div>
+
+<div class="input-box">
+    <i class="fa-solid fa-house"></i>
+    <textarea id="address" placeholder="Address" rows="3"></textarea>
+</div>
+
+<div class="input-box">
+    <i class="fa-solid fa-envelopes-bulk"></i>
+    <input type="text" id="pincode" placeholder="Pincode">
+</div>
+
+<input type="hidden" id="latitude">
+<input type="hidden" id="longitude">
+
+<button type="button" id="locationBtn" class="location-btn">
+    📍 Use Current Location
+</button>
+           
+
+            <button type="submit">
+
+                Register
+
+            </button>
+
+            <p>
+
+                Already have an account?
+
+                <a href="login.html">
+
+                    Login
+
+                </a>
+
+            </p>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/location.js"></script>
+<script src="js/geolocation.js"></script>
+<script src="js/register.js"></script>
+
+</body>
+
+</html>

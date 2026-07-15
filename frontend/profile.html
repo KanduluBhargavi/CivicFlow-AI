@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Profile</title>
+
+<link rel="stylesheet" href="css/profile.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="profile-card">
+
+<h1>My Profile</h1>
+
+<form id="profileForm">
+
+<input type="text" id="full_name" placeholder="Full Name">
+
+<input type="email" id="email" disabled>
+
+<input type="text" id="phone" placeholder="Phone">
+
+<input type="text" id="state" placeholder="State">
+
+<input type="text" id="district" placeholder="District">
+
+<input type="text" id="area" placeholder="Area">
+
+<textarea id="address" placeholder="Address"></textarea>
+
+<input type="text" id="pincode" placeholder="Pincode">
+
+<button type="submit">
+<i class="fa-solid fa-floppy-disk"></i>
+Save Changes
+</button>
+
+</form>
+
+<hr>
+
+<h2>Change Password</h2>
+
+<form id="passwordForm">
+
+<input
+type="password"
+id="oldPassword"
+placeholder="Current Password">
+
+<input
+type="password"
+id="newPassword"
+placeholder="New Password">
+
+<button type="submit">
+<i class="fa-solid fa-key"></i>
+Change Password
+</button>
+
+</form>
+
+<button class="backBtn"
+onclick="window.location.href='dashboard.html'">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+Back to Dashboard
+
+</button>
+
+</div>
+
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/profile.js"></script>
+
+</body>
+</html>

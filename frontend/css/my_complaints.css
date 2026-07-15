@@ -1,0 +1,96 @@
+.back-btn{
+    padding:10px 18px;
+    border:none;
+    background:#2563eb;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
+    margin: 20px 20px;
+}
+
+.back-btn:hover{
+    background:#1d4ed8;
+}
+.track-btn{
+
+padding:8px 18px;
+
+background:#2563eb;
+
+color:#fff;
+
+border:none;
+
+border-radius:8px;
+
+cursor:pointer;
+
+font-weight:600;
+
+}
+
+.track-btn:hover{
+
+background:#1d4ed8;
+
+}
+.view-btn,
+.track-btn{
+
+padding:10px 18px;
+
+border:none;
+
+border-radius:10px;
+
+cursor:pointer;
+
+font-size:14px;
+
+font-weight:600;
+
+transition:.3s;
+
+display:flex;
+
+align-items:center;
+
+gap:8px;
+
+}
+
+.view-btn{
+
+background:#2563eb;
+
+color:white;
+
+}
+
+.view-btn:hover{
+
+background:#1d4ed8;
+
+transform:translateY(-2px);
+
+box-shadow:0 8px 18px rgba(37,99,235,.3);
+
+}
+
+.track-btn{
+
+background:#10b981;
+
+color:white;
+
+}
+
+.track-btn:hover{
+
+background:#059669;
+
+transform:translateY(-2px);
+
+box-shadow:0 8px 18px rgba(16,185,129,.3);
+
+}

@@ -1,0 +1,340 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f4f7fc;
+color:#1f2937;
+}
+
+/* NAVBAR */
+
+.navbar{
+height:70px;
+background:#0f172a;
+color:#fff;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0 40px;
+position:sticky;
+top:0;
+z-index:100;
+}
+
+.logo{
+font-size:24px;
+font-weight:700;
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.nav-right{
+display:flex;
+align-items:center;
+gap:25px;
+}
+
+.welcome{
+font-weight:500;
+}
+
+#logoutBtn{
+padding:10px 20px;
+border:none;
+background:#ef4444;
+color:#fff;
+border-radius:8px;
+cursor:pointer;
+transition:.3s;
+}
+
+#logoutBtn:hover{
+background:#dc2626;
+}
+
+/* MAIN */
+
+.dashboard-container{
+display:flex;
+min-height:calc(100vh - 70px);
+}
+
+/* SIDEBAR */
+
+.sidebar{
+width:240px;
+background:#111827;
+color:white;
+padding-top:30px;
+}
+
+.sidebar ul{
+list-style:none;
+}
+
+.sidebar li{
+padding:18px 30px;
+cursor:pointer;
+display:flex;
+gap:12px;
+align-items:center;
+transition:.3s;
+}
+
+.sidebar li:hover,
+.sidebar .active{
+background:#2563eb;
+}
+
+/* CONTENT */
+
+.content{
+flex:1;
+padding:35px;
+}
+
+/* HERO */
+
+.hero-card{
+background:white;
+padding:35px;
+border-radius:18px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+margin-bottom:30px;
+}
+
+.hero-card h1{
+font-size:32px;
+margin-bottom:10px;
+}
+
+.hero-card p{
+color:#6b7280;
+line-height:1.6;
+}
+
+/* STATS */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+margin-bottom:35px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:16px;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card h3{
+font-size:16px;
+color:#6b7280;
+margin-bottom:15px;
+}
+
+.card h1{
+font-size:38px;
+color:#2563eb;
+}
+
+/* SECTION */
+
+.section-title{
+margin-bottom:18px;
+}
+
+.section-title h2{
+font-size:24px;
+}
+
+/* TABLE */
+
+.recent{
+background:white;
+padding:30px;
+border-radius:18px;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+margin-bottom:35px;
+overflow-x:auto;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th{
+background:#2563eb;
+color:white;
+padding:15px;
+}
+
+td{
+padding:15px;
+border-bottom:1px solid #eee;
+text-align:center;
+}
+
+/* TIMELINE */
+
+.timeline{
+background:white;
+padding:30px;
+border-radius:18px;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+#timelineBox{
+margin-top:20px;
+padding:20px;
+background:#f3f4f6;
+border-radius:10px;
+color:#4b5563;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.dashboard-container{
+flex-direction:column;
+}
+
+.sidebar{
+width:100%;
+}
+
+.sidebar ul{
+display:flex;
+overflow:auto;
+}
+
+.sidebar li{
+white-space:nowrap;
+}
+
+.content{
+padding:20px;
+}
+
+.navbar{
+padding:0 20px;
+}
+
+.hero-card h1{
+font-size:26px;
+}
+
+}
+
+/* ==========================
+   LODGE COMPLAINT FORM
+========================== */
+
+#complaintSection{
+    background:#fff;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    margin-top:30px;
+}
+
+#complaintSection h2{
+    margin-bottom:25px;
+    color:#1e3a8a;
+    font-size:28px;
+}
+
+#complaintForm{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+#complaintForm .input-box{
+    display:flex;
+    flex-direction:column;
+}
+
+#complaintForm input,
+#complaintForm textarea,
+#complaintForm select{
+    width:100%;
+    padding:14px 16px;
+    border:1px solid #d1d5db;
+    border-radius:10px;
+    font-size:15px;
+    outline:none;
+    transition:.3s;
+    background:#fff;
+}
+
+#complaintForm input:focus,
+#complaintForm textarea:focus,
+#complaintForm select:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 0 3px rgba(37,99,235,.15);
+}
+
+#complaintForm textarea{
+    resize:vertical;
+    min-height:120px;
+}
+
+#complaintForm input[type=file]{
+    border:none;
+    padding:8px 0;
+    background:none;
+}
+
+#complaintForm label{
+    font-weight:600;
+    margin-bottom:8px;
+    color:#374151;
+}
+
+#complaintForm button{
+    width:220px;
+    padding:14px;
+    background:#2563eb;
+    color:#fff;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:600;
+    transition:.3s;
+}
+
+#complaintForm button:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    #complaintSection{
+        padding:20px;
+    }
+
+    #complaintForm button{
+        width:100%;
+    }
+
+}
+

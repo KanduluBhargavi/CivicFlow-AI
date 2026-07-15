@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Complaint Details</title>
+
+<link rel="stylesheet" href="css/complaint_details.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<h1>Complaint Details</h1>
+
+<div class="detail">
+<label>Complaint ID</label>
+<p id="complaintId"></p>
+</div>
+
+<div class="detail">
+<label>Title</label>
+<p id="title"></p>
+</div>
+
+<div class="detail">
+<label>Description</label>
+<p id="description"></p>
+</div>
+
+<div class="detail">
+<label>Department</label>
+<p id="department"></p>
+</div>
+
+<div class="detail">
+<label>Priority</label>
+<p id="priority"></p>
+</div>
+
+<div class="detail">
+<label>Status</label>
+<p id="status"></p>
+</div>
+
+<div class="detail">
+<label>AI Summary</label>
+<p id="summary"></p>
+</div>
+
+<div class="detail">
+<label>Created At</label>
+<p id="created"></p>
+</div>
+
+<div class="detail">
+<label>Assigned At</label>
+<p id="assigned"></p>
+</div>
+
+<div class="detail">
+<label>In Progress</label>
+<p id="progress"></p>
+</div>
+
+<div class="detail">
+<label>Resolved At</label>
+<p id="resolved"></p>
+</div>
+
+<div class="buttons">
+
+<button onclick="history.back()">
+<i class="fa-solid fa-arrow-left"></i>
+Back
+</button>
+
+<button id="trackBtn">
+<i class="fa-solid fa-location-dot"></i>
+Track Complaint
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/complaint_details.js"></script>
+
+</body>
+
+</html>

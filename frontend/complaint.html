@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+
+    
+<section id="complaintSection" >
+
+<h2>Lodge Complaint</h2>
+
+<form id="complaintForm" enctype="multipart/form-data">
+
+<div class="input-box">
+<input type="text" id="title" placeholder="Complaint Title" required>
+</div>
+
+<div class="input-box">
+<textarea
+id="description"
+rows="5"
+placeholder="Describe your complaint..."
+required></textarea>
+</div>
+
+<div class="input-box">
+<input type="text" id="state" placeholder="State" required>
+</div>
+
+<div class="input-box">
+<input type="text" id="district" placeholder="District" required>
+</div>
+
+<div class="input-box">
+<input type="text" id="area" placeholder="Area" required>
+</div>
+
+<div class="input-box">
+<input type="text" id="landmark" placeholder="Landmark">
+</div>
+
+<div class="input-box">
+<textarea
+id="address"
+rows="3"
+placeholder="Address"
+required></textarea>
+</div>
+
+<div class="input-box">
+<input type="text" id="pincode" placeholder="Pincode" required>
+</div>
+
+<input type="hidden" id="latitude">
+<input type="hidden" id="longitude">
+
+<div class="input-box">
+
+<label>Upload Image / Video</label>
+
+<input
+type="file"
+id="media"
+accept=".jpg,.jpeg,.png,.mp4,.mov,.avi">
+
+</div>
+
+<button type="submit">
+
+Submit Complaint
+
+</button>
+
+</form>
+
+</section>
+<script src="js/api.js"></script>
+<script src="js/complaint.js"></script>
+
+</body>
+
+</html>
+
