@@ -1,4 +1,6 @@
 from passlib.context import CryptContext
+from jose import JWTError
+
 pwd_context = CryptContext(schemes=["bcrypt"],deprecated='auto')
 
 def hash_password(password:str):
@@ -24,3 +26,20 @@ def create_access_token(data: dict):
     )
 
     return encoded_jwt
+
+
+def decode_access_token(token: str):
+
+    try:
+
+        payload = jwt.decode(
+            token,
+            SECRET_KEY,
+            algorithms=[ALGORITHM]
+        )
+
+        return payload
+
+    except JWTError:
+
+        return None

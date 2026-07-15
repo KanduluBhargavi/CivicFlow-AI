@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String, ForeignKey, Float
 from app.database import Base
 
 class User(Base):
@@ -14,4 +14,9 @@ class User(Base):
     state=Column(String(50))
     district=Column(String(50))
     address=Column(String(255))
+    area = Column(String)
+    landmark = Column(String)
+    pincode = Column(String)
+    latitude = Column(Float, nullable=True)
+    longitude = Column(Float, nullable=True)
     
