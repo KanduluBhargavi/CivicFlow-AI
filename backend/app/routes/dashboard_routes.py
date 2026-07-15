@@ -124,3 +124,4 @@ def department_performance(db: Session = Depends(get_db)):
         }
         for d in departments
     ]
+

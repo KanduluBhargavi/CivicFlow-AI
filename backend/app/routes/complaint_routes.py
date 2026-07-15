@@ -220,3 +220,65 @@ def track_complaint(
         "in_progress_at": complaint.in_progress_at,
         "resolved_at": complaint.resolved_at
     }
+
+@router.get("/my-complaints")
+def my_complaints(
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+
+    complaints = (
+        db.query(Complaint)
+        .filter(Complaint.citizen_id == current_user.user_id)
+        .order_by(Complaint.created_at.desc())
+        .all()
+    )
+
+    data = []
+
+    for c in complaints:
+
+        data.append({
+            "complaint_id": c.complaint_id,
+            "title": c.title,
+            "department": c.predicted_department,
+            "status": c.status,
+            "priority": c.priority,
+            "created_at": c.created_at,
+            "summary": c.ai_summary
+        })
+
+    return data
+
+@router.get("/complaints/{complaint_id}")
+def complaint_details(
+    complaint_id: int,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+
+    complaint = (
+        db.query(Complaint)
+        .filter(
+            Complaint.complaint_id == complaint_id,
+            Complaint.citizen_id == current_user.user_id
+        )
+        .first()
+    )
+
+    if not complaint:
+        return {"message": "Complaint not found"}
+
+    return {
+        "complaint_id": complaint.complaint_id,
+        "title": complaint.title,
+        "description": complaint.description,
+        "department": complaint.predicted_department,
+        "priority": complaint.priority,
+        "status": complaint.status,
+        "summary": complaint.ai_summary,
+        "created_at": complaint.created_at,
+        "assigned_at": complaint.assigned_at,
+        "in_progress_at": complaint.in_progress_at,
+        "resolved_at": complaint.resolved_at
+    }

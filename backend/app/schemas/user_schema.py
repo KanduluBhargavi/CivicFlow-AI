@@ -18,3 +18,19 @@ class UserCreate(BaseModel):
 
     latitude: Optional[float] = None
     longitude: Optional[float] = None
+
+
+class UserUpdate(BaseModel):
+
+    full_name: str
+    phone: str
+    state: str
+    district: str
+    area: str
+    address: str
+    pincode: str
+
+class PasswordChange(BaseModel):
+
+    old_password: str
+    new_password: str
