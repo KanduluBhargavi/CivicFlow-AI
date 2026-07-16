@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from sqlalchemy import func
-from app.utils.dependencies import get_current_user
+from app.utils.dependencies import get_current_user,get_current_department
 
 
 from app.models.user import User
@@ -125,3 +125,11 @@ def department_performance(db: Session = Depends(get_db)):
         for d in departments
     ]
 
+# @router.get("/department/test")
+# def test_department(
+#     current_department: Department = Depends(get_current_department)
+# ):
+#     return {
+#         "department": current_department.department_name,
+#         "email": current_department.department_email
+#     }

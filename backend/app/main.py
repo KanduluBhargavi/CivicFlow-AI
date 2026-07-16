@@ -12,6 +12,9 @@ from app.routes.admin_routes import router as admin_router
 from app.routes.user_routes import router as user_router
 from fastapi.staticfiles import StaticFiles
 from app.routes.dashboard_routes import router as dashboard_router
+from app.routes import department_routes
+
+
 
 #create al tables
 Base.metadata.create_all(bind=engine)
@@ -41,6 +44,7 @@ app.include_router(user_router)
 app.include_router(complaint_router)
 app.include_router(dashboard_router)
 app.include_router(admin_router)
+app.include_router(department_routes.router)
 
 
 @app.get("/")

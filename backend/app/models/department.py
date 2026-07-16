@@ -10,3 +10,12 @@ class Department(Base):
     description = Column(String(255))
 
     complaints = relationship("Complaint", back_populates="department")
+    department_email = Column(String(100), unique=True, nullable=False)
+
+    username = Column(String(100), unique=True, nullable=False)
+
+    password = Column(String(255), nullable=False)
+
+
+
+

@@ -124,21 +124,7 @@ def my_complaints(
 
     return complaints
 
-@router.get("/department-complaints")
-def department_complaints(
-    current_user: User = Depends(get_current_user),
-    db: Session = Depends(get_db)
-):
 
-    complaints = (
-        db.query(Complaint)
-        .filter(
-            Complaint.department_id == current_user.department_id
-        )
-        .all()
-    )
-
-    return complaints
 @router.put("/update-status/{complaint_id}")
 def update_status(
     complaint_id: int,

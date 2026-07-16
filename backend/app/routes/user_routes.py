@@ -1,6 +1,5 @@
 from fastapi import APIRouter, Depends,HTTPException
 from sqlalchemy.orm import Session
-from app.utils.security import hash_password
 from app.schemas.auth_schema import LoginRequest
 from app.utils.security import verify_password, create_access_token
 from fastapi.security import OAuth2PasswordRequestForm
@@ -9,16 +8,10 @@ from app.models.user import User
 from app.schemas.user_schema import UserCreate,UserUpdate,PasswordChange
 from app.utils.security import hash_password, verify_password
 from app.utils.auth import get_current_user
+from app.models.department import Department
 
 
 router = APIRouter()
-
-def get_db():
-    db=SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
 
 @router.post("/register")
 def register_user(user: UserCreate, db: Session = Depends(get_db)):
@@ -48,15 +41,63 @@ def register_user(user: UserCreate, db: Session = Depends(get_db)):
         "user_id": new_user.user_id
     }
 
+ADMIN_EMAIL = "admin@civicflow.com"
+ADMIN_PASSWORD = "admin123"
 @router.post("/login")
 def login(
     form_data: OAuth2PasswordRequestForm = Depends(),
     db: Session = Depends(get_db)
 ):
+    
+    if (
+    form_data.username == ADMIN_EMAIL
+    and form_data.password == ADMIN_PASSWORD
+):
+        token = create_access_token(
+        {
+            "sub": ADMIN_EMAIL,
+            "role": "admin"
+        }
+        )
+
+        return {
+        "access_token": token,
+        "role": "admin",
+        "name": "Administrator"
+        }
+    
+    department = db.query(Department).filter((Department.department_email == form_data.username) |
+    (Department.username == form_data.username)).first()
 
     db_user = db.query(User).filter(
         User.email == form_data.username
     ).first()
+
+    if department:
+
+        if not verify_password(
+        form_data.password,
+        department.password
+        ):
+            raise HTTPException(
+            status_code=401,
+            detail="Invalid Email or Password"
+            )
+
+        token = create_access_token(
+        {
+            "sub": department.department_email,
+            "role": "department"
+        }
+    )
+
+        return {
+
+        "access_token": token,
+
+        "role": "department",
+
+        "department": department.department_name}
 
     if not db_user:
         raise HTTPException(
@@ -71,13 +112,16 @@ def login(
     )
 
     access_token = create_access_token(
-        data={"sub": db_user.email}
+        data={
+            "sub": db_user.email,
+            "role": "citizen"
+            }
     )
 
     return {
     "access_token": access_token,
     "token_type": "bearer",
-    "role": db_user.role,
+    "role": "citizen",
     "name": db_user.full_name
 }
 
