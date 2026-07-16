@@ -39,21 +39,27 @@ document.getElementById("loginForm").addEventListener("submit", async function (
 
         localStorage.setItem("role", data.role);
 
-        localStorage.setItem("name", data.name);
+        if (data.role === "department") {
+
+        localStorage.setItem("department", data.department);
+
+        }
+        else {
+        localStorage.setItem("name", data.name);}
 
         alert("Login Successful!");
 
-      if (data.role === "Admin") {
+      if (data.role === "admin") {
 
     window.location.href = "admin_dashboard.html";
 
 }
-else if (data.role === "Department") {
+      else if (data.role === "department") {
 
     window.location.href = "department_dashboard.html";
 
-}
-else {
+        }
+      else {
 
     window.location.href = "dashboard.html";
 
