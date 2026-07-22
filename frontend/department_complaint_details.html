@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Complaint Details | CivicFlow AI</title>
+
+    <link rel="stylesheet"
+          href="css/department_details.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="top-bar">
+
+        <button
+        class="back-btn"
+        onclick="history.back()">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Back
+
+        </button>
+
+        <h1>
+
+            Complaint Details
+
+        </h1>
+
+    </div>
+
+    <div class="card">
+
+        <div class="header">
+
+            <div>
+
+                <h2 id="title">
+
+                    Loading...
+
+                </h2>
+
+                <p>
+
+                    Complaint #
+
+                    <span id="complaintId"></span>
+
+                </p>
+
+            </div>
+
+            <div>
+
+                <span
+                class="badge priority"
+                id="priority">
+
+                </span>
+
+                <span
+                class="badge status"
+                id="status">
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="grid">
+
+            <div>
+
+                <label>
+
+                    State
+
+                </label>
+
+                <p id="state"></p>
+
+            </div>
+
+            <div>
+
+                <label>
+
+                    District
+
+                </label>
+
+                <p id="district"></p>
+
+            </div>
+
+            <div>
+
+                <label>
+
+                    Area
+
+                </label>
+
+                <p id="area"></p>
+
+            </div>
+
+            <div>
+
+                <label>
+
+                    Landmark
+
+                </label>
+
+                <p id="landmark"></p>
+
+            </div>
+
+            <div>
+
+                <label>
+
+                    Pincode
+
+                </label>
+
+                <p id="pincode"></p>
+
+            </div>
+
+            <div>
+
+                <label>
+
+                    Submitted
+
+                </label>
+
+                <p id="createdAt"></p>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <label>
+
+            Address
+
+        </label>
+
+        <div
+        class="box"
+        id="address">
+
+        </div>
+
+        <label>
+
+            Description
+
+        </label>
+
+        <div
+        class="box"
+        id="description">
+
+        </div>
+
+        <label>
+
+            AI Summary
+
+        </label>
+
+        <div
+        class="summary"
+        id="summary">
+
+        </div>
+
+        <label>
+
+            Uploaded Media
+
+        </label>
+
+        <div id="mediaContainer">
+
+        </div>
+                <hr>
+
+        <h3>
+
+            Complaint Timeline
+
+        </h3>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <span class="timeline-title">
+
+                    Assigned
+
+                </span>
+
+                <span id="assignedAt">
+
+                    -
+
+                </span>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <span class="timeline-title">
+
+                    In Progress
+
+                </span>
+
+                <span id="progressAt">
+
+                    -
+
+                </span>
+
+            </div>
+
+            <div class="timeline-item">
+
+                <span class="timeline-title">
+
+                    Resolved
+
+                </span>
+
+                <span id="resolvedAt">
+
+                    -
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <h3>
+
+            Update Complaint Status
+
+        </h3>
+
+        <div class="status-update">
+
+            <select id="newStatus">
+
+                <option value="Assigned">
+
+                    Assigned
+
+                </option>
+
+                <option value="In Progress">
+
+                    In Progress
+
+                </option>
+
+                <option value="Resolved">
+
+                    Resolved
+
+                </option>
+
+            </select>
+
+            <button id="updateStatusBtn">
+
+                <i class="fa-solid fa-pen-to-square"></i>
+
+                Update Status
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/api.js"></script>
+
+<script src="js/department_details.js"></script>
+
+</body>
+
+</html>

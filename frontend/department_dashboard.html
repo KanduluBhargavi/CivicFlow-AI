@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Department Dashboard | CivicFlow AI</title>
+
+<link rel="stylesheet" href="css/department_dashboard.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+<div class="logo">
+
+<i class="fa-solid fa-building-shield"></i>
+
+CivicFlow AI
+
+</div>
+
+<div class="nav-right">
+
+<span>
+
+Welcome,
+
+<strong id="departmentName">
+
+Department
+
+</strong>
+
+</span>
+
+<button id="logoutBtn">
+
+<i class="fa-solid fa-right-from-bracket"></i>
+
+Logout
+
+</button>
+
+</div>
+
+</nav>
+
+<!-- ================= MAIN ================= -->
+
+<div class="dashboard-container">
+
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar">
+
+<ul>
+
+<li class="active">
+
+<i class="fa-solid fa-house"></i>
+
+Dashboard
+
+</li>
+
+<li>
+
+<i class="fa-solid fa-list-check"></i>
+
+Assigned Complaints
+
+</li>
+
+<li>
+
+<i class="fa-solid fa-user"></i>
+
+Department Profile
+
+</li>
+
+<li id="logoutSide">
+
+<i class="fa-solid fa-right-from-bracket"></i>
+
+Logout
+
+</li>
+
+</ul>
+
+</aside>
+
+<!-- ================= CONTENT ================= -->
+
+<main class="content">
+
+<!-- ================= HERO ================= -->
+
+<section class="hero-card">
+
+<h1>
+
+Welcome,
+
+<span id="welcomeDepartment">
+
+Department
+
+</span>
+
+👋
+
+</h1>
+
+<p id="para">
+
+Monitor assigned complaints, update their status,
+track progress, and resolve citizen grievances efficiently.
+
+</p>
+
+</section>
+
+<!-- ================= DASHBOARD CARDS ================= -->
+
+<section class="stats">
+
+<div class="card">
+
+<i class="fa-solid fa-folder-open"></i>
+
+<h3>Total Assigned</h3>
+
+<h1 id="assignedCount">
+
+0
+
+</h1>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-hourglass-half"></i>
+
+<h3>Pending</h3>
+
+<h1 id="pendingCount">
+
+0
+
+</h1>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-spinner"></i>
+
+<h3>In Progress</h3>
+
+<h1 id="progressCount">
+
+0
+
+</h1>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-circle-check"></i>
+
+<h3>Resolved</h3>
+
+<h1 id="resolvedCount">
+
+0
+
+</h1>
+
+</div>
+
+</section>
+
+<!-- ================= RECENT COMPLAINTS ================= -->
+
+<section class="recent">
+
+<div class="section-title">
+
+<h2>
+
+Assigned Complaints
+
+</h2>
+
+</div>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>ID</th>
+
+<th>Title</th>
+
+<th>Priority</th>
+
+<th>Status</th>
+
+<th>Date</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="complaintsTable">
+    <tr>
+
+<td colspan="6">
+
+Loading complaints...
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</section>
+
+<!-- ================= QUICK STATS ================= -->
+
+<section class="quick-info">
+
+<div class="info-card">
+
+<h3>
+
+<i class="fa-solid fa-triangle-exclamation"></i>
+
+High Priority Complaints
+
+</h3>
+
+<h1 id="highPriorityCount">
+
+0
+
+</h1>
+
+</div>
+
+<div class="info-card">
+
+<h3>
+
+<i class="fa-solid fa-clock-rotate-left"></i>
+
+Latest Activity
+
+</h3>
+
+<p id="latestActivity">
+
+No recent updates.
+
+</p>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+<script src="js/api.js"></script>
+
+<script src="js/department_dashboard.js"></script>
+
+</body>
+
+</html>

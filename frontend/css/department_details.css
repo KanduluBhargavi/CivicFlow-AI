@@ -1,0 +1,521 @@
+/* ==========================================
+   GOOGLE FONT & RESET
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:#eef3f8;
+
+    color:#1f2937;
+
+}
+
+/* ==========================================
+   CONTAINER
+========================================== */
+
+.container{
+
+    width:95%;
+    max-width:1200px;
+
+    margin:40px auto;
+
+}
+
+/* ==========================================
+   TOP BAR
+========================================== */
+
+.top-bar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+}
+
+.top-bar h1{
+
+    color:#1f2937;
+
+    font-size:32px;
+
+    font-weight:700;
+
+}
+
+/* ==========================================
+   BACK BUTTON
+========================================== */
+
+.back-btn{
+
+    padding:12px 22px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2563eb;
+
+    color:white;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.back-btn:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+
+}
+
+/* ==========================================
+   MAIN CARD
+========================================== */
+
+.card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:20px;
+
+}
+
+.header h2{
+
+    font-size:30px;
+
+    color:#111827;
+
+}
+
+.header p{
+
+    margin-top:8px;
+
+    color:#6b7280;
+
+}
+
+/* ==========================================
+   BADGES
+========================================== */
+
+.badge{
+
+    display:inline-block;
+
+    padding:10px 18px;
+
+    border-radius:25px;
+
+    color:white;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    margin-left:10px;
+
+}
+
+.priority{
+
+    background:#dc2626;
+
+}
+
+.status{
+
+    background:#2563eb;
+
+}
+
+/* ==========================================
+   HR
+========================================== */
+
+hr{
+
+    margin:30px 0;
+
+    border:none;
+
+    height:1px;
+
+    background:#e5e7eb;
+
+}
+
+/* ==========================================
+   GRID
+========================================== */
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(auto-fit,minmax(240px,1fr));
+
+    gap:25px;
+
+}
+
+.grid label{
+
+    font-weight:600;
+
+    color:#6b7280;
+
+    display:block;
+
+    margin-bottom:8px;
+
+}
+
+.grid p{
+
+    font-size:16px;
+
+    color:#111827;
+
+}
+/* ==========================================
+   CONTENT BOXES
+========================================== */
+
+.card label{
+
+    display:block;
+
+    margin:22px 0 10px;
+
+    font-weight:600;
+
+    color:#374151;
+
+    font-size:15px;
+
+}
+
+.box{
+
+    background:#f8fafc;
+
+    border:1px solid #e5e7eb;
+
+    border-radius:12px;
+
+    padding:18px;
+
+    line-height:1.7;
+
+    color:#374151;
+
+    min-height:70px;
+
+}
+
+.summary{
+
+    background:#ecfeff;
+
+    border-left:5px solid #14b8a6;
+
+    padding:18px;
+
+    border-radius:12px;
+
+    line-height:1.7;
+
+    color:#155e75;
+
+}
+
+/* ==========================================
+   MEDIA
+========================================== */
+
+#mediaContainer{
+
+    margin-top:15px;
+
+}
+
+#mediaContainer img{
+
+    width:100%;
+
+    max-width:650px;
+
+    border-radius:14px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+
+}
+
+#mediaContainer video{
+
+    width:100%;
+
+    max-width:650px;
+
+    border-radius:14px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+
+}
+
+/* ==========================================
+   TIMELINE
+========================================== */
+
+.timeline{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+    margin-top:15px;
+
+}
+
+.timeline-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:15px 20px;
+
+    border-left:6px solid #2563eb;
+
+    background:#f9fafb;
+
+    border-radius:12px;
+
+}
+
+.timeline-title{
+
+    font-weight:600;
+
+    color:#111827;
+
+}
+
+/* ==========================================
+   STATUS UPDATE
+========================================== */
+
+.status-update{
+
+    display:flex;
+
+    gap:20px;
+
+    align-items:center;
+
+    margin-top:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.status-update select{
+
+    flex:1;
+
+    min-width:220px;
+
+    padding:13px;
+
+    border-radius:10px;
+
+    border:1px solid #d1d5db;
+
+    font-size:15px;
+
+    outline:none;
+
+}
+
+.status-update select:focus{
+
+    border-color:#2563eb;
+
+}
+
+.status-update button{
+
+    padding:13px 28px;
+
+    background:#10b981;
+
+    color:white;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.status-update button:hover{
+
+    background:#059669;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 18px rgba(16,185,129,.30);
+
+}
+
+/* ==========================================
+   PRIORITY COLORS
+========================================== */
+
+.priority.high{
+
+    background:#dc2626;
+
+}
+
+.priority.medium{
+
+    background:#f59e0b;
+
+}
+
+.priority.low{
+
+    background:#16a34a;
+
+}
+
+/* ==========================================
+   STATUS COLORS
+========================================== */
+
+.status.assigned{
+
+    background:#2563eb;
+
+}
+
+.status.progress{
+
+    background:#f59e0b;
+
+}
+
+.status.resolved{
+
+    background:#16a34a;
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:768px){
+
+.header{
+
+    flex-direction:column;
+
+}
+
+.top-bar{
+
+    flex-direction:column;
+
+    gap:15px;
+
+    align-items:flex-start;
+
+}
+
+.status-update{
+
+    flex-direction:column;
+
+}
+
+.status-update select{
+
+    width:100%;
+
+}
+
+.status-update button{
+
+    width:100%;
+
+}
+
+.timeline-item{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:8px;
+
+}
+
+}

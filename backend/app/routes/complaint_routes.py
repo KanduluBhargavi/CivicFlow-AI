@@ -2,6 +2,8 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
 from app.utils.auth import get_current_user
+from app.utils.dependencies import get_current_department
+from app.models.department import Department
 from app.models.user import User
 
 from fastapi import UploadFile, File, Form
@@ -42,6 +44,7 @@ def create_complaint(
     file: UploadFile = File(None),
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
+    
 ):
     language=detect_language(description)
     translated_text=translate_text(description)
@@ -49,6 +52,7 @@ def create_complaint(
     department_id = get_department_id(predicted_department)
     priority=predict_priority(translated_text)
     summary=summarize_complaint(translated_text)
+
 
     media_path = None
 
@@ -98,7 +102,10 @@ def create_complaint(
         predicted_department=predicted_department,
         priority=priority,
         ai_summary=summary,
-        media_path=media_path
+        media_path=media_path,
+        status="Assigned",
+        assigned_at = datetime.now(timezone.utc)
+
     )
 
     db.add(new_complaint)
@@ -110,58 +117,20 @@ def create_complaint(
         "complaint_id": new_complaint.complaint_id
     }
 
-@router.get("/my-complaints")
-def my_complaints(
-    current_user: User = Depends(get_current_user),
-    db: Session = Depends(get_db)
-):
+# @router.get("/my-complaints")
+# def my_complaints(
+#     current_user: User = Depends(get_current_user),
+#     db: Session = Depends(get_db)
+# ):
 
-    complaints = (
-        db.query(Complaint)
-        .filter(Complaint.citizen_id == current_user.user_id)
-        .all()
-    )
+#     complaints = (
+#         db.query(Complaint)
+#         .filter(Complaint.citizen_id == current_user.user_id)
+#         .all()
+#     )
 
-    return complaints
+#     return complaints
 
-
-@router.put("/update-status/{complaint_id}")
-def update_status(
-    complaint_id: int,
-    status: str,
-    current_user: User = Depends(get_current_user),
-    db: Session = Depends(get_db)
-):
-
-    complaint = db.query(Complaint).filter(
-        Complaint.complaint_id == complaint_id
-    ).first()
-
-    if not complaint:
-        return {"message": "Complaint not found"}
-
-    # Officer can update only complaints of their own department
-    if complaint.department_id != current_user.department_id:
-        return {"message": "Unauthorized"}
-
-    complaint.status = status
-
-    if status == "Assigned":
-       complaint.assigned_at = datetime.now(timezone.utc)
-
-    elif status == "In Progress":
-        complaint.in_progress_at = datetime.now(timezone.utc)
-
-    elif status == "Resolved":
-        complaint.resolved_at = datetime.now(timezone.utc)
-
-    db.commit()
-    db.refresh(complaint)
-
-    return {
-        "message": "Status Updated Successfully",
-        "status": complaint.status
-    }
 
 @router.get("/compliants")
 def get_all_compliants(db: Session=Depends(get_db)):
@@ -212,6 +181,7 @@ def my_complaints(
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
+    
 
     complaints = (
         db.query(Complaint)
@@ -224,6 +194,7 @@ def my_complaints(
 
     for c in complaints:
 
+        print("this is ",c.predicted_department)
         data.append({
             "complaint_id": c.complaint_id,
             "title": c.title,

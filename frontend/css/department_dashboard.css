@@ -1,0 +1,78 @@
+@import url("dashboard.css");
+
+/* Department-specific changes below */
+
+/* Navbar Logo */
+.logo i{
+    color:#22c55e;
+}
+
+/* Hero Card */
+.hero-card{
+    background:linear-gradient(135deg,#0f766e,#059669);
+}
+
+/* Stats Icons */
+.card i{
+    font-size:30px;
+    color:#10b981;
+    margin-bottom:12px;
+}
+
+/* Quick Info Section */
+.quick-info{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+    margin-top:30px;
+}
+
+.info-card{
+    background:#fff;
+    padding:25px;
+    border-radius:16px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.info-card h3{
+    color:#25323e;
+    margin-bottom:15px;
+}
+
+.info-card h1{
+    color:#10b981;
+    font-size:34px;
+}
+
+/* Table Buttons */
+
+table button{
+
+padding:10px 18px;
+
+border:none;
+
+border-radius:8px;
+
+background:#10b981;
+
+color:white;
+
+cursor:pointer;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+table button:hover{
+
+background:#059669;
+
+transform:translateY(-2px);
+
+}
+#para{
+    color:rgb(217, 220, 223)
+}
