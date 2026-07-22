@@ -16,3 +16,1422 @@ Government hospital has no doctor,Healthcare
 Ambulance arrived very late,Healthcare
 School building is damaged,Education
 Teacher absent for many days,Education
+"Violence in certain areas has escalated, with frequent clashes between groups causing unrest.",Police
+"Garbage is not being collected regularly, leading to unsanitary conditions in the neighborhood.",Sanitation
+Road accidents have increased due to lack of proper traffic signals and potholes on the main road.,Roads & Transport
+"Incomplete laboratory report with missing diagnostic analysis is delaying medical diagnosis and treatment.","Healthcare"
+"Diagnostic laboratory conducted unnecessary medical tests without informed consent and charged an excessive amount.","Healthcare"
+"Roads in the area are severely damaged, causing frequent accidents and inconvenience to commuters.",Roads & Transport
+Increased risk of theft and accidents at night.",Police
+"Reports of rape and sexual violence have shaken the community, demanding immediate action.",Police
+"Water supply is inconsistent, and the water quality is poor, posing health risks to residents.",Water Supply
+"Cases of road rage have been reported, highlighting the need for stricter traffic regulations.",Police
+"The drainage system is inadequate, causing waterlogging during rains and spreading diseases.",Sanitation
+"Theft incidents have increased in residential areas, and police patrolling is inadequate.",Police
+Frequent chain snatching incidents in the area have created fear among residents.,Police
+"Diagnostic test report has not been provided even after the promised delivery time despite repeated follow-ups.","Healthcare"
+"Home blood test appointment was not conducted and customer support failed to respond. Requesting refund.","Healthcare"
+"An unrecognized school is operating classes beyond its approved level without adequate laboratories, library, playground, qualified teachers, or proper sanitation facilities. Kindly take strict action.","Education"
+"A school is forcing parents to purchase expensive notebooks directly from the institution instead of allowing outside purchases. Kindly investigate.","Education"
+"Schools in the district are facing a shortage of teachers, affecting the quality of education.",Education
+Unauthorized money lenders are harassing locals with exorbitant interest rates and threats.,Police
+"Cyber frauds are on the rise, with victims losing significant amounts of money to scams.",Police
+"Air pollution levels are extremely high due to nearby industrial activities, affecting public health.",Municipal Corporation
+Power goes off every night and no one fixes it.,Electricity
+"Vaccination certificate is unavailable because the vaccine was registered with an incorrect mobile number. Requesting correction and certificate issuance.","Healthcare"
+Electricity bills are too high and the service is terrible.,Electricity
+Our streetlights have not worked for months.,Electricity
+"Hospital charged excessive fees, provided poor treatment, and overbilled the patient. Requesting investigation.","Healthcare"
+"Requesting deployment of a medical team to investigate the increasing number of dengue and cancer cases in the village.","Healthcare"
+They keep rejecting my Aadhaar documents without any reason.,Municipal Corporation
+The ration shop is always closed or out of stock.,Municipal Corporation
+We didn’t have electricity for two full days last week.,Electricity
+The electric poles are damaged and dangerous.,Electricity
+Complaints are raised but no action is taken regarding electricity.,Electricity
+There's no proper electricity supply in rural areas.,Electricity
+Doctors don’t come on time at our local hospital.,Healthcare
+There’s no proper medicine supply in government clinics.,Healthcare
+We had to wait for hours and no one responded.,Healthcare
+Cleanliness in government hospitals is very poor.,Healthcare
+"There are allegations that the school principal demanded an illegal payment for student admission and behaved disrespectfully toward parents. Kindly investigate.","Education"
+"An unaffiliated school is operating illegally without meeting basic government safety and infrastructure standards. Immediate inspection and action are requested.","Education"
+Hospital staff is uncooperative and careless.,Healthcare
+Emergency services are not available during night hours.,Healthcare
+Frequent voltage fluctuations damage our appliances.,Electricity
+The transformer in our area is not working properly.,Electricity
+Load shedding happens without any notice.,Electricity
+Vaccines are out of stock at the primary health center.,Healthcare
+Lab test reports are delayed without reason.,Healthcare
+No ambulance is available even during emergencies.,Healthcare
+Hospital charges for services that are supposed to be free.,Healthcare
+"The municipal complaint submitted through the online portal has remained unattended for over a month.","Municipal Corporation"
+"Municipal authorities have not responded to my RTI application regarding civic records.","Municipal Corporation"
+"I applied for my ration card two months ago, but there has been no response yet.",Municipal Corporation
+The Aadhaar center staff is rude and not helpful.,Municipal Corporation
+Aadhaar correction takes too long and no one guides us.,Municipal Corporation
+"Government hospital has an insufficient number of doctors, resulting in long waiting hours for patients.",Healthcare
+"Hospital staff behaved rudely and refused to provide proper assistance during emergency treatment.",Healthcare
+Old people face trouble during biometric verification.,Municipal Corporation
+The system is always down when we visit the Aadhaar office.,Municipal Corporation
+Ration is not distributed fairly in our area.,Municipal Corporation
+
+"Essential medicines are frequently unavailable at the government hospital pharmacy.",Healthcare
+"Diagnostic laboratory delayed the medical test report beyond the promised delivery time.",Healthcare
+The helpline number is always busy or unreachable.,Municipal Corporation
+The roads are full of potholes and very dangerous.,Roads & Transport
+Government buses are always late and the bus stops are in poor condition.,Roads & Transport
+"There’s no proper public transport facility in our village.",Roads & Transport
+Road repair work was started but never completed.,Roads & Transport
+"Incorrect laboratory report caused unnecessary delay in medical treatment.",Healthcare
+"Hospital charged excessive fees for services that were never provided.",Healthcare
+Roadside drains are broken and create traffic problems.,Roads & Transport
+Auto rickshaws overcharge passengers and no action is taken.,Roads & Transport
+"The public park in our locality has broken benches that have not been repaired.","Municipal Corporation"
+"Children's play equipment in the municipal park is damaged and unsafe.","Municipal Corporation"
+"There’s no footpath for pedestrians in busy areas.",Roads & Transport
+Traffic lights are not working properly.,Roads & Transport
+"Ambulance service arrived several hours late during a medical emergency.",Healthcare
+"Hospital washrooms are unhygienic and lack proper sanitation facilities.",Healthcare
+Public transport is overcrowded and poorly maintained.,Roads & Transport
+Government buses do not stop at their scheduled stops.,Roads & Transport
+Garbage is not picked up regularly in our area.,Sanitation
+There is a foul smell due to open drains.,Sanitation
+The dustbins are always overflowing.,Sanitation
+"Patients are forced to wait for several hours before receiving medical consultation.",Healthcare
+"Hospital refused to admit a critically ill patient without advance payment.",Healthcare
+Mosquitoes and flies are increasing due to poor cleanliness.,Sanitation
+The sweeper never comes to our street.,Sanitation
+"Power supply has been interrupted every evening for the past week without any prior notice.","Electricity"
+"The birth certificate application submitted online has been pending verification for over a month.","Municipal Corporation"
+"Government hospital pharmacy is out of essential blood pressure medicines.","Healthcare"
+"Our school has not issued transfer certificates despite repeated requests.","Education"
+"The municipal water supply has been unavailable in our locality for the last three days.","Water Supply"
+"Garbage collection vehicles have not visited our colony for five consecutive days.","Sanitation"
+"A motorcycle was stolen from outside my residence during the night.","Police"
+"A deep pothole on the main road has caused several two-wheeler accidents.","Roads & Transport"
+"Voltage fluctuations are damaging household appliances every night.","Electricity"
+"The occupancy certificate for my completed house has not been issued.","Municipal Corporation"
+"The ambulance arrived more than one hour after the emergency call.","Healthcare"
+"Teachers frequently miss scheduled classes without arranging substitutes.","Education"
+"Dirty water is coming through household water connections.","Water Supply"
+"Overflowing community garbage bins are attracting stray animals.","Sanitation"
+"I lost my wallet and need to register a theft complaint.","Police"
+"Traffic signals at the busy junction have remained non-functional for several days.","Roads & Transport"
+"The electricity meter installed at my house is recording unusually high readings.","Electricity"
+"My property tax payment is not reflected in the municipal portal.","Municipal Corporation"
+"The diagnostic laboratory delayed my blood test report by four days.","Healthcare"
+"The school has delayed distributing scholarship funds to eligible students.","Education"
+"A leaking underground pipeline is wasting drinking water continuously.","Water Supply"
+"Sewage water is overflowing onto residential streets.","Sanitation"
+"Fraudsters cheated me through an online banking scam.","Police"
+"The city bus service frequently skips scheduled stops.","Roads & Transport"
+"A damaged transformer is causing repeated power interruptions.","Electricity"
+"The municipal office has not corrected my address in civic records.","Municipal Corporation"
+"The government health center has no doctor available during working hours.","Healthcare"
+"Students are being charged unauthorized examination fees.","Education"
+"Our area has received no water tanker despite severe water shortage.","Water Supply"
+"Blocked roadside drains are causing stagnant wastewater.","Sanitation"
+"My mobile phone was snatched while walking near the market.","Police"
+"Broken road dividers are creating dangerous driving conditions.","Roads & Transport"
+"The electricity department has not replaced a burnt service cable.","Electricity"
+"My application for a trade license renewal remains pending.","Municipal Corporation"
+"The hospital postponed my scheduled surgery without explanation.","Healthcare"
+"The school administration has not issued my migration certificate.","Education"
+"Low water pressure makes it impossible to fill household storage tanks.","Water Supply"
+"Public toilets in the market area are extremely dirty.","Sanitation"
+"I am receiving threatening phone calls from an unknown person.","Police"
+"The road surface has deteriorated badly after recent rains.","Roads & Transport"
+"The electricity bill includes charges despite prolonged power outages.","Electricity"
+"My request for a house number allotment has not been processed.","Municipal Corporation"
+"The primary health center lacks basic vaccination facilities.","Healthcare"
+"The school library remains closed throughout the academic session.","Education"
+"The overhead water tank in our locality has not been filled today.","Water Supply"
+"Garbage is dumped regularly near the community entrance.","Sanitation"
+"My parked bicycle was stolen from outside the railway station.","Police"
+"Road lane markings have completely faded near the highway.","Roads & Transport"
+"Electric poles in our street are leaning dangerously.","Electricity"
+"The municipal citizen service center keeps delaying document verification.","Municipal Corporation"
+"Essential medicines are unavailable at the government dispensary.","Healthcare"
+"Several classrooms do not have functioning ceiling fans.","Education"
+"The public tap near our locality has stopped supplying water.","Water Supply"
+"Street cleaning has not been carried out for more than a week.","Sanitation"
+"Someone has created a fake social media profile using my photographs.","Police"
+"The bridge expansion joint is damaged and causing unsafe driving conditions.","Roads & Transport"
+"The transformer emits sparks during rainfall.","Electricity"
+"The municipal online portal fails every time I submit my application.","Municipal Corporation"
+"Patients are waiting several hours before being examined by doctors.","Healthcare"
+"The school has not announced board practical examination schedules.","Education"
+"The water supplied every morning has a strong unpleasant odor.","Water Supply"
+"Household garbage remains uncollected despite regular complaints.","Sanitation"
+"My vehicle was vandalized while parked outside my office.","Police"
+"Broken speed breakers are causing vehicles to lose control.","Roads & Transport"
+"The electricity department has not repaired a snapped distribution wire.","Electricity"
+"The completion certificate for my building has not been approved.","Municipal Corporation"
+"The hospital has postponed diagnostic tests due to equipment failure.","Healthcare"
+"Students have not received their original mark sheets from the institution.","Education"
+"Water supply timings are irregular and unpredictable.","Water Supply"
+"Open sewage drains are emitting foul smells near homes.","Sanitation"
+"My missing document complaint has not been acknowledged by the police.","Police"
+"The service road is blocked because of damaged pavement.","Roads & Transport"
+"Frequent short circuits are occurring in the neighborhood electrical network.","Electricity"
+"The municipal office has not updated my property ownership details.","Municipal Corporation"
+"The emergency ward lacks available beds for incoming patients.","Healthcare"
+"The school has not provided laboratory access for practical classes.","Education"
+"The municipal water pipeline burst has reduced supply across the locality.","Water Supply"
+"Community waste collection points are overflowing every evening.","Sanitation"
+"My complaint regarding repeated neighborhood harassment has not been acted upon.","Police"
+"The road shoulder has eroded, making driving unsafe.","Roads & Transport"
+Open urinals are not cleaned properly.,Sanitation
+Stray animals roam near garbage dumps.,Sanitation
+"Doctor did not explain the diagnosis or treatment plan properly to the patient.",Healthcare
+"Medical staff ignored repeated requests for assistance during hospitalization.",Healthcare
+The drains are clogged causing water to overflow onto the roads.,Sanitation
+No proper waste segregation is being followed.,Sanitation
+We have requested fogging several times but it has not been done.,Sanitation
+There has been no water supply in my area for three days.,Water Supply
+The tap water is muddy and smells bad.,Water Supply
+"The municipal garden has overgrown vegetation and requires proper maintenance.","Municipal Corporation"
+"Decorative fountains in the public park have remained non-functional for several months.","Municipal Corporation"
+"The municipal community hall booking process is unnecessarily delayed.","Municipal Corporation"
+"We get water only once a week, causing serious inconvenience.",Water Supply
+"Prescribed medicines are consistently unavailable at the hospital pharmacy.",Healthcare
+"Hospital demanded unnecessary diagnostic tests, increasing the treatment cost.",Healthcare
+"My educational marksheet has not been verified on DigiLocker despite repeated requests. The concerned education authority is not responding.","Education"
+"Students are requesting the reopening of offline classes after weather conditions improved because prolonged online classes are affecting learning and health.","Education"
+Water pressure is so low that we cannot fill our storage tanks.,Water Supply
+The water supply is irregular and unpredictable.,Water Supply
+"Blood sample was collected, but the laboratory failed to provide the test report.",Healthcare
+"Vaccination certificate contains incorrect details and has not been corrected despite multiple requests.",Healthcare
+Our colony has not received clean drinking water in weeks.,Water Supply
+Water tankers are not arriving on time.,Water Supply
+People are falling sick due to contaminated drinking water.,Water Supply
+Despite repeated complaints the water supply issue remains unresolved.,Water Supply
+There has been a water leakage on our street for several days.,Water Supply
+"Unauthorized late-night party with amplified sound. Need someone to stop this.",Police
+Deep pothole near the bus stop making it dangerous for commuters.,Roads & Transport
+"Construction crew is starting their work at 5 AM. It is way too loud and violating city ordinances.",Police
+"Government should take immediate action to revive the school, as quality education is a fundamental right of every citizen of India.","Education"
+"Private schools are being allowed to open without proper policy, leading to a sharp decline in enrollment in government schools. The government should strengthen public education.","Education"
+A significant water leak near the school entrance is creating a large slippery pond.,Water Supply
+A small pothole near our area is getting deeper every day and becoming dangerous.,Roads & Transport
+The entire block's streetlights are out near the hospital parking zone.,Electricity
+"The community hall maintenance is poor and basic facilities are unavailable.","Municipal Corporation"
+"The municipal office has not processed my request for a vendor license.","Municipal Corporation"
+Standing water remains on the road for days after rain because the storm drain is blocked.,Sanitation
+Uncollected recycling bins have been left on the curb for three days.,Sanitation
+Constant high-decibel industrial humming from the nearby construction site is disturbing residents.,Police
+Multiple small potholes are causing traffic to slow down significantly.,Roads & Transport
+"Multiple vehicles are double-parked along the commercial street, blocking buses and creating traffic.",Roads & Transport
+A huge pothole in the middle of the intersection almost damaged my vehicle.,Roads & Transport
+"The drainage cover is missing or broken, creating a hazard for vehicles.",Sanitation
+Overflowing dumpster behind the grocery store is creating unhygienic conditions.,Sanitation
+A leaking fire hydrant is wasting a large amount of water.,Water Supply
+"Primary Health Centre remains closed during official working hours.",Healthcare
+"Hospital equipment required for diagnosis has been non-functional for several weeks.",Healthcare
+Illegal dumping of old tires in the alley needs immediate cleanup.,Sanitation
+"Garbage collection appears to have been missed this week, causing waste to pile up.",Sanitation
+A massive pothole on River Road damaged my vehicle and needs urgent repair.,Roads & Transport
+Illegal dumping at a busy intersection is blocking the pedestrian crossing.,Sanitation
+A major water main leak is flooding the road and causing water pressure issues.,Water Supply
+"Two streetlights on the residential street are not working, making the area unsafe at night.",Electricity
+Large pothole at the intersection is forcing vehicles to swerve dangerously.,Roads & Transport
+"The storm drain is partially collapsed and blocked with heavy debris, increasing flood risk.",Sanitation
+Graffiti has been painted on the public restroom wall in the city park.,Municipal Corporation
+"Patient discharge was delayed unnecessarily due to administrative negligence.",Healthcare
+"Online pharmacy marked medicines as delivered even though they were never received.",Healthcare
+Illegal dumping of furniture and appliances on the sidewalk needs immediate removal.,Sanitation
+Garbage scattered after the storm requires urgent cleanup.,Sanitation
+"My application for an advertisement display permit has been pending for a long time.","Municipal Corporation"
+"Several public notice boards maintained by the municipality are damaged and unreadable.","Municipal Corporation"
+A pothole on the main road is getting deeper and creating a serious accident risk.,Roads & Transport
+A sharp pothole may damage vehicle tires if not repaired soon.,Roads & Transport
+"Garbage collection has been missed this week, and waste is accumulating.",Sanitation
+The streetlight is flickering continuously and needs repair.,Electricity
+The bike rack outside the public library is damaged and unusable.,Municipal Corporation
+"Refund for cancelled medical appointment has not been processed.",Healthcare
+"Hospital staff demanded unofficial payments before providing treatment.",Healthcare
+"Someone has parked on the sidewalk, forcing pedestrians onto the road.",Roads & Transport
+Overflowing garbage bins at the park entrance require immediate collection.,Sanitation
+Overflowing public bins on Sunset Boulevard are spreading trash across the sidewalk.,Sanitation
+"Pregnant women are not receiving timely maternity care at the health center.",Healthcare
+"Emergency department lacks sufficient beds for incoming patients.",Healthcare
+The public waste container is completely full and needs an additional collection.,Sanitation
+A vehicle with an extremely loud engine keeps circling the neighborhood repeatedly.,Police
+"Construction work is continuing well past midnight, creating excessive noise.",Police
+"A private school has violated government holiday orders by conducting offline classes during officially declared school closures. Kindly take appropriate action.","Education"
+Loud bass-heavy music from a nearby apartment has become a persistent disturbance.,Police
+An industrial fan has been running continuously and creating excessive noise.,Police
+"Hospital administration lost important patient medical records.",Healthcare
+"Laboratory collected the wrong sample, requiring the patient to undergo testing again.",Healthcare
+"I submitted the application fee for the TGT Science recruitment three times because the payment confirmation did not appear. A total of ₹1500 was deducted instead of ₹500. Despite repeated reminders, the excess ₹1000 has not been refunded for over five months.","Education"
+"Multiple vehicles are double-parked along the main commercial strip, blocking buses and disrupting traffic.",Roads & Transport
+A small pothole is getting deeper every day and needs immediate repair.,Roads & Transport
+Standing water remains on the road after rain because the storm drain is not working.,Sanitation
+"Street name boards in our locality are missing, making navigation difficult.","Municipal Corporation"
+"House numbering in our colony is inconsistent and requires correction by the municipality.","Municipal Corporation"
+"The entire block's streetlights are out near the hospital, making the area unsafe.",Electricity
+"A vehicle is parked directly in front of a fire hydrant, creating a serious safety hazard.",Roads & Transport
+Constant high-decibel industrial noise from a nearby site is disturbing residents.,Police
+"The storm drain has partially collapsed and is blocked with heavy debris, increasing flood risk.",Sanitation
+"A teacher deliberately targeted and failed a student after a personal disagreement, causing harassment and affecting academic performance.","Education"
+"The school does not provide adequate sports facilities or opportunities for students to participate in competitions despite repeated requests.","Education"
+A huge pothole in the middle of the intersection is damaging vehicles.,Roads & Transport
+"Power supply goes off every afternoon for nearly two hours.","Electricity"
+"The municipal office has not issued my marriage certificate despite document verification.","Municipal Corporation"
+"The doctor was absent from the primary health center during official working hours.","Healthcare"
+"The school has not returned students' original documents after admission cancellation.","Education"
+"Residents have not received drinking water through pipelines for four consecutive days.","Water Supply"
+"Garbage has accumulated near the apartment entrance because collection vehicles have stopped visiting.","Sanitation"
+"My laptop was stolen from my hostel room and the theft needs investigation.","Police"
+"The flyover approach road has developed large cracks making travel unsafe.","Roads & Transport"
+"High voltage fluctuations have damaged my refrigerator.","Electricity"
+"My request for correction in property tax records has not been processed.","Municipal Corporation"
+"The hospital laboratory lost my blood sample and asked me to provide another sample.","Healthcare"
+"The college administration has delayed issuing my degree certificate.","Education"
+"Water supplied to our locality contains excessive mud and suspended particles.","Water Supply"
+"Drainage water is overflowing near residential houses creating foul smell.","Sanitation"
+"My ATM card was stolen and unauthorized withdrawals have been made.","Police"
+"The traffic signal timer at the main intersection is malfunctioning.","Roads & Transport"
+"The electricity department has not replaced the damaged service transformer.","Electricity"
+"My application for property mutation is pending without any update.","Municipal Corporation"
+"The government hospital has postponed my diagnostic scan due to machine failure.","Healthcare"
+"The school has not declared annual examination results on time.","Education"
+"The municipal water pipeline has developed multiple leakages in our street.","Water Supply"
+"Community garbage bins have remained uncleared for over a week.","Sanitation"
+"I am receiving repeated threatening messages from an unknown number.","Police"
+"The city bus service is frequently cancelled without prior notice.","Roads & Transport"
+"Frequent fuse failures are disrupting electricity in our neighborhood.","Electricity"
+"My application for building completion certificate has been delayed.","Municipal Corporation"
+"The health center has run out of anti-rabies vaccines.","Healthcare"
+"The school has not provided practical examination records to students.","Education"
+"There is no drinking water supply during the scheduled morning hours.","Water Supply"
+"Sewage water has entered residential compounds after rainfall.","Sanitation"
+"My vehicle was stolen from the public parking area.","Police"
+"The service lane has severe surface damage making it difficult for vehicles.","Roads & Transport"
+"The electricity pole outside my house has visible structural cracks.","Electricity"
+"The municipal portal is not allowing me to update my property details.","Municipal Corporation"
+"The emergency department is refusing to admit critically ill patients due to staff shortage.","Healthcare"
+"The school has not issued bonafide certificates required for scholarship applications.","Education"
+"The overhead municipal water tank has not been cleaned for a long time.","Water Supply"
+"Public waste containers remain uncovered and attract stray animals.","Sanitation"
+"Someone has forged my signature on official documents.","Police"
+"The road shoulder has collapsed after heavy rainfall.","Roads & Transport"
+"My electricity connection application has been pending for several weeks.","Electricity"
+"The municipal office has not updated my corrected date of birth in civic records.","Municipal Corporation"
+"The hospital pharmacy has no insulin available for diabetic patients.","Healthcare"
+"Students are unable to access the computer laboratory because it remains locked.","Education"
+"The public water tap has been dry for the last five days.","Water Supply"
+"Garbage collection staff have skipped our residential area repeatedly.","Sanitation"
+"My identity documents have been stolen and misused.","Police"
+"Damaged crash barriers on the bridge have not been repaired.","Roads & Transport"
+"Power restoration takes several hours after every minor fault.","Electricity"
+"The municipal citizen help desk refuses to accept complete applications.","Municipal Corporation"
+"The diagnostic center provided an incomplete medical report.","Healthcare"
+"The institution has delayed issuing internship completion certificates.","Education"
+"Drinking water supply is interrupted every alternate day.","Water Supply"
+"Solid waste has piled up near the marketplace causing inconvenience.","Sanitation"
+"My online fraud complaint has not received any investigation update.","Police"
+"Several road reflectors are missing on the highway at night.","Roads & Transport"
+"The electricity bill includes charges for a disconnected connection.","Electricity"
+"The municipal office has misplaced my building approval documents.","Municipal Corporation"
+"The government clinic has insufficient staff to handle patients.","Healthcare"
+"The school has not updated attendance records correctly.","Education"
+"Residents are receiving water only for fifteen minutes every morning.","Water Supply"
+"The roadside public toilet has not been maintained for several weeks.","Sanitation"
+"My motorcycle registration documents were stolen.","Police"
+"The road median is broken and creating traffic hazards.","Roads & Transport"
+"Loose electrical wires are hanging from distribution poles.","Electricity"
+"My trade license application has been rejected without explanation.","Municipal Corporation"
+"The hospital delayed issuing my discharge summary.","Healthcare"
+"The school has not refunded the security deposit after graduation.","Education"
+"The municipal water pipeline burst has disrupted supply in multiple streets.","Water Supply"
+"Open garbage heaps have remained unattended despite complaints.","Sanitation"
+"My passport was stolen and I need to register a complaint.","Police"
+"The damaged culvert is creating unsafe driving conditions.","Roads & Transport"
+"Power outages increase every evening during peak hours.","Electricity"
+"The municipal office has not processed my application for house number correction.","Municipal Corporation"
+"The blood bank has insufficient stock for emergency patients.","Healthcare"
+"The examination hall allocation was not communicated to students.","Education"
+"Water supplied through the pipeline has an unusual smell.","Water Supply"
+"The drain cleaning request has not been attended for several weeks.","Sanitation"
+"My complaint regarding financial fraud has not been investigated.","Police"
+"The main road has uneven pavement causing frequent vehicle damage.","Roads & Transport"
+"Doctor was absent during scheduled consultation hours without prior notice.",Healthcare
+"Medical insurance claim has been pending for several months without justification.",Healthcare
+Graffiti on a public building is making the area look neglected.,Municipal Corporation
+Litter is accumulating in the alleyway because garbage is not being collected regularly.,Sanitation
+Graffiti with inappropriate words has been painted on the playground slide.,Municipal Corporation
+"A vehicle is blocking the sidewalk, forcing pedestrians onto the road.",Roads & Transport
+"Water is leaking from a broken pipe beneath the sidewalk, creating slippery conditions.",Water Supply
+A leaking fire hydrant is wasting a large amount of water.,Water Supply
+A broken bench in the public playground needs repair.,Municipal Corporation
+"Dialysis services are frequently unavailable due to equipment malfunction.",Healthcare
+"Patients with disabilities are unable to access hospital facilities because of poor infrastructure.",Healthcare
+An abandoned vehicle has been occupying street parking for weeks.,Roads & Transport
+A constant stream of water is flowing from the storm drain even without rain.,Water Supply
+"A water main has burst under the sidewalk, causing continuous flooding.",Water Supply
+Water leaking from a hydrant is flooding the street.,Water Supply
+"The municipal records contain duplicate entries for my property.","Municipal Corporation"
+"The municipal office has not updated my grievance status despite repeated follow-ups.","Municipal Corporation"
+"Garbage collection was missed, causing overflowing bins and attracting rats.",Sanitation
+"The school is demanding a donation amount significantly higher than the fee published on its official website. Parents are also being charged additional amounts under various names.","Education"
+"Teachers frequently humiliate students, interfere in their personal matters, and misuse their authority, creating a hostile learning environment.","Education"
+Trash is overflowing from public bins in the park and spreading everywhere.,Sanitation
+"Hospital failed to maintain proper hygiene in patient wards, increasing infection risk.",Healthcare
+"Medical examination was postponed repeatedly without providing any valid reason.",Healthcare
+The streetlight remains on during the day but turns off at night.,Electricity
+A car parked in front of my driveway is preventing me from leaving.,Roads & Transport
+Water is pooling along the curb because it is not draining into the storm sewer.,Sanitation
+Illegal dumping at a commercial intersection is blocking the pedestrian crossing.,Sanitation
+"Construction work is continuing well past midnight, causing excessive noise.",Police
+"The drainage cover is missing, creating a danger for pedestrians.",Sanitation
+The pothole on the main road is getting deeper and creating an accident risk.,Roads & Transport
+
+A large blockage in the storm drain pipe is causing water to back up.,Sanitation
+"The complaint acknowledgement was generated, but no municipal officer has visited the location.","Municipal Corporation"
+"Tree pruning request submitted to the municipal office has not been acted upon.","Municipal Corporation"
+"Hospital pharmacy supplied medicines close to their expiry date.",Healthcare
+"Blood bank reported shortages, delaying emergency surgeries.",Healthcare
+A barking dog is creating continuous noise throughout the day and night.,Police
+A foul sewer smell is coming from the drainage system and needs immediate cleaning.,Sanitation
+Overflowing public bins on Maple Avenue are spreading trash across the sidewalk.,Sanitation
+A significant water leak near the school entrance has created a large slippery pond.,Water Supply
+A pothole on the main road has expanded and is damaging vehicle tires.,Roads & Transport
+"A school principal physically punished a student without hearing both sides of an incident and failed to address continued bullying afterward.","Education"
+"The school principal is pressuring parents to withdraw their child from the school without valid reasons. Immediate intervention is requested.","Education"
+A streetlight near the school entrance is not working.,Electricity
+"Government health center does not have adequate medical staff for rural patients.",Healthcare
+"Patient was discharged without receiving complete medical reports.",Healthcare
+"Streetlight is flickering and sometimes turns off, reducing visibility at night.",Electricity
+"Several streetlights on the block are not working, creating a security risk for residents.",Electricity
+Constant high-decibel industrial humming from a nearby construction site is disturbing residents.,Police
+A deep pothole outside the gas station is creating a safety hazard.,Roads & Transport
+Illegal dumping at a commercial intersection is blocking the pedestrian crossing.,Sanitation
+"A van is parked in the bike lane, creating a danger for commuters.",Roads & Transport
+"Several old trees in the public park require maintenance to prevent accidents.","Municipal Corporation"
+"The municipal office has delayed issuing the occupancy certificate for my completed building.","Municipal Corporation"
+"Multiple cars are parked on the sidewalk, forcing pedestrians onto the road.",Roads & Transport
+"The storm drain has partially collapsed and is blocked with heavy debris, increasing the risk of flooding.",Sanitation
+"Residents are putting out garbage on the wrong collection days, causing trash to pile up.",Sanitation
+A burst pipe on the sidewalk has been leaking water for hours and creating hazardous conditions.,Water Supply
+"Hospital billed duplicate charges for the same medical procedure.",Healthcare
+"Medical laboratory uploaded incomplete diagnostic reports.",Healthcare
+"School staff behaved rudely over the phone and repeatedly disconnected calls instead of providing information requested by parents.","Education"
+"The school management has poor administration, unreasonable timings for young children, and does not provide services matching the high fees charged.","Education"
+Excessively loud music from a nearby apartment is disturbing the neighborhood.,Police
+The pothole on the main road is getting deeper and creating a serious accident risk.,Roads & Transport
+Construction noise late at night is disturbing nearby residents.,Police
+The streetlight stays on during the day but turns off at night and needs repair.,Electricity
+A significant water leak near the school entrance has created a large slippery pond.,Water Supply
+A deep pothole is causing traffic slowdowns and endangering cyclists.,Roads & Transport
+"Doctor prescribed treatment without conducting a proper examination.",Healthcare
+"Hospital elevators remained out of service, causing hardship for elderly patients.",Healthcare
+"A streetlight near the corner is not working, leaving the area poorly lit.",Electricity
+Water is bubbling up through cracks in the sidewalk due to an underground leak.,Water Supply
+"A truck is parked in a no-parking zone, blocking visibility for turning vehicles.",Roads & Transport
+A car parked on the sidewalk is forcing pedestrians onto the road.,Roads & Transport
+Noise from an ongoing street festival is preventing residents from sleeping.,Police
+"The municipal citizen service center staff behaved unprofessionally while processing my application.","Municipal Corporation"
+"The school is demanding illegal donations and additional admission charges without issuing proper receipts. Kindly investigate the fee collection practices.","Education"
+"A teacher does not teach the syllabus properly, unfairly awards marks, and shows bias against students. Kindly investigate the teacher's conduct.","Education"
+Someone dumped an old mattress and a broken television on the sidewalk.,Sanitation
+Graffiti has been sprayed on the side wall of a coffee shop overnight.,Municipal Corporation
+A pothole near the bus stop is damaging vehicle tires.,Roads & Transport
+"Hospital registration process is extremely slow due to poor management.",Healthcare
+"Patients are required to purchase basic medical supplies from private stores because the hospital has no stock.",Healthcare
+"A vehicle is blocking the sidewalk, forcing pedestrians into the street.",Roads & Transport
+A massive pothole has damaged vehicle wheels and requires urgent repair.,Roads & Transport
+A streetlight outage at a busy intersection is creating unsafe driving conditions.,Electricity
+Water leaking from a hydrant is flooding the street.,Water Supply
+The storm drain is clogged with leaves and debris and may cause flooding during rain.,Sanitation
+Large pothole forming near the intersection causing vehicles to swerve unexpectedly.,Roads & Transport
+Noise from delivery trucks idling early morning in a residential zone.,Police
+"Streetlight out on the corner again. It's pitch black at night and I don't feel safe walking my dog.",Electricity
+Streetlight leaning dangerously after the recent storm.,Electricity
+"Water isn't draining after the storm, creating a massive pool in front of the school entrance.",Sanitation
+"Van has been abandoned for weeks with a flat tire, taking up valuable parking space.",Police
+Old mattresses have been dumped near the recycling center.,Sanitation
+"Emergency: Water main break flooding the street.",Water Supply
+"There is a deep, jagged pothole on the turn of 5th and Main, making it dangerous, especially at night.",Roads & Transport
+"The school principal frequently misbehaves with parents and refuses to resolve genuine grievances regarding school administration.","Education"
+"A teacher has not received the full salary despite completing assigned duties. Repeated requests to the school administration have been ignored.","Education"
+Damaged park fencing has become a safety hazard for children.,Municipal Corporation
+Abandoned mattress and bags of trash have been left beside the railroad tracks.,Sanitation
+"Hospital repeatedly postponed scheduled surgery without medical justification.",Healthcare
+"Emergency helpline failed to respond during a medical emergency.",Healthcare
+"Manhole cover rattles loudly whenever vehicles pass over it, and the surrounding road surface is caved in.",Roads & Transport
+Water is leaking into the basement from the street side due to a city water line issue.,Water Supply
+"Truck blocking the driveway. I can't get my car out to go to work.",Police
+"Small pothole turning into a larger crater. Should be patched before it gets worse.",Roads & Transport
+"Water leaking into the basement from the street side. Notified the landlord but it looks like a city water line issue.",Water Supply
+"Leaking water main near the school entrance.",Water Supply
+"Electricity supply is interrupted several times during the night causing inconvenience.","Electricity"
+"My application for a birth certificate correction has not been processed for over a month.","Municipal Corporation"
+"The government hospital has no pediatric specialist available during working hours.","Healthcare"
+"The school has not issued identity cards to newly admitted students.","Education"
+"The municipal water supply has stopped without any prior notice.","Water Supply"
+"Garbage has remained scattered around the public collection point for several days.","Sanitation"
+"My handbag containing important documents was stolen from a public bus.","Police"
+"The approach road to our village has developed deep cracks.","Roads & Transport"
+"The transformer near our locality is making loud buzzing noises.","Electricity"
+"My application for property name transfer is still pending.","Municipal Corporation"
+"The hospital delayed my laboratory reports beyond the promised date.","Healthcare"
+"The school has postponed practical examinations without informing students.","Education"
+"The public drinking water tap has very low water pressure.","Water Supply"
+"Overflowing garbage containers have become a breeding ground for flies.","Sanitation"
+"My lost mobile complaint has not been updated by the police.","Police"
+"The pedestrian crossing markings near the school have completely faded.","Roads & Transport"
+"The electricity department has not replaced the damaged distribution box.","Electricity"
+"The municipal office has entered incorrect details in my property records.","Municipal Corporation"
+"There are no wheelchairs available for elderly patients at the hospital.","Healthcare"
+"The college has delayed issuing provisional certificates.","Education"
+"Residents are receiving muddy water through household connections.","Water Supply"
+"The roadside garbage collection point has not been cleaned this week.","Sanitation"
+"My ATM card was stolen and someone attempted unauthorized transactions.","Police"
+"The city road shoulder has sunk after recent rainfall.","Roads & Transport"
+"Power restoration is delayed even after faults are repaired.","Electricity"
+"My application for municipal building records has not been approved.","Municipal Corporation"
+"The government clinic is running without essential diagnostic equipment.","Healthcare"
+"The school has not distributed textbooks even after the academic session started.","Education"
+"The municipal water pipeline has developed a leak near our apartment.","Water Supply"
+"Public waste bins are damaged and unusable.","Sanitation"
+"My vehicle registration documents were stolen from my car.","Police"
+"The road surface near the bridge is uneven and dangerous.","Roads & Transport"
+"The electricity connection frequently trips due to faulty infrastructure.","Electricity"
+"The municipal office has delayed issuing my occupancy certificate.","Municipal Corporation"
+"The emergency ward has insufficient nursing staff.","Healthcare"
+"The school has not refunded caution money after course completion.","Education"
+"Water supply timings change daily without any announcement.","Water Supply"
+"Household garbage collection has become irregular in our colony.","Sanitation"
+"I want to report repeated threatening messages received through social media.","Police"
+"The divider reflectors on the highway are missing.","Roads & Transport"
+"The electricity bill includes incorrect meter readings.","Electricity"
+"My request for correction in municipal tax assessment has not been resolved.","Municipal Corporation"
+"The hospital has postponed my scheduled diagnostic procedure.","Healthcare"
+"The school management has delayed issuing fee receipts.","Education"
+"The public water storage tank is not being filled regularly.","Water Supply"
+"Garbage dumped near residential buildings has not been removed.","Sanitation"
+"My bicycle was stolen from the public parking stand.","Police"
+"The service road has multiple broken concrete slabs.","Roads & Transport"
+"The electricity pole outside the market is severely tilted.","Electricity"
+"The municipal grievance portal always shows my complaint as pending.","Municipal Corporation"
+"The government hospital pharmacy has no stock of asthma inhalers.","Healthcare"
+"The institution has not updated student attendance records correctly.","Education"
+"The municipal water supply is available for less than twenty minutes daily.","Water Supply"
+"Open waste collection points are causing inconvenience to nearby residents.","Sanitation"
+"My complaint regarding document theft has not received any update.","Police"
+"Several road signs near the junction are damaged.","Roads & Transport"
+"The transformer fuse keeps blowing during peak hours.","Electricity"
+"The municipal office has misplaced my submitted application.","Municipal Corporation"
+"The laboratory has not uploaded my diagnostic reports online.","Healthcare"
+"The school has not announced internal assessment results.","Education"
+"The drinking water supplied has an unpleasant taste.","Water Supply"
+"Roadside litter has not been cleared despite repeated complaints.","Sanitation"
+"My purse was stolen while travelling in a crowded market.","Police"
+"The village road has become difficult to use due to surface damage.","Roads & Transport"
+"The electricity department has not repaired the damaged junction box.","Electricity"
+"The municipal office has delayed verification of my civic records.","Municipal Corporation"
+"The health center has no ECG machine available.","Healthcare"
+"The school has delayed issuing migration certificates.","Education"
+"The municipal water valve remains closed beyond scheduled timings.","Water Supply"
+"Community garbage bins are overflowing every morning.","Sanitation"
+"My complaint regarding cyber impersonation has not progressed.","Police"
+"The damaged culvert is making vehicle movement unsafe.","Roads & Transport"
+"Electricity outages increase whenever it rains.","Electricity"
+"My application for a municipal trade certificate is awaiting approval.","Municipal Corporation"
+"The hospital has cancelled outpatient appointments without notice.","Healthcare"
+"The school has not provided laboratory equipment for science practicals.","Education"
+"The municipal water connection delivers only a weak flow.","Water Supply"
+"Garbage collection vehicles are skipping our lane regularly.","Sanitation"
+"My complaint about repeated phone harassment has not been investigated.","Police"
+"The highway shoulder is eroding and requires immediate repairs.","Roads & Transport"
+"Water pooling on the curb, not draining into the storm sewer.",Sanitation
+"Constant water bubbling up from under the pavement. Looks like a main pipe leak and is wasting water.",Water Supply
+"Pothole is getting worse every time it rains. It's deep and causing cars to swerve into oncoming traffic.",Roads & Transport
+"Deep pothole forming near the school zone, dangerous for buses and students.",Roads & Transport
+"Garbage collection seems to have been missed this week.",Sanitation
+"The school accepted admission and registration fees despite failing to verify eligibility and later denied admission without refunding the amount.","Education"
+"A student with dyslexia was denied admission to the preferred stream despite meeting eligibility criteria, while other students with lower marks were accommodated.","Education"
+"Trash overflowing from the bins, attracting pests and foul smells.",Sanitation
+"Deep crater in the road, extremely dangerous for cyclists.",Roads & Transport
+"Illegal dumping of electronics in a vacant lot.",Sanitation
+"Loud music at night coming from a nearby club.",Police
+"Online consultation service deducted payment but no doctor consultation was provided.",Healthcare
+"Medical reimbursement request has not been processed despite submitting all required documents.",Healthcare
+"Litter is accumulating in the alleyway, creating a mess.",Sanitation
+"Car parked on the sidewalk, forcing pedestrians into the road.",Police
+"Water leaking from a pipe in the alley, creating a visible puddle.",Water Supply
+"Public waste container is completely full and needs an extra collection.",Sanitation
+"Car parked directly in front of my driveway. I have an appointment and cannot get my car out.",Police
+"Low water pressure throughout the day, with water pooling near the curb.",Water Supply
+"Barking dogs left unattended for hours in the backyard, causing excessive noise.",Police
+"Pothole on the right-hand lane causing tire damage to several vehicles.",Roads & Transport
+"Water leak at city park restrooms.",Water Supply
+"Unusually loud vehicle engine noise repeatedly circling the block.",Police
+"The school timing for kindergarten students begins too early, causing stress for both children and parents. Kindly review the schedule.","Education"
+"A school principal insulted a parent over pending fees and publicly humiliated them instead of providing reasonable support.","Education"
+"Streetlight flickers, sometimes goes completely dark.",Electricity
+"Barking dogs left unattended for hours in the backyard. Extremely disruptive.",Police
+"Hospital refused to issue medical certificates required for official purposes.",Healthcare
+"Public health center lacks clean drinking water for patients and attendants.",Healthcare
+"Small pothole turning into a larger crater. Should be patched before it gets worse.",Roads & Transport
+"URGENT: The entire block's streetlights are out near the hospital parking zone. It feels extremely unsafe for pedestrians.",Electricity
+"Emergency: Water main break flooding the street.",Water Supply
+"EMERGENCY: THE POTHOLE ON THE MAIN ROAD IS GETTING DEEPER AND I'VE SEEN THREE CARS SWERVE INTO THE OPPOSITE LANE.",Roads & Transport
+"Broken bench in the park near the playground, potential safety hazard for children.",Municipal Corporation
+"Loud construction noise every morning before 7am.",Police
+"It's really frustrating that litter is accumulating in the alleyway and creating a mess. This needs attention.",Sanitation
+"Water leaking into the basement from the street side. Notified the landlord but it looks like a city pipe issue.",Water Supply
+"The school operates excessively long academic hours, causing severe stress and mental pressure on students.","Education"
+"A school principal refused to accept a student's examination despite a temporary delay in fee payment and treated the student disrespectfully.","Education"
+"Pipe burst on the sidewalk. Water has been running for hours, creating a massive ice patch.",Water Supply
+"Broken bench at bus stop needs fixing.",Municipal Corporation
+"Garbage scattered near bus stop, littering the area.",Sanitation
+"It's really frustrating that a dangerous crater forming on the side of the road. I'm concerned about accidents.",Roads & Transport
+"Several small potholes making bike lane hazardous.",Roads & Transport
+"Water pooling at the curb near 23rd St, possibly from a burst pipe.",Water Supply
+"Hospital oxygen supply system malfunctioned during patient care.",Healthcare
+"Construction debris scattered near sidewalk.",Sanitation
+"It's really frustrating that the streetlight lens is broken and the bulb is exposed. This needs immediate repair.",Electricity
+"There is a serious issue with the streetlight lens is broken and the bulb is exposed. I'm concerned about safety.",Electricity
+"EMERGENCY: A SIGNIFICANT WATER LEAK NEAR THE SCHOOL ENTRANCE IS CREATING A LARGE, SLIPPERY POND. IT'S EXTREMELY DANGEROUS.",Water Supply
+"Playground swingset missing safety bolts.",Municipal Corporation
+"Water bubbling up from the ground near the hydrant. Looks like a major leak.",Water Supply
+"URGENT: Multiple vehicles are double-parked along the main commercial strip, forcing buses to stop in traffic.",Police
+"Constant water bubbling up from under the pavement. Looks like a main pipe leak, very wasteful.",Water Supply
+"The school management forces teachers to sign salary receipts for higher amounts than they actually receive and requires unpaid work on Sundays.","Education"
+"A student was prevented from appearing for examinations because of pending fees and was physically punished by the school administration.","Education"
+"The sewer grate is rusted and sunken. It makes a loud clanging noise every time a car drives over it.",Municipal Corporation
+"I've noticed that there is illegal dumping of furniture and appliances on the sidewalk. This has been happening for days.",Sanitation
+"EMERGENCY: Constant, high-decibel industrial humming coming from the site next to the apartment complex.",Police
+"Unusually loud vehicle engine noise repeatedly circling the block.",Police
+"Bike rack loose and unstable in front of library.",Municipal Corporation
+"Repeated complaints regarding poor healthcare services have received no response from the hospital administration.",Healthcare
+"Residents are putting out trash on the wrong days, and it's piling up in front of my driveway.",Sanitation
+"Multiple small potholes appearing, causing traffic to slow down significantly.",Roads & Transport
+"Live band playing loudly past midnight at the neighborhood bar.",Police
+"School management has failed to address complaints about inadequate classroom ventilation.","Education"
+"A vehicle is parked right in front of the fire hydrant. This needs immediate attention.",Police
+"Loud music playing from a parked car for hours. Seems like an ongoing hangout spot for groups.",Police
+"Major pothole on the crosswalk causing a pedestrian tripping hazard.",Roads & Transport
+"Public waste container is completely full. Need an extra collection.",Sanitation
+"They say schools prepare us for real life, but they don't teach practical skills like cooking, first aid, financial management, household maintenance, or personal safety. Instead, students are under constant pressure to pass exams.","Education"
+"URGENT: Illegal dumping at the commercial intersection is blocking the pedestrian crossing.",Sanitation
+"Teachers physically assaulted a student, resulting in a serious hand injury. Immediate investigation into corporal punishment is requested.","Education"
+"A teacher's salary for the days worked has not been paid after removal from service despite repeated requests.","Education"
+"The public trash cans haven't been emptied in a week and garbage is blowing all over the sidewalk.",Sanitation
+"Large pothole near the intersection causing traffic delays and possible vehicle damage.",Roads & Transport
+"Van has been abandoned for weeks with a flat tire, taking up resident parking.",Police
+"Noise from delivery trucks late at night at the warehouse.",Police
+"URGENT: The entire block's streetlights are out near the hospital parking zone. It feels extremely unsafe.",Electricity
+"Overflowing bins attracting pests near the apartment complex.",Sanitation
+"Illegal dumping of construction debris behind the shopping center.",Sanitation
+"Government hospital does not have enough ICU beds for critically ill patients.",Healthcare
+"Patients are waiting for several months to receive specialist consultation appointments.",Healthcare
+"URGENT: Multiple vehicles are double-parked along the main commercial strip, forcing buses to stop in traffic.",Police
+"I suspect a major water main break nearby. There is a huge puddle that keeps growing.",Water Supply
+"Constant noise from the HVAC units at the new commercial building. It hums all night.",Police
+"Huge pothole right in the middle of the intersection. Needs immediate repair.",Roads & Transport
+"Water bubbling up from the manhole cover at the intersection.",Water Supply
+"School computer lab systems are outdated and mostly non-functional.","Education"
+"Power lines are hanging dangerously close to residential balconies.","Electricity"
+"It's really frustrating that significant water pooling is occurring, possibly due to a burst pipe.",Water Supply
+"Multiple bags of trash dumped illegally behind the supermarket loading dock.",Sanitation
+"The school deducted a large amount from the admission refund after the student returned from the hostel, despite prior assurances from management.","Education"
+"The school denied admission to its own former student after providing inadequate online education during the pandemic.","Education"
+"Truck is parked in a no-parking zone right in front of the fire hydrant.",Police
+"Hospital management failed to maintain cleanliness in the operation theater.",Healthcare
+"Medical staff refused to attend to an elderly patient in need of immediate care.",Healthcare
+"Streetlight at the corner of Elm St has been out for weeks. Feels unsafe at night.",Electricity
+"The streetlight pole is leaning and the light fixture is shattered.",Electricity
+"Graffiti on the school entrance needs removal.",Municipal Corporation
+"Excessive noise from construction crew working well past 10 PM.",Police
+"Multiple cars parked on the sidewalk, forcing pedestrians into the street.",Police
+"Graffiti tags found near the subway entrance, possibly related to recent vandalism.",Municipal Corporation
+"Playground slide broken, children unable to use the play equipment.",Municipal Corporation
+"Leak from the hydrant causing water to pool on the street.",Water Supply
+"Emergency: Water main break flooding the street.",Water Supply
+"I've noticed that the streetlight has been burned out for weeks. It's becoming quite dangerous.",Electricity
+"EMERGENCY: A significant water leak near the school entrance is creating a large, slippery pond.",Water Supply
+"Pothole forming at the entrance to the local shopping center.",Roads & Transport
+"Hospital management failed to maintain cleanliness in the operation theater.",Healthcare
+"Medical staff refused to attend to an elderly patient in need of immediate care.",Healthcare
+"EMERGENCY: The pothole on the main road is getting deeper and vehicles are swerving into the opposite lane.",Roads & Transport
+"URGENT: The pothole on the main road is getting deeper and vehicles are swerving into the opposite lane.",Roads & Transport
+"The school places excessive academic pressure on students through long school hours and excessive homework, negatively affecting their mental well-being.","Education"
+"The school is demanding additional payments to promote students or issue Transfer Certificates despite government orders related to the pandemic.","Education"
+"Constant wet patch on the road, suspected water leak beneath.",Water Supply
+"Construction noise exceeding legal limits every morning at 5 AM from a nearby building site.",Police
+"The sewer grate is rusted and sunken. It makes a loud clanging noise every time a car drives over it.",Roads & Transport
+"I've noticed that there is illegal dumping of furniture and appliances on the sidewalk. This has been happening for days.",Sanitation
+"EMERGENCY: Constant, high-decibel industrial humming coming from the site next to the apartment complex.",Police
+"Water isn't draining at all after the storm. There's a massive pool in front of the school entrance.",Roads & Transport
+"Unusually loud vehicle engine noise repeatedly circling the block.",Police
+"Teachers often cancel classes without prior notice.","Education"
+"Residents experience frequent power outages during rainfall.","Electricity"
+"Bike rack loose and unstable in front of library.",Municipal Corporation
+"The hospital laboratory repeatedly postponed blood test appointments without explanation.",Healthcare
+"Essential medical equipment in the emergency ward has remained non-functional for weeks.",Healthcare
+"Residents are putting out trash on the wrong days, and it's piling up in front of my driveway.",Sanitation
+"I've noticed that a large blockage in the storm drain is causing road safety concerns.",Roads & Transport
+"Multiple small potholes appearing, causing traffic to slow down significantly.",Roads & Transport
+"Live band playing loudly past midnight at 10th Ave bar.",Police
+"A vehicle is parked right in front of the fire hydrant.",Police
+"A teacher with inadequate qualifications has been assigned to teach students. Qualified teachers should be appointed immediately.","Education"
+"Loud music playing from a parked car for hours. Seems like an ongoing hangout spot for groups.",Police
+"Major pothole on crosswalk causing pedestrian tripping hazard.",Roads & Transport
+"Public waste container is completely full. Need an extra collection.",Sanitation
+"Illegal dumping at the commercial intersection is blocking the pedestrian crossing.",Sanitation
+"The public trash cans haven't been emptied in a week and there's garbage blowing all over the sidewalk.",Sanitation
+"Large pothole near the intersection causing traffic delays and possible vehicle damage.",Roads & Transport
+"Van has been abandoned here for weeks with a flat tire. It's taking up a spot that residents need.",Police
+"Noise from delivery trucks late at night at the warehouse.",Police
+"Doctor prescribed medicines without reviewing the patient's previous medical history.",Healthcare
+"Hospital staff misplaced diagnostic reports, forcing the patient to repeat expensive tests.",Healthcare
+"The entire block's streetlights are out near the hospital parking zone. It feels extremely unsafe for pedestrians.",Electricity
+"Teachers frequently arrive late, use mobile phones during class, fail to monitor homework, and do not maintain proper discipline in classrooms.","Education"
+"Teachers assist students during examinations, allowing unfair practices that compromise academic integrity.","Education"
+"Overflowing bins attracting pests near apartment complex.",Sanitation
+"Illegal dumping of construction debris behind the shopping center.",Sanitation
+"Multiple vehicles are double-parked along the main commercial strip, forcing buses to stop in traffic.",Police
+"Drainage system failure causing standing water on the road.",Roads & Transport
+"I suspect a major water main break nearby. There is a huge puddle that keeps growing and the water pressure has dropped.",Water Supply
+"Constant noise from the HVAC units at the new commercial building. It hums all night and vibrates the walls.",Police
+"Huge pothole right in the middle of the intersection, almost blew out my tire this morning.",Roads & Transport
+"Water bubbling up from manhole cover at 4th Ave.",Water Supply
+"School management has not repaired broken classroom windows for months.","Education"
+"Electricity department has not responded to repeated complaints about damaged poles.","Electricity"
+"Wheelchair facilities are unavailable for elderly and disabled patients visiting the hospital.",Healthcare
+"Hospital pharmacy charged more than the approved price for prescribed medicines.",Healthcare
+"Significant water pooling is occurring, possibly a burst pipe.",Water Supply
+"Multiple bags of trash dumped illegally behind the supermarket loading dock.",Sanitation
+"Truck is parked in a no-parking zone right in front of the fire hydrant. This is illegal and dangerous.",Police
+"Streetlight at the corner of Elm St has been out for weeks. Feels unsafe at night.",Electricity
+"The pole is leaning and the light is shattered.",Electricity
+"Graffiti on school entrance, needs removal.",Education
+"Excessive noise from construction crew working well past 10 PM. Can't sleep.",Police
+"Multiple cars parked on the sidewalk, forcing pedestrians into the street.",Police
+"Graffiti tags found near the subway entrance, possibly related to recent vandalism.",Municipal Corporation
+"Playground slide broken, children unable to use play equipment.",Municipal Corporation
+"Patients are experiencing excessive delays during hospital registration due to poor administration.",Healthcare
+"Medical examination was cancelled because the assigned doctor was absent without notice.",Healthcare
+"Teachers frequently skip classes after recess, causing excessive classroom noise and affecting students' studies and health.","Education"
+"Applied for an on-demand matric certificate after paying the required fee, but the certificate has not been issued despite repeated follow-ups.","Education"
+"The streetlight has been burned out for weeks. It's becoming quite dangerous.",Electricity
+"A significant water leak near the school entrance is creating a large, slippery pond. It's extremely dangerous.",Water Supply
+"Pothole forming at the entrance to the local shopping center.",Roads & Transport
+"Constant wet patch on the road, suspect a water leak beneath.",Water Supply
+"Students are not receiving proper guidance for practical examinations.","Education"
+"Frequent tripping of electricity supply affects household appliances.","Electricity"
+"Construction noise exceeding legal limits every morning at 5am from nearby building site.",Police
+"The school extends study hours until evening, causing excessive stress and reducing students' time for rest and extracurricular activities.","Education"
+"Classrooms do not have adequate furniture and basic facilities for teachers, affecting the learning environment.","Education"
+"Leak from hydrant, water pooling on street.",Water Supply
+"Hospital refused to provide copies of medical records requested by the patient.",Healthcare
+"Blood donation camp was cancelled due to poor planning and lack of medical staff.",Healthcare
+"Emergency: Water main break flooding the street.",Water Supply
+"EMERGENCY: The storm drain is partially collapsed and blocked with heavy debris. With rain in the forecast, this could cause severe flooding.",Roads & Transport
+"A significant water leak near the school entrance is creating a large, slippery pond. It's extremely dangerous.",Water Supply
+"Overflowing garbage bins at the main city bus stop, leading to litter on the sidewalk.",Sanitation
+"Garbage not picked up for two collection cycles.",Sanitation
+"Multiple vehicles are double-parked along the main commercial strip, forcing buses to stop in traffic.",Police
+"Barking dog that is left outside for hours on end, day and night. It's driving the whole neighborhood crazy.",Police
+"The pothole on the main road is getting deeper and I've seen three cars swerve into the opposite lane.",Roads & Transport
+"Unusually loud vehicle engine noise repeatedly circling the block.",Police
+"There's a persistent drip from the main water line. Please address this as soon as possible.",Water Supply
+"Construction noise persists late into the night, disturbing nearby residents.",Police
+"On-demand matric certificate application has remained in process for months. Request immediate issuance of the certificate.","Education"
+"Request for verification of diploma certificate completed in 2012.","Education"
+"Government health center has no pediatric specialist available for children.",Healthcare
+"Hospital failed to provide emergency treatment despite the patient's critical condition.",Healthcare
+"Loud construction noise occurring well past midnight.",Police
+"Barking dogs left unattended for hours in the backyard. Extremely disruptive for the neighborhood.",Police
+"Van parked in the bike lane, very dangerous for commuters.",Police
+"Storm drain is clogged with leaves and debris. Flooding expected if it rains.",Roads & Transport
+"Water isn't draining at all after the storm. There's a massive pool in front of the school entrance.",Roads & Transport
+"Constant, high-decibel industrial humming coming from the site next to the apartment complex.",Police
+"Graffiti reported on utility box near bus stop.",Municipal Corporation
+"School authorities ignored repeated complaints about classroom cleanliness.","Education"
+"Meter installation is delayed despite payment of all required charges.","Electricity"
+"Water leak on the sidewalk in front of 52 Oakwood Ave, water pooling for two days.",Water Supply
+"Sewer smell is backing up into the street. The drainage system definitely needs a cleaning.",Roads & Transport
+"Truck is parked in a no-parking zone right in front of the fire hydrant. This is illegal and dangerous.",Police
+"Water bubbling up through the pavement, looks like a pipe failure.",Water Supply
+"Diagnostic center collected payment but failed to perform all the scheduled medical tests.",Healthcare
+"Patient was discharged without receiving proper follow-up treatment instructions.",Healthcare
+"A school staff member allegedly neglects teaching duties, forces students to take private tuition, and leaks examination papers to a private tutor.","Education"
+"Paid the fee for an on-demand +2 certificate, but the application has remained in process for months.","Education"
+"Water leaking from hydrant near the elementary school, causing slippery sidewalks.",Water Supply
+"Water pooling in the basement/street level. Possible pipe burst underground.",Water Supply
+"Water is bubbling up through the cracks in the sidewalk. It's been like this since yesterday morning.",Water Supply
+"Graffiti on bus stop shelter.",Municipal Corporation
+"The entire block's streetlights are out near the hospital parking zone. It feels extremely unsafe for pedestrians.",Electricity
+"Bulb burned out weeks ago. City hasn't replaced it despite previous reports.",Electricity
+"The road surface is deteriorating rapidly. There's a section about 3 feet wide that is basically crumbling.",Roads & Transport
+"Water not draining properly at the curb. Creates a mosquito breeding ground.",Roads & Transport
+"Lens cover is broken on the streetlight. Bulb is exposed.",Electricity
+"A teacher tore a student's notebook without justification, resulting in loss of academic work and causing distress.","Education"
+"A physical education teacher severely beat a student with a stick for arriving late to the school ground.","Education"
+"Emergency: Water main break flooding the street.",Water Supply
+"Hospital issued an incorrect medical bill containing charges for services not received.",Healthcare
+"Medical laboratory repeatedly delayed biopsy test reports, affecting further treatment.",Healthcare
+"A significant water leak near the school entrance is creating a large, slippery pond.",Water Supply
+"Overflowing garbage bins at the main city bus stop, leading to litter on the sidewalk.",Sanitation
+"Garbage not picked up for two collection cycles.",Sanitation
+"Multiple vehicles are double-parked along the main commercial strip, forcing buses to stop in traffic.",Police
+"Barking dog that is left outside for hours on end, day and night. It's driving the whole neighborhood crazy.",Police
+"The pothole on the main road is getting deeper and I've seen three cars swerve into the opposite lane.",Roads & Transport
+"Unusually loud vehicle engine noise repeatedly circling the block.",Police
+"There's a persistent drip from the main water line.",Water Supply
+"Construction noise persists late into the night, disturbing nearby residents.",Police
+"Loud construction noise occurring well past midnight.",Police
+"School does not provide adequate seating arrangements for students.","Education"
+"Electricity department has not replaced damaged service cables.","Electricity"
+"Student is facing bullying by classmates while teachers and the principal are not taking any action.","Education"
+"Board examination result has been delayed, putting the student's college admission at risk.","Education"
+"Barking dogs left unattended for hours in the backyard. Extremely disruptive for the neighborhood.",Police
+"Van parked in the bike lane, very dangerous for commuters.",Police
+"Constant, high-decibel industrial humming coming from the site next to the apartment complex.",Police
+"Graffiti reported on utility box near bus stop.",Municipal Corporation
+"Doctor arrived several hours late, causing inconvenience to all waiting patients.",Healthcare
+"Hospital has inadequate seating arrangements for patients waiting in outpatient departments.",Healthcare
+"Water leak on the sidewalk in front of 52 Oakwood Ave, water pooling for two days.",Water Supply
+"Truck is parked in a no-parking zone right in front of the fire hydrant.",Police
+"Water bubbling up through the pavement, looks like a pipe failure.",Water Supply
+"A school is illegally using another school's board affiliation, misleading students and charging excessive fees.","Education"
+"A private school has not paid teachers' salaries for several months.","Education"
+"Water leaking from hydrant near the elementary school, causing slippery sidewalks.",Water Supply
+"Water pooling in the basement/street level. Possible pipe burst underground.",Water Supply
+"Emergency ambulance lacked essential life-saving medical equipment.",Healthcare
+"Hospital refused to accept a valid government health insurance scheme.",Healthcare
+"School lacks clean drinking water, proper electricity backup, and basic facilities for students.","Education"
+"A government school principal regularly misbehaves with students and parents and uses abusive language.","Education"
+"Water is bubbling up through the cracks in the sidewalk. It's been like this since yesterday morning.",Water Supply
+"Graffiti on bus stop shelter.",Municipal Corporation
+"The entire block's streetlights are out near the hospital parking zone. It feels extremely unsafe for pedestrians.",Electricity
+"Bulb burned out weeks ago, city hasn't replaced it despite previous reports.",Electricity
+"The road surface is deteriorating rapidly. There's a section about 3 feet wide that is basically crumbling.",Roads & Transport
+"Schools are repeatedly charging admission fees every academic year without justification.","Education"
+"A school management is underpaying teachers despite showing higher salaries in official records.","Education"
+"Lens cover is broken on the streetlight. Bulb is exposed.",Electricity
+"Emergency: Water main break flooding the street.",Water Supply
+"The electricity department has not replaced the damaged service line supplying our neighborhood.","Electricity"
+"My application for correction in the birth certificate has been pending for over 45 days.","Municipal Corporation"
+"The government hospital does not have an orthopedic specialist available.","Healthcare"
+"The school has not issued hall tickets to eligible students.","Education"
+"There has been no municipal water supply in our locality since yesterday morning.","Water Supply"
+"Garbage collection has not been carried out in our street for the past four days.","Sanitation"
+"My motorcycle was stolen from the office parking area during working hours.","Police"
+"The village road has developed multiple potholes after the recent rains.","Roads & Transport"
+"The electricity meter installed at my house is not displaying any readings.","Electricity"
+"My property tax receipt is not available on the municipal portal after payment.","Municipal Corporation"
+"The hospital delayed providing the discharge summary after treatment.","Healthcare"
+"The school has not updated my attendance despite regular classes.","Education"
+"The drinking water supplied contains excessive sand particles.","Water Supply"
+"Overflowing roadside garbage bins are creating unhygienic conditions.","Sanitation"
+"I want to report repeated harassment through anonymous phone calls.","Police"
+"The road leading to the industrial area has severe surface damage.","Roads & Transport"
+"The transformer servicing our locality overheats every evening.","Electricity"
+"My request for property record correction has not been completed.","Municipal Corporation"
+"The government clinic has no stock of tetanus injections.","Healthcare"
+"The school administration has delayed issuing character certificates.","Education"
+"The public water tap near our colony has stopped functioning.","Water Supply"
+"Solid waste has accumulated near residential buildings due to irregular collection.","Sanitation"
+"My purse containing important documents was stolen from a shopping mall.","Police"
+"The bridge approach road has uneven pavement causing accidents.","Roads & Transport"
+"The electricity department has not repaired the damaged feeder line.","Electricity"
+"My application for a building completion certificate is still awaiting approval.","Municipal Corporation"
+"The hospital has postponed my diagnostic scan because of equipment maintenance.","Healthcare"
+"The school has not published the internal assessment marks.","Education"
+"The municipal water pipeline has developed a leak near the market.","Water Supply"
+"The community waste collection point has not been cleared for several days.","Sanitation"
+"My complaint regarding online financial fraud has not been investigated.","Police"
+"The damaged road shoulder is making vehicle movement unsafe.","Roads & Transport"
+"Frequent voltage drops are affecting electrical appliances in our area.","Electricity"
+"The municipal office has delayed updating ownership records after property transfer.","Municipal Corporation"
+"The primary health center does not have sufficient beds for patients.","Healthcare"
+"The college has delayed issuing semester grade sheets.","Education"
+"The municipal water supply is available only for a few minutes every morning.","Water Supply"
+"Public garbage containers are damaged and require replacement.","Sanitation"
+"My car was vandalized while parked outside my residence.","Police"
+"The road near the bus depot has developed dangerous cracks.","Roads & Transport"
+"The electricity complaint registered last week has not been attended.","Electricity"
+"The municipal citizen service center has misplaced my submitted documents.","Municipal Corporation"
+"The government hospital laboratory is not accepting blood samples due to staff shortage.","Healthcare"
+"The school has not issued fee payment acknowledgements.","Education"
+"Residents are receiving discolored drinking water through household connections.","Water Supply"
+"The roadside drain is blocked with garbage causing foul smell.","Sanitation"
+"My complaint regarding missing personal documents has not received any update.","Police"
+"The speed breaker near the school has become damaged and unsafe.","Roads & Transport"
+"The electricity department has delayed replacing the burnt distribution transformer.","Electricity"
+"My application for a municipal trade permit has been under review for months.","Municipal Corporation"
+"The hospital pharmacy is out of stock of essential antibiotics.","Healthcare"
+"The institution has not provided original transfer certificates after course completion.","Education"
+"The overhead municipal water tank has not been supplied with water today.","Water Supply"
+"Garbage collection workers have skipped our locality repeatedly this month.","Sanitation"
+"My bicycle was stolen from the railway station parking stand.","Police"
+"The highway service road has broken concrete panels.","Roads & Transport"
+"Electricity restoration after faults takes several hours in our locality.","Electricity"
+"The municipal portal is not allowing me to download my tax payment certificate.","Municipal Corporation"
+"The emergency department has insufficient doctors during night shifts.","Healthcare"
+"The school science laboratory lacks basic equipment for practical classes.","Education"
+"The municipal water pipeline burst has disrupted supply in nearby streets.","Water Supply"
+"Open garbage heaps have attracted stray animals in our neighborhood.","Sanitation"
+"My complaint regarding identity theft has not been acted upon.","Police"
+"The main road has developed large potholes causing traffic disruption.","Roads & Transport"
+"The electricity pole outside the market has damaged insulators.","Electricity"
+"My application for municipal address correction has remained pending.","Municipal Corporation"
+"The health center has no X-ray technician available today.","Healthcare"
+"The school has delayed distributing board examination admit cards.","Education"
+"Water pressure is extremely low during the scheduled supply hours.","Water Supply"
+"The public waste collection area has not been cleaned after the weekend.","Sanitation"
+"My mobile phone was stolen while traveling on a city bus.","Police"
+"The damaged road divider is creating safety risks for motorists.","Roads & Transport"
+"Patients are required to stand in long queues due to insufficient registration counters.",Healthcare
+"Online medical consultation platform failed to connect patients with doctors after payment.",Healthcare
+"Storm drain cover is missing or broken, safety risk.",Municipal Corporation
+"Illegal dumping of large furniture items in the alleyway. Need sanitation pickup.",Sanitation
+"A dangerous crater is forming on the side of the road.",Roads & Transport
+"School examination results contain errors that remain uncorrected.","Education"
+"Frequent power interruptions affect online classes and work-from-home activities.","Electricity"
+"Revision of teachers' salaries and service conditions is unfair and should be reconsidered.","Education"
+"Students are forced to attend school during extreme summer heat, creating health risks.","Education"
+"A small pothole is getting deeper every day.",Roads & Transport
+"Manhole cover is rattling loudly whenever a car drives over it, and the area around it is caved in.",Roads & Transport
+"Loud machinery operating is very disruptive.",Police
+"Barking dog left unattended on the balcony all day.",Police
+"Constant dripping from the water main. Wasting so much water.",Water Supply
+"Vaccination center frequently runs out of vaccine stock during working hours.",Healthcare
+"Government hospital lacks separate waiting areas for senior citizens and pregnant women.",Healthcare
+"Multiple potholes forming on the bridge surface.",Roads & Transport
+"Illegal dumping at the commercial intersection is blocking the pedestrian crossing.",Sanitation
+"There's a car parked in the bike lane, forcing cyclists to swerve into traffic.",Police
+"Broken glass and trash scattered along the curb. Not safe for pedestrians.",Sanitation
+"Streetlight is flickering like a strobe light. It's distracting and potentially blinding drivers.",Electricity
+"Broken swing set in the local playground, needs repair.",Education
+"Dangerous pothole on the bike lane reported by several cyclists.",Roads & Transport
+"Storm drain cover is missing or broken, safety risk.",Municipal Corporation
+"Medical waste is being disposed of improperly, creating serious health risks.",Healthcare
+"Hospital staff failed to update patient records, resulting in incorrect treatment information.",Healthcare
+"Uncollected garbage in the alleyway causing bad smell and attracting rats.",Sanitation
+"Graffiti observed on the side wall of the community center, spreading across several meters.",Municipal Corporation
+"Small but sharp pothole that could easily puncture a vehicle tire.",Roads & Transport
+"A student's certificate has been withheld by a teacher who is demanding money for its release.","Education"
+"A school principal collected unauthorized fees from students without providing receipts.","Education"
+"Bulb burned out weeks ago and has not been replaced.",Electricity
+"Significant water pooling is occurring, possibly due to a burst pipe.",Water Supply
+"Barking dogs are being left unattended for hours, creating excessive noise.",Police
+"Severe road damage causing vehicle suspension problems.",Roads & Transport
+"Pipe leak near the library entrance causing water to pool on the steps.",Water Supply
+"Loud music from a neighbor's party is rattling nearby homes.",Police
+"Teachers discriminate against certain students during classroom activities.","Education"
+"Voltage fluctuations continue despite repeated transformer maintenance requests.","Electricity"
+"Diagnostic reports contained incorrect patient details and required reprocessing.",Healthcare
+"Public health center remains understaffed despite serving a large rural population.",Healthcare
+"Water leaking from the hydrant outside the building.",Water Supply
+"Streetlight on the corner has been out for weeks, making the area unsafe at night.",Electricity
+"Bar behind the building plays loud music late into the night.",Police
+"A school has overcrowded classrooms with more than 80 students per section, affecting the quality of education.","Education"
+"Duplicate marksheet has not been issued despite repeated applications and multiple follow-ups with the education board.","Education"
+"Streetlight pole damaged during a recent storm.",Electricity
+"Streetlight timer is malfunctioning, leaving the lights on during the daytime.",Electricity
+"Illegal parking in a no-stopping zone is causing a traffic bottleneck.",Police
+"Garbage collection was missed this week, creating overflowing waste.",Sanitation
+"The streetlight stays on during the day but turns off at night.",Electricity
+"Public waste container is completely full and needs an extra collection.",Sanitation
+"Industrial fan has been running continuously and creating excessive noise.",Police
+"Hospital management ignored repeated complaints regarding malfunctioning medical equipment.",Healthcare
+"Patients are not informed about treatment costs before medical procedures are performed.",Healthcare
+"Old and damaged books were provided after collecting full fees, and the school refused to replace or refund them.","Education"
+"A school headmistress behaves rudely with parents and neglects students' welfare.","Education"
+"Garbage truck missed the collection again, leaving overflowing bins that attract rats.",Sanitation
+"Water leaking from a hydrant at the corner is creating puddles and safety hazards.",Water Supply
+"Huge pothole in the middle of the intersection is damaging vehicles.",Roads & Transport
+"Loud machinery has been operating continuously and is highly disruptive.",Police
+"Persistent drip from the main water line.",Water Supply
+"Garbage left in the alley for several days is blocking rear entrances.",Sanitation
+"Multiple trash bags dumped illegally in the alley behind Pine Street.",Sanitation
+"Missed garbage collection for several consecutive days is causing foul odors.",Sanitation
+"A nursery teacher physically assaulted a child despite complaints from the parents.","Education"
+"Ordered emergency medicines through an online pharmacy. The system showed the medicines as delivered, but they were never received. Customer support failed to resolve the issue despite repeated complaints. Requesting refund or immediate delivery.",Healthcare
+"A nursery student was physically punished, verbally abused, and threatened by the class teacher.","Education"
+"Motorcycle engine is being repeatedly revved in the parking lot, creating excessive noise.",Police
+"Large pothole near the intersection is disrupting traffic as vehicles swerve to avoid it.",Roads & Transport
+"Construction noise continues well past midnight.",Police
+"Hospital pharmacy frequently remains closed during official operating hours.",Healthcare
+"Doctor refused to examine the patient despite a valid appointment.",Healthcare
+"Hit a massive pothole that damaged my vehicle alignment.",Roads & Transport
+"I suspect a major water main break nearby. There is a huge puddle that keeps growing and the water pressure has dropped.",Water Supply
+"Sprinkler system leaking onto sidewalk in front of 12 4th Ave.",Water Supply
+"School has insufficient classroom fans, making learning difficult during summer.","Education"
+"Power restoration is delayed even after fault repair requests are registered.","Electricity"
+"Dangerous pothole on the bike lane reported by several cyclists.",Roads & Transport
+"Streetlight is flickering like a strobe light. It's distracting drivers.",Electricity
+"Multiple vehicles are double-parked along the main commercial strip.",Police
+"Illegal dumping at the commercial intersection is blocking the pedestrian crossing.",Sanitation
+"Broken park bench near playground.",Municipal Corporation
+"School management is refusing to address parents' complaints and is behaving irresponsibly.","Education"
+"Purchased a healthcare subscription without being informed of the refund policy. After realizing the service was unsuitable, the refund request was denied. Requesting cancellation and refund.",Healthcare
+"Hospital appointment was cancelled, but the refund has not been processed according to the stated refund policy. Requesting immediate refund of the appointment charges.",Healthcare
+"A preschool refused to support a child with autism despite assuring parents during admission.","Education"
+"The entire block's streetlights are out near the hospital parking zone. It feels extremely unsafe at night.",Electricity
+"The pothole on the main road is getting deeper and I've seen three cars swerve into the opposite lane.",Roads & Transport
+"Medical reimbursement claim was rejected without providing any valid reason.",Healthcare
+"Hospital staff displayed unprofessional behavior while interacting with patients and attendants.",Healthcare
+"Public park bins are stuffed, litter is everywhere.",Sanitation
+"Illegal dumping at the commercial intersection is blocking the pedestrian crossing.",Sanitation
+"Trash overflowing from the public bins in the park. Litter is blowing everywhere.",Sanitation
+"Illegal dumping of old furniture in alley behind apartment complex.",Sanitation
+"Two potholes forming near the bus stop on Clinton Ave.",Roads & Transport
+"School failed to refund admission and annual fees after a student's transfer to another branch.","Education"
+"Paid a large amount for slimming and beauty treatment services, but the service provider refused to refund the unused amount after discontinuing the treatment. Requesting refund.",Healthcare
+"Received nearly expired medicines from an online pharmacy. Refund request has not been processed. Requesting immediate refund and action against the service provider.",Healthcare
+"Parents cannot claim the Children Education Allowance because the preschool lacks proper government recognition.","Education"
+"Multiple vehicles are double-parked along the main commercial strip, forcing buses to stop in traffic.",Police
+"Recycling bin was broken during collection and now trash is scattered.",Sanitation
+"Garbage bins missing from alley, trash accumulating.",Sanitation
+"Diagnostic laboratory lost the patient's blood sample and requested another collection.",Healthcare
+"Government hospital lacks proper ventilation in patient wards.",Healthcare
+"Illegal dumping of large furniture items in the alleyway. Need sanitation pickup.",Sanitation
+"Unusually loud train horns near the 4th St crossing, disturbing nearby residents.",Municipal Corporation
+"Garbage truck missed our block again. Overflowing bins are attracting rats, and the smell is unbearable.",Sanitation
+"Huge pothole developed overnight, nearly took my bumper off.",Roads & Transport
+"Loud music from the neighbor's party is rattling my windows.",Police
+"Students are not receiving mid-day meals regularly in the government school.","Education"
+"Incorrect electricity bill has not been corrected despite submitting proof.","Electricity"
+"Admission fee was collected before the COVID-19 lockdown, but the school refused to refund the amount after admission was cancelled.","Education"
+"Hospital assured cashless insurance processing before surgery, but after treatment they demanded additional payment years later through a third-party financing service. Requesting investigation and resolution of the disputed payment.",Healthcare
+"Ordered essential medicines from an online pharmacy, but the order has remained in processing for more than two weeks. Customer support has not responded despite repeated calls and messages. Requesting immediate delivery or refund.",Healthcare
+"School collected payment for admission materials but neither provided the kit nor refunded the amount.","Education"
+"Constant, high-decibel industrial humming coming from the site next to the apartment complex.",Municipal Corporation
+"Significant water pooling is occurring, possibly a burst pipe. This needs immediate attention.",Water Supply
+"Overflowing dumpster behind the grocery store. It's really gross and unhygienic with the summer heat.",Sanitation
+"Broken glass and trash scattered along the curb. Not safe for pedestrians.",Sanitation
+"Truck blocking the driveway. I can't get my car out to go to work.",Police
+"Patients are forced to purchase oxygen cylinders privately due to hospital shortages.",Healthcare
+"Hospital delayed issuing discharge documents, causing unnecessary inconvenience.",Healthcare
+"Hit a massive pothole on Grand St that damaged my wheel. Needs filling ASAP.",Roads & Transport
+"Water bubbling up through the pavement, looks like a pipe failure.",Water Supply
+"EMERGENCY: MULTIPLE VEHICLES ARE DOUBLE-PARKED ALONG THE MAIN COMMERCIAL STRIP, FORCING BUSES TO STOP.",Police
+"EMERGENCY: A SIGNIFICANT WATER LEAK NEAR THE SCHOOL ENTRANCE IS CREATING A LARGE, SLIPPERY POND.",Water Supply
+"Streetlight near bus stop on 2nd Ave constantly flickering, causing concern for safety.",Electricity
+"Barking dogs left unattended for hours in the backyard. Extremely disruptive for the neighborhood.",Police
+"Truck blocking the driveway. I can't get my car out to go to work.",Police
+"School collected full admission and monthly fees but failed to provide books and learning materials.","Education"
+"Health insurance claim was rejected. Requesting review of the claim and assistance in resolving the insurance dispute.",Healthcare
+"Booked diagnostic tests through an online healthcare service. Two reports were delivered on time, but the PT-INR test report has been delayed for more than 48 hours despite multiple follow-ups. Requesting immediate release of the pending report.",Healthcare
+"Parents were overcharged for an annual function, poor-quality costumes were provided, and classroom teaching was inadequate.","Education"
+"EMERGENCY: THE POTHOLE ON THE MAIN ROAD IS GETTING DEEPER AND I'VE SEEN THREE CARS SWERVE INTO THE OPPOSITE LANE.",Roads & Transport
+The pole is leaning and the light is shattered.,Electricity
+"About three lights are out on this entire block. It creates a major security risk for residents.",Electricity
+Streetlight flickers and turns off intermittently on Baker St.,Electricity
+"Light is flickering constantly. Very annoying and distracting.",Electricity
+"School administration delays issuing transfer certificates without valid reasons.","Education"
+"Transformer overload causes repeated outages in our neighborhood.","Electricity"
+"Medical camp announced by local authorities was cancelled without prior notice.",Healthcare
+"Hospital failed to provide timely treatment for accident victims arriving at the emergency ward.",Healthcare
+"URGENT: The pothole on the main road is getting deeper and I've seen three cars swerve into the opposite lane.",Roads & Transport
+"Public waste container is completely full. Need an extra collection.",Sanitation
+"Illegal parking right up against the fire hydrant. This is a huge safety violation.",Police
+"A child was excluded from school activities due to discriminatory treatment by school staff.","Education"
+"Clinic collected full payment for a hair treatment package, provided only one session, then refused to continue treatment or refund the money despite a money-back guarantee. Requesting full refund and compensation for mental harassment.",Healthcare
+"Hospital staff showed medical negligence, improper testing procedures, inflated bills with unnecessary charges, and refused to discharge the patient until disputed payment was made. Requesting investigation and appropriate action.",Healthcare
+"Admission was cancelled shortly after enrollment, but the school failed to refund the admission fee.","Education"
+"Emergency medicines were falsely marked as delivered, and repeated complaints to customer support received no response, delaying essential treatment.","Healthcare"
+"Illegal dumping of old furniture near the alley, blocking access and creating health risks.",Sanitation
+"EMERGENCY: ILLEGAL DUMPING AT THE COMMERCIAL INTERSECTION IS BLOCKING THE PEDESTRIAN CROSSING.",Sanitation
+"Construction crew is starting their work at 5 AM. It is way too loud and violating city ordinances.",Police
+"Large pothole on bridge approach, dangerous for vehicles.",Roads & Transport
+"Garbage truck missed our block again. Overflowing bins are attracting rats, and the smell is unbearable.",Sanitation
+"City collection missed our street again, bags piling up.",Sanitation
+"I've noticed that the streetlight is flickering constantly and is very distracting. This needs immediate attention.",Electricity
+"EMERGENCY: A SIGNIFICANT WATER LEAK NEAR THE SCHOOL ENTRANCE IS CREATING A LARGE, SLIPPERY POND.",Water Supply
+"URGENT: The entire block's streetlights are out near the hospital parking zone. It feels extremely unsafe.",Electricity
+"EMERGENCY: THE ENTIRE BLOCK'S STREETLIGHTS ARE OUT NEAR THE HOSPITAL PARKING ZONE. IT FEELS EXTREMELY UNSAFE.",Electricity
+Overflowing garbage bins near the public park entrance causing foul odors and attracting pests.,Sanitation
+Broken swing set in the playground behind Lincoln School.,Municipal Corporation
+"Doctor prescribed unnecessary follow-up visits without medical justification.",Healthcare
+"Hospital administration ignored complaints regarding poor sanitation and pest infestation.",Healthcare
+"Can someone please fix there's a persistent drip from the main water line. Please address this as soon as possible.",Water Supply
+Water leak at community pool causing slippery surfaces.,Water Supply
+"School classrooms are overcrowded with insufficient seating.","Education"
+"Public park maintenance has been neglected, with broken benches and overgrown grass.","Municipal Corporation"
+"Electricity complaint tickets are closed without resolving the issue.","Electricity"
+"Loud construction noise every morning, disrupting residents' sleep and work.",Police
+"URGENT: Constant, high-decibel industrial humming coming from the site next to the apartment complex.",Police
+Dumping of old furniture in alley behind apartment block.,Sanitation
+"Residents are putting out trash on the wrong days, and it's piling up in front of my driveway.",Sanitation
+"Multiple cars parked on the sidewalk, forcing pedestrians into the street.",Police
+"Drainage cover is missing or broken. Hazard for tires.",Roads & Transport
+"It's really frustrating that cars are illegally parked in a no-parking zone. I'm concerned about safety.",Police
+"Public park bins are stuffed, litter is everywhere.",Sanitation
+"Multiple small potholes appearing, causing traffic to slow down significantly.",Roads & Transport
+Steady water leak near storm drain is flooding part of the street.,Water Supply
+"Loud music from the neighbor's party is rattling my windows.",Police
+"Streetlight at the corner of Main St has been out for weeks. Feels unsafe at night.",Electricity
+"Persistent car alarms in the parking lot, causing disruption to nearby apartments.",Police
+"I am unable to register my grievance on the municipal online portal due to technical errors.","Municipal Corporation"
+"The online property tax portal is frequently unavailable during payment attempts.","Municipal Corporation"
+"Constant hum/machinery noise from the nearby site. Very intrusive.",Police
+"Medical store inside the hospital refused to provide medicines covered under government health schemes.",Healthcare
+"Patients are unable to schedule appointments because the hospital booking system frequently fails.",Healthcare
+"Constant noise from the HVAC units at the new commercial building. It hums all night and vibrates the area.",Police
+"The light stays on during the day but is off at night. Completely backwards. Needs a repair.",Electricity
+"Deep crater in the road, extremely dangerous for cyclists.",Roads & Transport
+"URGENT: Constant, high-decibel industrial humming coming from the site next to the apartment complex.",Police
+Barking dogs left unattended for hours in the backyard. Extremely disruptive for the neighborhood.,Police
+"Graffiti tags on the subway entrance, making the area look neglected.",Municipal Corporation
+Constant noise from the HVAC units at the new commercial building. It hums all night and vibrates the area.,Police
+"Car parked in front of the driveway, blocking me in.",Police
+EMERGENCY: ILLEGAL DUMPING AT THE COMMERCIAL INTERSECTION IS BLOCKING THE PEDESTRIAN CROSSING.,Sanitation
+Illegal dumping of household furniture on empty lot.,Sanitation
+"Hospital security staff prevented attendants from obtaining important medical updates about patients.",Healthcare
+"Repeated complaints about poor healthcare services have not received any response from the concerned authorities.",Healthcare
+"EMERGENCY: MULTIPLE VEHICLES ARE DOUBLE-PARKED ALONG THE MAIN COMMERCIAL STRIP, FORCING BUSES TO STOP.",Police
+"Hit a massive pothole on my way to work, it really messed up my alignment. Please fix this.",Roads & Transport
+"Teachers frequently arrive late, reducing effective teaching time.","Education"
+"Power supply is unstable during peak summer, affecting daily life.","Electricity"
+Can someone please fix garbage collection seems to have been missed this week. It's becoming quite a problem.,Sanitation
+"EMERGENCY: CONSTANT, HIGH-DECIBEL INDUSTRIAL HUMMING COMING FROM THE SITE NEXT TO THE APARTMENT COMPLEX.",Police
+"URGENT: Multiple vehicles are double-parked along the main commercial strip, forcing buses to stop.",Police
+Please look into the streetlight has been burned out for weeks. Please address this as soon as possible.,Electricity
+EMERGENCY: THE ENTIRE BLOCK'S STREETLIGHTS ARE OUT NEAR THE HOSPITAL PARKING ZONE. IT FEELS EXTREMELY UNSAFE.,Electricity
+Small but sharp pothole that is definitely going to pop someone's tire. Could we get this filled quickly.,Roads & Transport
+EMERGENCY: THE POTHOLE ON THE MAIN ROAD IS GETTING DEEPER AND I'VE SEEN THREE CARS SWERVE INTO THE OPPOSITE LANE.,Roads & Transport
+Can someone please fix a vehicle is parked right in front of the fire hydrant. It's becoming quite dangerous.,Police
+Water leaking into the basement from the street side. Notified the landlord but it looks like a city issue.,Water Supply
+Overflowing trash can at the playground on 6th Ave.,Sanitation
+"EMERGENCY: CONSTANT, HIGH-DECIBEL INDUSTRIAL HUMMING COMING FROM THE SITE NEXT TO THE APARTMENT COMPLEX.",Police
+Blocking the crosswalk area. Very dangerous for kids crossing.,Police
+"The civic service center remains closed during official working hours on multiple occasions.","Municipal Corporation"
+"Municipal staff are refusing to accept my application without giving any valid reason.","Municipal Corporation"
+"Government hospital has no specialist doctor available for cardiac patients, forcing them to travel long distances for treatment.",Healthcare
+"Hospital staff delayed emergency admission despite the patient's critical medical condition.",Healthcare
+Lamp post light is shattered and the wires are exposed. This is a serious electrical hazard.,Electricity
+"Broken bench in community playground, unsafe for children.",Municipal Corporation
+EMERGENCY: ILLEGAL DUMPING AT THE COMMERCIAL INTERSECTION IS BLOCKING THE PEDESTRIAN CROSSING.,Sanitation
+"URGENT: A significant water leak near the school entrance is creating a large, slippery pond.",Water Supply
+"Water bubbling up through the pavement, looks like a pipe failure.",Water Supply
+"Streetlight not functioning, resulting in a dark street section and safety concerns at night.",Electricity
+Trash piling up in city center alley.,Sanitation
+"Truck parked in a no-parking zone, blocking visibility for turns.",Police
+"Overflowing garbage bins at the corner, attracting pests and causing unpleasant odors.",Sanitation
+"Small leak from the hydrant, wasting gallons of water.",Water Supply
+"Streetlight hasn't been working for weeks, street is pitch black.",Electricity
+Loud music from the neighbor's party is rattling my windows.,Police
+It's really frustrating that there is loud construction noise occurring well past midnight. This needs attention.,Police
+Illegal dumping in the alleyway behind our building.,Sanitation
+"Electric poles are dangerously tilted after recent heavy rains.","Electricity"
+"School management is not addressing complaints of bullying.","Education"
+"Loose electric wires hanging near residential houses are dangerous.","Electricity"
+Dumped paint cans in vacant yard.,Sanitation
+Old appliances dumped in alley behind 4th St apartments.,Sanitation
+"The diagnostic laboratory repeatedly postponed ultrasound appointments without informing patients.",Healthcare
+"Patients are not receiving prescribed medicines under the government healthcare scheme due to stock shortages.",Healthcare
+Pothole is getting worse every time it rains. It's deep and causing cars to swerve into oncoming traffic.,Roads & Transport
+Please look into excessive music volume is coming from the apartment upstairs. I'm concerned about disturbance.,Police
+Water leaking from hydrant at the corner of 7th St and Willow Ave.,Water Supply
+"The municipal office has rejected my application without providing any explanation.","Municipal Corporation"
+"Municipal officials are delaying verification of my building completion certificate.","Municipal Corporation"
+"EMERGENCY: A SIGNIFICANT WATER LEAK NEAR THE SCHOOL ENTRANCE IS CREATING A LARGE, SLIPPERY POND.",Water Supply
+"Low water pressure all day, and I see water pooling near the curb. Please investigate.",Water Supply
+EMERGENCY: THE POTHOLE ON THE MAIN ROAD IS GETTING DEEPER AND I'VE SEEN THREE CARS SWERVE INTO THE OPPOSITE LANE.,Roads & Transport
+Dumped tires and construction debris on the vacant lot behind 300 Lincoln Blvd.,Sanitation
+Please look into a vehicle is parked right in front of the fire hydrant. I'm concerned about safety.,Police
+Constant hum/machinery noise from the nearby site. Very intrusive.,Police
+URGENT: The entire block's streetlights are out near the hospital parking zone. It feels extremely unsafe.,Electricity
+Garbage bins missing from designated pickup spot.,Sanitation
+"The hospital pharmacy frequently runs out of essential medicines, causing inconvenience to patients.",Healthcare
+"Hospital staff failed to maintain patient confidentiality by discussing medical records publicly.",Healthcare
+"Pothole forming near curb, dangerous for cyclists.",Roads & Transport
+"URGENT: A significant water leak near the school entrance is creating a large, slippery pond.",Water Supply
+EMERGENCY: THE POTHOLE ON THE MAIN ROAD IS GETTING DEEPER AND I'VE SEEN THREE CARS SWERVE INTO THE OPPOSITE LANE.,Roads & Transport
+"I wanted to report that significant water pooling is occurring, possibly a burst pipe. I'm concerned.",Water Supply
+Garbage bags left on street after collection day.,Sanitation
+There is a serious issue with garbage collection seems to have been missed this week. It's creating problems.,Sanitation
+Someone left a pile of old furniture and bags of debris on the corner. It's been there for three days.,Sanitation
+"Public park bins are stuffed, litter is everywhere.",Sanitation
+Streetlight at the north end of Elm St not working for over a week.,Electricity
+"Unexpected electricity disconnections occur even after timely bill payment.","Electricity"
+"Students are forced to purchase books from a specific private vendor.","Education"
+"Graffiti on the wall of the public library, unsightly for visitors.",Municipal Corporation
+"URGENT: Multiple vehicles are double-parked along the main commercial strip, forcing buses to stop.",Police
+"Streetlight hasn't been working for weeks, street is pitch black.",Electricity
+"Doctors leave the outpatient department before official closing hours, leaving many patients untreated.",Healthcare
+"The hospital's online appointment system is frequently unavailable, preventing patients from booking consultations.",Healthcare
+"Car parked in front of the driveway, blocking me in.",Police
+"URGENT: Constant, high-decibel industrial humming coming from the site next to the apartment complex.",Police
+Road surface failure creating a sharp pothole. Please fix.,Roads & Transport
+URGENT: Illegal dumping at the commercial intersection is blocking the pedestrian crossing.,Sanitation
+"EMERGENCY: MULTIPLE VEHICLES ARE DOUBLE-PARKED ALONG THE MAIN COMMERCIAL STRIP, FORCING BUSES TO STOP.",Police
+Trash bags left scattered on crosswalk over the weekend.,Sanitation
+Water pooling in the basement/street level. Possible pipe burst underground.,Water Supply
+Light is flickering constantly. Very annoying and distracting.,Electricity
+Loud music from the neighbor's party is rattling my windows.,Police
+"Trash overflowing from the bins, attracting pests and smells.",Sanitation
+"Patients are waiting several hours for routine blood sample collection due to insufficient laboratory staff.",Healthcare
+"The intensive care unit lacks adequate monitoring equipment for critically ill patients.",Healthcare
+EMERGENCY: THE POTHOLE ON THE MAIN ROAD IS GETTING DEEPER AND I'VE SEEN THREE CARS SWERVE INTO THE OPPOSITE LANE.,Roads & Transport
+Streetlight pole leaning dangerously after recent storm.,Electricity
+"Online municipal portal is not allowing me to download my property tax receipt.","Municipal Corporation"
+"Despite paying all municipal taxes, I continue receiving payment reminder notices.","Municipal Corporation"
+Construction noise is going on well past midnight.,Police
+"EMERGENCY: Multiple vehicles are double-parked along the main commercial strip, forcing buses to stop.",Police
+EMERGENCY: THE ENTIRE BLOCK'S STREETLIGHTS ARE OUT NEAR THE HOSPITAL PARKING ZONE. IT FEELS EXTREMELY UNSAFE.,Electricity
+Noise from traffic in tunnel exacerbated by ongoing construction.,Police
+I wanted to report that garbage collection seems to have been missed this week. Please address this.,Sanitation
+"Please look into a vehicle is blocking the sidewalk, forcing pedestrians into the street.",Police
+"EMERGENCY: CONSTANT, HIGH-DECIBEL INDUSTRIAL HUMMING COMING FROM THE SITE NEXT TO THE APARTMENT COMPLEX.",Police
+Water is bubbling up through the cracks in the sidewalk. It's been like this since yesterday morning.,Water Supply
+"Truck parked in a no-parking zone, blocking visibility for turns.",Police
+"I've noticed that significant water pooling is occurring, possibly a burst pipe. This has been happening.",Water Supply
+The recycling bin is broken and trash is spilling out onto the street. Needs a pickup and replacement.,Sanitation
+EMERGENCY: ILLEGAL DUMPING AT THE COMMERCIAL INTERSECTION IS BLOCKING THE PEDESTRIAN CROSSING.,Sanitation
+Illegal parking right up against the fire hydrant. This is a huge safety violation.,Police
+Illegal dumping in the alleyway behind our building.,Sanitation
+"Meter replacement request has not been processed for a faulty electricity meter.","Electricity"
+"School library does not have enough textbooks for students.","Education"
+"Hospital administration has failed to repair broken patient beds, causing discomfort during treatment.",Healthcare
+"The emergency department is overcrowded, resulting in delayed medical attention for accident victims.",Healthcare
+Noise from air conditioning units running day and night.,Police
+Lamp post light is shattered and the wires are exposed. This is a serious electrical hazard.,Electricity
+"EMERGENCY: A SIGNIFICANT WATER LEAK NEAR THE SCHOOL ENTRANCE IS CREATING A LARGE, SLIPPERY POND.",Water Supply
+"EMERGENCY: MULTIPLE VEHICLES ARE DOUBLE-PARKED ALONG THE MAIN COMMERCIAL STRIP, FORCING BUSES TO STOP.",Police
+URGENT: The pothole on the main road is getting deeper and I've seen three cars swerve into the opposite lane.,Roads & Transport
+"URGENT: A significant water leak near the school entrance is creating a large, slippery pond.",Water Supply
+EMERGENCY: THE ENTIRE BLOCK'S STREETLIGHTS ARE OUT NEAR THE HOSPITAL PARKING ZONE. IT FEELS EXTREMELY UNSAFE.,Electricity
+"Graffiti on the side wall of the Eastside Library, visible from the main road.",Municipal Corporation
+"Huge pothole right in the middle of the intersection, almost blew out my tire this morning.",Roads & Transport
+"EMERGENCY: A significant water leak near the school entrance is creating a large, slippery pond.",Water Supply
+"EMERGENCY: MULTIPLE VEHICLES ARE DOUBLE-PARKED ALONG THE MAIN COMMERCIAL STRIP, FORCING BUSES TO STOP.",Police
+Car parked directly in front of my driveway. I have an appointment and cannot get my car out.,Police
+"Medical staff failed to provide proper post-surgery care instructions before patient discharge.",Healthcare
+"The hospital has inadequate wheelchair access for patients with physical disabilities.",Healthcare
+Noise from late-night music in park disturbing nearby residents.,Police
+"The municipal office has not updated my address change request in its records.","Municipal Corporation"
+"Marriage certificate correction request has remained unresolved for several weeks.","Municipal Corporation"
+EMERGENCY: THE POTHOLE ON THE MAIN ROAD IS GETTING DEEPER AND I'VE SEEN THREE CARS SWERVE INTO THE OPPOSITE LANE.,Roads & Transport
+EMERGENCY: MULTIPLE VEHICLES ARE DOUBLE-PARKED ALONG THE MAIN COMMERCIAL STRIP FORCING BUSES TO STOP,Roads & Transport
+Overflowing public bins at Maple Ave. Trash is being blown all over the sidewalk.,Sanitation
+EMERGENCY: THE POTHOLE ON THE MAIN ROAD IS GETTING DEEPER AND I'VE SEEN THREE CARS SWERVE INTO THE OPPOSING LANE.,Roads & Transport
+URGENT: Multiple vehicles are double-parked along the main commercial strip forcing buses to stop in traffic.,Roads & Transport
+Streetlight flickering intermittently near the bus stop.,Electricity
+"Government health center has no laboratory technician available for routine diagnostic tests.",Healthcare
+"Patients are being referred to private hospitals because essential diagnostic facilities are unavailable in the government hospital.",Healthcare
+"Teachers are skipping classes regularly without any substitute arrangement.","Education"
+"Power outages occur daily during business hours affecting small shops.","Electricity"
+"School playground is unsafe due to broken equipment and uneven ground.","Education"
+Vehicle is parked right in front of the fire hydrant. Please address this as soon as possible.,Police
+Small leak coming from the hydrant area. It's wasting a lot of water and needs attention.,Water Supply
+URGENT: The entire block's streetlights are out near the hospital parking zone.,Electricity
+The pole is leaning and the light is shattered.,Electricity
+"Persistent water leak on sidewalk, making it slippery and hazardous.",Water Supply
+Streetlight is flickering constantly and is very distracting.,Electricity
+Someone left a pile of old furniture and bags of debris on the corner.,Sanitation
+Pothole near school drop-off zone causing traffic delays.,Roads & Transport
+Streetlight knocked over by vehicle at the intersection.,Electricity
+Emergency: Water main break flooding the street.,Water Supply
+Noise from leaf blowers on Sunday mornings disrupting sleep.,Municipal Corporation
+EMERGENCY: THE ENTIRE BLOCK'S STREETLIGHTS ARE OUT NEAR THE HOSPITAL PARKING ZONE.,Electricity
+I've noticed that litter is accumulating in the alleyway and creating a mess.,Sanitation
+Broken traffic signal at the junction of 6th Ave and Park Blvd.,Roads & Transport
+Streetlight stays on 24/7. Huge waste of electricity.,Electricity
+"Hospital staff refused to answer patient queries regarding prescribed medications.",Healthcare
+"Diagnostic center uploaded incomplete medical reports, delaying further treatment.",Healthcare
+Series of small potholes forming on the curve of Park Ave.,Roads & Transport
+My neighbors keep putting their trash out days before collection. The alley is becoming an eyesore.,Sanitation
+EMERGENCY: ILLEGAL DUMPING AT THE COMMERCIAL INTERSECTION IS BLOCKING THE PEDESTRIAN CROSSING.,Sanitation
+Lens cover is broken on the streetlight. Bulb is exposed.,Electricity
+"There is a serious issue with significant water pooling occurring, possibly a burst pipe.",Water Supply
+URGENT: A significant water leak near the school entrance is creating a large slippery pond.,Water Supply
+"Streetlight broken after car accident, sparking wires noticed.",Electricity
+Missing stop sign at intersection.,Roads & Transport
+Car parked on the sidewalk forcing pedestrians into the road.,Police
+"Frequent transformer failures leave the entire locality without electricity.","Electricity"
+"Property ownership details in municipal records are incorrect and need correction.","Municipal Corporation"
+"My application for a new house number has not been processed.","Municipal Corporation"
+"School toilets are unhygienic and lack regular maintenance.","Education"
+"New electricity connection has not been provided despite document verification.","Electricity"
+Slight water seepage on the sidewalk. Persistent issue for weeks.,Water Supply
+Trash is overflowing from the public bins again. This needs immediate attention.,Sanitation
+EMERGENCY: A significant water leak near the school entrance is creating a large slippery pond.,Water Supply
+EMERGENCY: THE POTHOLE ON THE MAIN ROAD IS GETTING DEEPER.,Roads & Transport
+"Patients are forced to stand in long queues because the hospital has insufficient registration counters.",Healthcare
+"The hospital failed to maintain proper cleanliness in maternity wards, creating health risks for mothers and newborns.",Healthcare
+Excessive noise from construction crew working well past 10 PM.,Municipal Corporation
+Water leaking from a hydrant causing flooding on the sidewalk.,Water Supply
+"Large pothole on Main Street near the intersection with Broad St, hazardous for cyclists.",Roads & Transport
+"EMERGENCY: CONSTANT, HIGH-DECIBEL INDUSTRIAL HUMMING COMING FROM THE SITE.",Municipal Corporation
+Road surface failure creating a sharp pothole.,Roads & Transport
+Garbage collected late for the third week in a row.,Sanitation
+Broken bench at bus stop needs repair.,Municipal Corporation
+Illegal dumping of old furniture observed behind the supermarket parking lot.,Sanitation
+Graffiti on the underpass walls looks like gang symbols.,Police
+"Graffiti on the wall of the public library, affecting the appearance of the area.",Municipal Corporation
+Potholes causing difficulty for cyclists.,Roads & Transport
+Garbage truck missed our block again. Overflowing bins are attracting rats.,Sanitation
+"Doctors are unavailable during scheduled outpatient hours due to poor duty management.",Healthcare
+"The ambulance service could not be contacted because the emergency helpline remained unreachable.",Healthcare
+Dangerous crater forming on the side of the road.,Roads & Transport
+Graffiti on bus shelter near the high school.,Municipal Corporation
+"Industrial fan running 24/7, extremely loud and intrusive.",Municipal Corporation
+"Recurring pothole at the intersection, previously filled but has reopened.",Roads & Transport
+Pipe burst on the sidewalk. Water has been running for hours.,Water Supply
+Noise from nearby construction affecting home office work.,Municipal Corporation
+"Flickering light makes it difficult to sleep and unsafe to walk.",Electricity
+"Garbage scattered along the median strip of 5th St.",Sanitation
+"Nightly music from nearby club disturbing the neighborhood.",Police
+"Water leaking from broken pipe in front yard.",Water Supply
+"Medical reimbursement has been pending for several months despite submitting all supporting documents.",Healthcare
+"Hospital charged additional fees for services that should have been covered under a government healthcare program.",Healthcare
+"Road surface is crumbling badly here. Very hazardous for elderly pedestrians crossing.",Roads & Transport
+"URGENT: The entire block's streetlights are out near the hospital parking zone. It feels extremely unsafe.","Electricity"
+"URGENT: Illegal dumping at the commercial intersection is blocking the pedestrian crossing.","Sanitation"
+"Noise from nearby highway construction throughout the night.","Municipal Corporation"
+"Frequent low voltage prevents household appliances from functioning properly.","Electricity"
+"Teachers frequently use mobile phones during classroom sessions.","Education"
+"Electricity connection application has been pending for several months.","Electricity"
+"Students are being punished physically by a teacher.","Education"
+"Building plan approval has been pending for months without any valid reason.","Municipal Corporation"
+"Mutation of my property ownership has not been updated in municipal records.","Municipal Corporation"
+"There's a constant stream of water coming from the storm drain, even though it hasn't rained in days.","Water Supply"
+"Overflowing garbage bins on the corner are attracting pests and causing unpleasant odors.","Sanitation"
+"Delivery truck is blocking the bike lane again. Forces cyclists into the path of speeding cars.","Police"
+"Manhole cover is rattling loudly whenever a car drives over it, and the area around it is caved in.","Roads & Transport"
+"EMERGENCY: THE POTHOLE ON THE MAIN ROAD IS GETTING DEEPER AND I'VE SEEN THREE CARS SWERVE INTO THE OPPOSITE LANE.","Roads & Transport"
+"URGENT: The entire block's streetlights are out near the hospital parking zone. It feels extremely unsafe.","Electricity"
+"URGENT: Illegal dumping at the commercial intersection is blocking the pedestrian crossing.","Sanitation"
+"I've noticed that cars are illegally parked in a no-parking zone. Please address this as soon as possible.","Police"
+"Van parked in the bike lane, very dangerous for commuters.","Police"
+"The vaccination center cancelled appointments without prior notification to beneficiaries.",Healthcare
+"Hospital staff misplaced patient prescriptions, forcing repeat consultations and additional expenses.",Healthcare
+"Garbage truck missed our block again. Overflowing bins are attracting rats, and the smell is unbearable.","Sanitation"
+"Pipe burst on the sidewalk. Water has been running for hours, creating a massive ice patch.","Water Supply"
+"Trash is overflowing from the public bins again. This has been happening for days.","Sanitation"
+"The recycling bin is broken and trash is spilling out onto the street. Needs a pickup and replacement.","Sanitation"
+"URGENT: Multiple vehicles are double-parked along the main commercial strip, forcing buses to stop.","Police"
+"Water pooling in the basement/street level. Possible pipe burst underground.","Water Supply"
+"Significant water pooling is occurring, possibly a burst pipe.","Water Supply"
+"Construction crew is starting their work at 5 AM. It is way too loud and violating city ordinances.","Municipal Corporation"
+"Garbage bags left outside apartment building despite scheduled pickup.","Sanitation"
+"Water is seeping from a broken pipe near the park entrance, creating muddy conditions.","Water Supply"
+"Two streetlights out on Walnut St, causing a dark stretch at night.","Electricity"
+"Graffiti on the public restroom exterior walls.","Municipal Corporation"
+"School laboratory lacks essential equipment for practical classes.","Education"
+"Power restoration takes several hours after minor faults.","Electricity"
+"School management is demanding unauthorized fees from parents.","Education"
+"The diagnostic laboratory reported incorrect test values, requiring patients to undergo repeat testing.",Healthcare
+"Patients with chronic illnesses are unable to receive regular follow-up care due to doctor shortages.",Healthcare
+"Manhole cover is rattling loudly whenever a car drives over it, and the area around it is caved in.","Roads & Transport"
+"Bulb burned out weeks ago, city hasn't replaced it despite previous reports.","Electricity"
+"Small but sharp pothole that is definitely going to pop someone's tire.","Roads & Transport"
+"Emergency: Water main break flooding the street.","Water Supply"
+"Flooding on the street is making it impossible to cross.","Roads & Transport"
+"My application for a trade license renewal has been pending for several weeks.","Municipal Corporation"
+"The municipal office has delayed issuing my shop establishment certificate.","Municipal Corporation"
+"The school principal physically harasses students, misbehaves with parents, and threatens to expel children. Immediate disciplinary action is requested.","Education"
+"My educational marksheet verification has been pending for a long time despite reaching the education office. Kindly complete the verification process urgently.","Education"
+"URGENT: The entire block's streetlights are out near the hospital parking zone. It feels extremely unsafe.","Electricity"
+"Trash is overflowing from the public bins again. Please address this as soon as possible.","Sanitation"
+"URGENT: A significant water leak near the school entrance is creating a large, slippery pond.","Water Supply"
+"Vehicle parked directly in front of the fire hydrant. Big safety risk.","Police"
+"Lamp post light is shattered and the wires are exposed. This is a serious electrical hazard.","Electricity"
+"EMERGENCY: The entire block's streetlights are out near the hospital parking zone.","Electricity"
+"Excessive music volume is coming from the apartment upstairs.","Municipal Corporation"
+"The hospital administration ignored complaints regarding malfunctioning air conditioning in patient wards during extreme summer conditions.",Healthcare
+"Repeated complaints regarding poor healthcare services have not been addressed by the concerned hospital authorities.",Healthcare
+"EMERGENCY: Multiple vehicles are double-parked along the main commercial strip, forcing buses to stop.","Police"
+"The school is demanding additional admission and annual fees that appear unreasonable and place financial burden on parents. Kindly verify the fee structure.","Education"
+"There are allegations that government officials handling an education benefit scheme are demanding bribes and deliberately delaying approvals. Kindly investigate.","Education"
+"Litter is accumulating in the alleyway and creating a mess.","Sanitation"
+"Multiple cars parked on the sidewalk, forcing pedestrians into the street.","Police"
+"Power supply is interrupted several times a day in our village.","Electricity"
+"School buses are overcrowded, compromising student safety.","Education"
+"Electricity meter reading appears incorrect, leading to excess billing.","Electricity"
+"Property tax payment is reflecting as pending even after successful online payment.","Municipal Corporation"
+"House tax assessment contains incorrect property details and requires correction.","Municipal Corporation"
+"URGENT: Multiple vehicles are double-parked along the main commercial strip, forcing buses to stop.","Police"
+"The sewer grate is rusted and sunken. It makes a loud clanging noise every time a car drives over it.","Roads & Transport"
+"URGENT: Constant, high-decibel industrial humming coming from the site next to the apartment complex.","Municipal Corporation"
+"Loud party noise from neighbors past midnight.","Municipal Corporation"
+"EMERGENCY: The entire block's streetlights are out near the hospital parking zone.","Electricity"
+"EMERGENCY: Constant, high-decibel industrial humming coming from the site next to the apartment complex.","Municipal Corporation"
+"The school is charging excessive fees beyond the amount communicated during admission. Kindly investigate the unauthorized fee collection.","Education"
+"The school is forcing parents to purchase additional applications, magazines, and other unnecessary items as part of compulsory textbook packages, increasing educational expenses.","Education"
+"The school management forces parents to purchase notebooks and study materials only from the school at inflated prices. Kindly investigate this practice.","Education"
+"Hospital failed to provide timely emergency treatment due to shortage of medical staff.",Healthcare
+"The government hospital does not have sufficient ventilators for critically ill patients.",Healthcare
+"Residents are putting out trash on the wrong days, and it's piling up in front of my driveway.","Sanitation"
+"URGENT: The pothole on the main road is getting deeper and I've seen three cars swerve.","Roads & Transport"
+"Multiple potholes forming on the main road, posing danger to cyclists and vehicles.","Roads & Transport"
+"Constant noise from the HVAC units at the new commercial building.","Municipal Corporation"
+"URGENT: Illegal dumping at the commercial intersection is blocking the pedestrian crossing.","Sanitation"
+"Old tires dumped on vacant lot, needs removal.","Sanitation"
+"Birth certificate application has been pending for over three weeks without any status update.","Municipal Corporation"
+"Death certificate has not been issued despite submitting all required documents.","Municipal Corporation"
+"I suspect a major water main break nearby. There is a huge puddle that keeps growing and the water pressure has dropped.",Water Supply
+"Sprinkler system leaking onto sidewalk in front of 12 4th Ave.",Water Supply
+"Patients are repeatedly asked to purchase medicines from private pharmacies because hospital stocks are unavailable.",Healthcare
+"The laboratory collected samples but failed to notify patients about the delayed test reports.",Healthcare
+"The school is forcing students to register for optional competitive examinations and charging mandatory fees against parents' wishes. Exams are also scheduled on weekends.","Education"
+"The school failed to provide a promised fee concession despite earlier assurances. Kindly review the fee records and resolve the issue.","Education"
+"Dangerous pothole on the bike lane reported by several cyclists.",Roads & Transport
+"Electricity bill shows an unusually high amount compared to normal usage.","Electricity"
+"School does not provide clean drinking water to students.","Education"
+"Transformer in our area is making loud noises and frequently sparks.","Electricity"
+"Teachers complete the syllabus in a hurry without explaining concepts properly.","Education"
+"Streetlight is flickering like a strobe light. It's distracting drivers.",Electricity
+"Multiple vehicles are double-parked along the main commercial strip.",Police
+"Illegal dumping at the commercial intersection is blocking the pedestrian crossing.",Sanitation
+"Broken park bench near playground.",Municipal Corporation
+"Graffiti tags on playground equipment.",Municipal Corporation
+"CONSTANT, HIGH-DECIBEL INDUSTRIAL HUMMING COMING FROM THE SITE NEXT TO THE APARTMENT COMPLEX.",Police
+"Uncollected garbage bags piling up near the park entrance.",Sanitation
+"Hospital staff frequently misplace patient files, causing delays in treatment.",Healthcare
+"The emergency ambulance reached the accident site much later than the expected response time.",Healthcare
+"An English lecturer has repeatedly been accused of verbally abusing students, using physical aggression, and behaving inappropriately. Please investigate these complaints.","Education"
+"Students are being physically punished, denied holidays, and subjected to harassment by the school administration. Parents' complaints are being ignored.","Education"
+"The school lacks qualified teachers, sports facilities, extracurricular activities, and proper academic resources. Kindly inspect the institution.","Education"
+"The entire block's streetlights are out near the hospital parking zone. It feels extremely unsafe at night.",Electricity
+"Van parked in the bike lane, very dangerous for commuters.",Police
+"Multiple vehicles are double-parked along the main commercial strip, forcing buses to stop in traffic.",Police
+"Missing signage at a busy intersection causing confusion for drivers.",Roads & Transport
+"Garbage bags left on the sidewalk, blocking pedestrian access.",Sanitation
+"The pothole on the main road is getting deeper and vehicles are swerving into oncoming traffic.",Roads & Transport
+"Illegal parking right up against the fire hydrant. This is a huge safety violation.",Police
+"Government health center lacks qualified doctors to treat patients with chronic illnesses.",Healthcare
+"Hospital administration has not repaired broken medical equipment despite repeated complaints.",Healthcare
+"There is a deep, jagged pothole on the turn of 5th and Main. It's dangerous, especially at night.",Roads & Transport
+"Loud construction noise occurring well past midnight.",Police
+"Frequent power cuts every evening for the past two weeks despite multiple complaints.","Electricity"
+"Teachers are absent during scheduled classes, affecting students' preparation for board exams.","Education"
+"Voltage fluctuations damaged household appliances in our locality.","Electricity"
+"School classrooms have leaking roofs, making it difficult to study during rains.","Education"
+"The school washrooms are unhygienic, poorly maintained, lack regular cleaning staff, and do not have proper water facilities. Immediate action is required to improve sanitation for students.","Education"
+"My child's admission to Kendriya Vidyalaya was denied despite submitting all the required transfer documents. Kindly review the admission process and provide assistance.","Education"
+"A student with 100% disability was denied the extra examination time mandated by government policy even after all supporting documents had been submitted. Kindly ensure compliance with disability guidelines.","Education"
+"Multiple streetlights out on this block. Total darkness after sunset.",Electricity
+"Illegal dumping of large furniture items in the alleyway. Need sanitation pickup.",Sanitation
+"Unusually loud vehicle engine noise repeatedly circling the block.",Police
+"Illegal parking in the no-stopping zone, causing a bottleneck.",Police
+"Small but sharp pothole that is likely to damage vehicle tires.",Roads & Transport
+"Car parked in front of the driveway, blocking access.",Police
+"A significant water leak near the school entrance is creating a large, slippery pond.",Water Supply
+"An older college with established infrastructure, but some lab equipment is outdated. Classes are often irregular, and the campus infrastructure needs improvement.","Education"
+"Irregular classes and departmental management issues are affecting students' education.","Education"
+"Patients are forced to wait in overcrowded corridors due to the lack of proper waiting areas.",Healthcare
+"The hospital charged consultation fees even though the scheduled doctor was unavailable.",Healthcare
+"The college lacks proper laboratory facilities and modern infrastructure. Students are dissatisfied with the quality of education and campus management.","Education"
+"Frequent power cuts even during extremely hot weather are causing severe inconvenience to residents.","Electricity"
+"There are frequent power cuts without any valid reason, especially during the summer season.","Electricity"
+"Teachers assigned multiple projects just a few days before final examinations and threatened students with failing practicals if they were not submitted immediately. Several teachers also harass students and parents. Kindly investigate and take appropriate action.","Education"
+"A Class 1 Hindi teacher is physically punishing young students without valid reasons and creating fear instead of providing proper guidance. Kindly investigate this teacher's conduct.","Education"
+"Repeated power outages occur during the night, disrupting daily life and causing inconvenience.","Electricity"
+"They are not responding to calls. We are struggling with children because there is no power at midnight, even though there is no rainfall.","Electricity"
+"Worst service. None of the staff respond at night even after calling hundreds of times during a power outage.","Electricity"
+"The electricity department has poor management. I called many times, but the line was always busy and no one responded.","Electricity"
+"Very poor service. The staff do not respond to phone calls during electricity-related emergencies.","Electricity"
+"Diagnostic center generated duplicate bills for the same medical test.",Healthcare
+"Hospital wards are overcrowded, making it difficult for patients to receive proper medical care.",Healthcare
+"Power supply remains off throughout the day during the hot summer, causing severe inconvenience.","Electricity"
+"Electricity department staff are demanding extra money and behaving rudely while addressing service requests.","Electricity"
