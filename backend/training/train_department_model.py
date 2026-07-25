@@ -42,9 +42,7 @@ from sklearn.metrics import (
     classification_report
 )
 
-# ==========================================================
 # LOAD DATASET
-# ==========================================================
 
 print("="*60)
 print("Loading Dataset...")
@@ -54,9 +52,7 @@ df = pd.read_csv(
     r"C:\Users\kandu\OneDrive\Desktop\CivicFlow-AI\dataset\department_dataset.csv"
 )
 
-# ==========================================================
 # DATASET INFORMATION
-# ==========================================================
 
 print("\nFirst 5 Records\n")
 print(df.head())
@@ -79,26 +75,20 @@ print(df.duplicated().sum())
 print("\nDepartment Distribution\n")
 print(df["department"].value_counts())
 
-# ==========================================================
 # REMOVE DUPLICATES
-# ==========================================================
 
 df = df.drop_duplicates()
 
 print("\nDataset Shape After Removing Duplicates")
 print(df.shape)
 
-# ==========================================================
 # FEATURES & LABELS
-# ==========================================================
 
 X = df["description"]
 
 y = df["department"]
 
-# ==========================================================
 # TRAIN TEST SPLIT
-# ==========================================================
 
 X_train, X_test, y_train, y_test = train_test_split(
 
@@ -116,9 +106,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 print("\nTraining Samples :", len(X_train))
 print("Testing Samples  :", len(X_test))
 
-# ==========================================================
 # TF-IDF VECTORIZATION
-# ==========================================================
 
 vectorizer = TfidfVectorizer(
 
@@ -140,9 +128,7 @@ X_test_vector = vectorizer.transform(X_test)
 
 print("\nTF-IDF Vocabulary Size :", len(vectorizer.vocabulary_))
 
-# ==========================================================
 # MODELS
-# ==========================================================
 
 models = {
 
@@ -180,9 +166,7 @@ best_accuracy = 0
 
 results = []
 
-# ==========================================================
 # TRAINING
-# ==========================================================
 
 print("\n")
 print("="*60)
@@ -308,9 +292,7 @@ plt.xlabel("Predicted")
 plt.ylabel("Actual")
 plt.show()
 
-# ==========================================================
 # RESULTS
-# ==========================================================
 
 print("\n")
 print("="*60)
@@ -321,9 +303,7 @@ results_df = pd.DataFrame(results)
 
 print(results_df)
 
-# ==========================================================
 # SAVE BEST MODEL
-# ==========================================================
 
 joblib.dump(
 
