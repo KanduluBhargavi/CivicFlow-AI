@@ -125,6 +125,58 @@ def department_performance(db: Session = Depends(get_db)):
         for d in departments
     ]
 
+@router.get("/public-stats")
+def public_stats(db: Session = Depends(get_db)):
+
+    total = db.query(Complaint).count()
+
+    resolved = db.query(Complaint).filter(
+        Complaint.status == "Resolved"
+    ).count()
+
+    pending = db.query(Complaint).filter(
+        Complaint.status != "Resolved"
+    ).count()
+
+    departments = db.query(Department).count()
+
+    return {
+        "total_complaints": total,
+        "resolved": resolved,
+        "pending": pending,
+        "departments": departments
+    }
+
+@router.get("/public-recent-complaints")
+def public_recent_complaints(db: Session = Depends(get_db)):
+
+    complaints = (
+        db.query(Complaint, Department)
+        .join(
+            Department,
+            Complaint.department_id == Department.department_id
+        )
+        .order_by(desc(Complaint.created_at))
+        .limit(5)
+        .all()
+    )
+
+    data = []
+
+    for complaint, department in complaints:
+
+        data.append({
+            "complaint_id":complaint.complaint_id,
+            "title": complaint.title,
+            "department":department.department_name,
+            "priority": complaint.priority,
+            "status": complaint.status,
+            "district": complaint.district,
+            "state": complaint.state
+
+        })
+
+    return data
 # @router.get("/department/test")
 # def test_department(
 #     current_department: Department = Depends(get_current_department)

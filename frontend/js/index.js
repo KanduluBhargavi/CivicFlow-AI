@@ -114,12 +114,16 @@ loadDepartmentPerformance();
 
 
 async function loadDashboardStats() {
+  // console.log("loadDashbiardStats claleed")
 
     try {
 
-        const response = await fetch("http://127.0.0.1:8000/dashboard/stats");
+        const response = await fetch("http://127.0.0.1:8000/dashboard/public-stats");
+        // console.log(response.status);
 
         const data = await response.json();
+        
+        // console.log(data);
 
         document.getElementById("totalComplaints").textContent = data.total_complaints;
         document.getElementById("resolvedComplaints").textContent = data.resolved;
@@ -140,7 +144,7 @@ async function loadRecentComplaints() {
 
     try {
 
-        const response = await fetch("http://127.0.0.1:8000/dashboard/recent-complaints");
+        const response = await fetch("http://127.0.0.1:8000/dashboard/public-recent-complaints");
 
         const complaints = await response.json();
 

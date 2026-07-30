@@ -38,6 +38,7 @@ document.getElementById("loginForm").addEventListener("submit", async function (
         localStorage.setItem("access_token", data.access_token);
 
         localStorage.setItem("role", data.role);
+        
 
         if (data.role === "department") {
 
@@ -60,8 +61,28 @@ document.getElementById("loginForm").addEventListener("submit", async function (
 
         }
       else {
+    const params = new URLSearchParams(window.location.search);
+    const next = params.get("next");
 
-    window.location.href = "dashboard.html";
+    if (next === "lodge") {
+
+        window.location.href = "complaint.html";
+
+    }
+
+    else if (next === "track") {
+
+        window.location.href = "my_complaints.html";
+
+    }
+
+    else {
+
+        window.location.href = "dashboard.html";
+
+    }
+
+    
 
 }
 

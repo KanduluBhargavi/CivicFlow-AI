@@ -1,25 +1,3 @@
-# import pandas as pd
-# import joblib
-
-# from sklearn.feature_extraction.text import TfidfVectorizer
-# from sklearn.naive_bayes import MultinomialNB
-
-# df=pd.read_csv("C:/Users/kandu/OneDrive/Desktop/CivicFlow-AI/dataset/department_dataset.csv")
-
-# X=df["description"]
-# y=df['department']
-
-# vectorizer=TfidfVectorizer()
-# X_vectorized=vectorizer.fit_transform(X)
-
-# model=MultinomialNB()
-# model.fit(X_vectorized,y)
-
-# joblib.dump(model,"C:/Users/kandu/OneDrive/Desktop/CivicFlow-AI/models/department_model.pkl")
-# joblib.dump(vectorizer,"C:/Users/kandu/OneDrive/Desktop/CivicFlow-AI/models/vectorizer.pkl")
-
-# print("Department Model Trained Successfully!")
-
 import pandas as pd
 import joblib
 from sklearn.model_selection import cross_val_score
@@ -118,8 +96,6 @@ vectorizer = TfidfVectorizer(
     min_df=2,
     max_df=0.90,
     sublinear_tf=True
-
-
 )
 
 X_train_vector = vectorizer.fit_transform(X_train)
@@ -215,9 +191,7 @@ for name, model in models.items():
 
         predictions,
 
-        average="weighted"
-
-    )
+        average="weighted")
     
     print(f"Difference        : {difference:.4f}")
     print(f"Training Accuracy : {train_accuracy:.4f}")
@@ -225,8 +199,19 @@ for name, model in models.items():
     print(f"Precision: {precision:.4f}")
     print(f"Recall   : {recall:.4f}")
     print(f"F1 Score : {f1:.4f}")
+    cm = confusion_matrix(y_test, predictions)
 
-    
+    plt.figure(figsize=(8,6))
+    sns.heatmap(
+    cm,
+    annot=True,
+    fmt="d",
+    xticklabels=model.classes_,
+    yticklabels=model.classes_
+    )
+    plt.xlabel("Predicted")
+    plt.ylabel("Actual")
+    plt.show()
 
     scores = cross_val_score(
     model,
@@ -277,20 +262,6 @@ for name, model in models.items():
         best_model_name = name
 
 
-
-cm = confusion_matrix(y_test, predictions)
-
-plt.figure(figsize=(8,6))
-sns.heatmap(
-    cm,
-    annot=True,
-    fmt="d",
-    xticklabels=model.classes_,
-    yticklabels=model.classes_
-)
-plt.xlabel("Predicted")
-plt.ylabel("Actual")
-plt.show()
 
 # RESULTS
 
