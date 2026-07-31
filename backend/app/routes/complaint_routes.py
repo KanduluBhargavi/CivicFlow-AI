@@ -6,6 +6,8 @@ from app.utils.dependencies import get_current_department
 from app.models.department import Department
 from app.models.user import User
 
+import pandas as pd
+
 from fastapi import UploadFile, File, Form
 import os
 import shutil
@@ -29,6 +31,28 @@ def get_db():
     finally:
         db.close()
 
+coordinates_df = pd.read_csv(
+    r"C:\Users\kandu\OneDrive\Desktop\CivicFlow-AI\dataset\district_coordinates.csv"
+)
+
+def get_coordinates(state: str, district: str):
+
+    match = coordinates_df[
+        (coordinates_df["state"].str.lower() == state.lower()) &
+        (coordinates_df["district"].str.lower() == district.lower())
+    ]
+
+    if match.empty:
+        print(f"Coordinates not found for: {district}, {state}")
+        return 0.0, 0.0
+
+    latitude = float(match.iloc[0]["latitude"])
+    longitude = float(match.iloc[0]["longitude"])
+
+    return latitude, longitude
+
+
+
 @router.post("/complaints")
 def create_complaint(
     title: str = Form(...),
@@ -39,8 +63,6 @@ def create_complaint(
     address: str = Form(...),
     landmark: str = Form(""),
     pincode: str = Form(...),
-    latitude: float = Form(None),
-    longitude: float = Form(None),
     file: UploadFile = File(None),
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
@@ -52,6 +74,8 @@ def create_complaint(
     department_id = get_department_id(predicted_department)
     priority=predict_priority(translated_text)
     summary=summarize_complaint(translated_text)
+
+    latitude, longitude = get_coordinates(state, district)
 
 
     media_path = None

@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -130,7 +130,7 @@
             <span class="stat-card__trend stat-card__trend--up">▲ 12.4%</span>
           </div>
           <p class="stat-card__value" id="totalComplaints">0</p>
-          <p class="stat-card__label">Complaints Today</p>
+          <p class="stat-card__label">Complaints</p>
         </article>
 
         <article class="stat-card">
@@ -141,7 +141,7 @@
             <span class="stat-card__trend stat-card__trend--up">▲ 8.1%</span>
           </div>
           <p class="stat-card__value" id="resolvedComplaints">0</p>
-          <p class="stat-card__label">Resolved Today</p>
+          <p class="stat-card__label">Resolved</p>
         </article>
 
         <article class="stat-card">
@@ -229,20 +229,7 @@
 
       <div class="command__grid">
         <div class="command__map">
-          <div class="map-placeholder">
-            <svg viewBox="0 0 300 340" width="100%" height="100%" role="img" aria-label="Stylised map of India showing grievance activity">
-              <path d="M110 20 L160 15 L190 45 L210 60 L235 70 L245 95 L235 120 L245 145 L230 175 L235 205 L215 235 L200 265 L185 300 L165 320 L150 300 L140 270 L120 250 L100 260 L85 235 L95 200 L75 180 L65 150 L80 120 L70 90 L90 65 L95 40 Z"
-                fill="rgba(37,99,235,0.14)" stroke="rgba(6,182,212,0.65)" stroke-width="1.4"/>
-              <circle class="map-dot map-dot--critical" cx="150" cy="230" r="5"/>
-              <circle class="map-dot map-dot--critical" cx="120" cy="70" r="5"/>
-              <circle class="map-dot map-dot--medium" cx="170" cy="150" r="4.5"/>
-              <circle class="map-dot map-dot--medium" cx="200" cy="100" r="4.5"/>
-              <circle class="map-dot map-dot--resolved" cx="140" cy="180" r="4"/>
-              <circle class="map-dot map-dot--resolved" cx="190" cy="230" r="4"/>
-              <circle class="map-dot map-dot--resolved" cx="110" cy="260" r="4"/>
-            </svg>
-            <p class="map-placeholder__caption">Interactive state-level map · rendered live from grievance coordinates</p>
-          </div>
+          <div id="indiaMap"></div>
 
           <ul class="map-legend">
             <li><span class="legend-dot legend-dot--critical"></span>Critical</li>
@@ -349,7 +336,7 @@
           <p class="why-card__label">Average Classification Time</p>
         </div>
         <div class="why-card">
-          <p class="why-card__num" data-count="7">0</p>
+          <p class="why-card__num" data-count="8">0</p>
           <p class="why-card__label">Departments Connected</p>
         </div>
         <div class="why-card">
@@ -487,6 +474,7 @@
   </div>
 </footer>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="js/index.js"></script>
 
 </body>

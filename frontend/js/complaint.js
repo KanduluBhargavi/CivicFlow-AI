@@ -23,15 +23,15 @@ document.getElementById("complaintForm").addEventListener("submit", async functi
     formData.append("landmark", document.getElementById("landmark").value);
     formData.append("pincode", document.getElementById("pincode").value);
 
-    formData.append(
-        "latitude",
-        document.getElementById("latitude").value || 0
-    );
+    // formData.append(
+    //     "latitude",
+    //     document.getElementById("latitude").value || 0
+    // );
 
-    formData.append(
-        "longitude",
-        document.getElementById("longitude").value || 0
-    );
+    // formData.append(
+    //     "longitude",
+    //     document.getElementById("longitude").value || 0
+    // );
 
     const file = document.getElementById("media").files[0];
 

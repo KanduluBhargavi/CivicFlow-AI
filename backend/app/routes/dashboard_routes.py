@@ -177,11 +177,32 @@ def public_recent_complaints(db: Session = Depends(get_db)):
         })
 
     return data
-# @router.get("/department/test")
-# def test_department(
-#     current_department: Department = Depends(get_current_department)
-# ):
-#     return {
-#         "department": current_department.department_name,
-#         "email": current_department.department_email
-#     }
+
+@router.get("/map-data")
+def map_data(db: Session = Depends(get_db)):
+
+    complaints = (
+        db.query(Complaint)
+        .filter(
+            Complaint.latitude.isnot(None),
+            Complaint.longitude.isnot(None),
+            Complaint.latitude != 0,
+            Complaint.longitude != 0
+        )
+        .all()
+    )
+
+    return [
+        {
+            "complaint_id": c.complaint_id,
+            "title":c.title,
+            "latitude": c.latitude,
+            "longitude": c.longitude,
+            "priority": c.priority,
+            "status": c.status,
+            "department": c.predicted_department,
+            "district": c.district,
+            "state": c.state
+        }
+        for c in complaints
+    ]

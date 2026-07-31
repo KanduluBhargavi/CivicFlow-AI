@@ -108,6 +108,7 @@ loadDashboardStats();
 loadRecentComplaints();
 loadTopStates();
 loadDepartmentPerformance();
+loadMap();
 
 });
   
@@ -273,6 +274,56 @@ async function loadDepartmentPerformance() {
         console.log(error);
 
     }
+
+}
+
+async function loadMap() {
+
+    const map = L.map("indiaMap").setView([22.8, 79], 5);
+
+    L.tileLayer(
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        {
+            attribution: "© OpenStreetMap"
+        }
+    ).addTo(map);
+
+    const response = await fetch(
+        "http://127.0.0.1:8000/dashboard/map-data"
+    );
+
+    const complaints = await response.json();
+
+    complaints.forEach(c => {
+
+        let color;
+
+        if (c.status === "Resolved") {
+            color = "green";}
+        else if (c.priority === "High") {
+            color = "red";}
+        else if (c.priority === "Medium") {
+          color = "yellow";}
+        else {
+          color = "blue";}
+
+        L.circleMarker(
+            [c.latitude, c.longitude],
+            {
+                radius: 8,
+                color: color,
+                fillColor: color,
+                fillOpacity: 0.8
+            }
+        )
+        .addTo(map)
+        .bindPopup(`
+            <b>${c.title}</b><br>
+            ${c.district}, ${c.state}<br>
+            Priority: ${c.priority}
+        `);
+
+    });
 
 }
 
