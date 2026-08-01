@@ -424,13 +424,13 @@
           </ul>
         </div>
 
-        <form class="contact-form" onsubmit="return false;">
+        <form id="contactForm" class="contact-form" onsubmit="return false;">
           <div class="contact-form__row">
-            <label>Full name<input type="text" name="name" placeholder="Enter your name" required></label>
-            <label>Email address<input type="email" name="email" placeholder="you@example.com" required></label>
+            <label>Full name<input id="contactName" type="text" name="name" placeholder="Enter your name" required></label>
+            <label>Email address<input id="contactEmail" type="email" name="email" placeholder="you@example.com" required></label>
           </div>
-          <label>Subject<input type="text" name="subject" placeholder="What is this regarding?" required></label>
-          <label>Message<textarea name="message" rows="4" placeholder="Tell us more..." required></textarea></label>
+          <label>Subject<input id="contactSubject" type="text" name="subject" placeholder="What is this regarding?" required></label>
+          <label>Message<textarea id="contactMessage" name="message" rows="4" placeholder="Tell us more..." required></textarea></label>
           <button type="submit" class="btn btn--primary btn--lg">Send Message</button>
         </form>
       </div>

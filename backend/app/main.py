@@ -8,11 +8,13 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.models.user import User
 from app.models.department import Department
 from app.models.complaint import Complaint
+from app.models.contact import ContactMessage
 from app.routes.admin_routes import router as admin_router
 from app.routes.user_routes import router as user_router
 from fastapi.staticfiles import StaticFiles
 from app.routes.dashboard_routes import router as dashboard_router
 from app.routes import department_routes
+from app.routes.contact_routes import router as contact_router 
 
 
 
@@ -45,6 +47,7 @@ app.include_router(complaint_router)
 app.include_router(dashboard_router)
 app.include_router(admin_router)
 app.include_router(department_routes.router)
+app.include_router(contact_router)
 
 
 @app.get("/")

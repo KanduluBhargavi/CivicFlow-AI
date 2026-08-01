@@ -327,5 +327,48 @@ async function loadMap() {
 
 }
 
+document.getElementById("contactForm").addEventListener("submit", async function(e){
+    e.preventDefault();
+    const formData=new FormData();
+    
+    formData.append("name",
+        document.getElementById("contactName").value
+    );
+    
+    formData.append(
+        "email",
+        document.getElementById("contactEmail").value
+    );
+    formData.append("subject",
+        document.getElementById("contactSubject").value
+    );
+    formData.append("message", 
+        document.getElementById("contactMessage").value
+
+    );
+    try{
+        const response=await fetch(
+            "http://127.0.0.1:8000/contact/",
+            {
+                method:"POST",
+                body:formData
+            }
+        );
+        const data=await response.json();
+        if (response.ok){
+            alert(data.message);
+            document.getElementById("contactForm").reset();
+        }
+        else{
+            alert("Failed to send message");
+        }
+    }
+    catch(error){
+        console.log(error);
+        alert("server error");
+    }
+
+});
+
 
 
