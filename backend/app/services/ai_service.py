@@ -34,7 +34,10 @@ def predict_priority(text):
     return prediction[0]
 
 def summarize_complaint(text):
-    return text[:100]
+    print("SUMMARY FUNCTION INPUT:", text)
+    result = text
+    print("SUMMARY FUNCTION OUTPUT:", result)
+    return result
 
 def get_department_id(department: str):
     department_map = {

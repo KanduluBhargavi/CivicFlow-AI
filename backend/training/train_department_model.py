@@ -22,10 +22,6 @@ from sklearn.metrics import (
 
 # LOAD DATASET
 
-print("="*60)
-print("Loading Dataset...")
-print("="*60)
-
 df = pd.read_csv(
     r"C:\Users\kandu\OneDrive\Desktop\CivicFlow-AI\dataset\department_dataset.csv"
 )
