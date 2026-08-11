@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="js/theme.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CivicFlow AI — National Grievance Intelligence Platform</title>
@@ -44,6 +45,9 @@
       <a href="#departments">Departments</a>
       <a href="#faq">FAQs</a>
       <a href="#contact">Contact</a>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
+    🌙
+</button>
     </nav>
 
     <div class="navbar__actions">
@@ -170,53 +174,137 @@
   </section>
 
   <!-- ============ AI FEATURES ============ -->
-  <section class="features" id="features">
-    <div class="section-inner">
-      <div class="section-head">
-        <p class="eyebrow eyebrow--dark"><span class="eyebrow__dot"></span>Core AI Services</p>
-        <h2>Four models, one seamless pipeline</h2>
-        <p class="section-sub">Every complaint moves through the same intelligence stack before it ever reaches a human officer.</p>
-      </div>
+  
+<div class="section-inner">
 
-      <div class="feature-grid">
-        <article class="feature-card">
-          <span class="feature-card__index">01</span>
-          <span class="feature-card__icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 5h11M9.5 3v2M6 6c0 4 2.4 6.6 6 8M13.5 6c-.8 4.6-4 8-9.5 10M14 21l4-9 4 9M15.4 18h5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-          <h3>Language Detection</h3>
-          <p>Identifies the citizen's language automatically from free-form text or voice, across 22 scheduled languages and regional dialects.</p>
-        </article>
+  <div class="section-head">
+    <p class="eyebrow eyebrow--dark">
+      <span class="eyebrow__dot"></span>
+      HOW CIVICFLOW WORKS
+    </p>
 
-        <article class="feature-card">
-          <span class="feature-card__index">02</span>
-          <span class="feature-card__icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M7 8h10M7 12h6M7 16h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M3 20V6a2 2 0 0 1 2-2h6l6 6v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z" stroke="currentColor" stroke-width="1.6"/></svg>
-          </span>
-          <h3>Translation</h3>
-          <p>Converts every complaint into a standardised working language for officers, without losing local nuance or intent.</p>
-        </article>
+    <h2>Your complaint. Our system. Better public service.</h2>
 
-        <article class="feature-card">
-          <span class="feature-card__index">03</span>
-          <span class="feature-card__icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.2 2.2M16.2 16.2l2.2 2.2M5.6 18.4l2.2-2.2M16.2 7.8l2.2-2.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-          </span>
-          <h3>Department Prediction</h3>
-          <p>Maps complaint content to the correct department — Water, Roads, Electricity and more — with a confidence score attached.</p>
-        </article>
+    <p class="section-sub">
+      From submitting a complaint to getting it resolved, CivicFlow keeps
+      the entire process simple, transparent, and easy to track.
+    </p>
+  </div>
 
-        <article class="feature-card">
-          <span class="feature-card__index">04</span>
-          <span class="feature-card__icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2 4 5.5v6C4 16.5 7.4 20.7 12 22c4.6-1.3 8-5.5 8-10.5v-6L12 2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 8v4.5l3 1.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-          </span>
-          <h3>Priority Detection</h3>
-          <p>Flags urgency and public-safety risk instantly, so critical cases surface at the top of an officer's queue.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+
+  <div class="feature-grid">
+
+    <!-- 01 -->
+    <article class="feature-card">
+
+      <span class="feature-card__index">01</span>
+
+      <span class="feature-card__icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M4 5h16v12H4z"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linejoin="round"/>
+          <path d="M8 21h8M12 17v4"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linecap="round"/>
+        </svg>
+      </span>
+
+      <h3>Submit Your Complaint</h3>
+
+      <p>
+        Describe your issue in your own words and submit your complaint
+        quickly through a simple and accessible form.
+      </p>
+
+    </article>
+
+
+    <!-- 02 -->
+    <article class="feature-card">
+
+      <span class="feature-card__index">02</span>
+
+      <span class="feature-card__icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M4 6h16v12H4z"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linejoin="round"/>
+          <path d="M8 10h8M8 14h5"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linecap="round"/>
+        </svg>
+      </span>
+
+      <h3>Reach the Right Department</h3>
+
+      <p>
+        Your complaint is intelligently directed to the department
+        responsible for handling your issue.
+      </p>
+
+    </article>
+
+
+    <!-- 03 -->
+    <article class="feature-card">
+
+      <span class="feature-card__index">03</span>
+
+      <span class="feature-card__icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="8"
+            stroke="currentColor"
+            stroke-width="1.6"/>
+          <path d="M12 8v4l3 2"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linecap="round"/>
+        </svg>
+      </span>
+
+      <h3>Track Progress</h3>
+
+      <p>
+        Stay informed with clear status updates as your complaint moves
+        from submission to assignment and resolution.
+      </p>
+
+    </article>
+
+
+    <!-- 04 -->
+    <article class="feature-card">
+
+      <span class="feature-card__index">04</span>
+
+      <span class="feature-card__icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M20 6 9 17l-5-5"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+        </svg>
+      </span>
+
+      <h3>Get Your Issue Resolved</h3>
+
+      <p>
+        Follow your complaint until the concerned department takes action
+        and your issue reaches resolution.
+      </p>
+
+    </article>
+
+  </div>
+
+</div>
+
 
   <!-- ============ NATIONAL COMMAND CENTER ============ -->
   <section class="command" id="command">
@@ -270,83 +358,629 @@
     </div>
   </section>
 
-  <!-- ============ COMPLAINT JOURNEY ============ -->
-  <section class="journey">
-    <div class="section-inner">
-      <div class="section-head">
-        <p class="eyebrow eyebrow--dark"><span class="eyebrow__dot"></span>How It Works</p>
-        <h2>The complaint journey</h2>
-        <p class="section-sub">From the moment a citizen submits a grievance to the moment it's closed — fully tracked, fully transparent.</p>
+<!-- ============ COMPLAINT JOURNEY ============ -->
+<section class="journey" id="journey">
+
+  <div class="section-inner">
+
+    <div class="section-head">
+      <p class="eyebrow eyebrow--dark">
+        <span class="eyebrow__dot"></span>
+        HOW IT WORKS
+      </p>
+
+      <h2>The complaint journey</h2>
+
+      <p class="section-sub">
+        From the moment a citizen submits a grievance to the moment
+        it's resolved — fully tracked and transparent.
+      </p>
+    </div>
+
+
+    <div class="journey-track">
+
+      <!-- Animated person -->
+      <div class="journey-person" id="journeyPerson">
+        👤
       </div>
+
+
+      <div class="journey-line">
+
+        <div class="journey-progress" id="journeyProgress"></div>
+
+      </div>
+
 
       <ol class="timeline">
-        <li class="timeline__item">
-          <div class="timeline__marker"></div>
+
+        <!-- STEP 1 -->
+        <li class="timeline__item active">
+
+          <div class="timeline__marker">
+            ✓
+          </div>
+
           <div class="timeline__content">
+
+            <span class="timeline__number">01</span>
+
             <h3>Complaint Submitted</h3>
-            <p>Citizen lodges a grievance via web, app or IVR in their own language.</p>
+
+            <p>
+              Citizen lodges a grievance through CivicFlow
+              in their own language.
+            </p>
+
           </div>
+
         </li>
+
+
+        <!-- STEP 2 -->
         <li class="timeline__item">
-          <div class="timeline__marker"></div>
+
+          <div class="timeline__marker">
+            AI
+          </div>
+
           <div class="timeline__content">
+
+            <span class="timeline__number">02</span>
+
             <h3>AI Classification</h3>
-            <p>Language, category and urgency are detected automatically, in under a second.</p>
+
+            <p>
+              The complaint is analysed and its language,
+              department and priority are identified automatically.
+            </p>
+
           </div>
+
         </li>
+
+
+        <!-- STEP 3 -->
         <li class="timeline__item">
-          <div class="timeline__marker"></div>
+
+          <div class="timeline__marker">
+            →
+          </div>
+
           <div class="timeline__content">
+
+            <span class="timeline__number">03</span>
+
             <h3>Department Assigned</h3>
-            <p>The complaint is routed to the correct department and jurisdiction with no manual sorting.</p>
+
+            <p>
+              The complaint is routed to the appropriate
+              department for action.
+            </p>
+
           </div>
+
         </li>
+
+
+        <!-- STEP 4 -->
         <li class="timeline__item">
-          <div class="timeline__marker"></div>
+
+          <div class="timeline__marker">
+            ✓
+          </div>
+
           <div class="timeline__content">
+
+            <span class="timeline__number">04</span>
+
             <h3>Officer Review</h3>
-            <p>An assigned officer verifies details and takes ownership, with SLA timers running.</p>
+
+            <p>
+              The assigned officer reviews the complaint,
+              updates its status and takes appropriate action.
+            </p>
+
           </div>
+
         </li>
+
+
+        <!-- STEP 5 -->
         <li class="timeline__item timeline__item--final">
-          <div class="timeline__marker timeline__marker--final">✓</div>
-          <div class="timeline__content">
-            <h3>Resolved</h3>
-            <p>The citizen is notified and asked to confirm resolution, closing the loop.</p>
+
+          <div class="timeline__marker timeline__marker--final">
+            ✓
           </div>
+
+          <div class="timeline__content">
+
+            <span class="timeline__number">05</span>
+
+            <h3>Resolved</h3>
+
+            <p>
+              The citizen receives an update and can track
+              the completed resolution.
+            </p>
+
+          </div>
+
         </li>
+
       </ol>
+
     </div>
-  </section>
+
+  </div>
+
+</section>
 
   <!-- ============ WHY CIVICFLOW AI ============ -->
-  <section class="why">
-    <div class="section-inner">
-      <div class="section-head section-head--light">
-        <p class="eyebrow"><span class="eyebrow__dot"></span>Why CivicFlow AI</p>
-        <h2>Built for national scale</h2>
-      </div>
-      <div class="why-grid">
-        <div class="why-card">
-          <p class="why-card__num" data-count="98.4" data-suffix="%" data-decimals="1">0%</p>
-          <p class="why-card__label">AI Classification Accuracy</p>
-        </div>
-        <div class="why-card">
-          <p class="why-card__num" data-count="0.8" data-suffix=" sec" data-decimals="1">0 sec</p>
-          <p class="why-card__label">Average Classification Time</p>
-        </div>
-        <div class="why-card">
-          <p class="why-card__num" data-count="8">0</p>
-          <p class="why-card__label">Departments Connected</p>
-        </div>
-        <div class="why-card">
-          <p class="why-card__num" data-count="24" data-suffix="×7">0</p>
-          <p class="why-card__label">Continuous Monitoring</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- ============ HOW TO USE CIVICFLOW ============ -->
+<section class="how-to-use">
 
+<div class="section-inner">
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<div class="section-head section-head--light">
+
+    <p class="eyebrow">
+        <span class="eyebrow__dot"></span>
+        HOW TO USE CIVICFLOW
+    </p>
+
+    <h2>
+        Submit your complaint in a few simple steps
+    </h2>
+
+    <p class="section-sub">
+        Watch how a citizen moves through CivicFlow,
+        from login to complaint submission.
+    </p>
+
+</div>
+
+
+<!-- =========================================================
+     ANIMATION
+========================================================= -->
+
+<div
+    class="civic-animation"
+    id="civicStage"
+>
+
+
+<!-- =========================================================
+     STEP 1
+========================================================= -->
+
+<div class="scene scene-1 active">
+
+    <div
+        class="website-logo"
+        id="websiteIcon"
+    >
+
+        <svg
+            class="logo-mark"
+            viewBox="0 0 40 40"
+            width="46"
+            height="46"
+        >
+
+            <circle
+                cx="20"
+                cy="20"
+                r="17"
+                fill="none"
+                stroke="#60a5fa"
+                stroke-width="3"
+            />
+
+            <circle
+                cx="20"
+                cy="20"
+                r="10"
+                fill="none"
+                stroke="#2563eb"
+                stroke-width="3"
+            />
+
+            <circle
+                cx="20"
+                cy="20"
+                r="4"
+                fill="#2563eb"
+            />
+
+        </svg>
+
+        <div class="logo-wordmark">
+
+            <span>CivicFlow</span>
+
+            <span class="logo-ai">
+                AI
+            </span>
+
+        </div>
+
+        <span class="logo-tag">
+            Public Service Portal
+        </span>
+
+    </div>
+
+
+    <div class="scene-text">
+
+        <span>STEP 1</span>
+
+        <h3>
+            Open CivicFlow
+        </h3>
+
+        <p>
+            Click the CivicFlow AI icon to visit the portal.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     STEP 2
+========================================================= -->
+
+<div class="scene scene-2">
+
+    <div class="fake-browser">
+
+        <div class="browser-top">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+
+        <div class="login-page">
+
+            <div class="fake-logo">
+
+                <svg
+                    viewBox="0 0 40 40"
+                    width="16"
+                    height="16"
+                >
+
+                    <circle
+                        cx="20"
+                        cy="20"
+                        r="17"
+                        fill="none"
+                        stroke="#60a5fa"
+                        stroke-width="3"
+                    />
+
+                    <circle
+                        cx="20"
+                        cy="20"
+                        r="10"
+                        fill="none"
+                        stroke="#2563eb"
+                        stroke-width="3"
+                    />
+
+                    <circle
+                        cx="20"
+                        cy="20"
+                        r="4"
+                        fill="#2563eb"
+                    />
+
+                </svg>
+
+                CivicFlow
+                <span class="mini-ai">AI</span>
+
+            </div>
+
+
+            <h3>
+                Welcome Back
+            </h3>
+
+
+            <label class="fake-label">
+                Email
+            </label>
+
+            <div
+                class="fake-input"
+                id="emailField"
+            >
+
+                <span class="typed-text"></span>
+
+                <span class="typing-caret"></span>
+
+            </div>
+
+
+            <label class="fake-label">
+                Password
+            </label>
+
+            <div
+                class="fake-input"
+                id="passwordField"
+            >
+
+                <span class="typed-text"></span>
+
+                <span class="typing-caret"></span>
+
+            </div>
+
+
+            <button
+                class="fake-login"
+                id="loginBtn"
+            >
+                LOGIN
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="scene-text">
+
+        <span>STEP 2</span>
+
+        <h3>
+            Login
+        </h3>
+
+        <p>
+            Enter your details and click <b>Login</b>.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     STEP 3
+========================================================= -->
+
+<div class="scene scene-3">
+
+    <div class="fake-browser">
+
+        <div class="browser-top">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+
+        <div class="fake-dashboard">
+
+            <div class="fake-sidebar">
+
+                <b>CivicFlow</b>
+
+                <small>Dashboard</small>
+
+                <small>My Complaints</small>
+
+                <small>Profile</small>
+
+            </div>
+
+
+            <div class="fake-main">
+
+                <h3>
+                    Welcome Back 👋
+                </h3>
+
+
+                <div class="fake-stats">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+
+                <button
+                    class="lodge-button"
+                    id="lodgeBtn"
+                >
+                    📝 Lodge Complaint
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="scene-text">
+
+        <span>STEP 3</span>
+
+        <h3>
+            Lodge a Complaint
+        </h3>
+
+        <p>
+            Click <b>Lodge Complaint</b> from your dashboard.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     STEP 4
+========================================================= -->
+
+<div class="scene scene-4">
+
+    <div class="fake-browser">
+
+        <div class="browser-top">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+
+        <div class="complaint-page">
+
+            <h3>
+                Lodge Complaint
+            </h3>
+
+
+            <div class="form-line"></div>
+
+            <div class="form-line"></div>
+
+
+            <div
+                class="form-textarea"
+                id="complaintText"
+            >
+
+                <span class="typed-text"></span>
+
+                <span
+                    class="typing-caret typing-caret--tall"
+                ></span>
+
+            </div>
+
+
+            <!-- ACTUAL SUBMIT BUTTON -->
+
+            <button
+                type="button"
+                class="submit-button"
+                id="submitBtn"
+            >
+                SUBMIT COMPLAINT
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="scene-text">
+
+        <span>STEP 4</span>
+
+        <h3>
+            Describe Your Issue
+        </h3>
+
+        <p>
+            Type your complaint, then click <b>Submit</b>.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     STEP 5
+========================================================= -->
+
+<div class="scene scene-5">
+
+    <div class="success-animation">
+
+        <div class="success-circle">
+            ✓
+        </div>
+
+        <h3>
+            Complaint Submitted!
+        </h3>
+
+        <p>
+            Your complaint is now being processed.
+        </p>
+
+    </div>
+
+
+    <div class="scene-text">
+
+        <span>DONE</span>
+
+        <h3>
+            That's it!
+        </h3>
+
+        <p>
+            Track your complaint anytime from My Complaints.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     PROGRESS
+========================================================= -->
+
+<div class="animation-progress">
+
+    <span class="progress-dot active"></span>
+
+    <span class="progress-line"></span>
+
+    <span class="progress-dot"></span>
+
+    <span class="progress-line"></span>
+
+    <span class="progress-dot"></span>
+
+    <span class="progress-line"></span>
+
+    <span class="progress-dot"></span>
+
+    <span class="progress-line"></span>
+
+    <span class="progress-dot"></span>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
   <!-- ============ FAQ ============ -->
   <section class="faq" id="faq">
     <div class="section-inner section-inner--narrow">
@@ -470,12 +1104,566 @@
     </div>
   </div>
   <div class="footer__bottom">
-    <p>© 2026 CivicFlow AI. Final Year Major Project — Department of Computer Science &amp; Engineering.</p>
+    <p>© 2026 CivicFlow AI.</p>
   </div>
 </footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="js/index.js"></script>
+<script>
+  /* ==========================================
+   CIVICFLOW COMPLAINT JOURNEY ANIMATION
+========================================== */
 
+const journey = document.querySelector(".journey");
+
+const journeyItems =
+    document.querySelectorAll(".timeline__item");
+
+const journeyProgress =
+    document.getElementById("journeyProgress");
+
+const journeyPerson =
+    document.getElementById("journeyPerson");
+
+
+if (journey && journeyItems.length) {
+
+    const observer = new IntersectionObserver(
+
+        (entries) => {
+
+            entries.forEach((entry) => {
+
+                if (!entry.isIntersecting) return;
+
+                let currentStep = 0;
+
+                const animateJourney = () => {
+
+                    journeyItems.forEach((item, index) => {
+
+                        item.classList.toggle(
+                            "active",
+                            index <= currentStep
+                        );
+
+                    });
+
+
+                    const progress =
+                        (currentStep /
+                        (journeyItems.length - 1)) * 100;
+
+
+                    journeyProgress.style.height =
+                        `${progress}%`;
+
+
+                    const personPosition =
+                        currentStep *
+                        (journey.offsetHeight /
+                        journeyItems.length);
+
+
+                    journeyPerson.style.top =
+                        `${personPosition}px`;
+
+
+                    currentStep++;
+
+                    if (
+                        currentStep <
+                        journeyItems.length
+                    ) {
+
+                        setTimeout(
+                            animateJourney,
+                            1200
+                        );
+
+                    }
+
+                };
+
+
+                animateJourney();
+
+                observer.unobserve(journey);
+
+            });
+
+        },
+
+        {
+            threshold: .25
+        }
+
+    );
+
+
+    observer.observe(journey);
+
+}
+
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        const stage =
+            document.getElementById(
+                "civicStage"
+            );
+
+        const scenes =
+            document.querySelectorAll(
+                ".scene"
+            );
+
+        const dots =
+            document.querySelectorAll(
+                ".progress-dot"
+            );
+
+
+        /* =====================================================
+           STEPS
+        ===================================================== */
+
+        const steps = [
+
+            /* STEP 1 */
+
+            {
+                scene: 0,
+
+                actions: [
+
+                    {
+                        type: "click",
+                        target: "#websiteIcon"
+                    }
+
+                ]
+            },
+
+
+            /* STEP 2 */
+
+            {
+                scene: 1,
+
+                actions: [
+
+                    {
+                        type: "type",
+
+                        target: "#emailField",
+
+                        text:
+                        "rahul.mehta92@gmail.com"
+                    },
+
+
+                    {
+                        type: "type",
+
+                        target: "#passwordField",
+
+                        text:
+                        "••••••••••"
+                    },
+
+
+                    {
+                        type: "click",
+
+                        target: "#loginBtn"
+                    }
+
+                ]
+            },
+
+
+            /* STEP 3 */
+
+            {
+                scene: 2,
+
+                actions: [
+
+                    {
+                        type: "click",
+
+                        target: "#lodgeBtn"
+                    }
+
+                ]
+            },
+
+
+            /* STEP 4 */
+
+            {
+                scene: 3,
+
+                actions: [
+
+                    {
+                        type: "type",
+
+                        target: "#complaintText",
+
+                        text:
+                        "Streetlight near Sector 12 market has been non-functional for a week, causing safety issues at night. Please repair at the earliest."
+                    },
+
+
+                    {
+                        type: "click",
+
+                        target: "#submitBtn"
+                    }
+
+                ]
+            },
+
+
+            /* SUCCESS */
+
+            {
+                scene: 4,
+
+                actions: []
+
+            }
+
+        ];
+
+
+        /* =====================================================
+           WAIT
+        ===================================================== */
+
+        const wait =
+            ms =>
+            new Promise(
+                resolve =>
+                    setTimeout(
+                        resolve,
+                        ms
+                    )
+            );
+
+
+        /* =====================================================
+           SHOW SCENE
+        ===================================================== */
+
+        function showScene(index) {
+
+            scenes.forEach(
+                (scene, i) => {
+
+                    scene.classList.toggle(
+                        "active",
+                        i === index
+                    );
+
+                }
+            );
+
+
+            dots.forEach(
+                (dot, i) => {
+
+                    dot.classList.toggle(
+                        "active",
+                        i === index
+                    );
+
+                }
+            );
+
+        }
+
+
+        /* =====================================================
+           FAST TYPING
+        ===================================================== */
+
+        function typeInto(
+            container,
+            text
+        ) {
+
+            const span =
+                container.querySelector(
+                    ".typed-text"
+                );
+
+            span.textContent = "";
+
+            container.classList.add(
+                "typing-now"
+            );
+
+
+            return new Promise(
+                resolve => {
+
+                    let i = 0;
+
+
+                    /*
+                       VERY FAST:
+                       8 milliseconds
+                       per character
+                    */
+
+                    const timer =
+                        setInterval(
+                            () => {
+
+                                span.textContent +=
+                                    text[i];
+
+                                i++;
+
+
+                                if (
+                                    i >=
+                                    text.length
+                                ) {
+
+                                    clearInterval(
+                                        timer
+                                    );
+
+                                    container.classList.remove(
+                                        "typing-now"
+                                    );
+
+                                    resolve();
+                                }
+
+                            },
+                            80
+                        );
+
+                }
+            );
+
+        }
+
+
+        /* =====================================================
+           CLICK EFFECT
+        ===================================================== */
+
+        async function pressElement(
+            element
+        ) {
+
+            /*
+               Highlight the exact
+               element being clicked.
+            */
+
+            element.classList.add(
+                "target-press"
+            );
+
+
+            await wait(450);
+
+
+            element.classList.remove(
+                "target-press"
+            );
+
+
+            await wait(180);
+
+        }
+
+
+        /* =====================================================
+           RUN ACTION
+        ===================================================== */
+
+        async function runAction(
+            action
+        ) {
+
+            const element =
+                document.querySelector(
+                    action.target
+                );
+
+
+            if (!element) {
+                return;
+            }
+
+
+            /* TYPE */
+
+            if (
+                action.type === "type"
+            ) {
+
+                await typeInto(
+                    element,
+                    action.text
+                );
+
+
+                await wait(180);
+
+            }
+
+
+            /* CLICK */
+
+            else if (
+                action.type === "click"
+            ) {
+
+                await pressElement(
+                    element
+                );
+
+            }
+
+        }
+
+
+        /* =====================================================
+           RUN STEP
+        ===================================================== */
+
+        async function runStep(
+            step
+        ) {
+
+            showScene(
+                step.scene
+            );
+
+
+            /*
+               Wait for scene to appear.
+            */
+
+            await wait(450);
+
+
+            /*
+               SUCCESS SCREEN
+            */
+
+            if (
+                step.actions.length === 0
+            ) {
+
+                await wait(2800);
+
+                return;
+
+            }
+
+
+            /*
+               Run every action
+               one after another.
+            */
+
+            for (
+                const action
+                of step.actions
+            ) {
+
+                await runAction(
+                    action
+                );
+
+            }
+
+
+            /*
+               Give extra time after
+               SUBMIT COMPLAINT.
+            */
+
+            if (
+                step.scene === 3
+            ) {
+
+                await wait(500);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        function resetFields() {
+
+            document
+                .querySelectorAll(
+                    ".typed-text"
+                )
+                .forEach(
+                    span => {
+
+                        span.textContent = "";
+
+                    }
+                );
+
+        }
+
+
+        /* =====================================================
+           MAIN LOOP
+        ===================================================== */
+
+        async function loop() {
+
+            while (true) {
+
+                for (
+                    const step
+                    of steps
+                ) {
+
+                    await runStep(
+                        step
+                    );
+
+                }
+
+
+                resetFields();
+
+
+                await wait(500);
+
+            }
+
+        }
+
+
+        loop();
+
+    }
+);
+
+</script>
 </body>
 </html>

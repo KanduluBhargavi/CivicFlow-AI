@@ -94,3 +94,58 @@ transform:translateY(-2px);
 box-shadow:0 8px 18px rgba(16,185,129,.3);
 
 }
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+html.dark body {
+    background:
+        radial-gradient(circle at top left, #2563eb20, transparent 35%),
+        radial-gradient(circle at bottom right, #10b98118, transparent 35%),
+        #080d18;
+    color: #f8fafc;
+}
+
+
+/* =========================
+   BACK BUTTON
+   ========================= */
+
+html.dark .back-btn {
+    background: #2563eb;
+    color: #fff;
+}
+
+html.dark .back-btn:hover {
+    background: #1d4ed8;
+}
+
+
+/* =========================
+   TRACK BUTTON
+   ========================= */
+
+html.dark .track-btn {
+    background: #059669;
+    color: #fff;
+}
+
+html.dark .track-btn:hover {
+    background: #047857;
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.25);
+}
+
+
+/* =========================
+   VIEW BUTTON
+   ========================= */
+
+html.dark .view-btn {
+    background: #2563eb;
+    color: #fff;
+}
+
+html.dark .view-btn:hover {
+    background: #1d4ed8;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}

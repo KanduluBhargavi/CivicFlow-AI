@@ -149,3 +149,117 @@ i{
 margin-right:8px;
 
 }
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+html.dark body {
+    background:
+        radial-gradient(circle at top left, #2563eb25, transparent 35%),
+        radial-gradient(circle at bottom right, #10b98118, transparent 35%),
+        #080d18;
+    color: #f8fafc;
+}
+
+
+/* =========================
+   PROFILE CARD
+   ========================= */
+
+html.dark .profile-card {
+    background: #111827;
+    border: 1px solid rgba(148, 163, 184, 0.12);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+
+/* =========================
+   HEADINGS
+   ========================= */
+
+html.dark h1,
+html.dark h2 {
+    color: #60a5fa;
+}
+
+
+/* =========================
+   INPUTS & TEXTAREA
+   ========================= */
+
+html.dark input,
+html.dark textarea {
+    background: #1e293b;
+    color: #f8fafc;
+    border-color: rgba(148, 163, 184, 0.2);
+}
+
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+    color: #94a3b8;
+}
+
+
+html.dark input:focus,
+html.dark textarea:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+
+/* =========================
+   BUTTON
+   ========================= */
+
+html.dark button {
+    background: linear-gradient(135deg, #2563eb, #059669);
+}
+
+
+html.dark button:hover {
+    background: linear-gradient(135deg, #1d4ed8, #047857);
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
+}
+
+
+/* =========================
+   BACK BUTTON
+   ========================= */
+
+html.dark .backBtn {
+    background: #334155;
+}
+
+
+html.dark .backBtn:hover {
+    background: #475569;
+}
+
+
+/* =========================
+   DIVIDER
+   ========================= */
+
+html.dark hr {
+    background: rgba(148, 163, 184, 0.18);
+}
+
+
+/* =========================
+   ICONS
+   ========================= */
+
+html.dark i {
+    color: #60a5fa;
+}
+
+
+/* =========================
+   SELECTION
+   ========================= */
+
+html.dark ::selection {
+    background: #2563eb;
+    color: #fff;
+}

@@ -76,3 +76,142 @@ transform:translateY(-2px);
 #para{
     color:rgb(217, 220, 223)
 }
+/* =====================================================
+   DARK MODE — DEPARTMENT DASHBOARD
+   ===================================================== */
+
+html.dark body {
+    background:
+        radial-gradient(circle at top left, rgba(37,99,235,.12), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(16,185,129,.10), transparent 35%),
+        #0f172a;
+
+    color:#e5e7eb;
+}
+
+
+/* Navbar */
+html.dark .navbar {
+    background:#111827;
+    color:#f8fafc;
+}
+
+html.dark .logo {
+    color:#f8fafc;
+}
+
+
+/* Sidebar */
+html.dark .sidebar {
+    background:#111827;
+    border-right:1px solid #1f2937;
+}
+
+html.dark .sidebar li {
+    color:#d1d5db;
+}
+
+html.dark .sidebar li:hover {
+    background:#1f2937;
+    color:#ffffff;
+}
+
+
+/* Main content */
+html.dark .content {
+    background:#0f172a;
+}
+
+
+/* Hero */
+html.dark .hero-card {
+    background:linear-gradient(135deg,#064e3b,#047857);
+    color:#f8fafc;
+}
+
+html.dark .hero-card h1 {
+    color:#ffffff;
+}
+
+html.dark .hero-card p,
+html.dark #para {
+    color:#d1fae5;
+}
+
+
+/* Stats cards */
+html.dark .card {
+    background:#1e293b;
+    color:#f8fafc;
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+    border:1px solid #334155;
+}
+
+html.dark .card h3 {
+    color:#cbd5e1;
+}
+
+html.dark .card h1 {
+    color:#60a5fa;
+}
+
+
+/* Department-specific info cards */
+html.dark .info-card {
+    background:#1e293b;
+    color:#e5e7eb;
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+    border:1px solid #334155;
+}
+
+html.dark .info-card h3 {
+    color:#e2e8f0;
+}
+
+html.dark .info-card h1 {
+    color:#34d399;
+}
+
+
+/* Tables */
+html.dark table {
+    background:#1e293b;
+    color:#e5e7eb;
+}
+
+html.dark table th {
+    background:#111827;
+    color:#f8fafc;
+}
+
+html.dark table td {
+    color:#d1d5db;
+    border-color:#334155;
+}
+
+html.dark table tr:hover {
+    background:#263449;
+}
+
+
+/* Section headings */
+html.dark .section-title h2 {
+    color:#f8fafc;
+}
+
+
+/* General text */
+html.dark p {
+    color:#cbd5e1;
+}
+
+
+/* Buttons */
+html.dark table button {
+    background:#10b981;
+    color:white;
+}
+
+html.dark table button:hover {
+    background:#059669;
+}

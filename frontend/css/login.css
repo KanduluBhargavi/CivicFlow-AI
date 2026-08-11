@@ -298,3 +298,81 @@ RESPONSIVE
 }
 
 }
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+html.dark body {
+    background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.18), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(16, 185, 129, 0.12), transparent 35%),
+        #0b1120;
+    color: #f8fafc;
+}
+
+/* Main login container */
+html.dark .auth-container {
+    background: #111827;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+}
+
+/* Right side */
+html.dark .right-panel {
+    background: #111827;
+}
+
+/* Login heading */
+html.dark #loginForm h2 {
+    color: #f8fafc;
+}
+
+/* Input fields */
+html.dark .input-box input {
+    background: #1e293b;
+    color: #f8fafc;
+    border: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+html.dark .input-box input::placeholder {
+    color: #94a3b8;
+}
+
+html.dark .input-box input:focus {
+    background: #1e293b;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
+}
+
+/* Input icons */
+html.dark .input-box i {
+    color: #60a5fa;
+}
+
+/* Register text */
+html.dark #loginForm p {
+    color: #94a3b8;
+}
+
+html.dark #loginForm a {
+    color: #60a5fa;
+}
+
+html.dark #loginForm a:hover {
+    color: #34d399;
+}
+
+/* Login button */
+html.dark button {
+    background: linear-gradient(135deg, #2563eb, #10b981);
+}
+
+/* Mobile */
+@media (max-width: 1000px) {
+    html.dark .auth-container {
+        background: #111827;
+    }
+
+    html.dark .right-panel {
+        background: #111827;
+    }
+}

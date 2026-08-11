@@ -363,3 +363,165 @@ RESPONSIVE
     font-family:'Poppins',sans-serif;
 
 }
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+html.dark body {
+    background:
+        radial-gradient(circle at top left, #2563eb30, transparent 35%),
+        radial-gradient(circle at bottom right, #10b98120, transparent 35%),
+        #080d18;
+
+    color: #f8fafc;
+}
+
+
+/* =========================
+   MAIN CONTAINER
+   ========================= */
+
+html.dark .auth-container {
+    background: #111827;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+}
+
+
+/* =========================
+   LEFT PANEL
+   ========================= */
+
+html.dark .left-panel {
+    background:
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #1d4ed8,
+            #047857
+        );
+}
+
+
+/* =========================
+   RIGHT PANEL
+   ========================= */
+
+html.dark .right-panel {
+    background: #111827;
+}
+
+
+/* =========================
+   REGISTER HEADING
+   ========================= */
+
+html.dark #registerForm h2 {
+    color: #f8fafc;
+}
+
+
+/* =========================
+   INPUTS
+   ========================= */
+
+html.dark .input-box input,
+html.dark .input-box select,
+html.dark .input-box textarea {
+    background: #1e293b;
+    color: #f8fafc;
+    border: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+
+/* Placeholder text */
+
+html.dark .input-box input::placeholder,
+html.dark .input-box textarea::placeholder {
+    color: #94a3b8;
+}
+
+
+/* Input icons */
+
+html.dark .input-box i {
+    color: #38bdf8;
+}
+
+
+/* Input focus */
+
+html.dark .input-box input:focus,
+html.dark .input-box select:focus,
+html.dark .input-box textarea:focus {
+    background: #172033;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+    border-color: #2563eb;
+}
+
+
+/* =========================
+   SELECT OPTIONS
+   ========================= */
+
+html.dark .input-box select {
+    color: #f8fafc;
+}
+
+html.dark .input-box select option {
+    background: #1e293b;
+    color: #f8fafc;
+}
+
+
+/* =========================
+   LOCATION BUTTON
+   ========================= */
+
+html.dark .location-btn {
+    background: linear-gradient(135deg, #0284c7, #2563eb);
+}
+
+html.dark .location-btn:hover {
+    background: linear-gradient(135deg, #0369a1, #1d4ed8);
+}
+
+
+/* =========================
+   LOGIN TEXT
+   ========================= */
+
+html.dark #registerForm p {
+    color: #94a3b8;
+}
+
+html.dark #registerForm a {
+    color: #60a5fa;
+}
+
+html.dark #registerForm a:hover {
+    color: #34d399;
+}
+
+
+/* =========================
+   MAIN BUTTON
+   ========================= */
+
+html.dark button {
+    background: linear-gradient(135deg, #2563eb, #059669);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.15);
+}
+
+html.dark button:hover {
+    box-shadow: 0 20px 35px rgba(37, 99, 235, 0.3);
+}
+
+
+/* =========================
+   TEXT SELECTION
+   ========================= */
+
+html.dark ::selection {
+    background: #2563eb;
+    color: white;
+}

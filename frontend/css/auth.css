@@ -270,3 +270,146 @@ button:hover{
     color:#10b981;
 
 }
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+html.dark body {
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(37,99,235,.18),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            rgba(16,185,129,.12),
+            transparent 30%
+        ),
+        #080d1a;
+}
+
+
+/* =========================
+   AUTH CONTAINER
+   ========================= */
+
+html.dark .auth-container {
+    background:#111827;
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,.5);
+
+    border:1px solid #1f2937;
+}
+
+
+/* =========================
+   RIGHT PANEL
+   ========================= */
+
+html.dark .right-panel {
+    background:#111827;
+}
+
+
+/* =========================
+   LOGIN HEADING
+   ========================= */
+
+html.dark #loginForm h2 {
+    color:#f8fafc;
+}
+
+
+/* =========================
+   INPUTS
+   ========================= */
+
+html.dark .input-box i {
+    color:#60a5fa;
+}
+
+html.dark .input-box input {
+    background:#1e293b;
+
+    color:#f1f5f9;
+
+    border:1px solid #334155;
+}
+
+html.dark .input-box input::placeholder {
+    color:#94a3b8;
+}
+
+html.dark .input-box input:focus {
+    background:#172033;
+
+    border-color:#3b82f6;
+
+    box-shadow:
+        0 0 0 3px rgba(37,99,235,.20);
+}
+
+
+/* =========================
+   REGISTER / LOGIN TEXT
+   ========================= */
+
+html.dark #loginForm p {
+    color:#94a3b8;
+}
+
+html.dark #loginForm a {
+    color:#60a5fa;
+}
+
+html.dark #loginForm a:hover {
+    color:#34d399;
+}
+
+
+/* =========================
+   BUTTON
+   ========================= */
+
+html.dark button {
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #059669
+        );
+
+    box-shadow:
+        0 10px 25px rgba(37,99,235,.15);
+}
+
+html.dark button:hover {
+    background:
+        linear-gradient(
+            135deg,
+            #3b82f6,
+            #10b981
+        );
+
+    box-shadow:
+        0 15px 35px rgba(37,99,235,.30);
+}
+
+
+/* =========================
+   LEFT PANEL
+   Keep the colorful design,
+   just make it slightly deeper
+   ========================= */
+
+html.dark .left-panel {
+    background:
+        linear-gradient(
+            135deg,
+            #0b1b33,
+            #1d4ed8,
+            #047857
+        );
+}

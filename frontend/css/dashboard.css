@@ -337,4 +337,245 @@ font-size:26px;
     }
 
 }
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+html.dark body {
+    background:
+        radial-gradient(circle at top left, rgba(37,99,235,.12), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(16,185,129,.10), transparent 35%),
+        #0b1120;
+
+    color: #e5e7eb;
+}
+
+
+/* =========================
+   NAVBAR
+   ========================= */
+
+html.dark .navbar {
+    background: #080d1a;
+    color: #f8fafc;
+    box-shadow: 0 4px 20px rgba(0,0,0,.35);
+}
+
+
+/* =========================
+   SIDEBAR
+   ========================= */
+
+html.dark .sidebar {
+    background: #080d1a;
+    color: #e5e7eb;
+    border-right: 1px solid #1e293b;
+}
+
+html.dark .sidebar li:hover,
+html.dark .sidebar .active {
+    background: linear-gradient(135deg,#2563eb,#1d4ed8);
+}
+
+
+/* =========================
+   CONTENT
+   ========================= */
+
+html.dark .content {
+    background: transparent;
+}
+
+
+/* =========================
+   HERO CARD
+   ========================= */
+
+html.dark .hero-card {
+    background:
+        linear-gradient(
+            135deg,
+            #111c35,
+            #172554
+        );
+
+    color: #f8fafc;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.35);
+
+    border: 1px solid #263452;
+}
+
+html.dark .hero-card h1 {
+    color: #f8fafc;
+}
+
+html.dark .hero-card p {
+    color: #cbd5e1;
+}
+
+
+/* =========================
+   STAT CARDS
+   ========================= */
+
+html.dark .card {
+    background: #111827;
+
+    color: #f8fafc;
+
+    border: 1px solid #1f2937;
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.30);
+}
+
+html.dark .card:hover {
+    box-shadow:
+        0 18px 40px rgba(37,99,235,.15);
+}
+
+html.dark .card h3 {
+    color: #94a3b8;
+}
+
+html.dark .card h1 {
+    color: #60a5fa;
+}
+
+
+/* =========================
+   SECTION TITLES
+   ========================= */
+
+html.dark .section-title h2 {
+    color: #f8fafc;
+}
+
+
+/* =========================
+   RECENT COMPLAINTS
+   ========================= */
+
+html.dark .recent {
+    background: #111827;
+
+    border: 1px solid #1f2937;
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.30);
+}
+
+
+/* TABLE */
+
+html.dark th {
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #1d4ed8
+    );
+}
+
+html.dark td {
+    color: #dbeafe;
+    border-bottom: 1px solid #273449;
+}
+
+html.dark tbody tr:hover {
+    background: #172033;
+}
+
+
+/* =========================
+   TIMELINE
+   ========================= */
+
+html.dark .timeline {
+    background: #111827;
+
+    border: 1px solid #1f2937;
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.30);
+}
+
+html.dark #timelineBox {
+    background: #0f172a;
+    color: #cbd5e1;
+
+    border: 1px solid #1e293b;
+}
+
+
+/* =========================
+   LODGE COMPLAINT
+   ========================= */
+
+html.dark #complaintSection {
+    background: #111827;
+
+    border: 1px solid #1f2937;
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.30);
+}
+
+html.dark #complaintSection h2 {
+    color: #60a5fa;
+}
+
+html.dark #complaintForm input,
+html.dark #complaintForm textarea,
+html.dark #complaintForm select {
+    background: #0f172a;
+
+    color: #e5e7eb;
+
+    border-color: #334155;
+}
+
+html.dark #complaintForm input::placeholder,
+html.dark #complaintForm textarea::placeholder {
+    color: #64748b;
+}
+
+html.dark #complaintForm input:focus,
+html.dark #complaintForm textarea:focus,
+html.dark #complaintForm select:focus {
+    background: #111827;
+
+    border-color: #3b82f6;
+
+    box-shadow:
+        0 0 0 3px rgba(59,130,246,.18);
+}
+
+html.dark #complaintForm label {
+    color: #cbd5e1;
+}
+
+
+/* =========================
+   SCROLLBAR
+   ========================= */
+
+html.dark ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+html.dark ::-webkit-scrollbar-track {
+    background: #0b1120;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 10px;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+}
 

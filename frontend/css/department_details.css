@@ -519,3 +519,140 @@ hr{
 }
 
 }
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+html.dark body {
+    background: #0b1120;
+    color: #e5e7eb;
+}
+
+/* Main container */
+html.dark .container {
+    color: #e5e7eb;
+}
+
+/* Top heading */
+html.dark .top-bar h1 {
+    color: #f8fafc;
+}
+
+/* Main card */
+html.dark .card {
+    background: #111827;
+    border: 1px solid #1f2937;
+    box-shadow: 0 20px 45px rgba(0,0,0,.35);
+}
+
+/* Header */
+html.dark .header h2 {
+    color: #f8fafc;
+}
+
+html.dark .header p {
+    color: #94a3b8;
+}
+
+/* Horizontal lines */
+html.dark hr {
+    background: #263244;
+}
+
+/* Grid labels */
+html.dark .grid label {
+    color: #94a3b8;
+}
+
+html.dark .grid p {
+    color: #e5e7eb;
+}
+
+/* General labels */
+html.dark .card label {
+    color: #cbd5e1;
+}
+
+/* Complaint/content boxes */
+html.dark .box {
+    background: #172033;
+    border-color: #263244;
+    color: #cbd5e1;
+}
+
+/* AI summary */
+html.dark .summary {
+    background: rgba(20, 184, 166, .10);
+    border-left-color: #14b8a6;
+    color: #99f6e4;
+}
+
+/* Media */
+html.dark #mediaContainer img,
+html.dark #mediaContainer video {
+    box-shadow: 0 12px 30px rgba(0,0,0,.4);
+}
+
+/* Timeline */
+html.dark .timeline-item {
+    background: #172033;
+    border-left-color: #3b82f6;
+}
+
+html.dark .timeline-title {
+    color: #f1f5f9;
+}
+
+/* Status dropdown */
+html.dark .status-update select {
+    background: #172033;
+    color: #e5e7eb;
+    border-color: #334155;
+}
+
+html.dark .status-update select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59,130,246,.15);
+}
+
+/* Buttons */
+html.dark .back-btn {
+    background: #2563eb;
+}
+
+html.dark .back-btn:hover {
+    background: #3b82f6;
+}
+
+html.dark .status-update button {
+    background: #10b981;
+}
+
+html.dark .status-update button:hover {
+    background: #059669;
+}
+
+/* Badges stay colorful */
+html.dark .priority.high {
+    background: #dc2626;
+}
+
+html.dark .priority.medium {
+    background: #d97706;
+}
+
+html.dark .priority.low {
+    background: #16a34a;
+}
+
+html.dark .status.assigned {
+    background: #2563eb;
+}
+
+html.dark .status.progress {
+    background: #d97706;
+}
+
+html.dark .status.resolved {
+    background: #16a34a;
+}
