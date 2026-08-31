@@ -186,7 +186,7 @@ def create_complaint(
 #     return complaints
 
 
-@router.get("/compliants")
+@router.get("/complaints")
 def get_all_compliants(db: Session=Depends(get_db)):
     complaints=db.query(Complaint).all()
     return complaints
@@ -248,7 +248,7 @@ def my_complaints(
 
     for c in complaints:
 
-        print("this is ",c.predicted_department)
+        # print("this is ",c.predicted_department)
         data.append({
             "complaint_id": c.complaint_id,
             "title": c.title,
@@ -280,16 +280,43 @@ def complaint_details(
     if not complaint:
         return {"message": "Complaint not found"}
 
+    # return {
+    #     "complaint_id": complaint.complaint_id,
+    #     "title": complaint.title,
+    #     "description": complaint.description,
+        
+    #     "department": complaint.predicted_department,
+    #     "priority": complaint.priority,
+    #     "status": complaint.status,
+    #     "summary": complaint.ai_summary,
+    #     "created_at": complaint.created_at,
+    #     "assigned_at": complaint.assigned_at,
+    #     "in_progress_at": complaint.in_progress_at,
+    #     "resolved_at": complaint.resolved_at
+    # }
     return {
-        "complaint_id": complaint.complaint_id,
-        "title": complaint.title,
-        "description": complaint.description,
-        "department": complaint.predicted_department,
-        "priority": complaint.priority,
-        "status": complaint.status,
-        "summary": complaint.ai_summary,
-        "created_at": complaint.created_at,
-        "assigned_at": complaint.assigned_at,
-        "in_progress_at": complaint.in_progress_at,
-        "resolved_at": complaint.resolved_at
-    }
+    "complaint_id": complaint.complaint_id,
+    "title": complaint.title,
+    "description": complaint.description,
+
+    # AI Analysis
+    "language": complaint.language,
+    "translated_text": complaint.translated_text,
+    "department": complaint.predicted_department,
+    "priority": complaint.priority,
+    "summary": complaint.ai_summary,
+
+    # Complaint Information
+    "state": complaint.state,
+    "district": complaint.district,
+    "area": complaint.area,
+
+    # Status
+    "status": complaint.status,
+
+    # Dates
+    "created_at": complaint.created_at,
+    "assigned_at": complaint.assigned_at,
+    "in_progress_at": complaint.in_progress_at,
+    "resolved_at": complaint.resolved_at
+}
