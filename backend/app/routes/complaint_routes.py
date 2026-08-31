@@ -37,17 +37,44 @@ coordinates_df = pd.read_csv(
 
 def get_coordinates(state: str, district: str):
 
+    state = state.strip().lower()
+    district = district.strip().lower()
+
+    # Clean the CSV values too
+    coordinates_df["state_clean"] = (
+        coordinates_df["state"]
+        .astype(str)
+        .str.strip()
+        .str.lower()
+    )
+
+    coordinates_df["district_clean"] = (
+        coordinates_df["district"]
+        .astype(str)
+        .str.strip()
+        .str.lower()
+    )
+
     match = coordinates_df[
-        (coordinates_df["state"].str.lower() == state.lower()) &
-        (coordinates_df["district"].str.lower() == district.lower())
+        (coordinates_df["state_clean"] == state) &
+        (coordinates_df["district_clean"] == district)
     ]
 
     if match.empty:
-        print(f"Coordinates not found for: {district}, {state}")
+        print(f"Coordinates not found for: '{district}', '{state}'")
+        print("Available matching state districts:")
+        print(
+            coordinates_df[
+                coordinates_df["state_clean"] == state
+            ][["state", "district"]]
+        )
+
         return 0.0, 0.0
 
     latitude = float(match.iloc[0]["latitude"])
     longitude = float(match.iloc[0]["longitude"])
+
+    print(f"Coordinates found: {district}, {state} -> {latitude}, {longitude}")
 
     return latitude, longitude
 
@@ -68,6 +95,9 @@ def create_complaint(
     db: Session = Depends(get_db)
     
 ):
+    state = " ".join(state.strip().split()).title()
+    district = " ".join(district.strip().split()).title()
+
     language=detect_language(description)
     translated_text=translate_text(description)
     predicted_department=predict_department(translated_text)

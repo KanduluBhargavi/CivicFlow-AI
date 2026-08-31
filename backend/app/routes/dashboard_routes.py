@@ -205,4 +205,5 @@ def map_data(db: Session = Depends(get_db)):
             "state": c.state
         }
         for c in complaints
+    
     ]
