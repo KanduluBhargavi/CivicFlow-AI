@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+
+<!-- Theme must load before the page -->
+<script src="js/theme.js"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CivicFlow AI | Feedback</title>
+
+<link rel="stylesheet" href="css/feedback.css">
+
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+<div class="logo">
+    <i class="fa-solid fa-shield-halved"></i>
+    CivicFlow AI
+</div>
+
+<div class="nav-right">
+
+    <span class="welcome">
+        Welcome,
+        <span id="userName"></span>
+    </span>
+
+    <button id="logoutBtn">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        Logout
+    </button>
+
+    <button
+        id="themeToggle"
+        class="theme-toggle"
+        type="button"
+        aria-label="Toggle dark mode">
+
+        🌙
+
+    </button>
+
+</div>
+
+
+</nav>
+
+<!-- ================= MAIN ================= -->
+
+<div class="dashboard-container">
+
+
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar">
+
+    <ul>
+
+        <li onclick="location.href='dashboard.html'">
+            <i class="fa-solid fa-table-columns"></i>
+            Dashboard
+        </li>
+
+        <li onclick="location.href='complaint.html'">
+            <i class="fa-solid fa-plus"></i>
+            Lodge Complaint
+        </li>
+
+        <li onclick="location.href='my_complaints.html'">
+            <i class="fa-solid fa-list"></i>
+            My Complaints
+        </li>
+
+        <li onclick="location.href='profile.html'">
+            <i class="fa-solid fa-user"></i>
+            My Profile
+        </li>
+
+        <!-- ACTIVE PAGE -->
+
+        <li class="active">
+            <i class="fa-solid fa-comment-dots"></i>
+            Feedback
+        </li>
+
+        <li id="logoutSide">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+        </li>
+
+    </ul>
+
+</aside>
+
+
+<!-- ================= CONTENT ================= -->
+
+<main class="content">
+
+
+    <!-- PAGE HEADER -->
+
+    <section class="feedback-hero">
+
+        <div class="feedback-hero-text">
+
+            <span class="feedback-label">
+                <i class="fa-solid fa-heart"></i>
+                YOUR VOICE MATTERS
+            </span>
+
+            <h1>
+                Share Your Feedback
+            </h1>
+
+            <p>
+                Help us improve CivicFlow AI by sharing your experience,
+                suggestions, and ideas with us.
+            </p>
+
+        </div>
+
+
+        <div class="feedback-hero-icon">
+            💬
+        </div>
+
+    </section>
+
+
+
+    <!-- FEEDBACK CARD -->
+
+    <section class="feedback-card">
+
+
+        <div class="card-heading">
+
+            <div class="heading-icon">
+                <i class="fa-solid fa-star"></i>
+            </div>
+
+            <div>
+
+                <h2>How was your experience?</h2>
+
+                <p>
+                    Your feedback helps us make CivicFlow AI better.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <form id="feedbackForm">
+
+
+            <!-- RATING -->
+
+            <div class="form-group">
+
+                <label>
+                    Rate your experience
+                </label>
+
+                <div class="rating-container">
+
+                    <div class="stars" id="stars">
+
+                        <button
+                            type="button"
+                            class="star"
+                            data-rating="1"
+                            aria-label="1 star">
+
+                            <i class="fa-regular fa-star"></i>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="star"
+                            data-rating="2"
+                            aria-label="2 stars">
+
+                            <i class="fa-regular fa-star"></i>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="star"
+                            data-rating="3"
+                            aria-label="3 stars">
+
+                            <i class="fa-regular fa-star"></i>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="star"
+                            data-rating="4"
+                            aria-label="4 stars">
+
+                            <i class="fa-regular fa-star"></i>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="star"
+                            data-rating="5"
+                            aria-label="5 stars">
+
+                            <i class="fa-regular fa-star"></i>
+
+                        </button>
+
+                    </div>
+
+
+                    <span id="ratingText">
+                        Select a rating
+                    </span>
+
+                </div>
+
+
+                <input
+                    type="hidden"
+                    id="rating"
+                    value="">
+
+            </div>
+
+
+
+            <!-- FEEDBACK MESSAGE -->
+
+            <div class="form-group">
+
+                <label for="feedbackMessage">
+
+                    Your Feedback
+
+                </label>
+
+
+                <textarea
+                    id="feedbackMessage"
+                    rows="7"
+                    maxlength="2000"
+                    placeholder="Tell us about your experience with CivicFlow AI..."
+                    required>
+
+                </textarea>
+
+
+                <div class="textarea-footer">
+
+                    <span>
+                        Share your suggestions, ideas, or experience.
+                    </span>
+
+                    <span id="characterCount">
+                        0 / 2000
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SUBMIT -->
+
+            <button
+                type="submit"
+                id="submitBtn"
+                class="submit-feedback-btn">
+
+                <i class="fa-solid fa-paper-plane"></i>
+
+                Submit Feedback
+
+            </button>
+
+
+            <!-- SUCCESS / ERROR MESSAGE -->
+
+            <div
+                id="messageBox"
+                class="message-box">
+
+            </div>
+
+
+        </form>
+
+    </section>
+
+
+</main>
+```
+
+</div>
+
+<script>
+
+
+/* =========================
+   USER LOGIN CHECK
+========================= */
+
+const token = localStorage.getItem("access_token");
+
+
+if (!token) {
+
+    window.location.href = "login.html";
+
+}
+
+
+
+/* =========================
+   USER NAME
+========================= */
+
+const userName = localStorage.getItem("userName");
+
+if (userName) {
+
+    document.getElementById("userName").textContent = userName;
+
+}
+
+
+
+/* =========================
+   STAR RATING
+========================= */
+
+const stars =
+    document.querySelectorAll(".star");
+
+const ratingInput =
+    document.getElementById("rating");
+
+const ratingText =
+    document.getElementById("ratingText");
+
+
+const ratingMessages = {
+
+    1: "Very Poor 😞",
+    2: "Needs Improvement 😕",
+    3: "Good 🙂",
+    4: "Very Good 😊",
+    5: "Excellent! 🎉"
+
+};
+
+
+stars.forEach(star => {
+
+    star.addEventListener("click", () => {
+
+        const selectedRating =
+            Number(star.dataset.rating);
+
+
+        ratingInput.value =
+            selectedRating;
+
+
+        ratingText.textContent =
+            ratingMessages[selectedRating];
+
+
+        stars.forEach(item => {
+
+            const starRating =
+                Number(item.dataset.rating);
+
+
+            const icon =
+                item.querySelector("i");
+
+
+            if (starRating <= selectedRating) {
+
+                icon.className =
+                    "fa-solid fa-star";
+
+                item.classList.add("selected");
+
+            }
+
+            else {
+
+                icon.className =
+                    "fa-regular fa-star";
+
+                item.classList.remove("selected");
+
+            }
+
+        });
+
+    });
+
+});
+
+
+
+/* =========================
+   CHARACTER COUNTER
+========================= */
+
+const feedbackMessage =
+    document.getElementById("feedbackMessage");
+
+const characterCount =
+    document.getElementById("characterCount");
+
+
+feedbackMessage.addEventListener("input", () => {
+
+    characterCount.textContent =
+        `${feedbackMessage.value.length} / 2000`;
+
+});
+
+
+
+/* =========================
+   SUBMIT FEEDBACK
+========================= */
+
+document
+.getElementById("feedbackForm")
+.addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+
+    const rating =
+        Number(ratingInput.value);
+
+    const message =
+        feedbackMessage.value.trim();
+
+
+    const messageBox =
+        document.getElementById("messageBox");
+
+    const submitBtn =
+        document.getElementById("submitBtn");
+
+
+    messageBox.textContent = "";
+    messageBox.className = "message-box";
+
+
+    /* Validate rating */
+
+    if (!rating) {
+
+        messageBox.textContent =
+            "Please select a rating before submitting.";
+
+        messageBox.classList.add("error");
+
+        return;
+
+    }
+
+
+    /* Validate message */
+
+    if (message.length < 3) {
+
+        messageBox.textContent =
+            "Please write your feedback.";
+
+        messageBox.classList.add("error");
+
+        return;
+
+    }
+
+
+    try {
+
+        submitBtn.disabled = true;
+
+        submitBtn.innerHTML =
+            '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
+
+
+        const response =
+            await fetch(
+                "http://127.0.0.1:8000/feedback/",
+                {
+
+                    method: "POST",
+
+                    headers: {
+
+                        "Content-Type":
+                            "application/json",
+
+                        "Authorization":
+                            `Bearer ${token}`
+
+                    },
+
+                    body:
+                        JSON.stringify({
+
+                            rating: rating,
+
+                            message: message
+
+                        })
+
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (response.ok) {
+
+            messageBox.textContent =
+                "🎉 Thank you! Your feedback has been submitted successfully.";
+
+            messageBox.classList.add("success");
+
+
+            /* Reset form */
+
+            document
+                .getElementById("feedbackForm")
+                .reset();
+
+
+            ratingInput.value = "";
+
+            characterCount.textContent =
+                "0 / 2000";
+
+
+            ratingText.textContent =
+                "Select a rating";
+
+
+            stars.forEach(star => {
+
+                const icon =
+                    star.querySelector("i");
+
+
+                icon.className =
+                    "fa-regular fa-star";
+
+
+                star.classList.remove("selected");
+
+            });
+
+        }
+
+        else {
+
+            messageBox.textContent =
+                data.detail ||
+                "Unable to submit feedback.";
+
+            messageBox.classList.add("error");
+
+        }
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Feedback error:",
+            error
+        );
+
+
+        messageBox.textContent =
+            "Unable to connect to the server. Please try again.";
+
+        messageBox.classList.add("error");
+
+    }
+
+    finally {
+
+        submitBtn.disabled = false;
+
+        submitBtn.innerHTML =
+            '<i class="fa-solid fa-paper-plane"></i> Submit Feedback';
+
+    }
+
+});
+
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+function logout() {
+
+    localStorage.removeItem("token");
+
+    localStorage.removeItem("userName");
+
+    window.location.href =
+        "login.html";
+
+}
+
+
+document
+.getElementById("logoutBtn")
+.addEventListener("click", logout);
+
+
+document
+.getElementById("logoutSide")
+.addEventListener("click", logout);
+
+
+</script>
+
+</body>
+
+</html>

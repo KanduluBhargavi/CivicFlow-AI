@@ -327,48 +327,177 @@ async function loadMap() {
 
 }
 
-document.getElementById("contactForm").addEventListener("submit", async function(e){
-    e.preventDefault();
-    const formData=new FormData();
-    
-    formData.append("name",
-        document.getElementById("contactName").value
-    );
-    
-    formData.append(
-        "email",
-        document.getElementById("contactEmail").value
-    );
-    formData.append("subject",
-        document.getElementById("contactSubject").value
-    );
-    formData.append("message", 
-        document.getElementById("contactMessage").value
 
-    );
-    try{
-        const response=await fetch(
-            "http://127.0.0.1:8000/contact/",
-            {
-                method:"POST",
-                body:formData
-            }
+
+
+
+async function loadRecentFeedback() {
+
+    const container =
+        document.getElementById(
+            "recentFeedbackContainer"
         );
-        const data=await response.json();
-        if (response.ok){
-            alert(data.message);
-            document.getElementById("contactForm").reset();
+
+
+    try {
+
+        const response =
+            await fetch(
+                "http://127.0.0.1:8000/feedback/recent"
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Unable to load feedback"
+            );
+
         }
-        else{
-            alert("Failed to send message");
+
+
+        const feedbackList =
+            await response.json();
+
+
+        /* No feedback yet */
+
+        if (feedbackList.length === 0) {
+
+            container.innerHTML = `
+                <p class="no-feedback">
+                    No feedback yet. Be the first
+                    CivicFlow user to share your experience!
+                </p>
+            `;
+
+            return;
+
         }
-    }
-    catch(error){
-        console.log(error);
-        alert("server error");
+
+
+        container.innerHTML = "";
+
+
+        feedbackList.forEach(feedback => {
+
+
+            let stars = "";
+
+
+            for (
+                let i = 1;
+                i <= 5;
+                i++
+            ) {
+
+                if (i <= feedback.rating) {
+
+                    stars += `
+                        <i class="fa-solid fa-star"></i>
+                    `;
+
+                }
+
+                else {
+
+                    stars += `
+                        <i class="fa-regular fa-star"></i>
+                    `;
+
+                }
+
+            }
+
+
+            const card =
+                document.createElement("div");
+
+
+            card.className =
+                "user-feedback-card";
+
+
+            card.innerHTML = `
+
+                <div class="feedback-stars">
+
+                    ${stars}
+
+                </div>
+
+
+                <p class="feedback-message">
+
+                    "${feedback.message}"
+
+                </p>
+
+
+                <div class="feedback-user">
+
+                    <div class="feedback-avatar">
+
+                        ${feedback.user_name
+                            ? feedback.user_name
+                                .charAt(0)
+                                .toUpperCase()
+                            : "U"}
+
+                    </div>
+
+
+                    <div>
+
+                        <h4>
+                            ${feedback.user_name}
+                        </h4>
+
+                        <span>
+                            CivicFlow User
+                        </span>
+
+                    </div>
+
+                </div>
+
+            `;
+
+
+            container.appendChild(card);
+
+        });
+
     }
 
-});
+    catch (error) {
+
+        console.error(
+            "Feedback loading error:",
+            error
+        );
+
+
+        container.innerHTML = `
+
+            <p class="no-feedback">
+
+                Unable to load feedback right now.
+
+            </p>
+
+        `;
+
+    }
+
+}
+
+
+document.addEventListener(
+    "DOMContentLoaded",
+    loadRecentFeedback
+);
+
 
 
 

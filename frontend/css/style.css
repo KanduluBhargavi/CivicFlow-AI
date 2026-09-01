@@ -1458,6 +1458,706 @@ h3{font-size:1.15rem;}
     background: #475569;
 }
 
+/* =========================================
+USER FEEDBACK SECTION
+========================================= */
+
+.user-feedback-section {
+padding: 90px 8%;
+background: var(--bg-color);
+text-align: center;
+}
+
+.feedback-section-header {
+max-width: 650px;
+margin: 0 auto 50px;
+}
+
+.feedback-tag {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+
+
+padding: 8px 16px;
+border-radius: 50px;
+
+background: rgba(37, 99, 235, 0.1);
+color: var(--primary-color, #2563eb);
+
+font-size: 13px;
+font-weight: 700;
+letter-spacing: 1px;
+
+
+}
+
+.feedback-section-header h2 {
+margin-top: 18px;
+margin-bottom: 14px;
+
+
+font-size: 38px;
+
+color: var(--text-color);
+
+
+}
+
+.feedback-section-header p {
+color: var(--secondary-text-color, #64748b);
+line-height: 1.7;
+}
+
+/* FEEDBACK GRID */
+
+.recent-feedback-container {
+max-width: 1200px;
+
+
+margin: 0 auto;
+
+display: grid;
+
+grid-template-columns:
+    repeat(3, 1fr);
+
+gap: 24px;
+
+text-align: left;
+
+
+}
+
+/* FEEDBACK CARD */
+
+.user-feedback-card {
+padding: 28px;
+
+
+border-radius: 18px;
+
+background: var(--card-bg, #ffffff);
+
+border:
+    1px solid
+    var(--border-color, #e5e7eb);
+
+box-shadow:
+    0 8px 25px
+    rgba(0, 0, 0, 0.06);
+
+transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+display: flex;
+
+flex-direction: column;
+
+
+}
+
+.user-feedback-card:hover {
+transform: translateY(-7px);
+
+
+box-shadow:
+    0 18px 40px
+    rgba(0, 0, 0, 0.12);
+
+
+}
+
+/* STARS */
+
+.feedback-stars {
+color: #f59e0b;
+
+
+font-size: 18px;
+
+margin-bottom: 18px;
+
+display: flex;
+
+gap: 4px;
+
+
+}
+
+/* MESSAGE */
+
+.feedback-message {
+color: var(--text-color);
+
+
+font-size: 15px;
+
+line-height: 1.7;
+
+flex-grow: 1;
+
+margin-bottom: 25px;
+
+
+}
+
+/* USER */
+
+.feedback-user {
+display: flex;
+
+
+align-items: center;
+
+gap: 12px;
+
+padding-top: 18px;
+
+border-top:
+    1px solid
+    var(--border-color, #e5e7eb);
+
+
+}
+
+.feedback-avatar {
+width: 45px;
+height: 45px;
+
+
+border-radius: 50%;
+
+display: flex;
+
+align-items: center;
+justify-content: center;
+
+background: var(--primary-color, #2563eb);
+
+color: white;
+
+font-weight: 700;
+
+font-size: 18px;
+
+
+}
+
+.feedback-user h4 {
+color: var(--text-color);
+
+
+font-size: 15px;
+
+margin-bottom: 3px;
+
+
+}
+
+.feedback-user span {
+color: var(--secondary-text-color, #64748b);
+
+
+font-size: 12px;
+
+
+}
+
+.feedback-login-message {
+margin-top: 40px;
+
+
+color: var(--secondary-text-color, #64748b);
+
+
+}
+
+.feedback-login-message a {
+color: var(--primary-color, #2563eb);
+
+
+font-weight: 600;
+
+text-decoration: none;
+
+
+}
+
+.feedback-login-message a:hover {
+text-decoration: underline;
+}
+
+/* EMPTY / ERROR */
+
+.loading-feedback,
+.no-feedback {
+grid-column: 1 / -1;
+
+
+text-align: center;
+
+color: var(--secondary-text-color, #64748b);
+
+padding: 30px;
+
+
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 950px) {
+
+
+.recent-feedback-container {
+    grid-template-columns:
+        repeat(2, 1fr);
+}
+
+
+}
+
+@media (max-width: 600px) {
+
+
+.user-feedback-section {
+    padding: 70px 20px;
+}
+
+
+.feedback-section-header h2 {
+    font-size: 30px;
+}
+
+
+.recent-feedback-container {
+    grid-template-columns: 1fr;
+}
+
+}
+/* =========================================================
+USER FEEDBACK SECTION
+========================================================= */
+
+.user-feedback-section {
+padding: 90px 8%;
+text-align: center;
+}
+
+/* ================= SECTION HEADER ================= */
+
+.feedback-section-header {
+max-width: 700px;
+margin: 0 auto 50px;
+}
+
+.feedback-tag {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+
+
+padding: 8px 16px;
+border-radius: 50px;
+
+background: rgba(99, 102, 241, 0.12);
+color: #6366f1;
+
+font-size: 13px;
+font-weight: 700;
+letter-spacing: 1px;
+
+
+}
+
+.feedback-section-header h2 {
+margin-top: 18px;
+margin-bottom: 14px;
+
+
+font-size: 38px;
+
+color: var(--text-primary, #1f2937);
+
+
+}
+
+.feedback-section-header p {
+color: var(--text-secondary, #64748b);
+line-height: 1.7;
+}
+
+/* ================= FEEDBACK GRID ================= */
+
+.recent-feedback-container {
+max-width: 1200px;
+
+
+margin: 0 auto;
+
+display: grid;
+
+grid-template-columns: repeat(3, 1fr);
+
+gap: 24px;
+
+text-align: left;
+
+
+}
+
+/* ================= FEEDBACK CARD ================= */
+
+.user-feedback-card {
+
+
+background: #ffffff;
+
+border: 1px solid #e2e8f0;
+
+border-radius: 18px;
+
+padding: 26px;
+
+min-height: 230px;
+
+display: flex;
+
+flex-direction: column;
+
+justify-content: space-between;
+
+box-shadow:
+    0 8px 25px
+    rgba(15, 23, 42, 0.08);
+
+transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+
+}
+
+.user-feedback-card:hover {
+
+
+transform: translateY(-6px);
+
+box-shadow:
+    0 18px 40px
+    rgba(15, 23, 42, 0.15);
+
+
+}
+
+/* ================= STARS ================= */
+
+.feedback-stars {
+
+
+display: flex;
+
+gap: 5px;
+
+margin-bottom: 18px;
+
+color: #f59e0b;
+
+font-size: 18px;
+
+
+}
+
+/* ================= FEEDBACK MESSAGE ================= */
+
+.feedback-message {
+
+
+color: #1e293b !important;
+
+font-size: 15px;
+
+font-weight: 400;
+
+line-height: 1.7;
+
+margin: 0 0 25px;
+
+flex-grow: 1;
+
+word-break: break-word;
+
+
+}
+
+/* ================= USER INFO ================= */
+
+.feedback-user {
+
+
+display: flex;
+
+align-items: center;
+
+gap: 12px;
+
+padding-top: 18px;
+
+border-top:
+    1px solid #e2e8f0;
+
+
+}
+
+.feedback-avatar {
+
+
+width: 45px;
+
+height: 45px;
+
+min-width: 45px;
+
+border-radius: 50%;
+
+display: flex;
+
+align-items: center;
+
+justify-content: center;
+
+background: #6366f1;
+
+color: #ffffff;
+
+font-weight: 700;
+
+font-size: 18px;
+
+
+}
+
+.feedback-user h4 {
+
+
+margin: 0 0 4px;
+
+color: #1e293b !important;
+
+font-size: 15px;
+
+font-weight: 600;
+
+
+}
+
+.feedback-user span {
+
+
+color: #64748b !important;
+
+font-size: 12px;
+
+
+}
+
+/* =========================================================
+DARK MODE
+Supports BOTH common theme class systems
+========================================================= */
+
+/* If your website uses body.dark */
+
+body.dark .user-feedback-section {
+background: #0f172a;
+}
+
+body.dark .feedback-section-header h2 {
+color: #f8fafc !important;
+}
+
+body.dark .feedback-section-header p {
+color: #94a3b8 !important;
+}
+
+body.dark .user-feedback-card {
+
+
+background: #1e293b !important;
+
+border-color: #334155 !important;
+
+box-shadow:
+    0 10px 30px
+    rgba(0, 0, 0, 0.35);
+
+
+}
+
+body.dark .feedback-message {
+
+
+color: #f1f5f9 !important;
+
+
+}
+
+body.dark .feedback-user {
+
+
+border-color: #334155 !important;
+
+
+}
+
+body.dark .feedback-user h4 {
+
+
+color: #f8fafc !important;
+
+
+}
+
+body.dark .feedback-user span {
+
+
+color: #94a3b8 !important;
+
+
+}
+
+/* If your website uses html.dark */
+
+html.dark .user-feedback-section {
+background: #0f172a;
+}
+
+html.dark .feedback-section-header h2 {
+color: #f8fafc !important;
+}
+
+html.dark .feedback-section-header p {
+color: #94a3b8 !important;
+}
+
+html.dark .user-feedback-card {
+
+
+background: #1e293b !important;
+
+border-color: #334155 !important;
+
+box-shadow:
+    0 10px 30px
+    rgba(0, 0, 0, 0.35);
+
+
+}
+
+html.dark .feedback-message {
+
+
+color: #f1f5f9 !important;
+
+
+}
+
+html.dark .feedback-user {
+
+
+border-color: #334155 !important;
+
+
+}
+
+html.dark .feedback-user h4 {
+
+
+color: #f8fafc !important;
+
+
+}
+
+html.dark .feedback-user span {
+
+
+color: #94a3b8 !important;
+
+
+}
+
+/* ================= EMPTY / ERROR MESSAGE ================= */
+
+.loading-feedback,
+.no-feedback {
+
+
+grid-column: 1 / -1;
+
+text-align: center;
+
+padding: 30px;
+
+font-size: 16px;
+
+color: #64748b;
+
+
+}
+
+body.dark .loading-feedback,
+body.dark .no-feedback,
+
+html.dark .loading-feedback,
+html.dark .no-feedback {
+
+
+color: #cbd5e1;
+
+
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1000px) {
+
+
+.recent-feedback-container {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+
+}
+
+@media (max-width: 650px) {
+
+
+.user-feedback-section {
+    padding: 70px 20px;
+}
+
+
+.feedback-section-header h2 {
+    font-size: 30px;
+}
+
+
+.recent-feedback-container {
+    grid-template-columns: 1fr;
+}
+
+
+.user-feedback-card {
+    min-height: auto;
+}
+
+
+}
+
+
+
 /* =========================================================
    ANIMATIONS
 ========================================================= */
@@ -1999,3 +2699,4 @@ html.dark .dept-bar {
   }
 
 }
+

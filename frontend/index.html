@@ -1043,33 +1043,52 @@
     </div>
   </section>
 
-  <!-- ============ CONTACT ============ -->
-  <section class="contact" id="contact">
-    <div class="section-inner">
-      <div class="contact-card">
-        <div class="contact-card__info">
-          <p class="eyebrow eyebrow--dark"><span class="eyebrow__dot"></span>Get in Touch</p>
-          <h2>Reach the CivicFlow AI Program Office</h2>
-          <p class="section-sub">For technical partnerships, department onboarding or media queries, contact the program office directly.</p>
-          <ul class="contact-details">
-            <li><b>Helpline</b><span>1800-11-CIVIC (24747)</span></li>
-            <li><b>Email</b><span>program.office@civicflow.gov.in</span></li>
-            <li><b>Address</b><span>CivicFlow AI Program Office, Electronics Niketan, New Delhi</span></li>
-          </ul>
-        </div>
 
-        <form id="contactForm" class="contact-form" onsubmit="return false;">
-          <div class="contact-form__row">
-            <label>Full name<input id="contactName" type="text" name="name" placeholder="Enter your name" required></label>
-            <label>Email address<input id="contactEmail" type="email" name="email" placeholder="you@example.com" required></label>
-          </div>
-          <label>Subject<input id="contactSubject" type="text" name="subject" placeholder="What is this regarding?" required></label>
-          <label>Message<textarea id="contactMessage" name="message" rows="4" placeholder="Tell us more..." required></textarea></label>
-          <button type="submit" class="btn btn--primary btn--lg">Send Message</button>
-        </form>
-      </div>
-    </div>
-  </section>
+ <section class="user-feedback-section" id="feedback">
+
+<div class="feedback-section-header">
+
+    <span class="feedback-tag">
+        <i class="fa-solid fa-heart"></i>
+        USER EXPERIENCES
+    </span>
+
+    <h2>What Our Users Say</h2>
+
+    <p>
+        Real feedback from registered CivicFlow users.
+    </p>
+
+</div>
+
+
+<div
+    id="recentFeedbackContainer"
+    class="recent-feedback-container">
+
+    <!-- Latest feedback will be loaded here -->
+
+    <p class="loading-feedback">
+        Loading user feedback...
+    </p>
+
+</div>
+
+
+<div class="feedback-login-message">
+
+    <p>
+        Have something to share?
+        <a href="login.html">
+            Login to share your feedback
+        </a>
+    </p>
+
+</div>
+
+
+</section>
+
 
 </main>
 

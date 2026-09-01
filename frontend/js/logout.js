@@ -1,7 +1,6 @@
-function logout(){
+function logout() {
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("userName");
 
-    localStorage.clear();
-
-    window.location.href="login.html";
-
+    window.location.href = "login.html";
 }

@@ -8,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.models.user import User
 from app.models.department import Department
 from app.models.complaint import Complaint
-from app.models.contact import ContactMessage
+
 from app.routes.admin_routes import router as admin_router
 from app.routes.user_routes import router as user_router
 from fastapi.staticfiles import StaticFiles
