@@ -205,21 +205,37 @@ No complaints yet.
 
 </section>
 
-<section class="timeline">
 
-<div class="section-title">
 
-<h2>Complaint Timeline</h2>
+  <!-- NEED HELP -->
+
+<div class="intelligence-card help-card">
+
+    <div class="intelligence-icon help-icon">
+        🆘
+    </div>
+
+    <div class="intelligence-content">
+
+        <span class="intelligence-label">
+            NEED HELP?
+        </span>
+
+        <h3>
+            We're here to help you
+        </h3>
+
+        <p>
+            Need assistance with submitting, tracking, or understanding your complaint?
+        </p>
+
+        <button id="getHelpBtn" class="help-btn">
+            Get Help →
+        </button>
+
+    </div>
 
 </div>
-
-<div id="timelineBox">
-
-No complaint selected.
-
-</div>
-
-</section>
 
 </section>
 
@@ -271,6 +287,235 @@ No complaint selected.
 </section>
 
 </main>
+
+</div>
+<!-- ================= HELP MODAL ================= -->
+
+<div class="help-modal" id="helpModal">
+
+    <div class="help-modal-content">
+
+        <!-- Close -->
+
+        <button class="help-close" id="closeHelpModal">
+            ×
+        </button>
+
+
+        <!-- MAIN HELP MENU -->
+
+        <div id="helpMainMenu">
+
+            <div class="help-header">
+
+                <div class="help-header-icon">
+                    🆘
+                </div>
+
+                <h2>How can we help?</h2>
+
+                <p>
+                    Choose an option and our CivicFlow support team will assist you.
+                </p>
+
+            </div>
+
+
+            <div class="help-options">
+
+                <!-- CHAT -->
+
+                <button class="help-option" id="chatSupportBtn">
+
+                    <div class="help-option-icon">
+                        💬
+                    </div>
+
+                    <div>
+
+                        <h3>Chat With Us</h3>
+
+                        <p>
+                            Get assistance from CivicFlow support.
+                        </p>
+
+                    </div>
+
+                    <span>→</span>
+
+                </button>
+
+
+                <!-- CONTACT -->
+
+                <button class="help-option" id="contactSupportBtn">
+
+                    <div class="help-option-icon">
+                        📞
+                    </div>
+
+                    <div>
+
+                        <h3>Contact Us</h3>
+
+                        <p>
+                            Contact the CivicFlow support team.
+                        </p>
+
+                    </div>
+
+                    <span>→</span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= CHAT ================= -->
+
+        <div id="chatSupportSection" class="help-section hidden">
+
+            <button class="back-help-btn" id="backFromChat">
+                ← Back
+            </button>
+
+            <div class="chat-header">
+
+                <div class="support-avatar">
+                    🤖
+                </div>
+
+                <div>
+
+                    <h3>CivicFlow Support</h3>
+
+                    <span>
+                        <span class="online-dot"></span>
+                        Online
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="chat-messages" id="chatMessages">
+
+                <div class="chat-message support-message">
+
+                    👋 Hello! Welcome to CivicFlow Support.
+
+                    <br><br>
+
+                    How can we help you today?
+
+                </div>
+
+            </div>
+
+
+            <div class="chat-input-area">
+
+                <input
+                    type="text"
+                    id="chatInput"
+                    placeholder="Type your message..."
+                >
+
+                <button id="sendChatBtn">
+                    Send
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= CONTACT ================= -->
+
+        <div id="contactSupportSection" class="help-section hidden">
+
+            <button class="back-help-btn" id="backFromContact">
+                ← Back
+            </button>
+
+
+            <div class="contact-header">
+
+                <div class="contact-big-icon">
+                    📞
+                </div>
+
+                <h2>Contact CivicFlow Support</h2>
+
+                <p>
+                    Our support team is available to help you.
+                </p>
+
+            </div>
+
+
+            <div class="contact-details">
+
+                <div class="contact-item">
+
+                    <span>📞</span>
+
+                    <div>
+
+                        <strong>Phone Support</strong>
+
+                        <p>+91 12345 67890</p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <span>📧</span>
+
+                    <div>
+
+                        <strong>Email Support</strong>
+
+                        <p>support@civicflow.in</p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <span>🕒</span>
+
+                    <div>
+
+                        <strong>Support Hours</strong>
+
+                        <p>Monday – Friday, 9:00 AM – 6:00 PM</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="tel:+911234567890"
+                class="call-support-btn"
+            >
+                📞 Call Support
+            </a>
+
+        </div>
+
+    </div>
 
 </div>
 

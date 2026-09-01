@@ -78,3 +78,6 @@ document.getElementById("complaintForm").addEventListener("submit", async functi
     }
 
 });
+function goBack() {
+    window.location.href = "dashboard.html";
+}

@@ -1,23 +1,27 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, BackgroundTasks, HTTPException
 from sqlalchemy.orm import Session
-
-from app.utils.auth import get_current_user
-from app.utils.dependencies import get_current_department
-from app.models.department import Department
-from app.models.user import User
-
-import pandas as pd
-
 from fastapi import UploadFile, File, Form
+from datetime import datetime, timezone
 import os
 import shutil
 import uuid
+import pandas as pd
+
+from app.utils.auth import get_current_user
+from app.models.user import User
 from app.database import SessionLocal
 from app.models.complaint import Complaint
-from datetime import datetime, timezone
 
-from app.services.ai_service import (detect_language, translate_text, predict_department, predict_priority, summarize_complaint, get_department_id)
+from app.services.notification_service import send_email
 
+from app.services.ai_service import (
+    detect_language,
+    translate_text,
+    predict_department,
+    predict_priority,
+    summarize_complaint,
+    get_department_id
+)
 UPLOAD_FOLDER = "uploads"
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
@@ -82,153 +86,326 @@ def get_coordinates(state: str, district: str):
 
 @router.post("/complaints")
 def create_complaint(
+
+    background_tasks: BackgroundTasks,
+
     title: str = Form(...),
+
     description: str = Form(...),
+
     state: str = Form(...),
+
     district: str = Form(...),
+
     area: str = Form(...),
+
     address: str = Form(...),
+
     landmark: str = Form(""),
+
     pincode: str = Form(...),
+
     file: UploadFile = File(None),
+
     current_user: User = Depends(get_current_user),
+
     db: Session = Depends(get_db)
-    
+
 ):
-    state = " ".join(state.strip().split()).title()
-    district = " ".join(district.strip().split()).title()
 
-    language=detect_language(description)
-    translated_text=translate_text(description)
-    predicted_department=predict_department(translated_text)
-    department_id = get_department_id(predicted_department)
-    priority=predict_priority(translated_text)
-    summary=summarize_complaint(translated_text)
+    try:
 
-    latitude, longitude = get_coordinates(state, district)
+        # =========================
+        # CLEAN LOCATION DATA
+        # =========================
+
+        state = " ".join(state.strip().split()).title()
+
+        district = " ".join(
+            district.strip().split()
+        ).title()
 
 
-    media_path = None
+        # =========================
+        # AI PROCESSING
+        # =========================
 
-    if file:
+        language = detect_language(description)
 
-        allowed_extensions = [
-          ".jpg",
-          ".jpeg",
-          ".png",
-          ".mp4",
-          ".mov",
-          ".avi"
-        ]
+        translated_text = translate_text(description)
 
-        extension = os.path.splitext(file.filename)[1].lower()
-
-        if extension not in allowed_extensions:
-            return {
-                 "message": "Only image and video files are allowed."
-            }
-
-        unique_filename = f"{uuid.uuid4()}{extension}"
-
-        media_path = os.path.join(
-           UPLOAD_FOLDER,
-           unique_filename
+        predicted_department = predict_department(
+            translated_text
         )
 
-        with open(media_path, "wb") as buffer:
-           shutil.copyfileobj(file.file, buffer)     
+        department_id = get_department_id(
+            predicted_department
+        )
 
-    new_complaint=Complaint(
-        citizen_id=current_user.user_id,
-        department_id=department_id,
-        title=title,
-        description=description,
-        state=state,
-        district=district,
-        area=area,
-        address=address,
-        landmark=landmark,
-        pincode=pincode,
-        latitude=latitude,
-        longitude=longitude,
-        language=language,
-        translated_text=translated_text,
-        predicted_department=predicted_department,
-        priority=priority,
-        ai_summary=summary,
-        media_path=media_path,
-        status="Assigned",
-        assigned_at = datetime.now(timezone.utc)
+        priority = predict_priority(
+            translated_text
+        )
 
-    )
-
-    db.add(new_complaint)
-    db.commit()
-    db.refresh(new_complaint)
-
-    return{
-        "message":"Complaint Submitted Successfully",
-        "complaint_id": new_complaint.complaint_id
-    }
-
-# @router.get("/my-complaints")
-# def my_complaints(
-#     current_user: User = Depends(get_current_user),
-#     db: Session = Depends(get_db)
-# ):
-
-#     complaints = (
-#         db.query(Complaint)
-#         .filter(Complaint.citizen_id == current_user.user_id)
-#         .all()
-#     )
-
-#     return complaints
+        summary = summarize_complaint(
+            translated_text
+        )
 
 
-@router.get("/complaints")
-def get_all_compliants(db: Session=Depends(get_db)):
-    complaints=db.query(Complaint).all()
-    return complaints
+        # =========================
+        # LOCATION COORDINATES
+        # =========================
 
-@router.get("/track/{complaint_id}")
-def track_complaint(
-    complaint_id: int,
-    current_user: User = Depends(get_current_user),
-    db: Session = Depends(get_db)
-):
+        latitude, longitude = get_coordinates(
+            state,
+            district
+        )
 
-    complaint = (
-        db.query(Complaint)
-        .filter(Complaint.complaint_id == complaint_id)
-        .first()
-    )
 
-    if not complaint:
-        return {"message": "Complaint not found"}
+        # =========================
+        # FILE UPLOAD
+        # =========================
 
-    return {
-        "complaint_id": complaint.complaint_id,
-        "title": complaint.title,
-        "description": complaint.description,
-        "state": complaint.state,
-        "district": complaint.district,
-        "area": complaint.area,
-        "address": complaint.address,
-        "landmark": complaint.landmark,
-        "pincode": complaint.pincode,
+        media_path = None
 
-        "latitude": complaint.latitude,
-        "longitude": complaint.longitude,
-        "status": complaint.status,
-        "priority": complaint.priority,
-        "department": complaint.predicted_department,
+        if file and file.filename:
 
-        "created_at": complaint.created_at,
-        "assigned_at": complaint.assigned_at,
-        "in_progress_at": complaint.in_progress_at,
-        "resolved_at": complaint.resolved_at
-    }
+            allowed_extensions = [
+
+                ".jpg",
+                ".jpeg",
+                ".png",
+                ".mp4",
+                ".mov",
+                ".avi"
+
+            ]
+
+            extension = os.path.splitext(
+                file.filename
+            )[1].lower()
+
+
+            if extension not in allowed_extensions:
+
+                raise HTTPException(
+
+                    status_code=400,
+
+                    detail="Only image and video files are allowed."
+
+                )
+
+
+            unique_filename = (
+
+                f"{uuid.uuid4()}{extension}"
+
+            )
+
+
+            media_path = os.path.join(
+
+                UPLOAD_FOLDER,
+
+                unique_filename
+
+            )
+
+
+            with open(
+
+                media_path,
+
+                "wb"
+
+            ) as buffer:
+
+                shutil.copyfileobj(
+
+                    file.file,
+
+                    buffer
+
+                )
+
+
+        # =========================
+        # CREATE COMPLAINT
+        # =========================
+
+        new_complaint = Complaint(
+
+            citizen_id=current_user.user_id,
+
+            department_id=department_id,
+
+            title=title,
+
+            description=description,
+
+            state=state,
+
+            district=district,
+
+            area=area,
+
+            address=address,
+
+            landmark=landmark,
+
+            pincode=pincode,
+
+            latitude=latitude,
+
+            longitude=longitude,
+
+            language=language,
+
+            translated_text=translated_text,
+
+            predicted_department=predicted_department,
+
+            priority=priority,
+
+            ai_summary=summary,
+
+            media_path=media_path,
+
+            status="Assigned",
+
+            assigned_at=datetime.now(timezone.utc)
+
+        )
+
+
+        db.add(new_complaint)
+
+        db.commit()
+
+        db.refresh(new_complaint)
+
+
+        # =========================
+        # SEND CONFIRMATION EMAIL
+        # =========================
+
+        email_message = f"""
+
+        <div style="
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        ">
+
+            <h2 style="color:#2563eb;">
+                Complaint Successfully Submitted ✅
+            </h2>
+
+            <p>
+                Hello <strong>{current_user.full_name}</strong>,
+            </p>
+
+            <p>
+                Thank you for submitting your complaint through
+                <strong>CivicFlow AI</strong>.
+            </p>
+
+            <p>
+                Your complaint has been successfully registered
+                and routed to the appropriate department.
+            </p>
+
+            <hr>
+
+            <p>
+                <strong>Complaint ID:</strong>
+                #{new_complaint.complaint_id}
+            </p>
+
+            <p>
+                <strong>Complaint Title:</strong>
+                {new_complaint.title}
+            </p>
+
+            <p>
+                <strong>Assigned Department:</strong>
+                {predicted_department}
+            </p>
+
+            <p>
+                <strong>Priority:</strong>
+                {priority}
+            </p>
+
+            <hr>
+
+            <p>
+                📢 We will notify you whenever your complaint
+                status changes.
+            </p>
+
+            <p>
+                You can also log in to CivicFlow AI anytime
+                to track your complaint.
+            </p>
+
+            <br>
+
+            <p>
+                Regards,<br>
+                <strong>CivicFlow AI Support Team</strong>
+            </p>
+
+        </div>
+
+        """
+
+
+        background_tasks.add_task(
+
+            send_email,
+
+            current_user.email,
+
+            "CivicFlow AI - Complaint Successfully Submitted",
+
+            email_message
+
+        )
+
+
+        return {
+
+            "message":
+            "Complaint submitted successfully",
+
+            "complaint_id":
+            new_complaint.complaint_id,
+
+            "department":
+            predicted_department,
+
+            "priority":
+            priority
+
+        }
+
+
+    except HTTPException:
+
+        raise
+
+
+    except Exception as e:
+
+        print("Complaint creation error:", str(e))
+
+        raise HTTPException(
+
+            status_code=500,
+
+            detail="Unable to submit complaint."
+
+        )
 
 @router.get("/my-complaints")
 def my_complaints(
@@ -248,7 +425,7 @@ def my_complaints(
 
     for c in complaints:
 
-        # print("this is ",c.predicted_department)
+        
         data.append({
             "complaint_id": c.complaint_id,
             "title": c.title,
@@ -280,20 +457,6 @@ def complaint_details(
     if not complaint:
         return {"message": "Complaint not found"}
 
-    # return {
-    #     "complaint_id": complaint.complaint_id,
-    #     "title": complaint.title,
-    #     "description": complaint.description,
-        
-    #     "department": complaint.predicted_department,
-    #     "priority": complaint.priority,
-    #     "status": complaint.status,
-    #     "summary": complaint.ai_summary,
-    #     "created_at": complaint.created_at,
-    #     "assigned_at": complaint.assigned_at,
-    #     "in_progress_at": complaint.in_progress_at,
-    #     "resolved_at": complaint.resolved_at
-    # }
     return {
     "complaint_id": complaint.complaint_id,
     "title": complaint.title,

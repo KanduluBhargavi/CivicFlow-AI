@@ -73,6 +73,86 @@ def recent_complaints(current_user: User = Depends(get_current_user),db: Session
 
     return data
 
+@router.get("/activity-center")
+def activity_center(
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+
+    complaints = (
+        db.query(Complaint)
+        .filter(Complaint.citizen_id == current_user.user_id)
+        .order_by(desc(Complaint.created_at))
+        .all()
+    )
+
+    # No complaints yet
+    if not complaints:
+        return {
+            "priority_alert": None,
+            "latest_activity": None,
+            "ai_routing": None
+        }
+
+    # ================= PRIORITY ALERT =================
+
+    unresolved_complaints = [
+        complaint for complaint in complaints
+        if complaint.status != "Resolved"
+    ]
+
+    priority_order = {
+        "High": 3,
+        "Medium": 2,
+        "Low": 1
+    }
+
+    priority_alert = None
+
+    if unresolved_complaints:
+
+        highest_priority_complaint = max(
+            unresolved_complaints,
+            key=lambda complaint: priority_order.get(
+                complaint.priority,
+                0
+            )
+        )
+
+        priority_alert = {
+            "complaint_id": highest_priority_complaint.complaint_id,
+            "title": highest_priority_complaint.title,
+            "priority": highest_priority_complaint.priority,
+            "status": highest_priority_complaint.status,
+            "department": highest_priority_complaint.predicted_department
+        }
+
+    # ================= LATEST ACTIVITY =================
+
+    latest_complaint = complaints[0]
+
+    latest_activity = {
+        "complaint_id": latest_complaint.complaint_id,
+        "title": latest_complaint.title,
+        "status": latest_complaint.status,
+        "created_at": latest_complaint.created_at
+    }
+
+    # ================= AI ROUTING =================
+
+    ai_routing = {
+        "complaint_id": latest_complaint.complaint_id,
+        "title": latest_complaint.title,
+        "department": latest_complaint.predicted_department,
+        "priority": latest_complaint.priority
+    }
+
+    return {
+        "priority_alert": priority_alert,
+        "latest_activity": latest_activity,
+        "ai_routing": ai_routing
+    }
+
 @router.get("/top-states")
 def top_states(db: Session = Depends(get_db)):
 

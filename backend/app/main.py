@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from app.database import engine, Base
 from app.routes.complaint_routes import router as complaint_router
-
+from app.routes import support_routes
 
 from fastapi.middleware.cors import CORSMiddleware
 #import models
@@ -48,6 +48,7 @@ app.include_router(dashboard_router)
 app.include_router(admin_router)
 app.include_router(department_routes.router)
 app.include_router(contact_router)
+app.include_router(support_routes.router)
 
 
 @app.get("/")
