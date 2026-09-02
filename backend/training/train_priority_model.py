@@ -310,13 +310,8 @@ print("BEST MODEL")
 print("="*60)
 
 print("Model    :", best_model_name)
-
 print("Accuracy :", round(best_accuracy * 100, 2), "%")
-
 print("\nBest model saved successfully!")
-
 print("priority_model.pkl")
-
 print("priority_vectorizer.pkl")
 
-print("="*60)

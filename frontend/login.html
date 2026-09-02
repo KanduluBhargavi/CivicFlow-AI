@@ -39,7 +39,7 @@
 
         <div class="right-panel">
 
-            <form id="loginForm">
+            <form id="loginForm" autocomplete="off">
 
                 <h2>Citizen Login</h2>
 
@@ -48,7 +48,9 @@
                     <input
                         type="email"
                         id="email"
+                        name="login_email"
                         placeholder="Email Address"
+                        autocomplete="off"
                         required>
                 </div>
 
@@ -58,6 +60,7 @@
                         type="password"
                         id="password"
                         placeholder="Password"
+                        autocomplete="current-password"
                         required>
                 </div>
 
@@ -87,6 +90,15 @@
 
     <script src="js/api.js"></script>
     <script src="js/auth.js"></script>
+    <script>
+window.addEventListener("pageshow", () => {
+    setTimeout(() => {
+        document.getElementById("loginForm").reset();
+        document.getElementById("email").value = "";
+        document.getElementById("password").value = "";
+    }, 100);
+});
+</script>
 
 </body>
 

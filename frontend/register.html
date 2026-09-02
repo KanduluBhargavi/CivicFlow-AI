@@ -38,18 +38,18 @@
 
     <div class="right-panel">
 
-        <form id="registerForm">
+        <form id="registerForm" autocomplete="off">
 
             <h2>Citizen Registration</h2>
 
             <div class="input-box">
                 <i class="fa-solid fa-user"></i>
-                <input type="text" id="full_name" placeholder="Full Name" required>
+                <input type="text" id="full_name" placeholder="Full Name" autocomplete="off" required>
             </div>
 
             <div class="input-box">
                 <i class="fa-solid fa-envelope"></i>
-                <input type="email" id="email" placeholder="Email" required>
+                <input type="email" id="email" name="registerForm" placeholder="Email" autocomplete="off" required>
             </div>
 
             <div class="input-box">
@@ -59,7 +59,7 @@
 
             <div class="input-box">
                 <i class="fa-solid fa-lock"></i>
-                <input type="password" id="password" placeholder="Password" required>
+                <input type="password" id="password" placeholder="Password" autocomplete="new-password" required>
             </div>
 
             <div class="input-box">
@@ -127,6 +127,26 @@
 <script src="js/location.js"></script>
 <script src="js/geolocation.js"></script>
 <script src="js/register.js"></script>
+<script>
+window.addEventListener("load", () => {
+
+    setTimeout(() => {
+        document.getElementById("email").value = "";
+        document.getElementById("password").value = "";
+    }, 100);
+
+});
+
+window.addEventListener("pageshow", () => {
+
+    setTimeout(() => {
+        document.getElementById("registerForm").reset();
+        document.getElementById("email").value = "";
+        document.getElementById("password").value = "";
+    }, 100);
+
+});
+</script>
 
 </body>
 
