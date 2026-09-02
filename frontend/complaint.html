@@ -6,6 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/dashboard.css">
+    <style>
+        .location-btn {
+            width: 100%;
+            margin-bottom: 15px;
+            background: #0ea5e9;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            height: 55px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: .3s;
+        }
+        .location-btn:hover {
+            background: #0284c7;
+        }
+    </style>
 </head>
 <body>
 
@@ -33,11 +51,21 @@ required></textarea>
 </div>
 
 <div class="input-box">
-<input type="text" id="state" placeholder="State" required>
+<button type="button" id="locationBtn" class="location-btn">
+📍 Use My Current Location
+</button>
 </div>
 
 <div class="input-box">
-<input type="text" id="district" placeholder="District" required>
+<select id="state" required>
+<option value="">Select State</option>
+</select>
+</div>
+
+<div class="input-box">
+<select id="district" required>
+<option value="">Select District</option>
+</select>
 </div>
 
 <div class="input-box">
@@ -57,7 +85,14 @@ required></textarea>
 </div>
 
 <div class="input-box">
-<input type="text" id="pincode" placeholder="Pincode" required>
+<input
+type="text"
+id="pincode"
+placeholder="Pincode"
+pattern="[0-9]{6}"
+maxlength="6"
+title="Enter a valid 6-digit pincode"
+required>
 </div>
 
 <input type="hidden" id="latitude">
@@ -84,9 +119,10 @@ Submit Complaint
 
 </section>
 <script src="js/api.js"></script>
+<script src="js/location.js"></script>
+<script src="js/geolocation.js"></script>
 <script src="js/complaint.js"></script>
 
 </body>
 
 </html>
-

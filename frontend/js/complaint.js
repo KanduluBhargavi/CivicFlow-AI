@@ -32,6 +32,13 @@ document.getElementById("complaintForm").addEventListener("submit", async functi
     //     "longitude",
     //     document.getElementById("longitude").value || 0
     // );
+    const lat = document.getElementById("latitude").value;
+    const lon = document.getElementById("longitude").value;
+
+    if (lat && lon) {
+        formData.append("latitude", lat);
+        formData.append("longitude", lon);
+    }
 
     const file = document.getElementById("media").files[0];
 
