@@ -105,6 +105,10 @@ def create_complaint(
 
     pincode: str = Form(...),
 
+    latitude: float = Form(None),
+
+    longitude: float = Form(None),
+
     file: UploadFile = File(None),
 
     current_user: User = Depends(get_current_user),
@@ -154,11 +158,17 @@ def create_complaint(
         # =========================
         # LOCATION COORDINATES
         # =========================
+        # Prefer real GPS coordinates from the browser, if the
+        # citizen shared their location. Fall back to the
+        # district-centroid lookup only when GPS wasn't provided.
 
-        latitude, longitude = get_coordinates(
-            state,
-            district
-        )
+        if latitude is not None and longitude is not None:
+            final_latitude, final_longitude = latitude, longitude
+        else:
+            final_latitude, final_longitude = get_coordinates(
+                state,
+                district
+            )
 
 
         # =========================
@@ -255,9 +265,9 @@ def create_complaint(
 
             pincode=pincode,
 
-            latitude=latitude,
+            latitude=final_latitude,
 
-            longitude=longitude,
+            longitude=final_longitude,
 
             language=language,
 
