@@ -1,0 +1,296 @@
+/* CivicFlow UI consistency pass — 2026-10 */
+*{box-sizing:border-box} html,body{max-width:100%;} button,input,select,textarea{font:inherit}
+.language-detect-box .language-detect-row{display:flex!important;align-items:flex-start!important;gap:12px!important;flex-wrap:wrap!important}
+.language-detect-box .language-detect-row>div{min-width:0;flex:1 1 260px}
+.language-detect-box .language-auto-status{display:grid!important;grid-template-columns:10px auto;align-items:center!important;gap:5px 8px!important}
+.language-detect-box .language-auto-status small{grid-column:2;font-size:12px;line-height:1.4}
+.language-detect-box .manual-language-toggle{flex:0 0 auto;min-width:140px;font-size:13px!important}
+.language-detect-box .manual-language-wrap{width:100%;}
+.language-search-results:not([hidden]){display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:6px;margin:8px 0 12px;max-height:190px;overflow:auto;padding:4px}
+.language-search-results .language-result{padding:9px 11px!important;margin:0!important;min-height:40px!important;background:#f1f5f9!important;border:1px solid #dbe4f1!important;border-radius:9px!important;color:#13213b!important;text-align:left;font-weight:600!important;font-size:13px!important;width:100%!important}
+.language-search-results .language-result:hover,.language-search-results .language-result:focus{background:#dbeafe!important;border-color:#2563eb!important;outline:0}
+#complaintForm .input-box:has(#media){display:grid;gap:9px;min-width:0}
+#complaintForm input[type=file]{display:block;width:100%;max-width:100%;min-width:0;padding:12px!important;border:1px dashed #94a3b8!important;border-radius:12px;background:#f8fafc;color:#334155}
+#complaintForm input[type=file]::file-selector-button{padding:9px 14px;margin-right:12px;border:0;border-radius:8px;background:#2563eb;color:white;font-weight:650;cursor:pointer}
+#complaintForm .evidence-hint{font-size:12px;color:#64748b;line-height:1.4;margin:0!important}
+#complaintForm button[type=submit]{width:min(100%,360px)!important;min-height:46px!important;display:block;margin:24px auto 0!important;font-size:15px!important;border-radius:12px!important}
+#complaintForm #currentLocationBtn,#complaintSection button:has(.fa-location-dot){max-width:260px}
+.table-card{max-width:100%;overflow-x:auto}.view-btn,.track-btn{min-width:94px;min-height:42px;display:inline-flex!important;justify-content:center!important;align-items:center!important;padding:10px 15px!important;white-space:nowrap}
+.escalation-section .escalation-toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0 14px;font-size:13px;color:#475569}
+.escalation-toolbar>div{display:flex;align-items:center;gap:10px}
+.escalation-toolbar button{padding:7px 12px!important;border-radius:8px!important;min-width:75px}
+.escalation-toolbar button:disabled{opacity:.45;cursor:not-allowed}
+.escalation-table{width:100%;table-layout:fixed;border-collapse:collapse;min-width:780px}
+.escalation-table th:nth-child(1){width:8%}.escalation-table th:nth-child(2){width:17%}.escalation-table th:nth-child(3){width:10%}.escalation-table th:nth-child(4){width:26%}.escalation-table th:nth-child(5){width:12%}.escalation-table th:nth-child(6){width:11%}.escalation-table th:nth-child(7){width:16%}
+.escalation-table th,.escalation-table td{vertical-align:middle!important;text-align:left!important;padding:12px 10px!important;overflow-wrap:anywhere;line-height:1.45}
+.escalation-table .escalation-title{display:block;margin-top:3px;color:#64748b;font-size:11px}
+.escalation-table .escalation-actions{display:flex;flex-wrap:wrap;gap:6px;align-items:center;justify-content:flex-start}
+.escalation-table .escalation-actions a,.escalation-table .escalation-actions button{padding:7px 9px!important;font-size:11px!important;min-height:33px!important;line-height:1.2!important;margin:0!important}
+.profile-actions{display:flex!important;justify-content:flex-start!important;align-items:center;margin-top:20px!important;gap:12px!important}
+.profile-actions button{width:auto!important;min-width:175px!important;max-width:100%!important;padding:12px 20px!important;margin:0!important}
+.help-modal-content{max-width:min(550px,calc(100vw - 28px))!important;max-height:min(82dvh,720px)!important;overflow:auto!important}
+.help-header h2,.contact-header h2,.chat-header h3,.help-option h3{color:#13233d!important}
+.help-modal .chat-input-area{display:flex;gap:8px;align-items:center}
+.help-modal .chat-input-area input{min-width:0;flex:1!important}
+.help-modal .chat-messages{min-height:150px;max-height:42dvh;overflow-y:auto}
+html.dark .language-search-results .language-result{background:#162439!important;color:#e2e8f0!important;border-color:#334155!important}
+html.dark .language-search-results .language-result:hover{background:#1e3a5f!important}
+html.dark #complaintForm input[type=file]{background:#111c30;color:#e2e8f0;border-color:#475569!important}
+html.dark #complaintForm .evidence-hint{color:#aabbd2}
+html.dark .escalation-toolbar{color:#cbd5e1}
+html.dark .escalation-table .escalation-title{color:#94a3b8}
+html.dark .help-modal-content{background:#101d32!important;color:#e5edf9!important;border:1px solid #334155}
+html.dark .help-modal .help-header h2,html.dark .help-modal .contact-header h2,html.dark .help-modal .chat-header h3,html.dark .help-modal .help-option h3{color:#f8fafc!important}
+html.dark .help-modal .help-header p,html.dark .help-modal .contact-header p,html.dark .help-modal .help-option p{color:#b8c6db!important}
+html.dark .help-modal .help-option,html.dark .help-modal .contact-item{background:#17263d!important;border-color:#344561!important;color:#e2e8f0!important}
+html.dark .help-modal .chat-messages{background:#0b1628!important}
+html.dark .help-modal .chat-message.support-message{background:#1b2a43!important;color:#f1f5f9!important}
+html.dark .help-modal .chat-input-area input{background:#1c2c45!important;color:#f8fafc!important;border:1px solid #52647d!important}
+html.dark .help-modal .chat-input-area input::placeholder{color:#a0aec0!important}
+html.dark .help-modal .contact-details strong{color:#f8fafc!important}
+html.dark .help-modal .contact-details p{color:#cbd5e1!important}
+html.dark .detail>p,html.dark .detail>label{color:#e2e8f0!important}
+html.dark #priority,html.dark #status{color:#e2e8f0!important;background:#263752!important;border-radius:10px;padding:8px 12px;display:inline-block;min-width:70px}
+@media(max-width:650px){.help-modal-content{padding:20px 16px!important}.escalation-toolbar{align-items:flex-start}.profile-actions button{width:100%!important}.language-detect-box .manual-language-toggle{width:100%!important}}
+/* Preserve readable complaint priority/status labels across themes. */
+#priority,#status{display:inline-block!important;min-width:92px!important;max-width:100%!important;min-height:34px!important;padding:7px 12px!important;border-radius:9px!important;background:#e8eef8!important;color:#142743!important;font-weight:700!important;font-size:13px!important;line-height:20px!important;vertical-align:middle!important;text-indent:0!important;letter-spacing:normal!important;white-space:normal!important;overflow-wrap:anywhere}
+html.dark #priority,html.dark #status{background:#263752!important;color:#f8fafc!important}
+html.dark .profile-card{background:#101d32!important;color:#e2e8f0!important;border:1px solid #334155!important}
+html.dark .profile-card h1,html.dark .profile-card h2,html.dark .profile-card label{color:#f1f5f9!important}
+html.dark .profile-card input,html.dark .profile-card textarea,html.dark .profile-card select{background:#18283e!important;border-color:#40526d!important;color:#f8fafc!important}
+html.dark .profile-card input::placeholder,html.dark .profile-card textarea::placeholder{color:#a4b4ca!important}
+html.dark .profile-card #officerProfileNote{color:#a4b4ca!important}
+html.dark .live-handling-card,html.dark .incident-summary{background:#111e33!important;border-color:#334155!important;color:#e2e8f0!important}
+html.dark .live-handling-card h2,html.dark .incident-summary h2,html.dark .live-handling-card strong{color:#f1f5f9!important}
+
+
+/* ===== Second-pass coordinated UI repair ===== */
+
+/* Shared readability / balanced headings */
+.section-head h2,
+.feedback-section-header h2,
+.landing-hero__heading,
+.left-content h1,
+#loginForm h2,
+#registerForm h2,
+#registrationOtpForm h2 {
+  text-wrap: balance;
+}
+
+/* Keep nav visible while scrolling on the public site */
+.landing-navbar,
+.navbar {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+}
+
+/* Department complaint detail header and badges */
+.top-bar {
+  justify-content: flex-start !important;
+  gap: 18px !important;
+}
+.top-bar h1 {
+  flex: 1 1 auto;
+  text-align: left !important;
+  margin: 0 !important;
+}
+.header {
+  align-items: flex-start !important;
+}
+.header > div:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+#priority,
+#status,
+#sentiment {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  min-width: 104px !important;
+  min-height: 38px !important;
+  padding: 8px 14px !important;
+  border-radius: 999px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+}
+#sentiment { background: #64748b; }
+#sentiment.positive { background: #16a34a !important; }
+#sentiment.negative { background: #ea580c !important; }
+#sentiment.frustrated,
+#sentiment.angry { background: #dc2626 !important; }
+#sentiment.neutral { background: #475569 !important; }
+html.dark #sentiment { color: #fff !important; }
+
+.timeline { gap: 14px !important; }
+.timeline-item {
+  display: grid !important;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 16px 18px !important;
+}
+.timeline-item.is-complete { border-left-color: #2563eb !important; }
+.timeline-item.is-pending { border-left-color: #334155 !important; opacity: .92; }
+.timeline-item > span:last-child {
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 600;
+}
+html.dark .timeline-item > span:last-child { color: #94a3b8; }
+
+/* Center the transfer section and remove the one-sided feel */
+.legacy-routing-recovery {
+  max-width: 880px;
+  margin: 18px auto 0 !important;
+}
+.simplified-recovery-grid {
+  grid-template-columns: 1fr !important;
+  max-width: 700px;
+}
+.simplified-recovery-grid > div {
+  display: grid;
+  gap: 10px;
+}
+#manualRerouteBtn {
+  width: 100%;
+  min-height: 48px;
+}
+
+/* Better related complaint cards */
+.duplicate-id-list {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  align-items: stretch !important;
+}
+.duplicate-id-list .related-complaint-card {
+  min-height: 210px;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.related-complaint-card small {
+  margin-top: 10px;
+  display: block;
+}
+
+/* Auth screens: ensure hero text stays visible */
+.left-panel .left-content h1,
+.left-panel .left-content p,
+html.dark .left-panel .left-content h1,
+html.dark .left-panel .left-content p {
+  color: #ffffff !important;
+  text-shadow: 0 8px 24px rgba(0, 0, 0, .18);
+}
+#loginForm h2,
+#registerForm h2,
+#registrationOtpForm h2 {
+  font-size: clamp(2rem, 4vw, 3.2rem) !important;
+  line-height: 1.08 !important;
+}
+
+/* Landing page visibility pass */
+/* Removed R3 dark-mode overrides that forced light surfaces. */
+.command .section-head,
+.how-to-use .section-head,
+.footer__inner {
+  position: relative;
+  z-index: 2;
+}
+.command .section-head h2,
+.command .section-head .section-sub,
+.command .section-head .eyebrow,
+.how-to-use .section-head h2,
+.how-to-use .section-head .section-sub,
+.how-to-use .section-head .eyebrow,
+.how-to-use .section-head .eyebrow__dot {
+  color: #f8fafc !important;
+}
+.command .section-head .eyebrow,
+.how-to-use .section-head .eyebrow { color: #93c5fd !important; }
+.command .section-head .eyebrow__dot,
+.how-to-use .section-head .eyebrow__dot { background: #60a5fa !important; }
+.dashboard .section-head,
+.departments .section-head,
+.journey .section-head,
+.command .section-head,
+.how-to-use .section-head {
+  max-width: 780px !important;
+}
+.dashboard .section-head h2,
+.departments .section-head h2,
+.journey .section-head h2,
+.command .section-head h2,
+.how-to-use .section-head h2,
+.feedback-section-header h2 {
+  line-height: 1.14 !important;
+  letter-spacing: -0.03em;
+}
+.feedback-section-header {
+  max-width: 760px !important;
+  margin: 0 auto 34px !important;
+}
+.user-feedback-section {
+  padding: 72px 6% 84px !important;
+}
+.recent-feedback-container {
+  max-width: 1020px !important;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+  gap: 22px !important;
+}
+.footer,
+html.dark .footer {
+  background: #09162d !important;
+}
+.footer__brand p,
+.footer__col a,
+html.dark .footer__brand p,
+html.dark .footer__col a {
+  color: #c0d0e8 !important;
+}
+.footer__col h4,
+.brand__text--light,
+html.dark .footer__col h4,
+html.dark .brand__text--light {
+  color: #f8fafc !important;
+}
+
+/* Distinct map legend colors */
+.legend-dot--critical { background: #ef4444 !important; }
+.legend-dot--high { background: #f97316 !important; }
+.legend-dot--medium { background: #eab308 !important; }
+.legend-dot--low { background: #06b6d4 !important; }
+.legend-dot--resolved { background: #22c55e !important; }
+
+/* Keep long headings from breaking awkwardly */
+.section-head h2,
+.feedback-section-header h2,
+.hero h1,
+.auth-container h1,
+.auth-container h2 {
+  max-width: 14ch;
+}
+.feedback-section-header h2,
+.dashboard .section-head h2,
+.departments .section-head h2,
+.journey .section-head h2,
+.command .section-head h2,
+.how-to-use .section-head h2 {
+  max-width: 18ch;
+}
+
+@media (max-width: 900px) {
+  .top-bar { flex-wrap: wrap !important; }
+  .top-bar h1 { width: 100%; }
+  .header > div:last-child { justify-content: flex-start; }
+  .timeline-item { grid-template-columns: 1fr !important; }
+}
+
+/* R10: only fix mobile/overall overlap in complaint language helper */
+.language-detect-box .language-auto-status{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:4px!important}
+.language-detect-box .language-auto-status strong{display:block!important;line-height:1.15!important;margin:0!important}
+.language-detect-box .language-auto-status small{display:block!important;grid-column:auto!important;line-height:1.35!important;margin:0!important}

@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, Float
+from sqlalchemy import Column, Integer, String, ForeignKey, Float, Boolean
 from app.database import Base
 
 class User(Base):
@@ -6,11 +6,11 @@ class User(Base):
 
     user_id=Column(Integer, primary_key=True, index=True)
     full_name=Column(String(100), nullable=False)
-    email=Column(String(100), unique=True, nullable=False)
+    email=Column(String(100), unique=True, nullable=False, index=True)
     phone=Column(String(15), unique=True)
     password=Column(String(255), nullable=False)
     role=Column(String(20),nullable=False)
-    department_id=Column(Integer, ForeignKey("departments.department_id"), nullable=True)
+    department_id=Column(Integer, ForeignKey("departments.department_id"), nullable=True, index=True)
     state=Column(String(50))
     district=Column(String(50))
     address=Column(String(255))
@@ -19,4 +19,8 @@ class User(Base):
     pincode = Column(String)
     latitude = Column(Float, nullable=True)
     longitude = Column(Float, nullable=True)
-    
+    # Individual department-officer management
+    specialization = Column(String(120), nullable=True)
+    max_active_cases = Column(Integer, default=20)
+    is_active = Column(Boolean, default=True)
+

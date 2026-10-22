@@ -1,0 +1,109 @@
+{
+  "142524921d3f1970f2664063cb176ca1210777127c293cfeb094fdc56934c4b2": {
+    "latitude": 19.9104952,
+    "longitude": 83.1678321,
+    "display_name": "Bhawanipatna, Sadar, Kalahandi, Odisha, 766001, India",
+    "match_level": "locality_approximate",
+    "result_type": "town",
+    "resolved_state": "Odisha",
+    "resolved_district": "Kalahandi",
+    "warnings": [],
+    "provider": "OpenStreetMap Nominatim",
+    "cached": false,
+    "search_query": "Bhawanipatna, Kalahandi, Odisha, India"
+  },
+  "4d76373e3efcab189318ee8bffdf029eb921527e33df374bb41affe26923fa3c": {
+    "latitude": 19.9104952,
+    "longitude": 83.1678321,
+    "display_name": "Bhawanipatna, Sadar, Kalahandi, Odisha, 766001, India",
+    "match_level": "locality_approximate",
+    "result_type": "town",
+    "resolved_state": "Odisha",
+    "resolved_district": "Kalahandi",
+    "warnings": [],
+    "provider": "OpenStreetMap Nominatim",
+    "cached": false,
+    "search_query": "Bhawanipatna, Kalahandi, Odisha, India"
+  },
+  "78d55746956b15564cd96c5f930721f25957c8efd11cfb50c1c0e3e07d6ad14a": {
+    "latitude": 19.9104952,
+    "longitude": 83.1678321,
+    "display_name": "Bhawanipatna, Sadar, Kalahandi, Odisha, 766001, India",
+    "match_level": "locality_approximate",
+    "result_type": "town",
+    "resolved_state": "Odisha",
+    "resolved_district": "Kalahandi",
+    "warnings": [],
+    "provider": "OpenStreetMap Nominatim",
+    "cached": false,
+    "search_query": "Bhawanipatna, Kalahandi, Odisha, India"
+  },
+  "bcc6d61c7832f4e101f1c286dfbfac0230c9d4375c7226e2b36eccaefe0fc734": {
+    "latitude": 19.9104952,
+    "longitude": 83.1678321,
+    "display_name": "Bhawanipatna, Sadar, Kalahandi, Odisha, 766001, India",
+    "match_level": "locality_approximate",
+    "result_type": "town",
+    "resolved_state": "Odisha",
+    "resolved_district": "Kalahandi",
+    "warnings": [],
+    "provider": "OpenStreetMap Nominatim",
+    "cached": false,
+    "search_query": "Bhawanipatna, Kalahandi, Odisha, India"
+  },
+  "92e257285f36b7ad27f6a9a2964265db858c0c235c1d3f792bce74f3d0411b4a": {
+    "latitude": 19.9104952,
+    "longitude": 83.1678321,
+    "display_name": "Bhawanipatna, Sadar, Kalahandi, Odisha, 766001, India",
+    "match_level": "locality_approximate",
+    "result_type": "town",
+    "resolved_state": "Odisha",
+    "resolved_district": "Kalahandi",
+    "warnings": [],
+    "provider": "OpenStreetMap Nominatim",
+    "cached": false,
+    "search_query": "Bhawanipatna, Kalahandi, Odisha, India"
+  },
+  "796ca0ef5005f6c3718b7e63b275f0ab4fed0c24f43b4c1658fcc37726704bfa": {
+    "latitude": 19.9104952,
+    "longitude": 83.1678321,
+    "display_name": "Bhawanipatna, Sadar, Kalahandi, Odisha, 766001, India",
+    "match_level": "locality_approximate",
+    "result_type": "town",
+    "resolved_state": "Odisha",
+    "resolved_district": "Kalahandi",
+    "warnings": [],
+    "provider": "OpenStreetMap Nominatim",
+    "cached": false,
+    "search_query": "Bhawanipatna, Kalahandi, Odisha, India"
+  },
+  "197d7a2183186ff0d785664ce3ef8854c0b0cb0fe9464441ca87856e84f89c65": {
+    "latitude": 19.9104952,
+    "longitude": 83.1678321,
+    "display_name": "Bhawanipatna, Sadar, Kalahandi, Odisha, 766001, India",
+    "match_level": "locality_approximate",
+    "result_type": "town",
+    "resolved_state": "Odisha",
+    "resolved_district": "Kalahandi",
+    "warnings": [
+      "The detailed address was not found; this is a broader locality match. Move the pin to the actual incident location before confirming."
+    ],
+    "provider": "OpenStreetMap Nominatim",
+    "search_query": "Bhawanipatna, Kalahandi, Odisha, India",
+    "cached": false
+  },
+  "be9dc5c44ced8fe519545e67a3cc7a0eed4a02e02370d5c07d3a1879ce3523ce": {
+    "latitude": 19.9104952,
+    "longitude": 83.1678321,
+    "display_name": "Bhawanipatna, Sadar, Kalahandi, Odisha, 766001, India",
+    "match_level": "locality_approximate",
+    "result_type": "town",
+    "resolved_state": "Odisha",
+    "resolved_district": "Kalahandi",
+    "warnings": [
+      "The street/address text did not match, so this point uses your separate locality and landmark fields. It may be approximate; zoom in and move the pin to the incident location."
+    ],
+    "provider": "OpenStreetMap Nominatim",
+    "cached": false
+  }
+}

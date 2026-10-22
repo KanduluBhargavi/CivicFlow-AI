@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<script src="js/theme.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="images/civicflow-logo.svg">
+
+<title>Department Profile | CivicFlow AI</title>
+
+<link rel="stylesheet" href="css/profile.css">
+<link rel="stylesheet" href="css/department_guide.css?v=20261022-role-guide-2">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
+
+<link rel="stylesheet" href="css/design-system.css">
+<link rel="stylesheet" href="css/product-v2.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/ui-consistency.css?v=20261009">
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="profile-card">
+
+<h1 id="profileTitle">Department Profile</h1>
+
+<form id="profileForm" class="manager-profile">
+
+<div class="profile-field">
+  <label for="department_name">Department Name</label>
+  <input type="text" id="department_name" placeholder="Department Name">
+</div>
+
+<div class="profile-field">
+  <label for="department_email">Official Email</label>
+  <input type="email" id="department_email" disabled>
+</div>
+
+<div class="profile-field">
+  <label for="username">Login Username</label>
+  <input type="text" id="username" disabled>
+</div>
+
+<div class="profile-field profile-field--wide">
+  <label for="description">Department Description</label>
+  <textarea id="description" placeholder="Add a short description of this department"></textarea>
+</div>
+
+<div class="profile-actions">
+  <button type="submit">
+    <i class="fa-solid fa-floppy-disk"></i>
+    Save Changes
+  </button>
+</div>
+
+</form>
+
+<div id="officerProfile" style="display:none;">
+    <label>Officer Name</label>
+    <input type="text" id="officer_name" disabled>
+    <label>Official Email</label>
+    <input type="email" id="officer_email" disabled>
+    <label>Department</label>
+    <input type="text" id="officer_department" disabled>
+    <label>State / District</label>
+    <input type="text" id="officer_jurisdiction" disabled>
+    <label>Specialization</label>
+    <input type="text" id="officer_specialization" disabled>
+    <label>Active Workload</label>
+    <input type="text" id="officer_workload" disabled>
+    <p id="officerProfileNote" style="margin:12px 0 22px;color:#64748b;">Department information is managed by the Department Head. This page shows your individual officer account.</p>
+</div>
+
+<hr>
+
+<h2>Change Password</h2>
+
+<form id="passwordForm">
+
+<input type="password" id="oldPassword" placeholder="Current Password">
+
+<input type="password" id="newPassword" placeholder="New Password">
+
+<button type="submit">
+<i class="fa-solid fa-key"></i>
+Change Password
+</button>
+
+</form>
+
+<button class="backBtn"
+onclick="window.location.href='department_dashboard.html'">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+Back to Dashboard
+
+</button>
+
+</div>
+
+</div>
+
+<script src="js/api.js?v=20261021-api-routing-2"></script>
+<script src="js/department_profile.js"></script>
+<script src="js/department_guide.js?v=20261022-role-guide-2"></script>
+
+</body>
+</html>

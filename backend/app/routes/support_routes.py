@@ -1,10 +1,18 @@
 import os
 import traceback
+import logging
+import time
+import random
 
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from dotenv import load_dotenv
-from google import genai
+try:
+    from google import genai
+    from google.genai import types as genai_types
+except ImportError:  # The optional support chat must not prevent core API startup.
+    genai = None
+    genai_types = None
 
 
 # Load environment variables
@@ -25,101 +33,74 @@ class ChatRequest(BaseModel):
 
 # ================= GEMINI CONFIGURATION =================
 
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+GEMINI_API_KEY = (os.getenv("GEMINI_API_KEY") or "").strip()
+GEMINI_CHAT_MODEL = os.getenv("GEMINI_CHAT_MODEL", "gemini-3.6-flash")
+logger = logging.getLogger(__name__)
+client = None
 
 
-if not GEMINI_API_KEY:
-    raise ValueError(
-        "GEMINI_API_KEY is missing. Add it to your .env file."
-    )
-
-
-client = genai.Client(
-    api_key=GEMINI_API_KEY
-)
+def _get_gemini_client():
+    global client
+    if not GEMINI_API_KEY:
+        raise HTTPException(
+            status_code=503,
+            detail="AI support chat is not configured. Core CivicFlow features remain available.",
+        )
+    if genai is None or genai_types is None:
+        raise HTTPException(status_code=503, detail="AI support chat dependencies are unavailable.")
+    if client is None:
+        client = genai.Client(
+            api_key=GEMINI_API_KEY,
+            http_options=genai_types.HttpOptions(timeout=8000),
+        )
+    return client
 
 
 # ================= AI SUPPORT CHAT =================
 
 @router.post("/chat")
 def chat_with_support(request: ChatRequest):
+    question = request.message.strip()
+    if not question:
+        raise HTTPException(status_code=422, detail="Please type a question.")
+    if len(question) > 1500:
+        raise HTTPException(status_code=422, detail="Question is too long (maximum 1500 characters).")
+    gemini_client = _get_gemini_client()
 
-    try:
+    prompt = f"""You are CivicFlow AI Support Assistant for a public grievance platform in India.
+Guide users clearly on filing and tracking grievances, department routing, status updates,
+multilingual text entry, incidents and resolution reviews. Explain accurately that you cannot
+view a personal complaint or change case status without the relevant app workflow.
+Do not make up complaint records, support contacts, SLA deadlines, or supported languages.
+Use simple, concise language, usually 2-4 sentences. Answer the actual question first.
+User question: {question}"""
 
-        prompt = f"""
-You are CivicFlow AI Support Assistant.
-
-CivicFlow is an AI-powered Intelligent Public Service Management System.
-
-Your job is to help citizens understand and use the CivicFlow platform.
-
-CivicFlow features include:
-
-- Lodging public grievances
-- AI-based department classification
-- Complaint priority prediction
-- AI-generated complaint summaries
-- Multilingual complaint support
-- Complaint tracking
-- Complaint statuses such as Assigned, In Progress, Resolved and Rejected
-- Location-based complaint information
-- Government department routing
-
-Rules:
-
-1. Be friendly and helpful.
-2. Give clear and concise answers.
-3. Answer mainly about CivicFlow and public grievance usage.
-4. Do not invent information about the user's personal complaint.
-5. If asked about government information that you don't know, clearly say so.
-6. Do not claim that you can directly change or resolve complaints.
-7. Keep responses reasonably short and easy for citizens to understand.
-
-User question:
-
-{request.message}
-"""
-
-        response = client.models.generate_content(
-
-            model="gemini-3.6-flash",
-
-            contents=prompt
-
-        )
-
-
-        reply = response.text
-
-
-        if not reply:
-
-            reply = (
-                "Sorry, I couldn't generate a response. "
-                "Please try again."
+    for attempt in range(2):
+        try:
+            response = gemini_client.models.generate_content(
+                model=GEMINI_CHAT_MODEL,
+                contents=prompt,
+                config=genai_types.GenerateContentConfig(
+                    temperature=0.3,
+                    max_output_tokens=220,
+                ),
             )
-
-
-        return {
-            "reply": reply
-        }
-
-
-    except Exception as e:
-
-        print("\n========== GEMINI ERROR ==========")
-
-        print(str(e))
-
-        traceback.print_exc()
-
-        print("==================================\n")
-
-
-        raise HTTPException(
-
-            status_code=500,
-
-            detail=str(e)
-
-        )
+            reply = (response.text or "").strip()
+            if reply:
+                return {"reply": reply}
+            raise HTTPException(status_code=502, detail="Empty AI response")
+        except HTTPException:
+            raise
+        except Exception as exc:
+            # Provider SDK raises exceptions with status codes. Temporary outages are retriable.
+            status = getattr(exc, "code", None) or getattr(exc, "status_code", None)
+            details = str(exc).lower()
+            transient = (str(status) in ("429", "500", "502", "503", "504") or
+                         any(x in details for x in ("503", "429", "unavailable", "high demand", "resource_exhausted")))
+            if transient and attempt == 0:
+                time.sleep(0.35 + random.uniform(0, 0.15))
+                continue
+            logger.warning("CivicFlow chat provider error (%s): %s", status, type(exc).__name__)
+            if transient:
+                raise HTTPException(status_code=503, detail="AI service is temporarily busy.") from None
+            raise HTTPException(status_code=502, detail="AI support response failed.") from None

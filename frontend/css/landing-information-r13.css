@@ -1,0 +1,80 @@
+/* R13: informational sections and compact layout from Department Performance onward. */
+body.landing-refined :is(.departments,.journey,.how-to-use,.faq,.user-feedback-section) { padding-top: 64px !important; padding-bottom: 68px !important; }
+body.landing-refined :is(.departments,.journey,.how-to-use,.faq) .section-head { margin-bottom: 26px !important; }
+body.landing-refined .dept-list { max-width: 1060px; margin-inline:auto; }
+body.landing-refined .journey-track { margin-top: 28px; }
+body.landing-refined .user-feedback-section { padding-top: 58px !important; padding-bottom: 64px !important; }
+body.landing-refined .faq .section-inner { max-width: 1040px; }
+body.landing-refined .faq .accordion { max-width: 900px; margin-inline:auto; }
+.info-band { padding: 70px 0; background:#f8fafc; color:#142743; }
+.info-band--soft { background:#edf5ff; }
+.info-band .section-head { max-width:780px; margin:0 auto 30px; text-align:center; }
+.info-band .section-head h2 { color:#142743; font-size:clamp(1.9rem,3.2vw,2.8rem); line-height:1.15; margin:12px auto; }
+.info-band .section-head .section-sub { color:#536782; line-height:1.65; }
+.info-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+.info-tile,.info-highlight { background:#fff; border:1px solid #dce5f1; border-radius:20px; padding:24px; box-shadow:0 8px 25px rgba(17,35,64,.04); }
+.info-tile h3,.info-highlight h3 { font-size:1.12rem; margin:12px 0 8px; color:#142743; }
+.info-tile p,.info-highlight p,.info-copy p { color:#536782; line-height:1.65; margin:0; }
+.info-symbol { display:inline-flex; align-items:center; justify-content:center; background:#eaf2ff; border-radius:14px; width:48px; height:48px; font-size:24px; }
+.info-footnote { color:#64748b; font-size:.87rem; text-align:center; margin:22px auto 0; }
+.info-split { display:grid; grid-template-columns:minmax(0,1.3fr) minmax(280px,.8fr); align-items:center; gap:clamp(24px,5vw,70px); }
+.info-copy { max-width:640px; }
+.info-copy h2 { font-size:clamp(1.9rem,3vw,2.7rem); color:#142743; line-height:1.15; margin:12px 0 18px; }
+.info-copy p + p { margin-top:15px; }
+.info-highlight { text-align:center; padding:32px; }
+.info-highlight .info-symbol { margin:auto; }
+.info-highlight p { padding:12px 0; }
+.info-highlight small { display:block; color:#64748b; margin-top:12px; line-height:1.5; }
+.info-arrow { color:#2563eb; font-size:1.6rem; }
+.rights-grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
+html.dark body.landing-refined .info-band { background:#0c182b; color:#f1f5f9; }
+html.dark body.landing-refined .info-band--soft { background:#101f35; }
+html.dark body.landing-refined .info-tile,html.dark body.landing-refined .info-highlight { background:#17283f; border-color:#354963; }
+html.dark body.landing-refined .info-band :is(h2,h3) { color:#f1f5f9 !important; }
+html.dark body.landing-refined .info-band :is(p,small) { color:#c0cde0 !important; }
+html.dark body.landing-refined .info-symbol { background:#253e60; }
+@media(max-width:900px) { .info-grid,.rights-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .info-split { grid-template-columns:1fr; } }
+@media(max-width:560px) { .info-grid,.rights-grid { grid-template-columns:1fr; } .info-band { padding:52px 0; } .info-tile,.info-highlight { padding:20px; } }
+
+/* R21: isolated full-card 3D flip — eight fixed-size department cards. */
+body.landing-refined .issues-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; align-items:stretch; }
+body.landing-refined .issues-grid > .issue-performance-card {
+  display:block !important; position:relative !important; padding:0 !important; margin:0 !important;
+  height:280px !important; min-height:280px !important; max-height:280px !important;
+  background:transparent !important; border:0 !important; box-shadow:none !important;
+  overflow:visible !important; cursor:pointer; isolation:isolate;
+}
+body.landing-refined .issues-grid .department-flip-stage { width:100%; height:100%; perspective:1100px; }
+body.landing-refined .issues-grid .department-flip-rotor {
+  width:100%; height:100%; position:relative; transform-style:preserve-3d;
+  transition:transform .6s cubic-bezier(.2,.7,.2,1);
+}
+body.landing-refined .issues-grid > .issue-performance-card:is(:hover,:focus-visible,.show-performance) .department-flip-rotor {transform:rotateY(180deg);}
+body.landing-refined .issues-grid .department-face {
+  box-sizing:border-box; position:absolute; inset:0; height:100%; width:100%;
+  padding:24px; border:1px solid #dce5f1; border-radius:22px;
+  background:#ffffff; color:#142743;
+  backface-visibility:hidden; -webkit-backface-visibility:hidden;
+  display:flex; flex-direction:column; align-items:flex-start;
+  overflow:hidden; box-shadow:0 8px 25px rgba(17,35,64,.04);
+}
+body.landing-refined .issues-grid .department-face--back {transform:rotateY(180deg);justify-content:center;gap:10px;}
+body.landing-refined .issues-grid .department-face--front .info-symbol {flex:none;}
+body.landing-refined .issues-grid .department-face h3 {margin:14px 0 12px !important; font-size:1.05rem;line-height:1.3;}
+body.landing-refined .issues-grid .department-face p {margin:0;line-height:1.55;font-size:.94rem;}
+body.landing-refined .issues-grid .department-flip-hint {display:block;margin-top:auto;padding-top:12px;font-size:.75rem;color:#62748d;}
+body.landing-refined .issues-grid .department-back-eyebrow {font-size:.7rem;letter-spacing:.12em;font-weight:800;color:#64748b;}
+body.landing-refined .issues-grid .issue-performance-count {font-size:clamp(1.4rem,2vw,2rem);line-height:1.15;color:#2563eb;font-weight:800;overflow-wrap:anywhere;}
+body.landing-refined .issues-grid .department-back-caption {font-weight:700;font-size:.89rem;}
+body.landing-refined .issues-grid .department-back-share,
+body.landing-refined .issues-grid .issue-performance-departments {font-size:.82rem;line-height:1.35;color:#536782;}
+html.dark body.landing-refined .issues-grid .department-face {background:#17283f !important;border-color:#354963 !important;color:#f1f5f9 !important;}
+html.dark body.landing-refined .issues-grid .department-face h3 {color:#f1f5f9 !important;}
+html.dark body.landing-refined .issues-grid .department-face p,
+html.dark body.landing-refined .issues-grid .department-back-share,
+html.dark body.landing-refined .issues-grid .issue-performance-departments,
+html.dark body.landing-refined .issues-grid .department-flip-hint {color:#c0cde0 !important;}
+html.dark body.landing-refined .issues-grid .issue-performance-count {color:#93c5fd !important;}
+@media(max-width:1100px){body.landing-refined .issues-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:560px){body.landing-refined .issues-grid{grid-template-columns:1fr;}}
+@media(prefers-reduced-motion:reduce){body.landing-refined .issues-grid .department-flip-rotor{transition:none;}}

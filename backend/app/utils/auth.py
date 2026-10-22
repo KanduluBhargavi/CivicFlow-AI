@@ -4,10 +4,9 @@ from jose import jwt, JWTError
 
 from app.database import get_db
 from app.models.user import User
+from app.config import SECRET_KEY, ALGORITHM
 from sqlalchemy.orm import Session
 
-SECRET_KEY = "civicflow_ai_super_secret_key_2026"
-ALGORITHM = "HS256"
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 
@@ -26,6 +25,10 @@ def get_current_user(
         email = payload.get("sub")
 
         if email is None:
+            raise credentials_exception
+
+        # Admin / department-account tokens must not act as citizen users.
+        if (payload.get("role") or "").lower() in {"admin", "department"}:
             raise credentials_exception
 
     except JWTError:

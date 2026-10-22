@@ -1,0 +1,107 @@
+{
+  "selected_model": "SGDClassifier",
+  "selection_metric": "5-fold grouped (leak-free) CV macro-F1 across four model families",
+  "cv_macro_f1": 0.7794440552160434,
+  "cv_accuracy": 0.786509040333797,
+  "accuracy": 0.8021201413427562,
+  "macro_f1": 0.7948467099139952,
+  "weighted_f1": 0.8017271631991332,
+  "macro_precision": 0.8123237301376608,
+  "macro_recall": 0.7826065997971549,
+  "classification_report": {
+    "High": {
+      "precision": 0.8440366972477065,
+      "recall": 0.8440366972477065,
+      "f1-score": 0.8440366972477065,
+      "support": 109.0
+    },
+    "Low": {
+      "precision": 0.8372093023255814,
+      "recall": 0.6923076923076923,
+      "f1-score": 0.7578947368421053,
+      "support": 52.0
+    },
+    "Medium": {
+      "precision": 0.7557251908396947,
+      "recall": 0.8114754098360656,
+      "f1-score": 0.782608695652174,
+      "support": 122.0
+    },
+    "accuracy": 0.8021201413427562,
+    "macro avg": {
+      "precision": 0.8123237301376608,
+      "recall": 0.7826065997971549,
+      "f1-score": 0.7948467099139952,
+      "support": 283.0
+    },
+    "weighted avg": {
+      "precision": 0.804711508845841,
+      "recall": 0.8021201413427562,
+      "f1-score": 0.8017271631991332,
+      "support": 283.0
+    }
+  },
+  "classes": [
+    "High",
+    "Low",
+    "Medium"
+  ],
+  "clean_rows": 1438,
+  "unique_complaint_groups": 1238,
+  "train_rows": 1155,
+  "test_rows": 283,
+  "feature_count": 30069,
+  "urgency_feature_version": 1,
+  "urgency_feature_names": [
+    "safety",
+    "health",
+    "vulnerable",
+    "outage",
+    "urgent",
+    "duration",
+    "scale",
+    "mitigate",
+    "access",
+    "n_words",
+    "exclaim",
+    "caps_ratio",
+    "urgent_prefix"
+  ],
+  "class_distribution": {
+    "Medium": 655,
+    "High": 583,
+    "Low": 200
+  },
+  "candidate_models": [
+    {
+      "model": "SGDClassifier",
+      "cv_accuracy": 0.786509040333797,
+      "cv_macro_f1": 0.7794440552160434,
+      "cv_weighted_f1": 0.7862834203339691
+    },
+    {
+      "model": "LinearSVC",
+      "cv_accuracy": 0.780250347705146,
+      "cv_macro_f1": 0.7744449817013034,
+      "cv_weighted_f1": 0.7799456438467121
+    },
+    {
+      "model": "LogisticRegression",
+      "cv_accuracy": 0.7795549374130737,
+      "cv_macro_f1": 0.7708276241060542,
+      "cv_weighted_f1": 0.7793919405115957
+    },
+    {
+      "model": "ComplementNB",
+      "cv_accuracy": 0.7552155771905424,
+      "cv_macro_f1": 0.7446624494550611,
+      "cv_weighted_f1": 0.7540492813526956
+    }
+  ],
+  "probability_support": true,
+  "source_columns_used": [
+    "description",
+    "priority"
+  ],
+  "note": "Features = word(1-3)+char(3-5) TF-IDF followed by hand-built urgency features (urgency_features.py)."
+}

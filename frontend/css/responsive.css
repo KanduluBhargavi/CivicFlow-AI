@@ -1,0 +1,429 @@
+/* ============================================================
+   CivicFlow global responsive layer
+   Loaded after page-specific styles.
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { max-width: 100%; overflow-x: hidden; }
+img, video, canvas, svg { max-width: 100%; height: auto; }
+table { max-width: 100%; }
+input, select, textarea, button { max-width: 100%; }
+textarea { resize: vertical; }
+
+:root {
+  --cf-mobile-gutter: 16px;
+}
+
+/* Prevent rigid page containers from overflowing */
+.container,
+.main-content,
+.content,
+.dashboard-content,
+.page-content,
+.form-container,
+.profile-card,
+.complaint-card,
+.details-container,
+.section-container,
+.admin-content,
+.department-content,
+.citizen-content {
+  max-width: 100%;
+}
+
+/* Generic grids should collapse gracefully */
+.stats-grid,
+.cards-grid,
+.metrics-grid,
+.dashboard-grid,
+.feature-grid,
+.quick-grid,
+.analytics-grid,
+.profile-grid,
+.form-grid,
+.department-grid,
+.admin-grid {
+  min-width: 0;
+}
+
+.stats-grid > *,
+.cards-grid > *,
+.metrics-grid > *,
+.dashboard-grid > *,
+.feature-grid > *,
+.quick-grid > *,
+.analytics-grid > *,
+.profile-grid > *,
+.form-grid > *,
+.department-grid > *,
+.admin-grid > * {
+  min-width: 0;
+}
+
+/* Long text / IDs / emails */
+.card,
+.box,
+.stat-card,
+.metric-card,
+.complaint-card,
+.incident-card,
+.profile-card,
+.notification-item,
+.timeline-item,
+.action-event {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Wide tables get horizontal scroll rather than breaking layout */
+.table-wrapper,
+.table-container,
+.data-table-wrap,
+.complaints-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Buttons remain tappable */
+button,
+.btn,
+.action-btn,
+.primary-btn,
+.secondary-btn,
+.location-btn,
+.manual-language-toggle,
+.description-voice-btn {
+  min-height: 40px;
+}
+
+/* ------------------------------------------------------------
+   Tablet
+   ------------------------------------------------------------ */
+@media (max-width: 1024px) {
+  .container,
+  .page-content,
+  .main-content,
+  .dashboard-content,
+  .department-content,
+  .admin-content {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .stats-grid,
+  .metrics-grid,
+  .cards-grid,
+  .dashboard-grid,
+  .analytics-grid,
+  .feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .hero,
+  .hero-card,
+  .hero-section,
+  .landing-hero {
+    min-width: 0;
+  }
+
+  .hero h1,
+  .hero-card h1,
+  .landing-hero h1 {
+    max-width: 100%;
+  }
+}
+
+/* ------------------------------------------------------------
+   Mobile
+   ------------------------------------------------------------ */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .container,
+  .page-content,
+  .main-content,
+  .dashboard-content,
+  .department-content,
+  .admin-content,
+  .content {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: var(--cf-mobile-gutter) !important;
+    padding-right: var(--cf-mobile-gutter) !important;
+  }
+
+  /* Sidebars become normal-width off-canvas/stack-friendly regions */
+  .sidebar {
+    width: min(86vw, 290px) !important;
+    max-width: 290px !important;
+  }
+
+  .main,
+  main,
+  .main-content,
+  .dashboard-main {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  .stats-grid,
+  .metrics-grid,
+  .cards-grid,
+  .dashboard-grid,
+  .analytics-grid,
+  .feature-grid,
+  .quick-grid,
+  .department-grid,
+  .admin-grid,
+  .profile-grid,
+  .form-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero,
+  .hero-card,
+  .hero-section,
+  .landing-hero {
+    padding: 22px 18px !important;
+    border-radius: 18px !important;
+  }
+
+  .hero h1,
+  .hero-card h1,
+  .landing-hero h1 {
+    font-size: clamp(25px, 8vw, 38px) !important;
+    line-height: 1.08 !important;
+  }
+
+  .hero p,
+  .hero-card p,
+  .landing-hero p {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+  }
+
+  /* Forms */
+  form {
+    width: 100%;
+  }
+
+  .input-box,
+  .profile-field,
+  .field-group,
+  .form-group {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100% !important;
+    min-width: 0 !important;
+    font-size: 16px !important; /* prevents iOS zoom */
+  }
+
+  .field-label-row,
+  .language-detect-row,
+  .form-row,
+  .action-row,
+  .toolbar,
+  .filters,
+  .filter-row,
+  .profile-actions,
+  .header-actions,
+  .complaint-actions {
+    flex-wrap: wrap !important;
+  }
+
+  .field-label-row,
+  .language-detect-row {
+    align-items: stretch !important;
+  }
+
+  .manual-language-toggle,
+  .description-voice-btn,
+  .location-btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .voice-language-required-note {
+    width: 100%;
+    margin-left: 0 !important;
+    justify-content: center;
+  }
+
+  .voice-inline-status {
+    align-items: flex-start !important;
+  }
+
+  .voice-inline-status #voiceTranscriptPreview {
+    flex-basis: 100% !important;
+  }
+
+  /* Complaint / detail cards */
+  .complaint-card,
+  .incident-card,
+  .profile-card,
+  .details-card,
+  .section-card,
+  .card {
+    padding: 16px !important;
+    border-radius: 16px !important;
+  }
+
+  .complaint-header,
+  .detail-header,
+  .profile-header,
+  .section-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+  }
+
+  /* Tables */
+  table {
+    min-width: 680px;
+    font-size: 13px;
+  }
+
+  .table-wrapper,
+  .table-container,
+  .data-table-wrap,
+  .complaints-table-wrapper {
+    overflow-x: auto !important;
+  }
+
+  /* Modals */
+  .modal,
+  .modal-content,
+  .dialog,
+  .popup-content {
+    max-width: calc(100vw - 28px) !important;
+  }
+
+  .modal-content,
+  .dialog,
+  .popup-content {
+    max-height: 88vh;
+    overflow-y: auto;
+  }
+
+  /* Maps/charts */
+  #map,
+  .map,
+  .map-container,
+  .chart-container,
+  canvas {
+    max-width: 100% !important;
+  }
+
+  .map-container {
+    min-height: 280px;
+  }
+
+  /* Officer guide */
+  .officer-guide {
+    right: 10px !important;
+    bottom: 10px !important;
+  }
+
+  .officer-guide-toggle span {
+    display: none;
+  }
+
+  .officer-guide-toggle {
+    width: 50px !important;
+    min-width: 50px;
+    padding: 0 !important;
+    justify-content: center !important;
+  }
+
+  .officer-guide-panel {
+    position: fixed !important;
+    left: 12px !important;
+    right: 12px !important;
+    bottom: 72px !important;
+    width: auto !important;
+    max-width: none !important;
+    height: min(68vh, 560px) !important;
+  }
+
+  /* Navbar/header */
+  .navbar,
+  .topbar,
+  .header,
+  .page-header {
+    max-width: 100%;
+  }
+
+  .navbar .nav-links,
+  .topbar .nav-links,
+  .header-actions {
+    gap: 8px !important;
+  }
+
+  /* Don't let badges force cards wider */
+  .badge,
+  .chip,
+  .status-chip,
+  .priority-badge,
+  .language-badge {
+    max-width: 100%;
+    white-space: normal !important;
+  }
+}
+
+/* ------------------------------------------------------------
+   Small phones
+   ------------------------------------------------------------ */
+@media (max-width: 480px) {
+  :root { --cf-mobile-gutter: 12px; }
+
+  .hero,
+  .hero-card,
+  .hero-section,
+  .landing-hero {
+    padding: 18px 14px !important;
+  }
+
+  .card,
+  .complaint-card,
+  .incident-card,
+  .profile-card,
+  .details-card,
+  .section-card {
+    padding: 14px !important;
+  }
+
+  h1 { font-size: clamp(24px, 9vw, 34px) !important; }
+  h2 { font-size: clamp(20px, 7vw, 28px) !important; }
+
+  .btn,
+  button,
+  .action-btn,
+  .primary-btn,
+  .secondary-btn {
+    max-width: 100%;
+  }
+
+  .profile-actions button,
+  form > button[type="submit"] {
+    width: 100% !important;
+  }
+
+  .officer-guide-panel {
+    left: 8px !important;
+    right: 8px !important;
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "model_selection": {
+    "candidate_algorithms": [
+      "ComplementNB",
+      "LogisticRegression",
+      "LinearSVC",
+      "SGDClassifier"
+    ],
+    "department_protocol": "3-fold stratified cross-validation; choose highest mean macro-F1; final evaluation on untouched 20% test set",
+    "priority_protocol": "5-fold grouped (leak-free) CV on CivicFlow's labelled priority dataset selects the model family by macro-F1; headline numbers come from an untouched grouped 80/20 hold-out; deployed model is refit on all data.",
+    "primary_metric": "Macro F1 because both tasks are multiclass and class distributions are imbalanced."
+  },
+  "department": {
+    "selected_model": "LogisticRegression",
+    "accuracy": 0.9392712550607287,
+    "macro_f1": 0.9340609240834128,
+    "weighted_f1": 0.938593846249492,
+    "cv_macro_f1_mean": 0.9150586835637488
+  },
+  "priority": {
+    "selected_model": "SGDClassifier",
+    "accuracy": 0.8021201413427562,
+    "macro_f1": 0.7948467099139952,
+    "weighted_f1": 0.8017271631991332,
+    "cv_macro_f1": 0.7794440552160434
+  },
+  "critical_priority": "Critical is a transparent emergency safety escalation layer because the source severity data contains only Low/Medium/High."
+}

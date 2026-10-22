@@ -5,14 +5,21 @@
 <script src="js/theme.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="images/civicflow-logo.svg">
 
 <title>CivicFlow AI | Dashboard</title>
 
-<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/dashboard.css?v=20261022-performance-pip-1">
 
 <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
 
+<link rel="stylesheet" href="css/citizen_notifications.css">
+<link rel="stylesheet" href="css/design-system.css">
+<link rel="stylesheet" href="css/product-v2.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/ui-consistency.css?v=20261009">
+<link rel="stylesheet" href="css/citizen_shared_nav.css?v=35">
 </head>
 
 <body>
@@ -22,7 +29,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 <nav class="navbar">
 
     <div class="logo">
-        <!-- <i class="fa-solid fa-shield-halved"></i> -->
         <span class="brand__mark" aria-hidden="true">
         <svg viewBox="0 0 40 40" width="34" height="34">
           <circle cx="20" cy="20" r="18" fill="none" stroke="url(#brandGrad)" stroke-width="2.4"/>
@@ -40,6 +46,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     </div>
 
     <div class="nav-right">
+        <button id="navContactSupport" class="nav-contact-support" type="button" title="Contact CivicFlow support" aria-label="Contact CivicFlow support"><i class="fa-solid fa-headset" aria-hidden="true"></i><span>Support</span></button>
 
         <span class="welcome">
 
@@ -74,20 +81,20 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 
 <ul>
 
-<li onclick="location.href='dashboard.html'">
-Dashboard
+<li class="active" onclick="location.href='dashboard.html'">
+<i class="fa-solid fa-grid-2"></i> Dashboard
 </li>
 
 <li onclick="location.href='complaint.html'">
-Lodge Complaint
+<i class="fa-solid fa-circle-plus"></i> Lodge Complaint
 </li>
 
 <li onclick="location.href='my_complaints.html'">
-My Complaints
+<i class="fa-solid fa-list-check"></i> My Complaints
 </li>
 
 <li onclick="location.href='profile.html'">
-My Profile
+<i class="fa-solid fa-user-gear"></i> My Profile
 </li>
 
 <li id="logoutSide">
@@ -166,14 +173,6 @@ and monitor progress in one place.
 
 </div>
 
-<div class="card">
-
-<h3>Rejected</h3>
-
-<h1 id="rejectedComplaints">0</h1>
-
-</div>
-
 </section>
 
 <section class="recent">
@@ -200,6 +199,8 @@ and monitor progress in one place.
 
 <th>Priority</th>
 
+<th>Actions</th>
+
 </tr>
 
 </thead>
@@ -208,7 +209,7 @@ and monitor progress in one place.
 
 <tr>
 
-<td colspan="5">
+<td colspan="6">
 
 No complaints yet.
 
@@ -222,38 +223,17 @@ No complaints yet.
 
 </section>
 
-
-
-  <!-- NEED HELP -->
-
-<div class="intelligence-card help-card">
-
-    <div class="intelligence-icon help-icon">
-        🆘
+<section class="community-incidents">
+    <div class="section-title community-title">
+        <div>
+            <h2>Community Incidents Near You</h2>
+            <p>See unresolved civic issues in your district. If the same issue affects you, support the incident instead of filing a duplicate complaint.</p>
+        </div>
     </div>
-
-    <div class="intelligence-content">
-
-        <span class="intelligence-label">
-            NEED HELP?
-        </span>
-
-        <h3>
-            We're here to help you
-        </h3>
-
-        <p>
-            Need assistance with submitting, tracking, or understanding your complaint?
-        </p>
-
-        <button id="getHelpBtn" class="help-btn">
-            Get Help →
-        </button>
-
+    <div id="communityIncidents" class="community-grid">
+        <p class="community-empty">Loading nearby incidents...</p>
     </div>
-
-</div>
-
+</section>
 </section>
 
 <!-- ===================================================== -->
@@ -306,6 +286,7 @@ No complaints yet.
 </main>
 
 </div>
+<button id="floatingChatSupport" class="floating-chat-support" type="button" aria-label="Open Pip, CivicFlow's support chat" title="Chat with Pip"><img class="chat-pip" src="images/pip-mascot.png?v=2" alt="" aria-hidden="true" width="52" height="52" decoding="async" fetchpriority="low"><span class="chat-float-label">Chat with Pip</span></button>
 <!-- ================= HELP MODAL ================= -->
 
 <div class="help-modal" id="helpModal">
@@ -400,9 +381,7 @@ No complaints yet.
 
             <div class="chat-header">
 
-                <div class="support-avatar">
-                    🤖
-                </div>
+                <div class="support-avatar"><img class="support-pip-avatar" src="images/pip-mascot.png?v=2" alt="Pip" width="48" height="48" decoding="async" fetchpriority="low"></div>
 
                 <div>
 
@@ -484,7 +463,7 @@ No complaints yet.
 
                         <strong>Phone Support</strong>
 
-                        <p>+91 12345 67890</p>
+                        <p>Contact details have not been configured</p>
 
                     </div>
 
@@ -539,10 +518,22 @@ No complaints yet.
 
 
 
-<script src="js/api.js"></script>
+<script src="js/api.js?v=20261021-api-routing-2"></script>
 
 <script src="js/dashboard.js"></script>
 
+<script src="js/citizen_notifications.js"></script>
+<script>
+/* Dashboard navbar offset uses the real navbar height (including mobile wrap). */
+(() => {
+  const navbar = document.querySelector('body > nav.navbar');
+  if (!navbar || !document.querySelector('body > .dashboard-container')) return;
+  const sync = () => document.body.style.setProperty('--dashboard-navbar-height', `${navbar.getBoundingClientRect().height}px`);
+  sync();
+  if ('ResizeObserver' in window) new ResizeObserver(sync).observe(navbar);
+  window.addEventListener('resize', sync, { passive: true });
+})();
+</script>
 </body>
 
 </html>

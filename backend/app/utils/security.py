@@ -10,12 +10,12 @@ def verify_password(plain_password:str, hashed_password:str):
     return pwd_context.verify(plain_password,hashed_password)
 
 from jose import jwt
-from datetime import datetime, timedelta
-from app.config import SECRET_KEY, ALGORITHM
+from datetime import datetime, timedelta, timezone
+from app.config import SECRET_KEY, ALGORITHM, ACCESS_TOKEN_EXPIRE_MINUTES
 
 def create_access_token(data: dict):
     to_encode=data.copy()
-    expire = datetime.utcnow() + timedelta(minutes=60)
+    expire = datetime.now(timezone.utc) + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
 
     to_encode.update({"exp": expire})
 

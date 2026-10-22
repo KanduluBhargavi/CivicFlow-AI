@@ -28,9 +28,7 @@ document.getElementById("email").value=data.email;
 
 document.getElementById("phone").value=data.phone;
 
-document.getElementById("state").value=data.state;
-
-document.getElementById("district").value=data.district;
+await initStateDistrictDropdown("state", "district", data.state || "", data.district || "");
 
 document.getElementById("area").value=data.area;
 
@@ -66,7 +64,7 @@ Authorization:`Bearer ${token}`,
 
 body:JSON.stringify({
 
-name:document.getElementById("full_name").value,
+full_name:document.getElementById("full_name").value,
 
 phone:document.getElementById("phone").value,
 
@@ -74,7 +72,7 @@ state:document.getElementById("state").value,
 
 district:document.getElementById("district").value,
 
-city:document.getElementById("area").value,
+area:document.getElementById("area").value,
 
 address:document.getElementById("address").value,
 

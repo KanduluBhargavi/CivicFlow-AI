@@ -11,16 +11,26 @@
     <title>Complaint Details | CivicFlow AI</title>
 
     <link rel="stylesheet"
-          href="css/department_details.css">
+          href="css/department_details.css?v=20261022-assignment-display-1">
+    <link rel="stylesheet" href="css/department_guide.css?v=20261022-role-guide-2">
 
     <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
 
+<link rel="stylesheet" href="css/design-system.css">
+<link rel="stylesheet" href="css/product-v2.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/ui-consistency.css?v=20261009">
+<link rel="stylesheet" href="css/civic-ui-r3.css?v=3">
 </head>
 
 <body>
 
 <div class="container">
+    <div class="role-context" id="roleContext">
+        <span class="brand__mark" aria-hidden="true"><img src="images/civicflow-logo.svg" alt="" width="38" height="38"></span>
+        <span id="roleContextText">Loading workspace role...</span>
+    </div>
 
     <div class="top-bar">
 
@@ -75,6 +85,13 @@
                 <span
                 class="badge status"
                 id="status">
+
+                </span>
+
+                <span
+                class="badge sentiment"
+                id="sentiment"
+                style="display:none;">
 
                 </span>
 
@@ -158,6 +175,18 @@
 
             </div>
 
+            <div>
+
+                <label>
+
+                    🌐 Original Language
+
+                </label>
+
+                <p id="language"></p>
+
+            </div>
+
         </div>
 
         <hr>
@@ -186,6 +215,18 @@
 
         </div>
 
+        <div id="translationBlock" class="translation-block">
+            <label>AI English Translation</label>
+            <div class="box translated-box" id="translatedText"></div>
+            <p class="translation-note" id="translationNote"></p>
+        </div>
+
+        <section id="translationFeedbackPanel" class="translation-feedback-review" style="display:none;">
+            <h3>Citizen translation feedback</h3>
+            <p>Reports are for human review. Marking a report reviewed does not rewrite the citizen's original or processing text.</p>
+            <div id="translationFeedbackList"></div>
+        </section>
+
         <label>
 
             AI Summary
@@ -197,6 +238,92 @@
         id="summary">
 
         </div>
+
+        <div class="review-grid">
+            <section class="review-panel officer-brief-panel" id="aiBriefPanel">
+                <div class="review-panel__head">
+                    <h3><i class="fa-solid fa-clipboard-list"></i> <span id="briefTitle">AI Officer Brief</span></h3>
+                    
+                </div>
+                <div class="brief-row"><strong>Issue</strong><span id="briefIssue">-</span></div>
+                <div class="brief-row"><strong>Risk</strong><span id="briefRisk">-</span></div>
+                <div class="brief-row"><strong>Related reports</strong><span id="briefDuplicates">-</span></div>
+                <div class="brief-row" id="recommendedActionRow"><strong>Recommended next action</strong><span id="briefAction">-</span></div>
+            </section>
+
+            <section class="review-panel sla-panel">
+                <div class="review-panel__head">
+                    <h3><i class="fa-solid fa-clock"></i> SLA Monitor</h3>
+                    <span class="sla-state" id="slaState">-</span>
+                </div>
+                <div class="sla-metrics">
+                    <div><span>Target</span><strong id="slaTarget">-</strong></div>
+                    <div><span>Deadline</span><strong id="slaDeadline">-</strong></div>
+                    <div><span>Time remaining</span><strong id="slaRemaining">-</strong></div>
+                    <div><span>Auto-assignment to officer</span><strong id="officerAssignmentDue">-</strong></div>
+                </div>
+                <p class="sla-basis" id="slaBasis" aria-live="polite"></p>
+                <div class="sla-track"><span id="slaProgress"></span></div>
+            </section>
+        </div>
+
+        <section class="review-panel delay-review-panel">
+            <div class="review-panel__head">
+                <h3><i class="fa-solid fa-calendar-plus"></i> Delay request &amp; follow-up</h3>
+                <span class="review-chip">Head decision required</span>
+            </div>
+            <p class="audit-note">Officers can report a real blocker and request a follow-up time. An approved request quiets SLA breach reminders until that time. It does not erase the original target. If the Head is unavailable, the request stays pending; CivicFlow can organize the facts but will not approve it automatically.</p>
+            <div id="delayRequestList" class="delay-request-list"><p class="audit-note">No delay requests recorded.</p></div>
+            <div class="officer-only delay-request-form" id="officerDelayForm">
+                <label for="delayBlocker">What is blocking the work?</label>
+                <select id="delayBlocker">
+                    <option value="parts">Parts or materials</option>
+                    <option value="equipment">Equipment or repair crew</option>
+                    <option value="access">Access / permission to site</option>
+                    <option value="weather">Weather or environmental conditions</option>
+                    <option value="safety">Safety risk</option>
+                    <option value="utility_dependency">Another utility or agency</option>
+                    <option value="staffing">Staff availability</option>
+                    <option value="other">Other</option>
+                </select>
+                <label for="delayRequestedUntil">When can you next update this complaint?</label>
+                <input id="delayRequestedUntil" type="datetime-local">
+                <label for="delayReason">Work completed and reason more time is needed</label>
+                <textarea id="delayReason" rows="3" maxlength="1200" placeholder="Describe actions already taken, the blocker, and what will happen next."></textarea>
+                <button id="submitDelayRequestBtn" type="button"><i class="fa-solid fa-paper-plane"></i> Request follow-up window</button>
+                <p id="delayRequestResult" class="audit-note" role="status"></p>
+            </div>
+        </section>
+
+        <section class="review-panel ai-decision-panel" id="aiDecisionPanel" aria-labelledby="aiDecisionTitle">
+            <div class="review-panel__head ai-decision-head">
+                <h3 id="aiDecisionTitle"><i class="fa-solid fa-brain"></i> AI Decision Explanation</h3>
+                <span id="aiReviewStatus" class="ai-decision-status">Loading explanation...</span>
+            </div>
+            <p class="ai-decision-intro">Understand the model's starting prediction and the dynamic factors used for the current priority. This is decision support; officers should verify the complaint details.</p>
+            <div class="ai-decision-metrics">
+                <div class="ai-decision-metric"><span>Original ML priority</span><strong id="aiBasePriority">-</strong></div>
+                <div class="ai-decision-metric"><span>Current final priority</span><strong id="aiFinalPriority">-</strong></div>
+                <div class="ai-decision-metric"><span>Dynamic urgency score</span><strong id="aiPriorityScore">-</strong></div>
+                <div class="ai-decision-metric"><span>ML confidence</span><strong id="aiPriorityConfidence">-</strong></div>
+            </div>
+            <div class="ai-decision-block">
+                <h4>Why this priority?</h4>
+                <p id="aiPriorityReason" class="ai-priority-reason">No explanation available.</p>
+                <div id="aiSafetyFlags" class="ai-decision-flags" aria-live="polite"></div>
+            </div>
+            <div class="ai-decision-columns">
+                <div class="ai-decision-block">
+                    <h4>Contributing factors</h4>
+                    <div id="aiPriorityFactors" class="ai-priority-factors"><p class="audit-note">Loading factors...</p></div>
+                </div>
+                <div class="ai-decision-block">
+                    <h4>Priority label adjustments</h4>
+                    <ul id="aiLabelAdjustments" class="ai-adjustment-list"><li>No adjustments recorded.</li></ul>
+                </div>
+            </div>
+            <p class="ai-decision-updated" id="aiPriorityUpdated"></p>
+        </section>
 
         <label>
 
@@ -269,7 +396,90 @@
 
         <hr>
 
-        <h3>
+        <section class="audit-section manager-only" id="officerAssignmentSection">
+            <div class="review-panel__head">
+                <h3><i class="fa-solid fa-user-check"></i> Officer Assignment</h3>
+                <span class="review-chip" id="currentAssignee">Unassigned</span>
+            </div>
+            <p class="audit-note">The system recommends the best available officer using locality, specialization, workload/capacity and SLA history. The Department Head can accept or override it.</p>
+            <div id="smartOfficerRecommendation" class="smart-assignment-card">Loading recommendation...</div>
+            <button type="button" id="changeAssignmentBtn" class="change-assignment-btn" hidden><i class="fa-solid fa-arrows-rotate"></i> Change assignment</button>
+            <div class="action-entry" id="managerAssignmentControls">
+                <select id="officerSelect"><option value="">Select officer</option></select>
+                <button id="assignRecommendedBtn"><i class="fa-solid fa-wand-magic-sparkles"></i> Assign Recommended</button>
+                <button id="assignOfficerBtn"><i class="fa-solid fa-user-plus"></i> Assign Selected</button>
+                <button id="cancelAssignmentChangeBtn" type="button" class="cancel-assignment-change" hidden>Cancel</button>
+            </div>
+        </section>
+
+
+        <hr>
+
+        <section class="audit-section manager-only escalation-control" id="manualEscalationSection">
+            <div class="review-panel__head">
+                <h3><i class="fa-solid fa-arrow-up-right-dots"></i> Escalate Complaint</h3>
+                <span class="review-chip">Department Head</span>
+            </div>
+            <p class="audit-note">Use manual escalation when a case needs management attention before the automatic SLA threshold is reached.</p>
+            <div class="action-entry escalation-entry">
+                <select id="manualEscalationLevel">
+                    <option value="1">Level 1 — Manager Attention</option>
+                    <option value="2" selected>Level 2 — SLA / Department Escalation</option>
+                    <option value="3">Level 3 — Critical / System Escalation</option>
+                </select>
+                <input id="manualEscalationReason" type="text" placeholder="Reason for escalation">
+                <button id="manualEscalationBtn" type="button"><i class="fa-solid fa-arrow-up"></i> Escalate</button>
+            </div>
+            <p id="manualEscalationResult" class="audit-note"></p>
+        </section>
+
+        <hr>
+
+        <section class="audit-section">
+            <div class="review-panel__head">
+                <h3><i class="fa-solid fa-list-check"></i> Auditable Action Timeline</h3>
+                <span class="review-chip">Accountability</span>
+            </div>
+            <p class="audit-note">Status changes, reroutes, AI duplicate checks and officer notes are recorded here.</p>
+            <div id="actionTimeline" class="action-timeline"></div>
+            <div class="action-entry officer-only" id="officerActionControls">
+                <select id="actionType">
+                    <option value="Field Visit">Field Visit</option>
+                    <option value="Citizen Contacted">Citizen Contacted</option>
+                    <option value="Work Order">Work Order</option>
+                    <option value="Escalation">Escalation</option>
+                    <option value="Officer Note">Officer Note</option>
+                    <option value="Evidence Review — Supports Report">Evidence Review — Supports Report</option>
+                    <option value="Evidence Review — Unclear">Evidence Review — Unclear</option>
+                    <option value="Evidence Review — Unrelated">Evidence Review — Unrelated</option>
+                </select>
+                <input id="actionNote" type="text" placeholder="Record action, decision or follow-up note">
+                <button id="addActionBtn"><i class="fa-solid fa-plus"></i> Record Action</button>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="manager-only" id="rerouteSection">
+            <div class="legacy-routing-recovery" id="legacyRoutingRecovery">
+                <h3><i class="fa-solid fa-screwdriver-wrench"></i> Incorrect Routing Recovery</h3>
+                <p class="audit-note">Transfer a complaint when it has been assigned to the wrong department.</p>
+                <div class="recovery-grid simplified-recovery-grid">
+                    <div>
+                        <label for="manualDepartmentSelect">Correct department</label>
+                        <select id="manualDepartmentSelect"><option value="">Select department</option></select>
+                        <label for="manualRerouteReason">Reason for transfer</label>
+                        <input id="manualRerouteReason" type="text" placeholder="Reason for transfer">
+                        <button id="manualRerouteBtn" class="danger-aware-action"><i class="fa-solid fa-right-left"></i> Transfer Complaint</button>
+                    </div>
+                </div>
+                <p id="recoveryResult" class="audit-note"></p>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="officer-only" id="statusUpdateSection"><h3>
 
             Update Complaint Status
 
@@ -299,6 +509,8 @@
 
             </select>
 
+            <input id="statusNote" class="status-note-input" type="text" placeholder="Optional status update note">
+
             <button id="updateStatusBtn">
 
                 <i class="fa-solid fa-pen-to-square"></i>
@@ -307,15 +519,44 @@
 
             </button>
 
-        </div>
+        </div></section>
+
+<section class="officer-only" id="resolutionProofSection">
+<hr>
+<h3><i class="fa-solid fa-camera"></i> Resolution Proof</h3>
+<p class="audit-note">Upload an after-photo and a short resolution note before closing the complaint.</p>
+<div class="status-update">
+<input id="resolutionProofFile" type="file" accept="image/*">
+<input id="resolutionProofNote" class="status-note-input" type="text" placeholder="What was fixed / action completed">
+<button id="uploadResolutionProofBtn" type="button"><i class="fa-solid fa-upload"></i> Upload Proof</button>
+</div>
+<div id="existingResolutionProof"></div>
+</section>
+
+        <section id="duplicateSection" class="duplicate-panel" style="display:none;">
+
+            <hr>
+
+            <div class="duplicate-panel__head">
+                <div>
+                    <h3><i class="fa-solid fa-layer-group"></i> Related Complaints</h3>
+                    <p class="duplicate-note">Same civic issue detected from matching complaint text and locality. Each report keeps its own status.</p>
+                </div>
+            </div>
+
+            <div id="duplicateAnalysis" class="duplicate-analysis"></div>
+            <div id="duplicateList" class="duplicate-id-list"></div>
+
+        </section>
 
     </div>
 
 </div>
 
-<script src="js/api.js"></script>
+<script src="js/api.js?v=20261021-api-routing-2"></script>
 
-<script src="js/department_details.js"></script>
+<script src="js/department_details.js?v=20261022-assignment-display-1"></script>
+<script src="js/department_guide.js?v=20261022-role-guide-2"></script>
 
 </body>
 

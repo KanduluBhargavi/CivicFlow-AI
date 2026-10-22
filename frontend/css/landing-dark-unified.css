@@ -1,0 +1,179 @@
+/* CivicFlow landing page — unified theme layer. Loaded after all legacy CSS. */
+html.dark body.landing-refined {
+  --bg: #091326;
+  --dark: #edf5ff;
+  --dark-soft: #15243b;
+  --ink: #e7eefc;
+  --ink-soft: #b7c7dd;
+  --line: #34445d;
+  background: #091326 !important;
+  color: #e7eefc !important;
+}
+html.dark body.landing-refined :is(.dashboard,.features,.departments,.journey,.faq,.user-feedback-section) {
+  background: #0c182b !important;
+  color: #e7eefc !important;
+}
+html.dark body.landing-refined :is(.dashboard,.departments,.journey,.faq,.user-feedback-section) .section-head :is(h1,h2,h3,p),
+html.dark body.landing-refined .feedback-section-header :is(h2,p),
+html.dark body.landing-refined .section-head:not(.section-head--light) :is(h2,.section-sub) {
+  color: #f2f6ff !important;
+}
+html.dark body.landing-refined :is(.dashboard,.departments,.journey,.faq,.user-feedback-section) .section-head .section-sub,
+html.dark body.landing-refined .feedback-section-header p {
+  color: #b7c7dd !important;
+}
+html.dark body.landing-refined :is(.dashboard,.departments,.journey,.faq) .eyebrow,
+html.dark body.landing-refined .feedback-tag {
+  color: #8ebdff !important;
+}
+html.dark body.landing-refined .command,
+html.dark body.landing-refined .how-to-use {
+  background: #0a1428 !important;
+  color: #e7eefc !important;
+}
+html.dark body.landing-refined :is(.command,.how-to-use) .section-head :is(h2,.section-sub) {
+  color: #f8fbff !important;
+}
+html.dark body.landing-refined :is(.stat-card,.feature-card,.why-card,.dept-card,.state-item,.user-feedback-card,.timeline__item,.accordion__item) {
+  background: #16243b !important;
+  border-color: #34445d !important;
+  color: #e7eefc !important;
+}
+html.dark body.landing-refined :is(.stat-card,.feature-card,.why-card,.dept-card,.state-item,.user-feedback-card,.timeline__item) :is(h2,h3,h4,strong,.stat-card__value,.dept-header,.feedback-message,.feedback-user h4,.timeline__content h3) {
+  color: #f5f8ff !important;
+}
+html.dark body.landing-refined :is(.stat-card,.feature-card,.why-card,.dept-card,.state-item,.user-feedback-card,.timeline__item) :is(p,small,.stat-card__label,.timeline__content p,.feedback-user span) {
+  color: #c2cfe0 !important;
+}
+html.dark body.landing-refined .user-feedback-section .feedback-login-message,
+html.dark body.landing-refined .user-feedback-section .feedback-login-message p,
+html.dark body.landing-refined .user-feedback-section .loading-feedback,
+html.dark body.landing-refined .user-feedback-section .no-feedback {
+  color: #cbd5e1 !important;
+}
+html.dark body.landing-refined .faq .accordion__trigger,
+html.dark body.landing-refined .faq .accordion__panel p {
+  color: #e2e8f0 !important;
+}
+html.dark body.landing-refined .footer {
+  background: #07101f !important;
+  color: #cbd5e1 !important;
+}
+html.dark body.landing-refined .footer__col h4,
+html.dark body.landing-refined .footer .brand__text,
+html.dark body.landing-refined .footer .brand__text--light { color: #ffffff !important; }
+html.dark body.landing-refined .footer__col a,
+html.dark body.landing-refined .footer__brand p { color: #cbd5e1 !important; }
+html.dark body.landing-refined .dept-bar,
+html.dark body.landing-refined .state-rank-track { background: #283953 !important; }
+html.dark body.landing-refined .journey .timeline__marker { background: #0d203b !important; }
+html.dark body.landing-refined .journey .timeline-line,
+html.dark body.landing-refined .journey .journey-line { background-color: #34445d !important; }
+html.dark body.landing-refined .feature-card__index { color: #8ebdff !important; }
+html.dark body.landing-refined .footer__bottom { border-color: #334155 !important; }
+html.dark body.landing-refined .landing-navbar { background: rgba(7,16,31,.96) !important; }
+html.dark body.landing-refined .landing-feature-strip { background: #13243b !important; }
+html.dark body.landing-refined .landing-feature-strip :is(h3,strong) { color: #f5f8ff !important; }
+html.dark body.landing-refined .landing-feature-strip p { color: #c2cfe0 !important; }
+@media(max-width:800px) {
+  html.dark body.landing-refined .landing-nav-links { background: #101e33 !important; }
+}
+
+/* R5: heading alignment and review spacing only */
+body.landing-refined :is(.dashboard,.command,.departments,.journey,.how-to-use,.faq) .section-head{margin-left:auto!important;margin-right:auto!important;text-align:center!important}
+body.landing-refined :is(.dashboard,.command,.departments,.journey,.how-to-use,.faq) .section-head :is(h2,.section-sub,.eyebrow){margin-left:auto!important;margin-right:auto!important;text-align:center!important}
+body.landing-refined :is(.dashboard,.command,.departments,.journey,.how-to-use,.faq) .section-head .eyebrow{justify-content:center!important}
+body.landing-refined .user-feedback-section{padding-top:46px!important;padding-bottom:48px!important}
+body.landing-refined .feedback-section-header{margin-bottom:26px!important;text-align:center!important}
+body.landing-refined .recent-feedback-container{max-width:1100px!important;display:flex!important;flex-wrap:wrap!important;justify-content:center!important;gap:20px!important}
+body.landing-refined .recent-feedback-container .user-feedback-card{flex:1 1 270px;max-width:355px}
+body.landing-refined .feedback-login-message{margin-top:26px!important}
+@media(max-width:650px){body.landing-refined .recent-feedback-container .user-feedback-card{flex-basis:100%;max-width:100%}}
+
+/* R6: Only fix dark-mode landing section heading color */
+html.dark body.landing-refined .dashboard .section-head h2,
+html.dark body.landing-refined .departments .section-head h2,
+html.dark body.landing-refined .journey .section-head h2,
+html.dark body.landing-refined .command .section-head h2,
+html.dark body.landing-refined .how-to-use .section-head h2,
+html.dark body.landing-refined .faq .section-head h2 {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+/* R7: Center only the HOW CIVICFLOW WORKS heading block */
+body.landing-refined #features > .section-head,
+body.landing-refined .section-inner#features > .section-head {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+body.landing-refined #features > .section-head :is(h2,.section-sub,.eyebrow),
+body.landing-refined .section-inner#features > .section-head :is(h2,.section-sub,.eyebrow) {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+body.landing-refined #features > .section-head .eyebrow,
+body.landing-refined .section-inner#features > .section-head .eyebrow {
+  justify-content: center !important;
+}
+
+/* R8: only feedback heading centering and FAQ container beautification */
+body.landing-refined .user-feedback-section .feedback-section-header,
+body.landing-refined .user-feedback-section .feedback-section-header h2,
+body.landing-refined .user-feedback-section .feedback-section-header p,
+body.landing-refined .user-feedback-section .feedback-tag {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+body.landing-refined .user-feedback-section .feedback-tag {
+  display: inline-flex !important;
+  justify-content: center !important;
+}
+
+body.landing-refined .faq .accordion {
+  margin-top: 22px !important;
+  padding: 10px !important;
+  border-radius: 28px !important;
+  overflow: hidden !important;
+}
+body.landing-refined .faq .accordion__item {
+  border-radius: 20px !important;
+  overflow: hidden !important;
+}
+body.landing-refined .faq .accordion__item + .accordion__item {
+  margin-top: 10px !important;
+}
+
+html.dark body.landing-refined .faq .accordion {
+  background: rgba(255,255,255,0.03) !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.22) !important;
+}
+html:not(.dark) body.landing-refined .faq .accordion {
+  background: rgba(10,24,43,0.03) !important;
+  border: 1px solid rgba(10,24,43,0.08) !important;
+  box-shadow: 0 12px 28px rgba(15,23,42,0.08) !important;
+}
+/* Public service-level report */
+.public-sla {
+  margin: 3rem auto;
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+  border: 1px solid rgba(100, 116, 139, .22);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, .72);
+  box-shadow: 0 16px 44px rgba(15, 23, 42, .08);
+}
+.public-sla__meta, .public-sla__note { color: #64748b; font-size: .92rem; }
+.public-sla__table-wrap { overflow-x: auto; margin-top: 1rem; }
+.public-sla__table { width: 100%; min-width: 850px; border-collapse: collapse; text-align: left; }
+.public-sla__table th, .public-sla__table td { padding: .85rem .75rem; border-bottom: 1px solid rgba(100, 116, 139, .18); }
+.public-sla__table th { color: #334155; font-size: .82rem; }
+.public-sla__table td { color: #475569; }
+.public-sla__table tbody tr:hover { background: rgba(59, 130, 246, .05); }
+.public-sla__note { margin: 1rem 0 0; }
+html.dark .public-sla, body.dark .public-sla { background: rgba(15, 23, 42, .82); border-color: rgba(148, 163, 184, .2); }
+html.dark .public-sla__table th, body.dark .public-sla__table th { color: #e2e8f0; }
+html.dark .public-sla__table td, body.dark .public-sla__table td { color: #cbd5e1; }

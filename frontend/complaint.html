@@ -4,31 +4,73 @@
     <script src="js/theme.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/dashboard.css">
-    <style>
-        .location-btn {
-            width: 100%;
-            margin-bottom: 15px;
-            background: #0ea5e9;
-            color: white;
-            border: none;
-            border-radius: 15px;
-            height: 55px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: 600;
-            transition: .3s;
-        }
-        .location-btn:hover {
-            background: #0284c7;
-        }
-    </style>
+<link rel="icon" type="image/svg+xml" href="images/civicflow-logo.svg">
+    <title>Lodge Complaint | CivicFlow AI</title>
+    <link rel="stylesheet" href="css/dashboard.css?v=20261022-performance-pip-1">
+    <link rel="stylesheet" href="css/complaint.css?v=20261021-media-review-2">
+<link rel="stylesheet" href="css/citizen_notifications.css">
+<link rel="stylesheet" href="css/design-system.css">
+<link rel="stylesheet" href="css/product-v2.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/ui-consistency.css?v=20261009">
+<link rel="stylesheet" href="css/citizen_shared_nav.css?v=28">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="css/citizen_dashboard_nav_r29.css?v=30">
 </head>
 <body>
+<nav class="navbar citizen-dashboard-nav" aria-label="Citizen navigation">
+
+    <div class="logo">
+        <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="34" height="34">
+          <circle cx="20" cy="20" r="18" fill="none" stroke="url(#brandGrad)" stroke-width="2.4"/>
+          <circle cx="20" cy="20" r="10" fill="none" stroke="url(#brandGrad)" stroke-width="2"/>
+          <circle cx="20" cy="20" r="2.6" fill="#10b981"/>
+          <defs>
+            <linearGradient id="brandGrad" x1="0" y1="0" x2="40" y2="40">
+              <stop offset="0" stop-color="#2563eb"/>
+              <stop offset="1" stop-color="#06b6d4"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </span>
+        CivicFlow AI
+    </div>
 
 
-    
+    <div class="citizen-nav-links" aria-label="Citizen pages">
+      <a class="citizen-nav-link" href="dashboard.html"><i class="fa-solid fa-table-cells-large" aria-hidden="true"></i><span>Dashboard</span></a>
+      <a class="citizen-nav-link is-active" href="complaint.html" aria-current="page"><i class="fa-solid fa-circle-plus" aria-hidden="true"></i><span>Lodge Complaint</span></a>
+      <a class="citizen-nav-link" href="my_complaints.html"><i class="fa-solid fa-list-check" aria-hidden="true"></i><span>My Complaints</span></a>
+      <a class="citizen-nav-link" href="profile.html"><i class="fa-solid fa-user-gear" aria-hidden="true"></i><span>My Profile</span></a>
+    </div>
+
+    <div class="nav-right">
+        <button id="navContactSupport" class="nav-contact-support" type="button" title="Contact CivicFlow support" aria-label="Contact CivicFlow support"><i class="fa-solid fa-headset" aria-hidden="true"></i><span>Support</span></button>
+
+        <span class="welcome">
+
+            Welcome,
+
+            <span id="userName"></span>
+
+        </span>
+
+        <button id="logoutBtn">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            Logout
+
+        </button>
+        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
+    🌙
+</button>
+
+    </div>
+
+</nav>
+<div class="citizen-nav-spacer" aria-hidden="true"></div>
 <section id="complaintSection" >
     <button class="back-btn" onclick="goBack()">
     ← Back
@@ -38,21 +80,155 @@
 
 <form id="complaintForm" enctype="multipart/form-data">
 
-<div class="input-box">
-<input type="text" id="title" placeholder="Complaint Title" required>
+<div class="input-box language-detect-box">
+  <label class="field-label" id="complaintLanguageLabel">Complaint Language</label>
+  <div class="language-picker" id="languagePicker">
+    <button type="button" id="languagePickerButton" class="language-picker-button" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="complaintLanguageLabel languagePickerValue">
+      <span id="languagePickerValue">Auto-detect</span><span aria-hidden="true">⌄</span>
+    </button>
+    <div id="languagePickerPanel" class="language-picker-panel" hidden>
+      <input type="search" id="languageSearch" class="language-search" placeholder="Search language..." aria-label="Search complaint languages" autocomplete="off">
+      <div id="languageSearchResults" class="language-search-results" role="listbox" aria-label="Matching languages"></div>
+    </div>
+  </div>
+<select id="languageHint" class="language-native-select" tabindex="-1" aria-hidden="true">
+<option value="auto">Auto-detect</option>
+<option value="en">English</option>
+<option value="as">Assamese</option>
+<option value="bn">Bengali</option>
+<option value="brx">Bodo</option>
+<option value="doi">Dogri</option>
+<option value="gu">Gujarati</option>
+<option value="hi">Hindi</option>
+<option value="kn">Kannada</option>
+<option value="ks">Kashmiri</option>
+<option value="kok">Konkani</option>
+<option value="mai">Maithili</option>
+<option value="ml">Malayalam</option>
+<option value="mni">Manipuri</option>
+<option value="mr">Marathi</option>
+<option value="ne">Nepali</option>
+<option value="or">Odia</option>
+<option value="pa">Punjabi</option>
+<option value="sa">Sanskrit</option>
+<option value="sat">Santali</option>
+<option value="sd">Sindhi</option>
+<option value="ta">Tamil</option>
+<option value="te">Telugu</option>
+<option value="ur">Urdu</option>
+<option value="af">Afrikaans</option>
+<option value="sq">Albanian</option>
+<option value="am">Amharic</option>
+<option value="ar">Arabic</option>
+<option value="hy">Armenian</option>
+<option value="az">Azerbaijani</option>
+<option value="eu">Basque</option>
+<option value="be">Belarusian</option>
+<option value="bs">Bosnian</option>
+<option value="bg">Bulgarian</option>
+<option value="ca">Catalan</option>
+<option value="zh-cn">Chinese (Simplified)</option>
+<option value="zh-tw">Chinese (Traditional)</option>
+<option value="hr">Croatian</option>
+<option value="cs">Czech</option>
+<option value="da">Danish</option>
+<option value="nl">Dutch</option>
+<option value="et">Estonian</option>
+<option value="fi">Finnish</option>
+<option value="fr">French</option>
+<option value="gl">Galician</option>
+<option value="ka">Georgian</option>
+<option value="de">German</option>
+<option value="el">Greek</option>
+<option value="he">Hebrew</option>
+<option value="hu">Hungarian</option>
+<option value="is">Icelandic</option>
+<option value="id">Indonesian</option>
+<option value="ga">Irish</option>
+<option value="it">Italian</option>
+<option value="ja">Japanese</option>
+<option value="kk">Kazakh</option>
+<option value="km">Khmer</option>
+<option value="ko">Korean</option>
+<option value="lo">Lao</option>
+<option value="lv">Latvian</option>
+<option value="lt">Lithuanian</option>
+<option value="mk">Macedonian</option>
+<option value="ms">Malay</option>
+<option value="mt">Maltese</option>
+<option value="mn">Mongolian</option>
+<option value="my">Myanmar (Burmese)</option>
+<option value="no">Norwegian</option>
+<option value="fa">Persian</option>
+<option value="pl">Polish</option>
+<option value="pt">Portuguese</option>
+<option value="ro">Romanian</option>
+<option value="ru">Russian</option>
+<option value="sr">Serbian</option>
+<option value="si">Sinhala</option>
+<option value="sk">Slovak</option>
+<option value="sl">Slovenian</option>
+<option value="so">Somali</option>
+<option value="es">Spanish</option>
+<option value="sw">Swahili</option>
+<option value="sv">Swedish</option>
+<option value="tl">Filipino</option>
+<option value="th">Thai</option>
+<option value="tr">Turkish</option>
+<option value="uk">Ukrainian</option>
+<option value="uz">Uzbek</option>
+<option value="vi">Vietnamese</option>
+<option value="cy">Welsh</option>
+<option value="zu">Zulu</option>
+</select>
+<p class="language-help">Typed complaints support a broad language list. Voice is enabled only for languages supported reliably by this browser setup.</p>
 </div>
 
+
 <div class="input-box">
+<label class="field-label" for="title">Complaint Title</label>
+<input type="text" id="title" placeholder="Short title — you may type in your own language" required minlength="3" maxlength="100" aria-describedby="titleHelp">
+<p id="titleHelp" class="field-help">Use a short title (3–100 characters). Put the full details in the description.</p>
+</div>
+
+<div class="input-box description-input-box">
+<div class="field-label-row">
+  <label class="field-label" for="description">Description</label>
+  <span id="voiceLanguageRequiredNote" class="voice-language-required-note" hidden>
+  <i class="fa-solid fa-circle-exclamation"></i>
+  Choose Complaint Language before using voice.
+</span>
+<button type="button" id="voiceStartBtn" class="description-voice-btn">
+    <i class="fa-solid fa-microphone"></i>
+    <span>Speak Complaint</span>
+  </button>
+</div>
+
 <textarea
 id="description"
-rows="5"
-placeholder="Describe your complaint..."
-required></textarea>
+rows="6"
+placeholder="Describe what happened. If your video is the main report, a short title/caption is enough; you can leave this blank."></textarea>
+
+<div id="voiceInlineStatus" class="voice-inline-status" hidden>
+  <span id="voiceStatusDot" class="voice-status-dot"></span>
+  <strong id="voiceStatus">Ready</strong>
+  <span id="voiceTranscriptPreview"></span>
+  <span id="voiceDetectedLanguage" class="voice-detected-language" hidden></span>
+  <button type="button" id="voicePlaybackBtn" class="voice-playback-btn" hidden>
+    <i class="fa-solid fa-volume-high"></i>
+    Listen back
+  </button>
+</div>
+
+<p class="language-help">
+  Your original complaint is preserved. CivicFlow creates an English processing copy for routing and department work.
+  Voice is intentionally used for the description only; location and contact details remain structured for better accuracy.
+</p>
 </div>
 
 <div class="input-box">
 <button type="button" id="locationBtn" class="location-btn">
-📍 Use My Current Location
+<span class="location-btn-icon">📍</span><span class="location-btn-text">Use My Current Location</span>
 </button>
 </div>
 
@@ -63,24 +239,23 @@ required></textarea>
 </div>
 
 <div class="input-box">
-<select id="district" required>
-<option value="">Select District</option>
-</select>
+<input type="text" id="district" list="districtOptions" placeholder="Select or type district" autocomplete="off" required>
+<datalist id="districtOptions"></datalist>
 </div>
 
 <div class="input-box">
-<input type="text" id="area" placeholder="Area" required>
+<input type="text" id="area" placeholder="Area / locality — local language is okay" required>
 </div>
 
 <div class="input-box">
-<input type="text" id="landmark" placeholder="Landmark">
+<input type="text" id="landmark" placeholder="Landmark — local language is okay">
 </div>
 
 <div class="input-box">
 <textarea
 id="address"
 rows="3"
-placeholder="Address"
+placeholder="Address — local language is okay"
 required></textarea>
 </div>
 
@@ -95,17 +270,35 @@ title="Enter a valid 6-digit pincode"
 required>
 </div>
 
+<div class="input-box" id="addressGeocodeBox">
+  <button type="button" id="resolveAddressBtn" class="location-btn" onclick="return false;">
+    <span class="location-btn-icon">🗺️</span><span class="location-btn-text">Find approximate point from address</span>
+  </button>
+  <p id="addressGeocodeStatus" role="status" aria-live="polite" style="margin:8px 0;font-size:.92rem;color:var(--text-secondary,#475569)">Enter state, district, locality and address, then find and confirm the map point. Your address is sent to OpenStreetMap Nominatim for this lookup.</p>
+  <div id="addressGeocodeCandidate" hidden style="border:1px solid #cbd5e1;border-radius:10px;padding:12px;margin-top:8px">
+    <p id="addressGeocodeCandidateText" style="margin:0 0 10px"></p>
+    <p style="margin:0 0 8px;font-weight:600">Confirm where the problem happened</p>
+    <p style="margin:0 0 8px;font-size:.9rem">The map starts at the suggested area. Click the actual place or drag the pin. You do not need to be physically there.</p>
+    <div id="incidentLocationMap" role="application" aria-label="Choose the incident location on the map" style="height:300px;min-height:260px;border-radius:8px;overflow:hidden;margin:8px 0 12px"></div>
+    <p id="incidentPinStatus" role="status" aria-live="polite" style="font-size:.9rem;margin:0 0 10px">Suggested location. Move the pin if needed.</p>
+    <button type="button" id="confirmAddressPointBtn" class="location-btn">Confirm this incident location</button>
+    <button type="button" id="discardAddressPointBtn" class="location-btn" style="margin-top:8px">Discard location suggestion</button>
+  </div>
+</div>
 <input type="hidden" id="latitude">
 <input type="hidden" id="longitude">
+<input type="hidden" id="locationSource" value="unresolved">
 
 <div class="input-box">
 
-<label>Upload Image / Video</label>
+<label for="media">Photo or video evidence (optional)</label>
 
 <input
 type="file"
 id="media"
-accept=".jpg,.jpeg,.png,.mp4,.mov,.avi">
+accept="image/jpeg,image/png,video/mp4,video/quicktime,video/x-msvideo,.jpg,.jpeg,.png,.mp4,.mov,.avi">
+<div id="mediaPreview" class="complaint-media-preview" hidden></div>
+<p class="evidence-hint">You may submit a video as the main report with a short title/caption. Staff review whether it supports the complaint; CivicFlow checks file format and size only. Media is optional. JPG, PNG, MP4, MOV or AVI up to 50 MB.</p>
 
 </div>
 
@@ -118,11 +311,248 @@ Submit Complaint
 </form>
 
 </section>
-<script src="js/api.js"></script>
+<script src="js/api.js?v=20261021-api-routing-2"></script>
 <script src="js/location.js"></script>
-<script src="js/geolocation.js"></script>
-<script src="js/complaint.js"></script>
+<script src="js/geolocation.js?v=20261021-address-language-fix-7"></script>
+<script src="js/voice_support.js"></script>
+<script src="js/complaint.js?v=20261021-video-first-evidence-2"></script>
 
+<script src="js/citizen_notifications.js"></script>
+<button id="floatingChatSupport" class="floating-chat-support" type="button" aria-label="Open Pip, CivicFlow's support chat" title="Chat with Pip"><img class="chat-pip" src="images/pip-mascot.png?v=2" alt="" aria-hidden="true" width="52" height="52" decoding="async" fetchpriority="low"><span class="chat-float-label">Chat with Pip</span></button>
+<!-- ================= HELP MODAL ================= -->
+
+<div class="help-modal" id="helpModal">
+
+    <div class="help-modal-content">
+
+        <!-- Close -->
+
+        <button class="help-close" id="closeHelpModal">
+            ×
+        </button>
+
+
+        <!-- MAIN HELP MENU -->
+
+        <div id="helpMainMenu">
+
+            <div class="help-header">
+
+                <div class="help-header-icon">
+                    🆘
+                </div>
+
+                <h2>How can we help?</h2>
+
+                <p>
+                    Choose an option and our CivicFlow support team will assist you.
+                </p>
+
+            </div>
+
+
+            <div class="help-options">
+
+                <!-- CHAT -->
+
+                <button class="help-option" id="chatSupportBtn">
+
+                    <div class="help-option-icon">
+                        💬
+                    </div>
+
+                    <div>
+
+                        <h3>Chat With Us</h3>
+
+                        <p>
+                            Get assistance from CivicFlow support.
+                        </p>
+
+                    </div>
+
+                    <span>→</span>
+
+                </button>
+
+
+                <!-- CONTACT -->
+
+                <button class="help-option" id="contactSupportBtn">
+
+                    <div class="help-option-icon">
+                        📞
+                    </div>
+
+                    <div>
+
+                        <h3>Contact Us</h3>
+
+                        <p>
+                            Contact the CivicFlow support team.
+                        </p>
+
+                    </div>
+
+                    <span>→</span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= CHAT ================= -->
+
+        <div id="chatSupportSection" class="help-section hidden">
+
+            <button class="back-help-btn" id="backFromChat">
+                ← Back
+            </button>
+
+            <div class="chat-header">
+
+                <div class="support-avatar"><img class="support-pip-avatar" src="images/pip-mascot.png?v=2" alt="Pip" width="48" height="48" decoding="async" fetchpriority="low"></div>
+
+                <div>
+
+                    <h3>CivicFlow Support</h3>
+
+                    <span>
+                        <span class="online-dot"></span>
+                        Online
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="chat-messages" id="chatMessages">
+
+                <div class="chat-message support-message">
+
+                    👋 Hello! Welcome to CivicFlow Support.
+
+                    <br><br>
+
+                    How can we help you today?
+
+                </div>
+
+            </div>
+
+
+            <div class="chat-input-area">
+
+                <input
+                    type="text"
+                    id="chatInput"
+                    placeholder="Type your message..."
+                >
+
+                <button id="sendChatBtn">
+                    Send
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= CONTACT ================= -->
+
+        <div id="contactSupportSection" class="help-section hidden">
+
+            <button class="back-help-btn" id="backFromContact">
+                ← Back
+            </button>
+
+
+            <div class="contact-header">
+
+                <div class="contact-big-icon">
+                    📞
+                </div>
+
+                <h2>Contact CivicFlow Support</h2>
+
+                <p>
+                    Our support team is available to help you.
+                </p>
+
+            </div>
+
+
+            <div class="contact-details">
+
+                <div class="contact-item">
+
+                    <span>📞</span>
+
+                    <div>
+
+                        <strong>Phone Support</strong>
+
+                        <p>Contact details have not been configured</p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <span>📧</span>
+
+                    <div>
+
+                        <strong>Email Support</strong>
+
+                        <p>support@civicflow.in</p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <span>🕒</span>
+
+                    <div>
+
+                        <strong>Support Hours</strong>
+
+                        <p>Monday – Friday, 9:00 AM – 6:00 PM</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="tel:+911234567890"
+                class="call-support-btn"
+            >
+                📞 Call Support
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+<script src="js/citizen_shared_chat.js?v=28"></script>
+<script src="js/citizen_dashboard_nav_r29.js?v=29"></script>
 </body>
 
 </html>

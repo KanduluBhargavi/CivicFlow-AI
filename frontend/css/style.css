@@ -280,6 +280,57 @@ h3{font-size:1.15rem;}
 .feature-card h3{margin-bottom:8px;font-size:1.05rem;}
 .feature-card p{color:var(--ink-soft);font-size:.92rem;}
 
+/* ---------- 9b. AI INTELLIGENCE DEMO ---------- */
+.ai-demo{padding:20px 0 100px;}
+.ai-demo__grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:22px;
+}
+.ai-demo__card{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius-lg);
+  padding:26px 26px 22px;box-shadow:var(--shadow-sm);
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.ai-demo__card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);}
+.ai-demo__top{display:flex;align-items:center;gap:12px;margin-bottom:18px;}
+.ai-demo__icon{
+  width:40px;height:40px;flex:none;border-radius:12px;
+  background:linear-gradient(135deg,rgba(37,99,235,0.1),rgba(6,182,212,0.1));
+  color:var(--primary);display:flex;align-items:center;justify-content:center;
+}
+.ai-demo__top h3{font-size:1.05rem;margin:0;}
+.ai-demo__row{margin-bottom:12px;}
+.ai-demo__label{
+  display:block;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ink-faint);margin-bottom:4px;
+}
+.ai-demo__text{
+  font-size:.95rem;color:var(--ink);background:var(--bg);border:1px solid var(--line);
+  border-radius:10px;padding:10px 14px;margin:0;
+}
+.ai-demo__text--muted{color:var(--ink-soft);font-style:italic;}
+.ai-demo__text--script{font-family:var(--font-body);font-size:1.05rem;}
+.ai-demo__result{
+  display:flex;align-items:baseline;gap:10px;margin-top:16px;padding:12px 14px;
+  border-radius:10px;font-size:.92rem;
+}
+.ai-demo__result p{margin:0;color:var(--ink);font-weight:600;}
+.ai-demo__result-tag{
+  flex:none;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.05em;
+  text-transform:uppercase;padding:4px 9px;border-radius:6px;font-weight:700;
+}
+.ai-demo__result--warn{background:rgba(245,158,11,0.08);}
+.ai-demo__result--warn .ai-demo__result-tag{background:var(--medium);color:#fff;}
+.ai-demo__result--info{background:rgba(37,99,235,0.08);}
+.ai-demo__result--info .ai-demo__result-tag{background:var(--primary);color:#fff;}
+
+html.dark .ai-demo__card{background:#111a2e;border-color:rgba(255,255,255,0.08);}
+html.dark .ai-demo__text{background:#0b1220;border-color:rgba(255,255,255,0.08);color:#e2e8f0;}
+html.dark .ai-demo__result p{color:#f1f5f9;}
+
+@media (max-width:860px){
+  .ai-demo__grid{grid-template-columns:1fr;}
+}
+
 /* ---------- 10. COMMAND CENTER ---------- */
 .command {
     background: var(--grad-dark);
@@ -2700,3 +2751,23 @@ html.dark .dept-bar {
 
 }
 
+
+/* Map legend now explains every marker color */
+.legend-dot--high{background:#f97316!important}
+.legend-dot--low{background:#14b8a6!important}
+.legend-dot--critical{background:#ef4444!important}
+.legend-dot--medium{background:#eab308!important}
+.legend-dot--resolved{background:#10b981!important}
+
+/* State ranking uses real complaint counts, not identical blue blocks */
+.top-states__head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:18px}
+.top-states__head h3{margin:0;color:#fff;font-size:1rem}
+.top-states__head span{font-size:.7rem;color:#8295ae}
+.state-ranking{display:flex;flex-direction:column;gap:14px}
+.state-rank-row{padding:0}
+.state-rank-meta{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:7px}
+.state-rank-meta span{color:#dbe7f6;font-weight:650;font-size:.84rem}
+.state-rank-meta strong{color:#fff;font-size:.8rem}
+.state-rank-track{height:8px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden}
+.state-rank-track i{display:block;height:100%;border-radius:inherit;min-width:8px;transition:width .35s ease}
+.state-empty{color:#94a3b8;font-size:.85rem}

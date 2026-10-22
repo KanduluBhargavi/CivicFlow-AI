@@ -15,6 +15,13 @@ class Feedback(Base):
         nullable=False
     )
 
+    complaint_id = Column(
+        Integer,
+        ForeignKey("complaints.complaint_id"),
+        nullable=True,
+        index=True
+    )
+
     rating = Column(Integer, nullable=False)
 
     message = Column(Text, nullable=False)

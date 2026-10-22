@@ -5,14 +5,20 @@
 <script src="js/theme.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="images/civicflow-logo.svg">
 
 <title>Department Dashboard | CivicFlow AI</title>
 
-<link rel="stylesheet" href="css/department_dashboard.css">
+<link rel="stylesheet" href="css/department_dashboard.css?v=20261022-performance-pip-1">
+<link rel="stylesheet" href="css/department_guide.css?v=20261022-role-guide-2">
 
 <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
 
+<link rel="stylesheet" href="css/design-system.css">
+<link rel="stylesheet" href="css/product-v2.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/ui-consistency.css?v=20261009">
 </head>
 
 <body>
@@ -55,6 +61,16 @@ Department
 
 </span>
 
+<div class="nav-notification-wrap">
+  <button id="departmentNotificationBtn" class="notification-bell" type="button" aria-label="Open work notifications">
+    <i class="fa-solid fa-bell"></i><span id="notificationCount" class="nav-notification-count">0</span>
+  </button>
+  <div id="departmentNotificationMenu" class="notification-menu">
+    <div class="notification-menu-head"><strong>Work Notifications</strong><button id="markAllNotificationsRead" type="button" class="notification-mark-all">Mark all read</button></div>
+    <div id="notificationList" class="notification-menu-list"><p class="notification-empty">No new work notifications.</p></div>
+  </div>
+</div>
+
 <button id="logoutBtn">
 
 <i class="fa-solid fa-right-from-bracket"></i>
@@ -88,19 +104,19 @@ Dashboard
 
 </li>
 
-<li>
+<li onclick="window.location.href='department_complaints.html'">
 
 <i class="fa-solid fa-list-check"></i>
 
-Assigned Complaints
+<span id="complaintsNavLabel">Assigned Complaints</span>
 
 </li>
 
-<li>
+<li onclick="window.location.href='department_profile.html'">
 
 <i class="fa-solid fa-user"></i>
 
-Department Profile
+<span id="profileNavLabel">Department Profile</span>
 
 </li>
 
@@ -140,8 +156,7 @@ Department
 
 <p id="para">
 
-Monitor assigned complaints, update their status,
-track progress, and resolve citizen grievances efficiently.
+<span id="dashboardPurpose">Coordinate complaints, officer workload, SLA risk and departmental accountability.</span>
 
 </p>
 
@@ -155,9 +170,9 @@ track progress, and resolve citizen grievances efficiently.
 
 <i class="fa-solid fa-folder-open"></i>
 
-<h3>Total Assigned</h3>
+<h3>Total Complaints</h3>
 
-<h1 id="assignedCount">
+<h1 id="totalComplaintsCount">
 
 0
 
@@ -209,6 +224,34 @@ track progress, and resolve citizen grievances efficiently.
 
 </section>
 
+<section id="emergingIncidentPanel" class="recent" style="margin: 18px 0; border-left: 4px solid #f59e0b; padding: 18px;">
+  <div class="section-title" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+    <div><h2 style="margin:0">Emerging Incident Alerts</h2><p style="margin:6px 0 0;color:var(--muted,#64748b)">Alerts require 3 different citizens in 24 hours, or 2 including a Critical report. This rule-based signal needs human review.</p></div>
+    <button id="refreshEmergingAlerts" type="button">Refresh alerts</button>
+  </div>
+  <div class="department-alert-map-wrap">
+    <div class="department-alert-map-heading"><strong><i class="fa-solid fa-map-location-dot"></i> Your department's complaints & incident map</strong><span>Each dot represents one complaint. Filter by state and district; only this department's records are shown.</span></div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;padding:10px 0">
+      <label>State / UT <select id="departmentMapStateFilter"><option value="">All States / UTs</option></select></label>
+      <label>District <select id="departmentMapDistrictFilter"><option value="">All Districts</option></select></label>
+      <span id="departmentMapResultCount" aria-live="polite">Showing all geolocated complaints</span>
+    </div>
+    <div id="departmentIncidentMap" role="region" aria-label="Map of individual complaints for this department"></div>
+    <section class="map-analysis" id="departmentMapAnalysis" aria-live="polite">
+      <h3>Filtered map analysis</h3><p>Analysis updates when you change the location filters.</p>
+    </section>
+    <div class="department-map-legend"><span><i class="legend-dot critical"></i> Critical</span><span><i class="legend-dot high"></i> High</span><span><i class="legend-dot medium"></i> Medium</span><span><i class="legend-dot low"></i> Low</span><span>Each dot is one complaint; coincident reports may be slightly offset so each can be selected.</span></div>
+  </div>
+  <div id="departmentSurgeAlertList" aria-live="polite" style="display:grid;gap:12px;margin-top:14px"><p>Loading department alerts…</p></div>
+</section>
+
+<section class="manager-oversight" id="managerOversight">
+  <div class="oversight-card"><span>Needs Assignment</span><strong id="unassignedCount">0</strong><small>Newly routed complaints waiting for an officer</small></div>
+  <div class="oversight-card warning"><span>SLA At Risk</span><strong id="atRiskCount">0</strong><small>Approaching deadline</small></div>
+  <div class="oversight-card danger"><span>SLA Breached</span><strong id="breachedCount">0</strong><small>Needs escalation/follow-up</small></div>
+  <div class="oversight-card"><span>Active Officers</span><strong id="activeOfficerCount">0</strong><small>Available in this department</small></div>
+</section>
+
 <!-- ================= RECENT COMPLAINTS ================= -->
 
 <section class="recent">
@@ -217,7 +260,7 @@ track progress, and resolve citizen grievances efficiently.
 
 <h2>
 
-Assigned Complaints
+Recent Complaints
 
 </h2>
 
@@ -260,57 +303,144 @@ Loading complaints...
 
 </table>
 
+<div class="see-more-wrap">
+
+<button id="seeMoreBtn" class="see-more-btn"
+onclick="window.location.href='department_complaints.html'">
+
+See more complaints
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</button>
+
+</div>
+
 </section>
 
-<!-- ================= QUICK STATS ================= -->
+<!-- ================= QUICK INSIGHTS ================= -->
 
-<section class="quick-info">
+<section class="quick-info quick-info--polished">
 
-<div class="info-card">
+  <a class="info-card info-card--priority priority-watch-link" href="department_complaints.html?priority=Critical%2CHigh" aria-label="Open critical and high priority complaints">
+    <div class="info-card__icon" aria-hidden="true">!</div>
+    <div class="info-card__body">
+      <span class="info-card__eyebrow">Priority watch</span>
+      <div class="info-card__row">
+        <h3>Critical &amp; High Priority Complaints</h3>
+        <strong id="highPriorityCount">0</strong>
+      </div>
+      <p id="priorityWatchSummary">Critical cases first, followed by high-priority cases.</p>
+    </div>
+  </a>
 
-<h3>
+  <article class="info-card info-card--activity">
+    <div class="info-card__icon info-card__icon--activity" aria-hidden="true">↻</div>
+    <div class="info-card__body">
+      <span class="info-card__eyebrow">Most recent update</span>
+      <h3>Latest Activity</h3>
+      <p id="latestActivity" class="latest-activity-text">No recent updates.</p>
+    </div>
+  </article>
 
-<i class="fa-solid fa-triangle-exclamation"></i>
+</section>
 
-High Priority Complaints
 
-</h3>
+<section class="recent location-group-section" id="locationGroupsPanel">
+  <div class="accountability-heading">
+    <div>
+      <span class="section-kicker">Geographic workload</span>
+      <h2><i class="fa-solid fa-map-location-dot"></i> Complaints by Location</h2>
+      <p class="accountability-note">
+        Review the department workload geographically. Open a district to drill down into
+        the actual Area / Locality values submitted with complaints.
+      </p>
+    </div>
+    <span id="locationGroupSummary" class="location-summary-chip">Loading…</span>
+  </div>
 
-<h1 id="highPriorityCount">
+  <div id="locationGroups" class="location-groups">
+    <div class="empty-inline">Loading location groups…</div>
+  </div>
+</section>
 
-0
-
-</h1>
-
+<section class="recent accountability-section" id="officerAccountabilityPanel">
+  <div class="accountability-heading">
+    <div>
+      <span class="section-kicker">Department management</span>
+      <h2>Officer Accountability</h2>
+      <p class="accountability-note">Assign complaints to individual officers and monitor workload, progress, resolutions and SLA breaches.</p>
+    </div>
+  </div>
+<div class="section-title"><h2><i class="fa-solid fa-users-gear"></i> Officer Accountability</h2></div>
+<p class="accountability-note">Assign complaints to individual officers and monitor workload, progress, resolutions and SLA breaches.</p>
+<div id="createOfficerBox" class="officer-create-panel">
+<h3><i class="fa-solid fa-user-plus"></i> Add Officer</h3>
+<p class="accountability-note">Create the officer login here—no database editing is required.</p>
+<div class="officer-form-grid">
+  <label class="officer-field"><span>Officer name</span><input id="officerName" placeholder="e.g. Sarmita Das" required maxlength="100" autocomplete="name"></label>
+  <label class="officer-field"><span>Email</span><input id="officerEmail" type="email" placeholder="officer@example.com" required maxlength="100" autocomplete="email"></label>
+  <label class="officer-field"><span>Temporary password</span><input id="officerPassword" type="password" placeholder="Create temporary password" required minlength="8" maxlength="128" autocomplete="new-password"></label>
+  <label class="officer-field"><span>Phone <small>optional</small></span><input id="officerPhone" placeholder="10-digit mobile number"></label>
+  <label class="officer-field"><span>State / UT</span><select id="officerState" required><option value="">Select State / UT</option></select></label>
+  <label class="officer-field"><span>District</span><select id="officerDistrict" required><option value="">Select District</option></select></label>
+  <label class="officer-field"><span>Posted locality / beat</span><input id="officerArea" placeholder="e.g. Rayagada town, Gunupur subdivision" maxlength="120"><small class="field-help">Used to prefer nearby field staff when locality details match.</small></label>
+  <label class="officer-field officer-field-wide"><span>Specialization</span><input id="officerSpecialization" placeholder="e.g. transformer, drainage, road repair"></label>
+  <label class="officer-field"><span>Active case capacity</span><input id="officerCapacity" type="number" min="1" max="200" value="20" required><small class="field-help">Maximum active complaints recommended for this officer.</small></label>
+  <div class="officer-form-actions"><button id="createOfficerBtn" type="button"><i class="fa-solid fa-user-plus"></i> Create Officer Account</button></div>
 </div>
-
-<div class="info-card">
-
-<h3>
-
-<i class="fa-solid fa-clock-rotate-left"></i>
-
-Latest Activity
-
-</h3>
-
-<p id="latestActivity">
-
-No recent updates.
-
-</p>
-
 </div>
+<div class="table-scroll"><table><thead><tr><th>Officer</th><th>Area / Skill</th><th>Active Load</th><th>Resolved</th><th>Resolution Rate</th><th>SLA Compliance</th><th>Avg Resolution</th><th>Citizen Rating</th><th>Performance</th><th>Status</th><th>Manage</th></tr></thead><tbody id="officerPerformanceBody"><tr><td colspan="11">Loading...</td></tr></tbody></table></div>
+</section>
 
+<dialog id="officerProfileDialog" class="officer-profile-dialog" aria-labelledby="officerProfileTitle">
+  <form id="officerProfileForm">
+    <div class="officer-profile-heading"><div><span class="section-kicker">Officer management</span><h2 id="officerProfileTitle">Edit officer profile</h2></div><button type="button" class="officer-profile-close" id="closeOfficerProfile" aria-label="Close">×</button></div>
+    <p class="accountability-note">Update the officer’s account and posting details. Changes apply to existing officers and future assignment recommendations. Email changes affect their login address.</p>
+    <div class="officer-form-grid">
+      <label class="officer-field"><span>Officer name</span><input id="editOfficerName" required maxlength="100"></label>
+      <label class="officer-field"><span>Email / login</span><input id="editOfficerEmail" type="email" required maxlength="100"></label>
+      <label class="officer-field"><span>Phone</span><input id="editOfficerPhone" maxlength="15"></label>
+      <label class="officer-field"><span>State / UT</span><select id="editOfficerState" required><option value="">Select State / UT</option></select></label>
+      <label class="officer-field"><span>District</span><select id="editOfficerDistrict" required><option value="">Select District</option></select></label>
+      <label class="officer-field"><span>Posted locality / beat</span><input id="editOfficerArea" maxlength="120" placeholder="Town, subdivision or field beat"></label>
+      <label class="officer-field officer-field-wide"><span>Specialization</span><input id="editOfficerSpecialization" maxlength="120" placeholder="Road repair, drainage, transformer"></label>
+      <label class="officer-field"><span>Active case capacity</span><input id="editOfficerCapacity" type="number" min="1" max="200" required></label>
+    </div>
+    <div class="officer-profile-actions"><button type="button" class="mini-action-btn" id="cancelOfficerProfile">Cancel</button><button type="submit" id="saveOfficerProfileBtn" class="primary-btn">Save profile</button></div>
+  </form>
+</dialog>
+
+<section class="recent escalation-section" id="escalationPanel">
+  <div class="accountability-heading">
+    <div>
+      <span class="section-kicker">Escalation hierarchy</span>
+      <h2>Escalation Queue</h2>
+      <p class="accountability-note">Level 1 = SLA at risk, Level 2 = SLA breached, Level 3 = critical SLA breach. Department Heads can also manually escalate a case.</p>
+    </div>
+  </div>
+  <div class="escalation-toolbar"><span id="escalationCount">Active SLA-risk cases</span><div><button type="button" id="escalationPrev" class="mini-action-btn">Previous</button><span id="escalationPageInfo" aria-live="polite">Page 1</span><button type="button" id="escalationNext" class="mini-action-btn">Next</button></div></div>
+  <div class="table-scroll">
+    <table class="escalation-table">
+      <thead><tr><th>Level</th><th>Complaint</th><th>Priority</th><th>Reason</th><th>Source</th><th>Status</th><th>Action</th></tr></thead>
+      <tbody id="escalationBody"><tr><td colspan="7">Loading escalation queue...</td></tr></tbody>
+    </table>
+  </div>
 </section>
 
 </main>
 
+
+<!-- Pip guide is shared across staff pages and injected by department_guide.js. -->
+
 </div>
 
-<script src="js/api.js"></script>
+<script src="js/api.js?v=20261021-api-routing-2"></script>
 
-<script src="js/department_dashboard.js"></script>
+<script src="js/location_dropdowns.js"></script>
+<script src="js/voice_support.js"></script>
+<script src="js/department_dashboard.js?v=20261022-officer-toggle-1"></script>
+<script src="js/department_guide.js?v=20261022-role-guide-2"></script>
 
 </body>
 

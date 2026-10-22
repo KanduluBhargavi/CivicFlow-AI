@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<script src="js/theme.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="images/civicflow-logo.svg">
+
+<title>Assigned Complaints | CivicFlow AI</title>
+
+<link rel="stylesheet" href="css/dashboard.css?v=20261021-pip-hop-1">
+<link rel="stylesheet" href="css/my_complaints.css">
+<link rel="stylesheet" href="css/department_guide.css?v=20261022-role-guide-2">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
+
+<link rel="stylesheet" href="css/design-system.css">
+<link rel="stylesheet" href="css/product-v2.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/ui-consistency.css?v=20261009">
+</head>
+
+<body>
+
+<div class="content">
+
+<button type="button" onclick="window.location.href='department_dashboard.html'" class="back-btn">
+    ← Back
+</button>
+
+<h2>Assigned Complaints</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>ID</th>
+<th>Title</th>
+<th>Priority</th>
+<th>Status</th>
+<th>Assignee</th>
+<th>Date</th>
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="complaintsTable">
+
+<tr>
+<td colspan="7">Loading complaints...</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<script src="js/api.js?v=20261021-api-routing-2"></script>
+<script src="js/department_complaints.js"></script>
+<script src="js/department_guide.js?v=20261022-role-guide-2"></script>
+
+</body>
+
+</html>

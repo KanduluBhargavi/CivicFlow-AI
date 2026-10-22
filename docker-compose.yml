@@ -1,0 +1,87 @@
+services:
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    command: ["redis-server", "--save", "", "--appendonly", "no"]
+    networks: [civicflow_net]
+
+  database:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-civicflow}
+      POSTGRES_USER: ${POSTGRES_USER:-civicflow}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change-this-password}
+    volumes:
+      - civicflow_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL","pg_isready -U ${POSTGRES_USER:-civicflow} -d ${POSTGRES_DB:-civicflow}"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    networks: [civicflow_net]
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql+psycopg2://${POSTGRES_USER:-civicflow}:${POSTGRES_PASSWORD:-change-this-password}@database:5432/${POSTGRES_DB:-civicflow}
+      SECRET_KEY: ${SECRET_KEY:-replace-this-before-production}
+      OTP_PEPPER: ${OTP_PEPPER:-}
+      ADMIN_EMAIL: ${ADMIN_EMAIL:-}
+      ADMIN_PASSWORD_HASH: ${ADMIN_PASSWORD_HASH:-}
+      ALGORITHM: HS256
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change-this-password}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:8080,http://127.0.0.1:8080}
+      SMTP_EMAIL: ${SMTP_EMAIL:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+      REDIS_URL: redis://redis:6379/0
+      APP_ENV: ${APP_ENV:-development}
+      RUN_STARTUP_DATA_REPAIRS: ${RUN_STARTUP_DATA_REPAIRS:-false}
+      OTP_TTL_SECONDS: ${OTP_TTL_SECONDS:-300}
+      OTP_RESEND_COOLDOWN_SECONDS: ${OTP_RESEND_COOLDOWN_SECONDS:-60}
+      OTP_MAX_ATTEMPTS: ${OTP_MAX_ATTEMPTS:-5}
+      OTP_DEV_MODE: ${OTP_DEV_MODE:-false}
+      BHASHINI_TRANSLATION_URL: ${BHASHINI_TRANSLATION_URL:-}
+      BHASHINI_API_KEY: ${BHASHINI_API_KEY:-}
+      BHASHINI_USER_ID: ${BHASHINI_USER_ID:-}
+      BHASHINI_TIMEOUT_SECONDS: ${BHASHINI_TIMEOUT_SECONDS:-10}
+      FREE_GOOGLE_TRANSLATE_TIMEOUT_SECONDS: ${FREE_GOOGLE_TRANSLATE_TIMEOUT_SECONDS:-8}
+      FREE_GOOGLE_TRANSLATE_MAX_RETRIES: ${FREE_GOOGLE_TRANSLATE_MAX_RETRIES:-1}
+      ENABLE_UNOFFICIAL_TRANSLATION_FALLBACK: ${ENABLE_UNOFFICIAL_TRANSLATION_FALLBACK:-false}
+    volumes:
+      - civicflow_uploads:/app/backend/uploads
+    depends_on:
+      redis:
+        condition: service_started
+      database:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD","curl","-f","http://127.0.0.1:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 8
+      start_period: 15s
+    networks: [civicflow_net]
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    restart: unless-stopped
+    ports:
+      - "${FRONTEND_PORT:-8080}:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks: [civicflow_net]
+
+volumes:
+  civicflow_postgres_data:
+  civicflow_uploads:
+
+networks:
+  civicflow_net:
+    driver: bridge

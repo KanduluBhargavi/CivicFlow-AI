@@ -5,18 +5,79 @@
 <script src="js/theme.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="images/civicflow-logo.svg">
 
 <title>My Profile</title>
 
 <link rel="stylesheet" href="css/profile.css">
 
 <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
 
+<link rel="stylesheet" href="css/citizen_notifications.css">
+<link rel="stylesheet" href="css/design-system.css">
+<link rel="stylesheet" href="css/product-v2.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/ui-consistency.css?v=20261009">
+<link rel="stylesheet" href="css/dashboard.css?v=20261021-pip-hop-1">
+<link rel="stylesheet" href="css/citizen_shared_nav.css?v=28">
+<link rel="stylesheet" href="css/citizen_dashboard_nav_r29.css?v=30">
 </head>
 
 <body>
+<nav class="navbar citizen-dashboard-nav" aria-label="Citizen navigation">
 
+    <div class="logo">
+        <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="34" height="34">
+          <circle cx="20" cy="20" r="18" fill="none" stroke="url(#brandGrad)" stroke-width="2.4"/>
+          <circle cx="20" cy="20" r="10" fill="none" stroke="url(#brandGrad)" stroke-width="2"/>
+          <circle cx="20" cy="20" r="2.6" fill="#10b981"/>
+          <defs>
+            <linearGradient id="brandGrad" x1="0" y1="0" x2="40" y2="40">
+              <stop offset="0" stop-color="#2563eb"/>
+              <stop offset="1" stop-color="#06b6d4"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </span>
+        CivicFlow AI
+    </div>
+
+
+    <div class="citizen-nav-links" aria-label="Citizen pages">
+      <a class="citizen-nav-link" href="dashboard.html"><i class="fa-solid fa-table-cells-large" aria-hidden="true"></i><span>Dashboard</span></a>
+      <a class="citizen-nav-link" href="complaint.html"><i class="fa-solid fa-circle-plus" aria-hidden="true"></i><span>Lodge Complaint</span></a>
+      <a class="citizen-nav-link" href="my_complaints.html"><i class="fa-solid fa-list-check" aria-hidden="true"></i><span>My Complaints</span></a>
+      <a class="citizen-nav-link is-active" href="profile.html" aria-current="page"><i class="fa-solid fa-user-gear" aria-hidden="true"></i><span>My Profile</span></a>
+    </div>
+
+    <div class="nav-right">
+        <button id="navContactSupport" class="nav-contact-support" type="button" title="Contact CivicFlow support" aria-label="Contact CivicFlow support"><i class="fa-solid fa-headset" aria-hidden="true"></i><span>Support</span></button>
+
+        <span class="welcome">
+
+            Welcome,
+
+            <span id="userName"></span>
+
+        </span>
+
+        <button id="logoutBtn">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            Logout
+
+        </button>
+        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
+    🌙
+</button>
+
+    </div>
+
+</nav>
+<div class="citizen-nav-spacer" aria-hidden="true"></div>
 <div class="container">
 
 <div class="profile-card">
@@ -31,9 +92,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 
 <input type="text" id="phone" placeholder="Phone">
 
-<input type="text" id="state" placeholder="State">
+<select id="state"><option value="">Select State</option></select>
 
-<input type="text" id="district" placeholder="District">
+<input type="text" id="district" list="districtOptions" placeholder="Select or type district" autocomplete="off">
+<datalist id="districtOptions"></datalist>
 
 <input type="text" id="area" placeholder="Area">
 
@@ -71,21 +133,249 @@ Change Password
 
 </form>
 
-<button class="backBtn"
-onclick="window.location.href='dashboard.html'">
-
-<i class="fa-solid fa-arrow-left"></i>
-
-Back to Dashboard
-
-</button>
-
 </div>
 
 </div>
 
-<script src="js/api.js"></script>
+<script src="js/api.js?v=20261021-api-routing-2"></script>
+<script src="js/location_dropdowns.js"></script>
 <script src="js/profile.js"></script>
 
+<script src="js/citizen_notifications.js"></script>
+<button id="floatingChatSupport" class="floating-chat-support" type="button" aria-label="Open Pip, CivicFlow's support chat" title="Chat with Pip"><img class="chat-pip" src="images/pip-mascot.png?v=2" alt="" aria-hidden="true" width="52" height="52" decoding="async" fetchpriority="low"><span class="chat-float-label">Chat with Pip</span></button>
+<!-- ================= HELP MODAL ================= -->
+
+<div class="help-modal" id="helpModal">
+
+    <div class="help-modal-content">
+
+        <!-- Close -->
+
+        <button class="help-close" id="closeHelpModal">
+            ×
+        </button>
+
+
+        <!-- MAIN HELP MENU -->
+
+        <div id="helpMainMenu">
+
+            <div class="help-header">
+
+                <div class="help-header-icon">
+                    🆘
+                </div>
+
+                <h2>How can we help?</h2>
+
+                <p>
+                    Choose an option and our CivicFlow support team will assist you.
+                </p>
+
+            </div>
+
+
+            <div class="help-options">
+
+                <!-- CHAT -->
+
+                <button class="help-option" id="chatSupportBtn">
+
+                    <div class="help-option-icon">
+                        💬
+                    </div>
+
+                    <div>
+
+                        <h3>Chat With Us</h3>
+
+                        <p>
+                            Get assistance from CivicFlow support.
+                        </p>
+
+                    </div>
+
+                    <span>→</span>
+
+                </button>
+
+
+                <!-- CONTACT -->
+
+                <button class="help-option" id="contactSupportBtn">
+
+                    <div class="help-option-icon">
+                        📞
+                    </div>
+
+                    <div>
+
+                        <h3>Contact Us</h3>
+
+                        <p>
+                            Contact the CivicFlow support team.
+                        </p>
+
+                    </div>
+
+                    <span>→</span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= CHAT ================= -->
+
+        <div id="chatSupportSection" class="help-section hidden">
+
+            <button class="back-help-btn" id="backFromChat">
+                ← Back
+            </button>
+
+            <div class="chat-header">
+
+                <div class="support-avatar"><img class="support-pip-avatar" src="images/pip-mascot.png?v=2" alt="Pip" width="48" height="48" decoding="async" fetchpriority="low"></div>
+
+                <div>
+
+                    <h3>CivicFlow Support</h3>
+
+                    <span>
+                        <span class="online-dot"></span>
+                        Online
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="chat-messages" id="chatMessages">
+
+                <div class="chat-message support-message">
+
+                    👋 Hello! Welcome to CivicFlow Support.
+
+                    <br><br>
+
+                    How can we help you today?
+
+                </div>
+
+            </div>
+
+
+            <div class="chat-input-area">
+
+                <input
+                    type="text"
+                    id="chatInput"
+                    placeholder="Type your message..."
+                >
+
+                <button id="sendChatBtn">
+                    Send
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= CONTACT ================= -->
+
+        <div id="contactSupportSection" class="help-section hidden">
+
+            <button class="back-help-btn" id="backFromContact">
+                ← Back
+            </button>
+
+
+            <div class="contact-header">
+
+                <div class="contact-big-icon">
+                    📞
+                </div>
+
+                <h2>Contact CivicFlow Support</h2>
+
+                <p>
+                    Our support team is available to help you.
+                </p>
+
+            </div>
+
+
+            <div class="contact-details">
+
+                <div class="contact-item">
+
+                    <span>📞</span>
+
+                    <div>
+
+                        <strong>Phone Support</strong>
+
+                        <p>Contact details have not been configured</p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <span>📧</span>
+
+                    <div>
+
+                        <strong>Email Support</strong>
+
+                        <p>support@civicflow.in</p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <span>🕒</span>
+
+                    <div>
+
+                        <strong>Support Hours</strong>
+
+                        <p>Monday – Friday, 9:00 AM – 6:00 PM</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="tel:+911234567890"
+                class="call-support-btn"
+            >
+                📞 Call Support
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+<script src="js/citizen_shared_chat.js?v=28"></script>
+<script src="js/citizen_dashboard_nav_r29.js?v=29"></script>
 </body>
 </html>

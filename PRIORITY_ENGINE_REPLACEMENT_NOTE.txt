@@ -1,0 +1,13 @@
+CivicFlow-AI priority-engine correction (2026-10-17-r2)
+
+This archive has the updated files at the ZIP root (no nested project folder).
+The relevant corrected files are:
+  backend/app/services/priority_engine.py
+  backend/training/test_priority_engine.py
+
+After extraction into D:\CivicFlow-AI, run from PowerShell:
+  cd D:\CivicFlow-AI\backend\training
+  python test_priority_engine.py
+
+The first line should say: Priority engine loaded: 2026-10-17-r2
+If it does not, Python is importing a different/stale source tree.

@@ -9,11 +9,7 @@ body{
 
 background:#eef4ff;
 
-display:flex;
-
-justify-content:center;
-
-padding:40px;
+min-height:100vh;
 
 }
 
@@ -21,6 +17,8 @@ padding:40px;
 
 width:100%;
 max-width:850px;
+margin:0 auto;
+padding:24px 16px 90px;
 
 }
 
@@ -35,6 +33,15 @@ border-radius:20px;
 box-shadow:0 15px 40px rgba(0,0,0,.12);
 
 }
+.translation-feedback-card{margin:18px 0;padding:22px;border:1px solid #bfdbfe;border-radius:16px;background:#f8fbff}
+.translation-feedback-card h2{margin-bottom:8px}.translation-feedback-card p{line-height:1.5;color:#475569}
+.translation-feedback-card form{display:grid;gap:9px;margin-top:14px}
+.translation-feedback-card textarea{width:100%;min-height:84px;padding:11px;border:1px solid #cbd5e1;border-radius:9px;font:inherit}
+.translation-feedback-card button{justify-self:start;padding:10px 15px;border:0;border-radius:9px;background:#2563eb;color:#fff;font-weight:700;cursor:pointer}
+.translation-feedback-history-item{padding:10px 12px;margin:9px 0;border-radius:10px;background:#eaf2ff;color:#1e293b}
+html.dark .translation-feedback-card{background:#172554;border-color:#1d4ed8;color:#e2e8f0}
+html.dark .translation-feedback-card p{color:#cbd5e1}
+html.dark .translation-feedback-card textarea{background:#0f172a;color:#f8fafc;border-color:#475569}
 
 .card h1{
 
@@ -47,6 +54,9 @@ text-align:center;
 }
 
 .detail{
+
+overflow-wrap:anywhere;
+
 
 margin-bottom:20px;
 
@@ -90,7 +100,7 @@ margin-top:35px;
 
 }
 
-button{
+.container button{
 
 padding:12px 24px;
 
@@ -110,7 +120,7 @@ transition:.3s;
 
 }
 
-button:hover{
+.container button:hover{
 
 background:#1d4ed8;
 
@@ -118,7 +128,7 @@ transform:translateY(-2px);
 
 }
 
-i{
+.container i{
 
 margin-right:8px;
 
@@ -216,3 +226,64 @@ html.dark button:hover {
 html.dark i {
     color:#93c5fd;
 }
+.resolution-verification{margin-top:22px;padding:18px;border:1px solid rgba(80,120,200,.35);border-radius:14px;}
+.resolution-verification textarea{width:100%;min-height:80px;padding:10px;box-sizing:border-box;margin:10px 0;border-radius:8px;}
+
+.incident-summary{margin:22px 0;padding:18px;border:1px solid #bfdbfe;background:#eff6ff;border-radius:14px}
+.incident-summary h2{font-size:1.05rem;color:#1e40af;margin-bottom:8px}.incident-summary p{color:#475569;line-height:1.55}
+html.dark .incident-summary{background:#0f1d35;border-color:#1e3a5f}.incident-summary i{margin-right:8px}
+html.dark .incident-summary h2{color:#93c5fd}html.dark .incident-summary p{color:#cbd5e1}
+
+.incident-view-btn{
+  margin-top:12px;border:0;border-radius:10px;padding:10px 14px;
+  background:#2563eb;color:#fff;font-weight:700;cursor:pointer
+}
+.incident-view-btn:hover{background:#1d4ed8}
+.satisfaction-card{
+  margin-top:22px;padding:20px;border:1px solid #dbeafe;border-radius:16px;
+  background:#f8fbff
+}
+.satisfaction-card h2{margin:0 0 8px}
+.satisfaction-card p{color:#64748b}
+.satisfaction-stars{display:flex;gap:6px;margin:12px 0 6px}
+.satisfaction-stars button{
+  border:0;background:transparent;color:#cbd5e1;font-size:32px;cursor:pointer;
+  padding:0;line-height:1
+}
+.satisfaction-stars button.active{color:#f59e0b}
+.satisfaction-card textarea{
+  width:100%;min-height:90px;box-sizing:border-box;margin:10px 0;padding:12px;
+  border:1px solid #cbd5e1;border-radius:10px;resize:vertical
+}
+#submitSatisfactionBtn{
+  border:0;border-radius:10px;padding:11px 15px;background:#059669;color:#fff;
+  font-weight:700;cursor:pointer
+}
+#submitSatisfactionBtn:hover{background:#047857}
+html.dark .satisfaction-card{background:#0f172a;border-color:#334155}
+html.dark .satisfaction-card textarea{background:#111827;color:#e5e7eb;border-color:#475569}
+
+.live-handling-card{margin:22px 0;padding:22px;border:1px solid #dbeafe;border-radius:16px;background:linear-gradient(135deg,#f8fbff,#fff)}
+.live-handling-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:17px}
+.live-kicker{display:block;color:#2563eb;font-size:11px;letter-spacing:.11em;font-weight:800;margin-bottom:5px}
+.live-handling-heading h2{margin:0;font-size:21px}
+.live-status-badge{padding:8px 12px;border-radius:999px;background:#dbeafe;color:#1d4ed8;font-size:12px;font-weight:800;white-space:nowrap}
+.live-status-badge[data-status="in-progress"]{background:#fef3c7;color:#92400e}
+.live-status-badge[data-status="resolved"]{background:#dcfce7;color:#166534}
+.live-handling-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.live-item{padding:14px;border:1px solid #e5e7eb;border-radius:12px;background:#fff}
+.live-item span{display:block;color:#64748b;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
+.live-item strong{font-size:14px;line-height:1.45;color:#1e293b}
+.live-help{margin:14px 0 0;color:#64748b;font-size:12px}
+html.dark .live-handling-card{background:#111827;border-color:#334155}
+html.dark .live-item{background:#0f172a;border-color:#334155}
+html.dark .live-item strong{color:#e5e7eb}
+@media(max-width:650px){.live-handling-heading{flex-direction:column}.live-handling-grid{grid-template-columns:1fr}}
+
+/* Light-mode readability for the Priority / Status pills on this page
+   (ui-consistency.css forces white text on a pale background). */
+html body .detail #priority,
+html body .detail #status{color:#142743!important}
+html.dark body .detail #priority,
+html.dark body .detail #status{color:#f8fafc!important}
+

@@ -5,15 +5,16 @@
 <script src="js/theme.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="images/civicflow-logo.svg">
 
     <title>CivicFlow AI | Register</title>
 
     <link rel="stylesheet" href="css/register.css">
-    
-
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
+<link rel="stylesheet" href="css/design-system.css">
+<link rel="stylesheet" href="css/product-v2.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/ui-consistency.css?v=20261009">
+<link rel="stylesheet" href="css/civic-ui-r3.css?v=3">
 </head>
 
 <body>
@@ -43,51 +44,52 @@
             <h2>Citizen Registration</h2>
 
             <div class="input-box">
-                <i class="fa-solid fa-user"></i>
+                <span class="field-icon" aria-hidden="true">👤</span>
                 <input type="text" id="full_name" placeholder="Full Name" autocomplete="off" required>
             </div>
 
             <div class="input-box">
-                <i class="fa-solid fa-envelope"></i>
+                <span class="field-icon" aria-hidden="true">✉</span>
                 <input type="email" id="email" name="registerForm" placeholder="Email" autocomplete="off" required>
             </div>
 
             <div class="input-box">
-                <i class="fa-solid fa-phone"></i>
+                <span class="field-icon" aria-hidden="true">☎</span>
                 <input type="text" id="phone" placeholder="Phone Number" required>
             </div>
 
             <div class="input-box">
-                <i class="fa-solid fa-lock"></i>
+                <span class="field-icon" aria-hidden="true">🔒</span>
                 <input type="password" id="password" placeholder="Password" autocomplete="new-password" required>
             </div>
 
             <div class="input-box">
-                <i class="fa-solid fa-location-dot"></i>
+                <span class="field-icon" aria-hidden="true">⌖</span>
                 <select id="state" required><option value="">Select State</option></select>
             </div>
 
             <div class="input-box">
-                <i class="fa-solid fa-city"></i>
-               <select id="district" required><option value="">Select District</option></select>
+                <span class="field-icon" aria-hidden="true">▦</span>
+               <input type="text" id="district" list="districtOptions" placeholder="Select or type district" autocomplete="off" required>
+<datalist id="districtOptions"></datalist>
             </div>
             <div class="input-box">
-    <i class="fa-solid fa-map-location-dot"></i>
+    <span class="field-icon" aria-hidden="true">⌖</span>
     <input type="text" id="area" placeholder="Area / Locality">
 </div>
 
 <div class="input-box">
-    <i class="fa-solid fa-location-dot"></i>
+    <span class="field-icon" aria-hidden="true">⌖</span>
     <input type="text" id="landmark" placeholder="Nearby Landmark">
 </div>
 
 <div class="input-box">
-    <i class="fa-solid fa-house"></i>
+    <span class="field-icon" aria-hidden="true">⌂</span>
     <textarea id="address" placeholder="Address" rows="3"></textarea>
 </div>
 
 <div class="input-box">
-    <i class="fa-solid fa-envelopes-bulk"></i>
+    <span class="field-icon" aria-hidden="true">#</span>
     <input type="text" id="pincode" placeholder="Pincode">
 </div>
 
@@ -119,11 +121,59 @@
 
         </form>
 
+
+        <form id="registrationOtpForm" class="registration-otp-form" autocomplete="off" style="display:none;">
+
+            <div class="verification-badge">✉</div>
+            <span class="verification-kicker">EMAIL VERIFICATION</span>
+            <h2>Verify Your Email</h2>
+
+            <p class="verification-copy">
+                We sent a 6-digit verification code to
+                <strong id="registrationOtpEmail">your email</strong>.
+                Your account will be created only after verification.
+            </p>
+
+            <div class="input-box">
+                <span class="field-icon" aria-hidden="true">#</span>
+                <input
+                    type="text"
+                    id="registrationOtp"
+                    inputmode="numeric"
+                    maxlength="6"
+                    pattern="[0-9]{6}"
+                    autocomplete="one-time-code"
+                    placeholder="Enter 6-digit OTP"
+                    required>
+            </div>
+
+            <p class="verification-expiry" id="registrationOtpExpiry">
+                Code expires in 5 minutes.
+            </p>
+
+            <button type="submit" id="verifyRegistrationOtpBtn">
+                Verify Email & Create Account
+            </button>
+
+            <div class="verification-actions">
+                <button type="button" class="text-action-btn" id="resendRegistrationOtpBtn">
+                    Resend OTP
+                </button>
+                <span>•</span>
+                <button type="button" class="text-action-btn" id="editRegistrationBtn">
+                    Edit registration details
+                </button>
+            </div>
+
+            <p class="verification-message" id="registrationOtpMessage"></p>
+
+        </form>
+
     </div>
 
 </div>
 
-<script src="js/api.js"></script>
+<script src="js/api.js?v=20261021-api-routing-2"></script>
 <script src="js/location.js"></script>
 <script src="js/geolocation.js"></script>
 <script src="js/register.js"></script>
@@ -138,13 +188,13 @@ window.addEventListener("load", () => {
 });
 
 window.addEventListener("pageshow", () => {
-
     setTimeout(() => {
-        document.getElementById("registerForm").reset();
-        document.getElementById("email").value = "";
-        document.getElementById("password").value = "";
+        if (!window.registrationVerificationInProgress) {
+            document.getElementById("registerForm").reset();
+            document.getElementById("email").value = "";
+            document.getElementById("password").value = "";
+        }
     }, 100);
-
 });
 </script>
 

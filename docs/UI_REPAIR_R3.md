@@ -1,0 +1,1 @@
+Revision R3: repaired metadata labels and timeline, removed fabricated review fallbacks, improved public section contrast and layout. Browser and database integration checks are still required. No new API keys.

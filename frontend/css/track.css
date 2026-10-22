@@ -1169,3 +1169,9 @@ html.dark .timeline-marker {
     }
 
 }
+.track-page-shell{max-width:980px;margin:0 auto;padding:42px 24px 70px}
+.track-page-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:22px}
+.track-page-head h1{font-size:38px;margin:5px 0 7px}
+.track-page-head p{color:var(--cf-muted,#64748b)}
+.track-stage-card{border:1px solid var(--cf-border,#e2e8f0);background:var(--cf-surface,#fff);border-radius:24px;padding:28px;box-shadow:var(--cf-shadow,0 16px 40px rgba(15,23,42,.08))}
+@media(max-width:700px){.track-page-head{align-items:flex-start;flex-direction:column}.track-page-head h1{font-size:32px}}

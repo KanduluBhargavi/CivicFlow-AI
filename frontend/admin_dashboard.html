@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="js/theme.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="images/civicflow-logo.svg">
+<title>Admin Dashboard | CivicFlow AI</title>
+<link rel="stylesheet" href="css/admin.css?v=2">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="css/design-system.css">
+<link rel="stylesheet" href="css/product-v2.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/ui-consistency.css?v=20261009">
+</head>
+<body>
+<nav class="admin-nav">
+  <a href="index.html" class="brand admin-brand" aria-label="CivicFlow AI home">
+    <span class="brand__mark" aria-hidden="true">
+      <svg viewBox="0 0 40 40" width="34" height="34">
+        <circle cx="20" cy="20" r="18" fill="none" stroke="url(#adminBrandGrad)" stroke-width="2.4"/>
+        <circle cx="20" cy="20" r="10" fill="none" stroke="url(#adminBrandGrad)" stroke-width="2"/>
+        <circle cx="20" cy="20" r="2.6" fill="#10b981"/>
+        <defs><linearGradient id="adminBrandGrad" x1="0" y1="0" x2="40" y2="40"><stop offset="0" stop-color="#2563eb"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs>
+      </svg>
+    </span>
+    <span class="brand__text">CivicFlow <b>AI</b><small>National Administration Console</small></span>
+  </a>
+  <div class="nav-actions"><span>Administrator</span>
+    <div class="nav-notification-wrap">
+      <button id="adminNotificationBtn" class="notification-bell" aria-label="Open notifications"><i class="fa-solid fa-bell"></i><span id="adminNotificationCount" class="nav-notification-count">0</span></button>
+      <div id="adminNotificationMenu" class="notification-menu">
+        <div class="notification-menu-head"><strong>System Notifications</strong><span>Requires attention</span></div>
+        <div id="adminNotificationList" class="notification-menu-list"><p class="notification-empty">No urgent notifications.</p></div>
+      </div>
+    </div>
+    <button id="refreshBtn"><i class="fa-solid fa-rotate"></i> Refresh</button>
+    <button id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+    <button id="themeToggle" class="theme-toggle">🌙</button>
+  </div>
+</nav>
+<div class="admin-shell">
+<aside class="admin-sidebar">
+  <button class="tab-btn active" data-tab="overview"><i class="fa-solid fa-chart-line"></i> Overview</button>
+  <button class="tab-btn" data-tab="complaints"><i class="fa-solid fa-list-check"></i> Complaints</button>
+  <button class="tab-btn" data-tab="departments"><i class="fa-solid fa-building-columns"></i> Departments</button>
+  <button class="tab-btn" data-tab="citizens"><i class="fa-solid fa-people-group"></i> Citizens</button>
+  <button class="tab-btn" data-tab="officers"><i class="fa-solid fa-user-shield"></i> Officers</button>
+  <button class="tab-btn" data-tab="escalations"><i class="fa-solid fa-arrow-up-right-dots"></i> Escalations</button>
+  <button class="tab-btn" data-tab="hotspots"><i class="fa-solid fa-map-location-dot"></i> Hotspots</button>
+</aside>
+<main class="admin-main">
+<section id="tab-overview" class="tab-panel active">
+  <div class="page-head"><div><h1>System Overview</h1><p>National-level monitoring of grievance flow, accountability and SLA health.</p></div><span class="live-chip"><i class="fa-solid fa-circle"></i> Live system view</span></div>
+  <div class="metric-grid">
+    <article><span>Total Complaints</span><strong id="mComplaints">0</strong><small>Across all departments</small></article>
+    <article><span>Citizens / Users</span><strong id="mUsers">0</strong><small>Registered accounts</small></article>
+    <article><span>Departments</span><strong id="mDepartments">0</strong><small>Operational units</small></article>
+    <article><span>Officers</span><strong id="mOfficers">0</strong><small>Individual accountable staff</small></article>
+    <article class="success"><span>Resolved</span><strong id="mResolved">0</strong><small>Closed complaints</small></article>
+    <article class="warning"><span>SLA At Risk</span><strong id="mAtRisk">0</strong><small>Deadline approaching</small></article>
+    <article class="danger"><span>SLA Breached</span><strong id="mBreached">0</strong><small>Requires management attention</small></article>
+    <article class="warning"><span>Needs Assignment</span><strong id="mUnassigned">0</strong><small>New cases without an officer</small></article>
+  </div>
+
+  <section id="reportExportPanel" class="panel admin-tool-panel">
+    <div class="panel-head">
+      <div>
+        <h2>Administrative Reports</h2>
+        <span>Export the current grievance register for review, documentation or supervisor submission.</span>
+      </div>
+      <div class="report-actions">
+        <button id="downloadCsvBtn" class="secondary-btn"><i class="fa-solid fa-file-csv"></i> Export CSV</button>
+        <button id="downloadPdfBtn" class="primary-btn"><i class="fa-solid fa-file-pdf"></i> Export PDF</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel admin-tool-panel">
+    <div class="panel-head">
+      <div>
+        <h2>BHASHINI NMT Integration</h2>
+        <span>Server-side multilingual translation readiness. API credentials are never exposed to the browser.</span>
+      </div>
+      <span id="bhashiniStatusChip" class="integration-chip">Checking...</span>
+    </div>
+    <div id="bhashiniStatusDetails" class="integration-details"></div>
+  </section>
+
+  <div class="analytics-grid">
+    <section class="panel"><div class="panel-head"><h2>Status Distribution</h2></div><div id="statusBars" class="bar-list"></div></section>
+    <section class="panel"><div class="panel-head"><h2>Priority Distribution</h2></div><div id="priorityBars" class="bar-list"></div></section>
+  </div>
+  <section class="panel"><div class="panel-head"><h2>Department Load</h2><button class="link-btn" data-go="departments">Manage departments</button></div><div id="departmentBars" class="bar-list wide"></div></section>
+  <section class="panel"><div class="panel-head"><h2>Immediate Attention</h2><span>Breached / at-risk / high-priority complaints</span></div><div class="table-wrap"><table><thead><tr><th>ID</th><th>Complaint</th><th>Department</th><th>Priority</th><th>SLA</th><th>Officer</th></tr></thead><tbody id="attentionBody"></tbody></table></div></section>
+</section>
+
+<section id="tab-complaints" class="tab-panel">
+  <div class="page-head"><div><h1>All Complaints</h1><p>Audit complaint routing, status, SLA state and responsible officer.</p></div><input id="complaintSearch" class="search" placeholder="Search complaint, district, department..."></div>
+  <section class="panel"><div class="table-wrap"><table><thead><tr><th>ID</th><th>Complaint</th><th>Location</th><th>Department</th><th>Priority</th><th>Status</th><th>SLA</th><th>Assignee</th><th>Submitted</th><th>Admin Action</th></tr></thead><tbody id="allComplaintsBody"></tbody></table></div></section>
+</section>
+
+<section id="tab-departments" class="tab-panel">
+  <div class="page-head"><div><h1>Departments</h1><p>Create operational departments, manage Department Head accounts and monitor workload.</p></div><button id="showAddDepartmentBtn" class="primary-btn"><i class="fa-solid fa-plus"></i> Add Department</button></div>
+  <section id="addDepartmentPanel" class="panel add-department-panel hidden">
+    <div class="panel-head"><div><h2>Add Department</h2><span>The Department Head can log in immediately after creation.</span></div><button id="closeDepartmentForm" class="icon-btn" aria-label="Close">×</button></div>
+    <div class="form-grid">
+      <label>Department Name<input id="newDeptName" placeholder="e.g. Disaster Management"></label>
+      <label>Department Code<input id="newDeptCode" placeholder="e.g. DM"></label>
+      <label>Department Head Name<input id="newDeptHead" placeholder="Officer / Head name"></label>
+      <label>Head Email<input id="newDeptEmail" type="email" placeholder="head@department.gov.in"></label>
+      <label>Login Username<input id="newDeptUsername" placeholder="department username"></label>
+      <label>Temporary Password<input id="newDeptPassword" type="password" placeholder="Temporary password"></label>
+      <label>State<select id="newDeptState"><option value="">National / Select State</option></select></label>
+      <label>Jurisdiction<input id="newDeptJurisdiction" placeholder="Statewide / district / national"></label>
+      <label class="span-2">Description<textarea id="newDeptDescription" rows="2" placeholder="What this department handles"></textarea></label>
+    </div>
+    <div class="form-note"><i class="fa-solid fa-circle-info"></i> New department classes are operational immediately. If the current ML classifier was not trained for that department, automatic AI routing remains marked <b>Not trained</b> until the routing model is retrained.</div>
+    <div class="form-actions"><button id="createDepartmentBtn" class="primary-btn">Create Department</button></div>
+  </section>
+  <div class="subtabs"><button class="subtab active" data-dept-view="all">All Departments</button><button class="subtab" data-dept-view="heads">Department Heads</button></div>
+  <section id="deptViewAll" class="panel"><div class="table-wrap"><table><thead><tr><th>Department</th><th>Code</th><th>Jurisdiction</th><th>AI Routing</th><th>Total</th><th>In Progress</th><th>Resolved</th><th>SLA Breaches</th><th>Officers</th></tr></thead><tbody id="departmentsBody"></tbody></table></div></section>
+  <section id="deptViewHeads" class="panel hidden"><div class="table-wrap"><table><thead><tr><th>Department</th><th>Head</th><th>Email</th><th>Username</th><th>State</th><th>Status</th></tr></thead><tbody id="departmentHeadsBody"></tbody></table></div></section>
+</section>
+
+<section id="tab-citizens" class="tab-panel">
+  <div class="page-head"><div><h1>Citizens</h1><p>Registered citizen accounts grouped and filterable by state.</p></div><div class="filter-row"><select id="citizenStateFilter"><option value="">All States</option></select><input id="citizenSearch" class="search" placeholder="Search name, email, district..."></div></div>
+  <div id="citizenSummary" class="category-chips"></div>
+  <section class="panel"><div class="table-wrap"><table><thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>State</th><th>District</th><th>Status</th></tr></thead><tbody id="citizensBody"></tbody></table></div></section>
+</section>
+
+<section id="tab-officers" class="tab-panel">
+  <div class="page-head"><div><h1>Officers</h1><p>Individual officers grouped by department. Officer creation remains with the Department Head.</p></div><div class="filter-row"><select id="officerDepartmentFilter"><option value="">All Departments</option></select><select id="officerStatusFilter"><option value="">All Statuses</option><option value="active">Active</option><option value="inactive">Inactive</option></select><input id="officerSearch" class="search" placeholder="Search officer, district, specialization..."></div></div>
+  <div id="officerSummary" class="category-chips"></div>
+  <section class="panel"><div class="table-wrap"><table><thead><tr><th>ID</th><th>Officer</th><th>Department</th><th>Location</th><th>Specialization</th><th>Capacity</th><th>Status</th></tr></thead><tbody id="officersBody"></tbody></table></div></section>
+</section>
+
+<section id="tab-escalations" class="tab-panel">
+  <div class="page-head">
+    <div>
+      <h1>Escalation Oversight</h1>
+      <p>System-level queue for SLA risk, breached cases and critical escalations.</p>
+    </div>
+    <div class="escalation-legend">
+      <span class="level-pill level-1">L1 At Risk</span>
+      <span class="level-pill level-2">L2 Breached</span>
+      <span class="level-pill level-3">L3 Critical Breach</span>
+    </div>
+  </div>
+  <section class="panel">
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Level</th><th>Complaint</th><th>Department</th><th>Location</th><th>Priority</th><th>Reason</th><th>Source</th><th>Status</th><th>Action</th></tr></thead>
+        <tbody id="adminEscalationBody"><tr><td colspan="9">Loading escalations...</td></tr></tbody>
+      </table>
+    </div>
+  </section>
+</section>
+
+<section id="tab-hotspots" class="tab-panel">
+  <div class="page-head">
+    <div>
+      <h1>Geographic Incident Hotspots</h1>
+      <p>Each dot represents one complaint with valid coordinates. Use the state and district filters to narrow the view.</p>
+    </div>
+    <span class="live-chip"><i class="fa-solid fa-location-dot"></i> Coordinate-backed</span>
+  </div>
+  <div class="hotspot-summary" id="hotspotSummary"></div>
+  <section class="panel map-panel">
+    <div class="map-filter-row" style="display:flex;gap:12px;flex-wrap:wrap;padding:12px 14px;align-items:center">
+      <label>State / UT <select id="adminMapStateFilter"><option value="">All States / UTs</option></select></label>
+      <label>District <select id="adminMapDistrictFilter"><option value="">All Districts</option></select></label>
+      <span id="adminMapResultCount" aria-live="polite">Showing all geolocated complaints</span>
+    </div>
+    <div id="adminHotspotMap"></div>
+    <section class="map-analysis" id="adminMapAnalysis" aria-live="polite">
+      <h3>Filtered map analysis</h3><p>Analysis updates when you change the location filters.</p>
+    </section>
+  </section>
+  <section class="panel surge-panel">
+    <div class="panel-head"><div><h2>Emerging Incident Alerts</h2><span>Clusters reported by 3 different citizens in 24 hours, or by 2 including a Critical report. This is a rule-based early-warning signal, not proof of a confirmed emergency.</span></div><button id="refreshSurgeAlerts" class="secondary-btn" type="button"><i class="fa-solid fa-rotate"></i> Refresh alerts</button></div>
+    <div id="surgeAlertSummary" class="surge-alert-summary" aria-live="polite">Checking recent incident activity…</div>
+    <div id="surgeAlertList" class="surge-alert-list"><p>Loading recent activity…</p></div>
+  </section>
+  <section class="panel">
+    <div class="panel-head"><h2>District Hotspot Summary</h2><span>Counts are aggregated by reported district/state; map markers remain separate coordinate cells. District names are not boundary-verified.</span></div>
+    <p class="hotspot-method-note">Severity: <strong>High</strong> = 5+ complaints, or 2+ High/Critical complaints with at least 50% High/Critical; <strong>Medium</strong> = 3+ complaints, or at least 1 High/Critical complaint; <strong>Low</strong> = fewer than 3 complaints and no High/Critical complaints. Only complaints with valid stored coordinates are included.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Reported district / state</th><th>Complaints</th><th>Unresolved</th><th>High/Critical</th><th>Incidents</th><th>District severity</th></tr></thead>
+        <tbody id="hotspotBody"><tr><td colspan="6">Loading hotspot data...</td></tr></tbody>
+      </table>
+    </div>
+  </section>
+</section>
+
+</main>
+</div>
+<script src="js/api.js?v=20261021-api-routing-2"></script>
+<script src="js/location_dropdowns.js"></script>
+<script src="js/admin_dashboard.js?v=20261021-incident-alert-citizen-count-1"></script>
+</body>
+</html>

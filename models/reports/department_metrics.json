@@ -1,0 +1,124 @@
+{
+  "accuracy": 0.9392712550607287,
+  "macro_f1": 0.9340609240834128,
+  "weighted_f1": 0.938593846249492,
+  "macro_precision": 0.9369650198789193,
+  "macro_recall": 0.9344484508547009,
+  "classification_report": {
+    "Education": {
+      "precision": 0.9714285714285714,
+      "recall": 1.0,
+      "f1-score": 0.9855072463768116,
+      "support": 34.0
+    },
+    "Electricity": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 30.0
+    },
+    "Healthcare": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 43.0
+    },
+    "Municipal Corporation": {
+      "precision": 0.9583333333333334,
+      "recall": 0.8846153846153846,
+      "f1-score": 0.92,
+      "support": 26.0
+    },
+    "Police": {
+      "precision": 0.7741935483870968,
+      "recall": 0.8888888888888888,
+      "f1-score": 0.8275862068965517,
+      "support": 27.0
+    },
+    "Roads & Transport": {
+      "precision": 0.88,
+      "recall": 0.7333333333333333,
+      "f1-score": 0.8,
+      "support": 30.0
+    },
+    "Sanitation": {
+      "precision": 0.9117647058823529,
+      "recall": 0.96875,
+      "f1-score": 0.9393939393939394,
+      "support": 32.0
+    },
+    "Water Supply": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 25.0
+    },
+    "accuracy": 0.9392712550607287,
+    "macro avg": {
+      "precision": 0.9369650198789193,
+      "recall": 0.9344484508547009,
+      "f1-score": 0.9340609240834128,
+      "support": 247.0
+    },
+    "weighted avg": {
+      "precision": 0.9409916376110323,
+      "recall": 0.9392712550607287,
+      "f1-score": 0.938593846249492,
+      "support": 247.0
+    }
+  },
+  "classes": [
+    "Education",
+    "Electricity",
+    "Healthcare",
+    "Municipal Corporation",
+    "Police",
+    "Roads & Transport",
+    "Sanitation",
+    "Water Supply"
+  ],
+  "clean_rows": 1231,
+  "removed_contradictory_texts": 7,
+  "train_rows": 984,
+  "test_rows": 247,
+  "selected_model": "LogisticRegression",
+  "selection_metric": "3-fold stratified cross-validation mean macro-F1",
+  "cv_macro_f1_mean": 0.9150586835637488,
+  "cv_macro_f1_std": 0.0145972338465307,
+  "candidate_models": [
+    {
+      "model": "LogisticRegression",
+      "cv_accuracy_mean": 0.9207317073170732,
+      "cv_accuracy_std": 0.0114074920328473,
+      "cv_macro_f1_mean": 0.9150586835637488,
+      "cv_macro_f1_std": 0.0145972338465307,
+      "cv_weighted_f1_mean": 0.9193899961936236
+    },
+    {
+      "model": "LinearSVC",
+      "cv_accuracy_mean": 0.9197154471544716,
+      "cv_accuracy_std": 0.0100604623339549,
+      "cv_macro_f1_mean": 0.9135947749716316,
+      "cv_macro_f1_std": 0.0122428342122618,
+      "cv_weighted_f1_mean": 0.9184629837738356
+    },
+    {
+      "model": "ComplementNB",
+      "cv_accuracy_mean": 0.915650406504065,
+      "cv_accuracy_std": 0.0080020405223697,
+      "cv_macro_f1_mean": 0.9102953689093196,
+      "cv_macro_f1_std": 0.0100083241716341,
+      "cv_weighted_f1_mean": 0.9144581321532804
+    },
+    {
+      "model": "SGDClassifier",
+      "cv_accuracy_mean": 0.9085365853658536,
+      "cv_accuracy_std": 0.0129348801436563,
+      "cv_macro_f1_mean": 0.901872826750572,
+      "cv_macro_f1_std": 0.0143196803860292,
+      "cv_weighted_f1_mean": 0.906892418734872
+    }
+  ],
+  "feature_representation": "word TF-IDF (1-2 grams) + character TF-IDF (3-5 grams)",
+  "probability_support": true
+}

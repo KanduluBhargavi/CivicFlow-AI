@@ -142,14 +142,16 @@ RIGHT PANEL
     padding:50px;
 }
 
-#loginForm{
+#loginForm,
+#otpForm{
 
     width:100%;
 
     max-width:400px;
 }
 
-#loginForm h2{
+#loginForm h2,
+#otpForm h2{
 
     font-size:50px;
 
@@ -169,7 +171,8 @@ INPUT BOX
     margin-bottom:25px;
 }
 
-.input-box i{
+.input-box i,
+.input-box .field-icon{
 
     position:absolute;
 
@@ -383,4 +386,15 @@ input:-webkit-autofill:active {
     -webkit-box-shadow: 0 0 0 1000px #263247 inset !important;
     -webkit-text-fill-color: #ffffff !important;
     transition: background-color 5000s ease-in-out 0s;
+}
+
+
+.forgot-password-link {
+    text-align: right !important;
+    margin: 12px 0 0 !important;
+}
+.forgot-password-link a {
+    color: #2563eb;
+    font-weight: 600;
+    text-decoration: none;
 }

@@ -5,18 +5,79 @@
 <script src="js/theme.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="images/civicflow-logo.svg">
 
 <title>Complaint Details</title>
 
-<link rel="stylesheet" href="css/complaint_details.css">
+<link rel="stylesheet" href="css/complaint_details.css?v=2">
 
 <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
 
+<link rel="stylesheet" href="css/citizen_notifications.css">
+<link rel="stylesheet" href="css/design-system.css">
+<link rel="stylesheet" href="css/product-v2.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/ui-consistency.css?v=20261009">
+<link rel="stylesheet" href="css/dashboard.css?v=20261021-pip-hop-1">
+<link rel="stylesheet" href="css/citizen_shared_nav.css?v=28">
+<link rel="stylesheet" href="css/citizen_dashboard_nav_r29.css?v=30">
 </head>
 
 <body>
+<nav class="navbar citizen-dashboard-nav" aria-label="Citizen navigation">
 
+    <div class="logo">
+        <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="34" height="34">
+          <circle cx="20" cy="20" r="18" fill="none" stroke="url(#brandGrad)" stroke-width="2.4"/>
+          <circle cx="20" cy="20" r="10" fill="none" stroke="url(#brandGrad)" stroke-width="2"/>
+          <circle cx="20" cy="20" r="2.6" fill="#10b981"/>
+          <defs>
+            <linearGradient id="brandGrad" x1="0" y1="0" x2="40" y2="40">
+              <stop offset="0" stop-color="#2563eb"/>
+              <stop offset="1" stop-color="#06b6d4"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </span>
+        CivicFlow AI
+    </div>
+
+
+    <div class="citizen-nav-links" aria-label="Citizen pages">
+      <a class="citizen-nav-link" href="dashboard.html"><i class="fa-solid fa-table-cells-large" aria-hidden="true"></i><span>Dashboard</span></a>
+      <a class="citizen-nav-link" href="complaint.html"><i class="fa-solid fa-circle-plus" aria-hidden="true"></i><span>Lodge Complaint</span></a>
+      <a class="citizen-nav-link is-active" href="my_complaints.html" aria-current="page"><i class="fa-solid fa-list-check" aria-hidden="true"></i><span>My Complaints</span></a>
+      <a class="citizen-nav-link" href="profile.html"><i class="fa-solid fa-user-gear" aria-hidden="true"></i><span>My Profile</span></a>
+    </div>
+
+    <div class="nav-right">
+        <button id="navContactSupport" class="nav-contact-support" type="button" title="Contact CivicFlow support" aria-label="Contact CivicFlow support"><i class="fa-solid fa-headset" aria-hidden="true"></i><span>Support</span></button>
+
+        <span class="welcome">
+
+            Welcome,
+
+            <span id="userName"></span>
+
+        </span>
+
+        <button id="logoutBtn">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            Logout
+
+        </button>
+        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
+    🌙
+</button>
+
+    </div>
+
+</nav>
+<div class="citizen-nav-spacer" aria-hidden="true"></div>
 <div class="container">
 
 <div class="card">
@@ -58,24 +119,72 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 <p id="summary"></p>
 </div>
 
-<div class="detail">
-<label>Created At</label>
-<p id="created"></p>
+
+
+<div id="incidentSummary" class="incident-summary" style="display:none;">
+<h2><i class="fa-solid fa-people-group"></i> Related Incident</h2>
+<p id="incidentSummaryText"></p>
+<button id="viewIncidentBtn" type="button" class="incident-view-btn">View Incident Details</button>
 </div>
 
-<div class="detail">
-<label>Assigned At</label>
-<p id="assigned"></p>
+<div class="live-handling-card">
+  <div class="live-handling-heading">
+    <div>
+      <span class="live-kicker">LIVE HANDLING</span>
+      <h2>Current Complaint Status</h2>
+    </div>
+    <span id="liveStatusBadge" class="live-status-badge">Loading...</span>
+  </div>
+  <div class="live-handling-grid">
+    <div class="live-item"><span>Responsible Department</span><strong id="liveDepartment">—</strong></div>
+    <div class="live-item"><span>Assigned Officer</span><strong id="assignedOfficer">Awaiting individual officer assignment</strong></div>
+    <div class="live-item"><span>Latest Update</span><strong id="latestUpdate">—</strong></div>
+    <div class="live-item"><span>What Happens Next</span><strong id="nextStep">—</strong></div>
+  </div>
+  <p class="live-help">For the complete stage-by-stage history and timestamps, use <b>Track Complaint</b>.</p>
 </div>
 
-<div class="detail">
-<label>In Progress</label>
-<p id="progress"></p>
+<section id="translationFeedbackPanel" class="translation-feedback-card" style="display:none;">
+  <h2>Was the translation accurate?</h2>
+  <p>Report a translation issue so the Department Head can review it. Your original complaint stays unchanged.</p>
+  <div id="translationFeedbackHistory" aria-live="polite"></div>
+  <form id="translationFeedbackForm">
+    <label for="translationFeedbackNote">What was translated incorrectly?</label>
+    <textarea id="translationFeedbackNote" maxlength="1500" required placeholder="Describe the mistake in your own language"></textarea>
+    <label for="suggestedEnglish">Suggested English wording (optional)</label>
+    <textarea id="suggestedEnglish" maxlength="10000" placeholder="If you can, suggest a corrected English version"></textarea>
+    <button id="sendTranslationFeedback" type="submit">Send translation feedback</button>
+    <p id="translationFeedbackStatus" role="status"></p>
+  </form>
+</section>
+
+<div id="resolutionVerification" class="resolution-verification" style="display:none;">
+<h2>Resolution Verification</h2>
+<div id="resolutionProofBox"></div>
+<p id="resolutionPrompt">The department marked this complaint as resolved. Please confirm whether the issue is actually fixed.</p>
+<textarea id="citizenResolutionNote" placeholder="Optional note about the resolution"></textarea>
+<div class="buttons">
+<button id="confirmResolvedBtn" type="button"><i class="fa-solid fa-circle-check"></i> Confirm Resolved</button>
+<button id="reopenComplaintBtn" type="button"><i class="fa-solid fa-rotate-left"></i> Issue Still Exists</button>
+</div>
+<p id="resolutionVerificationStatus"></p>
 </div>
 
-<div class="detail">
-<label>Resolved At</label>
-<p id="resolved"></p>
+
+<div id="satisfactionSection" class="satisfaction-card" style="display:none;">
+<h2>Satisfaction Rating</h2>
+<p>Now that you confirmed the issue is resolved, rate the resolution experience.</p>
+<div class="satisfaction-stars" id="satisfactionStars" aria-label="Resolution satisfaction rating">
+<button type="button" data-rating="1">★</button>
+<button type="button" data-rating="2">★</button>
+<button type="button" data-rating="3">★</button>
+<button type="button" data-rating="4">★</button>
+<button type="button" data-rating="5">★</button>
+</div>
+<p id="satisfactionRatingText">Select 1–5 stars</p>
+<textarea id="satisfactionComment" maxlength="1000" placeholder="Optional: tell us about the resolution"></textarea>
+<button id="submitSatisfactionBtn" type="button">Submit Rating</button>
+<p id="satisfactionStatus"></p>
 </div>
 
 <div class="buttons">
@@ -96,9 +205,245 @@ Track Complaint
 
 </div>
 
-<script src="js/api.js"></script>
-<script src="js/complaint_details.js"></script>
+<script src="js/api.js?v=20261021-api-routing-2"></script>
+<script src="js/complaint_details.js?v=2"></script>
 
+<script src="js/citizen_notifications.js"></script>
+<button id="floatingChatSupport" class="floating-chat-support" type="button" aria-label="Open Pip, CivicFlow's support chat" title="Chat with Pip"><img class="chat-pip" src="images/pip-mascot.png?v=2" alt="" aria-hidden="true" width="52" height="52" decoding="async" fetchpriority="low"><span class="chat-float-label">Chat with Pip</span></button>
+<!-- ================= HELP MODAL ================= -->
+
+<div class="help-modal" id="helpModal">
+
+    <div class="help-modal-content">
+
+        <!-- Close -->
+
+        <button class="help-close" id="closeHelpModal">
+            ×
+        </button>
+
+
+        <!-- MAIN HELP MENU -->
+
+        <div id="helpMainMenu">
+
+            <div class="help-header">
+
+                <div class="help-header-icon">
+                    🆘
+                </div>
+
+                <h2>How can we help?</h2>
+
+                <p>
+                    Choose an option and our CivicFlow support team will assist you.
+                </p>
+
+            </div>
+
+
+            <div class="help-options">
+
+                <!-- CHAT -->
+
+                <button class="help-option" id="chatSupportBtn">
+
+                    <div class="help-option-icon">
+                        💬
+                    </div>
+
+                    <div>
+
+                        <h3>Chat With Us</h3>
+
+                        <p>
+                            Get assistance from CivicFlow support.
+                        </p>
+
+                    </div>
+
+                    <span>→</span>
+
+                </button>
+
+
+                <!-- CONTACT -->
+
+                <button class="help-option" id="contactSupportBtn">
+
+                    <div class="help-option-icon">
+                        📞
+                    </div>
+
+                    <div>
+
+                        <h3>Contact Us</h3>
+
+                        <p>
+                            Contact the CivicFlow support team.
+                        </p>
+
+                    </div>
+
+                    <span>→</span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= CHAT ================= -->
+
+        <div id="chatSupportSection" class="help-section hidden">
+
+            <button class="back-help-btn" id="backFromChat">
+                ← Back
+            </button>
+
+            <div class="chat-header">
+
+                <div class="support-avatar"><img class="support-pip-avatar" src="images/pip-mascot.png?v=2" alt="Pip" width="48" height="48" decoding="async" fetchpriority="low"></div>
+
+                <div>
+
+                    <h3>CivicFlow Support</h3>
+
+                    <span>
+                        <span class="online-dot"></span>
+                        Online
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="chat-messages" id="chatMessages">
+
+                <div class="chat-message support-message">
+
+                    👋 Hello! Welcome to CivicFlow Support.
+
+                    <br><br>
+
+                    How can we help you today?
+
+                </div>
+
+            </div>
+
+
+            <div class="chat-input-area">
+
+                <input
+                    type="text"
+                    id="chatInput"
+                    placeholder="Type your message..."
+                >
+
+                <button id="sendChatBtn">
+                    Send
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= CONTACT ================= -->
+
+        <div id="contactSupportSection" class="help-section hidden">
+
+            <button class="back-help-btn" id="backFromContact">
+                ← Back
+            </button>
+
+
+            <div class="contact-header">
+
+                <div class="contact-big-icon">
+                    📞
+                </div>
+
+                <h2>Contact CivicFlow Support</h2>
+
+                <p>
+                    Our support team is available to help you.
+                </p>
+
+            </div>
+
+
+            <div class="contact-details">
+
+                <div class="contact-item">
+
+                    <span>📞</span>
+
+                    <div>
+
+                        <strong>Phone Support</strong>
+
+                        <p>Contact details have not been configured</p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <span>📧</span>
+
+                    <div>
+
+                        <strong>Email Support</strong>
+
+                        <p>support@civicflow.in</p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <span>🕒</span>
+
+                    <div>
+
+                        <strong>Support Hours</strong>
+
+                        <p>Monday – Friday, 9:00 AM – 6:00 PM</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="tel:+911234567890"
+                class="call-support-btn"
+            >
+                📞 Call Support
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+<script src="js/citizen_shared_chat.js?v=28"></script>
+<script src="js/citizen_dashboard_nav_r29.js?v=29"></script>
 </body>
 
 </html>

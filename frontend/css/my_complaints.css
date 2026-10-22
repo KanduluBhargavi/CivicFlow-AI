@@ -149,3 +149,136 @@ html.dark .view-btn:hover {
     background: #1d4ed8;
     box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
 }
+
+/* =========================
+   FLAG BADGES (duplicate / sentiment)
+   department_complaints.html
+   ========================= */
+
+.flag-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-right: 4px;
+    white-space: nowrap;
+}
+
+.flag-duplicate {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.flag-frustrated {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+html.dark .flag-duplicate {
+    background: rgba(217, 119, 6, 0.25);
+    color: #fbbf24;
+}
+
+html.dark .flag-frustrated {
+    background: rgba(220, 38, 38, 0.25);
+    color: #f87171;
+}
+
+
+.content {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.page-header {
+    margin-bottom: 18px;
+}
+
+.page-header h2 {
+    margin-bottom: 6px;
+    font-size: 34px;
+    color: #0f172a;
+}
+
+.page-header p {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.table-card {
+    background: rgba(255,255,255,.92);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 16px 32px rgba(15,23,42,.08);
+}
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 430px;
+    padding: 40px 24px;
+    border-radius: 24px;
+    background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(239,246,255,.95));
+    box-shadow: 0 16px 34px rgba(15,23,42,.08);
+    text-align: center;
+}
+
+.empty-state-illustration {
+    width: 180px;
+    max-width: 100%;
+    margin-bottom: 18px;
+}
+
+.empty-state h3 {
+    font-size: 28px;
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+
+.empty-state p {
+    max-width: 560px;
+    color: #64748b;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.empty-state-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.empty-link-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 18px;
+    min-width: 180px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #2563eb, #10b981);
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 14px 28px rgba(37,99,235,.2);
+}
+
+.empty-secondary-btn {
+    background: rgba(37,99,235,.08);
+    color: #2563eb;
+    box-shadow: none;
+}
+
+html.dark .page-header h2 { color: #f8fafc; }
+html.dark .page-header p { color: #94a3b8; }
+html.dark .table-card { background: rgba(15,23,42,.88); box-shadow: 0 20px 40px rgba(0,0,0,.26); }
+html.dark .empty-state {
+    background: linear-gradient(180deg, rgba(15,23,42,.96), rgba(15,23,42,.92));
+    box-shadow: 0 20px 40px rgba(0,0,0,.28);
+}
+html.dark .empty-state h3 { color: #f8fafc; }
+html.dark .empty-state p { color: #94a3b8; }
+html.dark .empty-secondary-btn { background: rgba(37,99,235,.16); color: #93c5fd; }

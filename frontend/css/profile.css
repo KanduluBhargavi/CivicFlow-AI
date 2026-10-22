@@ -263,3 +263,111 @@ html.dark ::selection {
     background: #2563eb;
     color: #fff;
 }
+.profile-card select{width:100%;padding:12px;margin:8px 0;border-radius:8px;box-sizing:border-box;}
+
+#officerProfile label{display:block;font-weight:700;color:#334155;margin:14px 0 7px;}
+#officerProfile input{width:100%;margin-bottom:4px;background:#f8fafc;color:#0f172a;}
+
+
+
+
+/* =========================================================
+   PROFILE LAYOUT POLISH
+   ========================================================= */
+.container{max-width:860px!important}
+.profile-card{padding:40px!important}
+.profile-card h1{
+  color:var(--cf-text,#0f172a)!important;
+  font-size:38px;
+  letter-spacing:-.035em;
+  margin-bottom:30px!important;
+}
+.manager-profile{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px!important;
+  align-items:start;
+}
+.profile-field{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  min-width:0;
+}
+.profile-field label{
+  color:var(--cf-muted,#64748b);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.055em;
+  text-transform:uppercase;
+}
+.profile-field input,
+.profile-field textarea{
+  width:100%;
+  margin:0!important;
+}
+.profile-field textarea{
+  min-height:120px;
+  height:120px;
+}
+.profile-field--wide{grid-column:1 / -1}
+.profile-actions{
+  grid-column:1 / -1;
+  display:flex;
+  justify-content:flex-end;
+  margin-top:2px;
+}
+.profile-actions button{
+  min-width:190px;
+  width:auto!important;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+#passwordForm{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px!important;
+}
+#passwordForm button{
+  grid-column:1/-1;
+}
+html.dark .profile-card h1{color:#f8fafc!important}
+html.dark .profile-field label{color:#94a3b8}
+@media(max-width:680px){
+  .profile-card{padding:26px 20px!important}
+  .manager-profile,#passwordForm{grid-template-columns:1fr}
+  .profile-field--wide,.profile-actions,#passwordForm button{grid-column:1}
+  .profile-actions button{width:100%!important}
+}
+
+
+/* RESPONSIVE AUDIT PATCH */
+
+@media(max-width:768px){
+  .manager-profile,#passwordForm{grid-template-columns:1fr!important}
+  .profile-field--wide,.profile-actions,#passwordForm button{grid-column:1!important}
+}
+
+
+/* =========================================================
+   CENTER FIX — the navbar and spacer were sitting beside the card in
+   body's flex row (body is display:flex), pushing it to the right.
+   Stack them vertically and center the card.
+   ========================================================= */
+body{
+  flex-direction:column;
+  align-items:center;
+  padding:0 40px 40px;
+}
+body > .citizen-nav-spacer{
+  width:100%;
+  flex:0 0 auto;
+}
+body > .container{
+  margin:40px auto 0;
+}
+@media(max-width:680px){
+  body{padding:0 14px 28px}
+  body > .container{margin-top:24px}
+}

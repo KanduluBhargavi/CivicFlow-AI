@@ -35,3 +35,12 @@ Thumbs.db
 # Build files
 build/
 dist/
+backend/.model_cache/
+dataset/district_coordinate_cache.json
+
+# Private runtime files
+backend/uploads/*
+!backend/uploads/.gitkeep
+.env.*
+!.env.docker.example
+!backend/.env.example

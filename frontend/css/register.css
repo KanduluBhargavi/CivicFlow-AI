@@ -142,14 +142,16 @@ RIGHT PANEL
     align-items:center;
 }
 
-#registerForm{
+#registerForm,
+#registrationOtpForm{
 
     width:100%;
 
     max-width:430px;
 }
 
-#registerForm h2{
+#registerForm h2,
+#registrationOtpForm h2{
 
     font-size:56px;
 
@@ -171,7 +173,8 @@ INPUT
     margin-bottom:20px;
 }
 
-.input-box i{
+.input-box i,
+.input-box .field-icon{
 
     position:absolute;
 
@@ -532,4 +535,235 @@ input:-webkit-autofill:active {
     -webkit-box-shadow: 0 0 0 1000px #263247 inset !important;
     -webkit-text-fill-color: #ffffff !important;
     transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Registration email verification */
+.registration-otp-form {
+    width: 100%;
+    max-width: 430px;
+}
+
+.verification-badge {
+    width: 54px;
+    height: 54px;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    background: #dbeafe;
+    color: #1d4ed8;
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.verification-kicker {
+    display: block;
+    color: #2563eb;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .12em;
+    margin-bottom: 8px;
+}
+
+.verification-copy {
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 22px;
+}
+
+.verification-copy strong {
+    color: #334155;
+}
+
+.verification-expiry {
+    color: #64748b;
+    font-size: 13px;
+    margin: -8px 0 16px;
+}
+
+.verification-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    color: #cbd5e1;
+}
+
+.text-action-btn {
+    width: auto;
+    height: auto;
+    padding: 4px;
+    margin: 0;
+    background: transparent;
+    color: #2563eb;
+    font-size: 13px;
+    box-shadow: none;
+}
+
+.text-action-btn:hover {
+    transform: none;
+    box-shadow: none;
+    color: #059669;
+}
+
+.text-action-btn:disabled {
+    color: #94a3b8;
+    cursor: not-allowed;
+}
+
+.verification-message {
+    min-height: 20px;
+    text-align: center;
+    margin-top: 14px;
+    color: #047857;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.verification-message.error {
+    color: #dc2626;
+}
+
+#registrationOtp {
+    letter-spacing: .28em;
+    font-size: 21px;
+    font-weight: 800;
+}
+
+html.dark .verification-copy,
+html.dark .verification-expiry {
+    color: #94a3b8;
+}
+
+html.dark .verification-copy strong {
+    color: #e2e8f0;
+}
+
+html.dark .verification-badge {
+    background: #172554;
+    color: #93c5fd;
+}
+
+
+/* ==========================
+   REGISTRATION OTP POLISH
+   ========================== */
+.verification-badge {
+    width: 64px;
+    height: 64px;
+    display: grid;
+    place-items: center;
+    margin: 0 0 18px;
+    border-radius: 18px;
+    font-size: 28px;
+    background: linear-gradient(135deg, rgba(37,99,235,.12), rgba(16,185,129,.12));
+    color: #2563eb;
+}
+
+.verification-kicker {
+    display: block;
+    margin-bottom: 10px;
+    color: #2563eb;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .12em;
+}
+
+.verification-copy {
+    color: #64748b;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.verification-copy strong { color: #0f172a; }
+.verification-expiry {
+    margin: -4px 0 14px;
+    color: #64748b;
+    font-size: 13px;
+}
+
+#registrationOtp {
+    letter-spacing: .22em;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.verification-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+}
+
+.verification-actions > span {
+    color: #94a3b8;
+    font-weight: 700;
+}
+
+.text-action-btn {
+    width: auto !important;
+    min-width: 168px;
+    height: auto !important;
+    margin-top: 0 !important;
+    padding: 10px 16px !important;
+    border-radius: 999px !important;
+    border: 1px solid rgba(37,99,235,.2) !important;
+    background: rgba(37,99,235,.08) !important;
+    color: #2563eb !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    box-shadow: none !important;
+}
+
+.text-action-btn:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: none !important;
+    background: rgba(16,185,129,.12) !important;
+    border-color: rgba(16,185,129,.32) !important;
+    color: #047857 !important;
+}
+
+.text-action-btn:disabled {
+    opacity: 1 !important;
+    background: rgba(148,163,184,.12) !important;
+    border-color: rgba(148,163,184,.18) !important;
+    color: #64748b !important;
+    cursor: not-allowed !important;
+}
+
+.verification-message {
+    min-height: 22px;
+    margin-top: 16px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: #047857;
+}
+
+.verification-message.error { color: #dc2626; }
+
+html.dark .verification-copy,
+html.dark .verification-expiry { color: #94a3b8; }
+html.dark .verification-copy strong { color: #f8fafc; }
+html.dark .verification-badge {
+    background: linear-gradient(135deg, rgba(37,99,235,.18), rgba(16,185,129,.18));
+    color: #93c5fd;
+}
+html.dark .text-action-btn {
+    background: rgba(37,99,235,.18) !important;
+    color: #93c5fd !important;
+    border-color: rgba(96,165,250,.25) !important;
+}
+html.dark .text-action-btn:hover {
+    background: rgba(16,185,129,.18) !important;
+    color: #6ee7b7 !important;
+    border-color: rgba(110,231,183,.22) !important;
+}
+html.dark .text-action-btn:disabled {
+    background: rgba(51,65,85,.55) !important;
+    color: #94a3b8 !important;
+    border-color: rgba(71,85,105,.55) !important;
 }

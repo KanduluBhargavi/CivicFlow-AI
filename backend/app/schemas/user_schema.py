@@ -34,3 +34,24 @@ class PasswordChange(BaseModel):
 
     old_password: str
     new_password: str
+
+
+
+
+class OTPVerifyRequest(BaseModel):
+    challenge_id: str
+    otp: str
+
+
+class OTPResendRequest(BaseModel):
+    challenge_id: str
+
+
+class ForgotPasswordRequest(BaseModel):
+    email: EmailStr
+
+
+class ResetPasswordRequest(BaseModel):
+    challenge_id: str
+    otp: str
+    new_password: str

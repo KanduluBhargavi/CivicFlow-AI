@@ -1,0 +1,10 @@
+.git
+**/__pycache__
+**/*.pyc
+backend/venv
+backend/.venv
+node_modules
+*.zip
+backend/.env
+dataset/*
+!dataset/district_coordinates.csv

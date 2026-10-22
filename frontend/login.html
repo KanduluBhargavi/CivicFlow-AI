@@ -5,15 +5,16 @@
 <script src="js/theme.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="images/civicflow-logo.svg">
 
     <title>CivicFlow AI | Login</title>
 
     <link rel="stylesheet" href="css/login.css">
-    
-
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
+<link rel="stylesheet" href="css/design-system.css">
+<link rel="stylesheet" href="css/product-v2.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/ui-consistency.css?v=20261009">
+<link rel="stylesheet" href="css/civic-ui-r3.css?v=3">
 </head>
 
 <body>
@@ -41,10 +42,10 @@
 
             <form id="loginForm" autocomplete="off">
 
-                <h2>Citizen Login</h2>
+                <h2>Secure CivicFlow Login</h2>
 
                 <div class="input-box">
-                    <i class="fa-solid fa-envelope"></i>
+                    <span class="field-icon" aria-hidden="true">✉</span>
                     <input
                         type="email"
                         id="email"
@@ -55,7 +56,7 @@
                 </div>
 
                 <div class="input-box">
-                    <i class="fa-solid fa-lock"></i>
+                    <span class="field-icon" aria-hidden="true">🔒</span>
                     <input
                         type="password"
                         id="password"
@@ -69,6 +70,10 @@
                     Login
 
                 </button>
+
+                <p class="forgot-password-link">
+                    <a href="forgot_password.html">Forgot Password?</a>
+                </p>
 
                 <p>
 
@@ -88,14 +93,13 @@
 
     </div>
 
-    <script src="js/api.js"></script>
+    <script src="js/api.js?v=20261021-api-routing-2"></script>
     <script src="js/auth.js"></script>
     <script>
 window.addEventListener("pageshow", () => {
     setTimeout(() => {
-        document.getElementById("loginForm").reset();
-        document.getElementById("email").value = "";
-        document.getElementById("password").value = "";
+        const loginForm = document.getElementById("loginForm");
+        if (loginForm) loginForm.reset();
     }, 100);
 });
 </script>
