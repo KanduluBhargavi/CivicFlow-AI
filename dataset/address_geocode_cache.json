@@ -91,19 +91,5 @@
     "provider": "OpenStreetMap Nominatim",
     "search_query": "Bhawanipatna, Kalahandi, Odisha, India",
     "cached": false
-  },
-  "be9dc5c44ced8fe519545e67a3cc7a0eed4a02e02370d5c07d3a1879ce3523ce": {
-    "latitude": 19.9104952,
-    "longitude": 83.1678321,
-    "display_name": "Bhawanipatna, Sadar, Kalahandi, Odisha, 766001, India",
-    "match_level": "locality_approximate",
-    "result_type": "town",
-    "resolved_state": "Odisha",
-    "resolved_district": "Kalahandi",
-    "warnings": [
-      "The street/address text did not match, so this point uses your separate locality and landmark fields. It may be approximate; zoom in and move the pin to the incident location."
-    ],
-    "provider": "OpenStreetMap Nominatim",
-    "cached": false
   }
 }

@@ -1,7 +1,7 @@
 const token = localStorage.getItem("access_token");
 const complaintId = new URLSearchParams(window.location.search).get("id");
 
-function esc(value){ return String(value ?? "").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[ch])); }
+function esc(value){ return String(value ?? "").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#113729;"}[ch])); }
 function fmt(value){ if(!value) return "Pending"; const d=new Date(value); return Number.isNaN(d.getTime())?esc(value):d.toLocaleString(); }
 function cls(done,current){ return done?"completed":current?"active":"pending"; }
 function tag(done,current){ return done?'<span class="completed-label">Completed</span>':current?'<span class="active-label">Current</span>':'<span class="pending-label">Pending</span>'; }

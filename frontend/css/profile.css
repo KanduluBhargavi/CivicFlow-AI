@@ -7,7 +7,7 @@ font-family:Poppins,sans-serif;
 
 body{
 
-background:#eef4ff;
+background:#edf9f5;
 
 display:flex;
 
@@ -40,7 +40,7 @@ h1,h2{
 
 text-align:center;
 
-color:#1d4ed8;
+color:#1f644b;
 
 margin-bottom:20px;
 
@@ -84,7 +84,7 @@ height:100px;
 input:focus,
 textarea:focus{
 
-border-color:#2563eb;
+border-color:#257658;
 
 }
 
@@ -92,7 +92,7 @@ button{
 
 padding:14px;
 
-background:#2563eb;
+background:#257658;
 
 border:none;
 
@@ -110,7 +110,7 @@ transition:.3s;
 
 button:hover{
 
-background:#1d4ed8;
+background:#1f644b;
 
 transform:translateY(-2px);
 
@@ -122,13 +122,13 @@ margin-top:10px;
 
 width:100%;
 
-background:#374151;
+background:#3a4e44;
 
 }
 
 .backBtn:hover{
 
-background:#1f2937;
+background:#22342b;
 
 }
 
@@ -157,8 +157,8 @@ html.dark body {
     background:
         radial-gradient(circle at top left, #2563eb25, transparent 35%),
         radial-gradient(circle at bottom right, #10b98118, transparent 35%),
-        #080d18;
-    color: #f8fafc;
+        #040b08;
+    color: #f9fbfa;
 }
 
 
@@ -167,8 +167,8 @@ html.dark body {
    ========================= */
 
 html.dark .profile-card {
-    background: #111827;
-    border: 1px solid rgba(148, 163, 184, 0.12);
+    background: #14241c;
+    border: 1px solid rgba(153,179,166,0.12);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
 }
 
@@ -179,7 +179,7 @@ html.dark .profile-card {
 
 html.dark h1,
 html.dark h2 {
-    color: #60a5fa;
+    color: #5acca2;
 }
 
 
@@ -189,22 +189,22 @@ html.dark h2 {
 
 html.dark input,
 html.dark textarea {
-    background: #1e293b;
-    color: #f8fafc;
-    border-color: rgba(148, 163, 184, 0.2);
+    background: #22372d;
+    color: #f9fbfa;
+    border-color: rgba(153,179,166,0.2);
 }
 
 
 html.dark input::placeholder,
 html.dark textarea::placeholder {
-    color: #94a3b8;
+    color: #99b3a6;
 }
 
 
 html.dark input:focus,
 html.dark textarea:focus {
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+    border-color: #2e936e;
+    box-shadow: 0 0 0 3px rgba(37,118,88,0.2);
 }
 
 
@@ -213,13 +213,13 @@ html.dark textarea:focus {
    ========================= */
 
 html.dark button {
-    background: linear-gradient(135deg, #2563eb, #059669);
+    background: linear-gradient(135deg, #257658, #337024);
 }
 
 
 html.dark button:hover {
-    background: linear-gradient(135deg, #1d4ed8, #047857);
-    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
+    background: linear-gradient(135deg, #1f644b, #29591d);
+    box-shadow: 0 10px 25px rgba(37,118,88,0.25);
 }
 
 
@@ -228,12 +228,12 @@ html.dark button:hover {
    ========================= */
 
 html.dark .backBtn {
-    background: #334155;
+    background: #375144;
 }
 
 
 html.dark .backBtn:hover {
-    background: #475569;
+    background: #4b6558;
 }
 
 
@@ -242,7 +242,7 @@ html.dark .backBtn:hover {
    ========================= */
 
 html.dark hr {
-    background: rgba(148, 163, 184, 0.18);
+    background: rgba(153,179,166,0.18);
 }
 
 
@@ -251,7 +251,7 @@ html.dark hr {
    ========================= */
 
 html.dark i {
-    color: #60a5fa;
+    color: #5acca2;
 }
 
 
@@ -260,13 +260,13 @@ html.dark i {
    ========================= */
 
 html.dark ::selection {
-    background: #2563eb;
+    background: #257658;
     color: #fff;
 }
 .profile-card select{width:100%;padding:12px;margin:8px 0;border-radius:8px;box-sizing:border-box;}
 
-#officerProfile label{display:block;font-weight:700;color:#334155;margin:14px 0 7px;}
-#officerProfile input{width:100%;margin-bottom:4px;background:#f8fafc;color:#0f172a;}
+#officerProfile label{display:block;font-weight:700;color:#375144;margin:14px 0 7px;}
+#officerProfile input{width:100%;margin-bottom:4px;background:#f9fbfa;color:#12271c;}
 
 
 
@@ -277,7 +277,7 @@ html.dark ::selection {
 .container{max-width:860px!important}
 .profile-card{padding:40px!important}
 .profile-card h1{
-  color:var(--cf-text,#0f172a)!important;
+  color:var(--cf-text,#12271c)!important;
   font-size:38px;
   letter-spacing:-.035em;
   margin-bottom:30px!important;
@@ -295,11 +295,11 @@ html.dark ::selection {
   min-width:0;
 }
 .profile-field label{
-  color:var(--cf-muted,#64748b);
+  color:var(--cf-muted,#698678);
   font-size:12px;
   font-weight:800;
-  letter-spacing:.055em;
-  text-transform:uppercase;
+  letter-spacing:.01em;
+  text-transform:none;
 }
 .profile-field input,
 .profile-field textarea{
@@ -332,8 +332,8 @@ html.dark ::selection {
 #passwordForm button{
   grid-column:1/-1;
 }
-html.dark .profile-card h1{color:#f8fafc!important}
-html.dark .profile-field label{color:#94a3b8}
+html.dark .profile-card h1{color:#f9fbfa!important}
+html.dark .profile-field label{color:#99b3a6}
 @media(max-width:680px){
   .profile-card{padding:26px 20px!important}
   .manager-profile,#passwordForm{grid-template-columns:1fr}

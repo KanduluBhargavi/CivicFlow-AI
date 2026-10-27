@@ -1118,120 +1118,96 @@ def predict_priority(text, department=None):
     return predict_priority_details(text, department)["priority"]
 
 def summarize_complaint(text):
-    """
-    General extractive NLP summarization using
-    word frequency and sentence scoring.
-    """
+    """Create a concise operational summary from the English processing copy.
 
+    Prefer the actual service problem, duration and requested action over greetings,
+    emotional/rhetorical questions, or a dramatic closing sentence. This is a
+    deterministic fallback and does not invent locations or facts.
+    """
     if not text or not isinstance(text, str):
         return ""
 
-    # Clean text
-    text = re.sub(r'\s+', ' ', text).strip()
+    text = re.sub(r"\s+", " ", text).strip()
+    if not text:
+        return ""
 
-    # Split into sentences
-    sentences = re.split(r'(?<=[.!?])\s+', text)
+    # Split at sentence boundaries without splitting decimal numbers.
+    sentences = [part.strip(" \t\r\n-–—") for part in re.split(r"(?<=[.!?])\s+", text) if part.strip()]
+    if not sentences:
+        return text[:240]
 
-    # Remove empty sentences
-    sentences = [sentence.strip() for sentence in sentences if sentence.strip()]
-
-    # For short complaints, return original text
-    if len(sentences) <= 2:
-        return text
-
-    # Extract words
-    words = re.findall(r'\b[a-zA-Z]+\b', text.lower())
-
-    # General English stop words
-    stop_words = {
-        "a", "an", "the", "and", "or", "but", "if", "because",
-        "as", "while", "of", "at", "by", "for", "with", "about",
-        "against", "between", "into", "through", "during", "before",
-        "after", "above", "below", "to", "from", "up", "down",
-        "in", "out", "on", "off", "over", "under", "again",
-        "further", "then", "once", "here", "there", "when",
-        "where", "why", "how", "all", "any", "both", "each",
-        "few", "more", "most", "other", "some", "such", "no",
-        "nor", "not", "only", "own", "same", "so", "than",
-        "too", "very", "can", "will", "just", "should", "now",
-        "is", "am", "are", "was", "were", "be", "been", "being",
-        "have", "has", "had", "do", "does", "did",
-        "i", "me", "my", "we", "our", "you", "your",
-        "he", "she", "it", "they", "them", "their"
-    }
-
-    # Remove stop words
-    filtered_words = [
-        word for word in words
-        if word not in stop_words and len(word) > 2
-    ]
-
-    # If no meaningful words exist
-    if not filtered_words:
-        return sentences[0]
-
-    # Calculate frequency of important words
-    word_frequency = Counter(filtered_words)
-
-    # Normalize word frequencies
-    max_frequency = max(word_frequency.values())
-
-    for word in word_frequency:
-        word_frequency[word] = (
-            word_frequency[word] / max_frequency
-        )
-
-    sentence_scores = {}
-
-    # Score every sentence
-    for index, sentence in enumerate(sentences):
-
-        sentence_words = re.findall(
-            r'\b[a-zA-Z]+\b',
-            sentence.lower()
-        )
-
-        # Only meaningful words
-        meaningful_words = [
-            word for word in sentence_words
-            if word in word_frequency
-        ]
-
-        if not meaningful_words:
-            sentence_scores[index] = 0
-            continue
-
-        # Average importance of words in sentence
-        score = sum(
-            word_frequency[word]
-            for word in meaningful_words
-        ) / len(meaningful_words)
-
-        # Slight positional importance
-        # Main issue is often introduced early
-        position_bonus = 1 - (index / (len(sentences) * 10))
-
-        sentence_scores[index] = score * position_bonus
-
-    # Number of sentences for summary
-    summary_length = max(1, min(2, len(sentences) // 2))
-
-    # Select highest scoring sentences
-    top_indexes = sorted(
-        sentence_scores,
-        key=sentence_scores.get,
-        reverse=True
-    )[:summary_length]
-
-    # Put selected sentences back in original order
-    top_indexes.sort()
-
-    summary = " ".join(
-        sentences[index]
-        for index in top_indexes
+    # Short, specific complaint templates improve summaries for common civic issues.
+    lower = text.lower()
+    duration = None
+    duration_patterns = (
+        r"(?:for|since)\s+(\d+\s*(?:hours?|days?|weeks?|months?))",
+        r"(?:it has been|it's been|its been|from the last|for the last|past)\s+(\d+\s*(?:hours?|days?|weeks?|months?))",
+        r"(\d+\s*[-–]\s*\d+\s*(?:hours?|days?|weeks?|months?))",
     )
+    for pattern in duration_patterns:
+        match = re.search(pattern, lower)
+        if match:
+            duration = re.sub(r"\s*[-–]\s*", "–", match.group(1)).strip()
+            break
 
-    return summary
+    urgent = bool(re.search(r"\b(urgent|urgently|immediately|asap|quickly|as soon as possible|please fix|fix it|restore|repair)\b", lower))
+
+    # High-confidence issue labels, only when the complaint actually mentions them.
+    issue_patterns = [
+        (r"\b(water supply|water is not coming|no water|without water|water unavailable|water problem|water shortage)\b", "Water supply unavailable"),
+        (r"\b(garbage|rubbish|waste collection|trash)\b", "Garbage collection issue"),
+        (r"\b(sewage|sewer|drainage|drain overflow)\b", "Sewage or drainage issue"),
+        (r"\b(street ?lights?|street lighting)\b", "Streetlight failure"),
+        (r"\b(potholes?|road damage|damaged road)\b", "Road damage reported"),
+        (r"\b(open manhole|uncovered manhole)\b", "Open manhole safety hazard"),
+        (r"\b(live wire|electric wire|transformer|power outage|electricity is not|no electricity|power cut)\b", "Electricity or electrical safety issue"),
+        (r"\b(broken pipe|pipe burst|water leak|leaking pipe)\b", "Water leak or damaged pipe"),
+    ]
+    issue_label = next((label for pattern, label in issue_patterns if re.search(pattern, lower)), None)
+    if issue_label:
+        parts = [issue_label]
+        if duration:
+            parts[0] += f" for {duration}"
+        if urgent:
+            parts.append("urgent action requested")
+        elif re.search(r"\b(please|request|kindly|fix|repair|restore|resolve)\b", lower):
+            parts.append("repair or resolution requested")
+        return "; ".join(parts) + "."
+
+    # Remove conversational filler and rhetorical questions that are not useful
+    # as the operational summary (e.g. "How long can you live without water?").
+    rhetorical = re.compile(
+        r"^(?:brother|sir|madam|dear|hello|hi)\b|"
+        r"^(?:how long|how much time|what is taking so long|why (?:are|is|has|have)|"
+        r"can you live|what are you doing|when will you)\b", re.I
+    )
+    substantive = [sentence for sentence in sentences if not rhetorical.search(sentence)]
+    if not substantive:
+        substantive = sentences
+
+    # Rank sentences for concrete issue/action/duration information; penalize questions.
+    issue_terms = {
+        "not", "no", "broken", "damaged", "leak", "leaking", "overflow", "blocked",
+        "failed", "failure", "stopped", "missing", "unavailable", "unsafe", "open",
+        "garbage", "water", "electricity", "streetlight", "road", "sewage", "drain",
+        "days", "hours", "weeks", "months", "repair", "fix", "restore", "urgent",
+        "please", "requested", "since", "for"
+    }
+    scored = []
+    for index, sentence in enumerate(substantive):
+        words = re.findall(r"[a-zA-Z]+", sentence.lower())
+        score = sum(2 for word in words if word in issue_terms)
+        score += 3 if re.search(r"\b\d+\s*(?:hours?|days?|weeks?|months?)\b", sentence, re.I) else 0
+        score += 2 if re.search(r"\b(fix|repair|restore|resolve|please|urgent|requested)\b", sentence, re.I) else 0
+        score -= 3 if sentence.rstrip().endswith("?") else 0
+        score -= index * 0.05
+        scored.append((score, index, sentence))
+
+    scored.sort(key=lambda item: item[0], reverse=True)
+    chosen = sorted(scored[:min(2, len(scored))], key=lambda item: item[1])
+    summary = " ".join(item[2] for item in chosen).strip()
+    summary = re.sub(r"\s+", " ", summary)
+    return summary[:300].rstrip() if summary else text[:240]
 
 FRUSTRATION_LEXICON = {
     # strong frustration / neglect indicators

@@ -10,6 +10,45 @@ if (!token) {
 const params = new URLSearchParams(window.location.search);
 
 const complaintId = params.get("id");
+let officerAssignmentCountdownInterval = null;
+
+function formatCountdownMinutes(totalMinutes) {
+    const absolute = Math.abs(totalMinutes);
+    const days = Math.floor(absolute / (60 * 24));
+    const hours = Math.floor((absolute % (60 * 24)) / 60);
+    const minutes = absolute % 60;
+    const parts = [];
+    if (days) parts.push(`${days}d`);
+    if (hours || days) parts.push(`${hours}h`);
+    parts.push(`${minutes}m`);
+    return parts.join(" ");
+}
+
+function startOfficerAssignmentCountdown(dueAt, assignedOfficer) {
+    const countdownEl = document.getElementById("officerAssignmentRemaining");
+    if (!countdownEl) return;
+    if (officerAssignmentCountdownInterval) clearInterval(officerAssignmentCountdownInterval);
+
+    if (assignedOfficer) {
+        countdownEl.textContent = `Completed — assigned to ${assignedOfficer.name || "an officer"}`;
+        return;
+    }
+    if (!dueAt || Number.isNaN(new Date(dueAt).getTime())) {
+        countdownEl.textContent = "Assignment deadline not available";
+        return;
+    }
+
+    const update = () => {
+        const minutes = Math.floor((new Date(dueAt).getTime() - Date.now()) / 60000);
+        if (minutes >= 0) {
+            countdownEl.textContent = `${formatCountdownMinutes(minutes)} left for the Department Head to assign an officer`;
+        } else {
+            countdownEl.textContent = `Overdue by ${formatCountdownMinutes(minutes)}; automatic assignment is due`;
+        }
+    };
+    update();
+    officerAssignmentCountdownInterval = setInterval(update, 30000);
+}
 
 
 function formatFriendlyDate(value) {
@@ -433,7 +472,7 @@ async function loadComplaint() {
         }
 
         document.getElementById("summary").textContent =
-            c.ai_summary || "No AI Summary";
+            c.summary || c.ai_summary || "No AI Summary";
 
         document.getElementById("state").textContent =
             c.state;
@@ -480,7 +519,6 @@ async function loadComplaint() {
         const slaState = document.getElementById("slaState");
         slaState.textContent = sla.state || "Unknown";
         slaState.className = `sla-state ${(sla.state || "unknown").toLowerCase().replace(" ", "-")}`;
-        document.getElementById("slaTarget").textContent = sla.target_hours != null ? `${sla.target_hours} hours` : "Department assessment needed";
         document.getElementById("slaDeadline").textContent = sla.deadline ? new Date(sla.deadline).toLocaleString() : "Pending assessment";
         const assignmentDue = document.getElementById("officerAssignmentDue");
         if (assignmentDue) {
@@ -488,6 +526,7 @@ async function loadComplaint() {
                 ? new Date(c.officer_assignment_due_at).toLocaleString()
                 : "Waiting for department receipt";
         }
+        startOfficerAssignmentCountdown(c.officer_assignment_due_at, c.assigned_officer);
         const slaBasis = document.getElementById("slaBasis");
         if (slaBasis) {
             if (sla.state === "Approved Extension" && sla.extension_until) {
@@ -504,7 +543,7 @@ async function loadComplaint() {
             const range = sla.lower_hours != null && sla.upper_hours != null
                 ? ` Typical past range: ${sla.lower_hours}–${sla.upper_hours} hours.` : "";
             const source = basisLabels[sla.basis] || "available complaint and resolution information";
-            slaBasis.textContent = `Planning estimate based on ${source}${sla.sample_size ? ` (${sla.sample_size} completed cases)` : ""}.${range} It is not a guarantee; each completed case helps improve future estimates. The officer-assignment timer below is separate.`;
+            slaBasis.textContent = `Planning estimate based on ${source}${sla.sample_size ? ` (${sla.sample_size} completed cases)` : ""}.${range} It is not a guarantee; each completed case helps improve future estimates. The resolution countdown measures time to the resolution deadline. The assignment countdown separately shows how long the Department Head has to assign an officer; after it expires, CivicFlow automatic assignment is due.`;
             }
         }
         if (typeof sla.remaining_minutes === "number") {

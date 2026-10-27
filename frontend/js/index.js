@@ -236,7 +236,7 @@ async function loadTopStates(){
             return;
         }
         const maxCount = Math.max(...states.map(s => Number(s.count)||0), 1);
-        const palette = ["#ef4444", "#f59e0b", "#eab308", "#22c55e", "#14b8a6"];
+        const palette = ["#ef4444", "#f59e0b", "#eab308", "#549843", "#c0870c"];
         states.forEach((state, index) => {
             const count = Number(state.count)||0;
             const width = Math.max(8, Math.round((count/maxCount)*100));
@@ -344,7 +344,7 @@ async function loadMap() {
         (Array.isArray(complaints) ? complaints : []).filter(validPoint).forEach(c => {
             const priority = c.priority || "Low";
             const status = c.status || "Submitted";
-            const color = status === "Resolved" ? "#22c55e" : priority === "Critical" ? "#ef4444" : priority === "High" ? "#f97316" : priority === "Medium" ? "#eab308" : "#06b6d4";
+            const color = status === "Resolved" ? "#549843" : priority === "Critical" ? "#ef4444" : priority === "High" ? "#f97316" : priority === "Medium" ? "#eab308" : "#cd900d";
             L.circleMarker([c.latitude, c.longitude], {
                 radius: 6, color: "#ffffff", weight: 1.5, fillColor: color, fillOpacity: 0.92
             }).addTo(map).bindPopup(`

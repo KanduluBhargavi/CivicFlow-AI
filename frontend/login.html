@@ -15,6 +15,12 @@
 <link rel="stylesheet" href="css/responsive.css">
 <link rel="stylesheet" href="css/ui-consistency.css?v=20261009">
 <link rel="stylesheet" href="css/civic-ui-r3.css?v=3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Public+Sans:ital,wght@0,400..700;1,400..600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Public+Sans:ital,wght@0,400..700;1,400..600&display=swap"></noscript>
+<link rel="stylesheet" href="css/civicflow-theme.css?v=1">
+<link rel="stylesheet" href="css/auth-civic.css?v=1">
 </head>
 
 <body>
@@ -25,9 +31,10 @@
 
             <div class="overlay"></div>
 
-            <div class="left-content">
+            <a class="auth-brand" href="index.html" aria-label="CivicFlow AI home"><svg class="cf-mark" viewBox="0 0 40 40" width="34" height="34" aria-hidden="true"><rect class="m-bg" width="40" height="40" rx="10"/><path class="m-route" d="M11 28c0-8 9-5 9-11s6-5 9-5"/><circle class="m-a" cx="11" cy="28" r="3"/><circle class="m-b" cx="29" cy="12" r="3.8"/></svg><span>CivicFlow <b>AI</b></span></a>
+        <div class="left-content">
 
-                <h1>Welcome Back</h1>
+                <h1>Welcome back. Your cases are where you left them.</h1>
 
                 <p>
                     Securely access CivicFlow AI to submit complaints,
@@ -35,41 +42,40 @@
                 </p>
 
             </div>
-
-        </div>
+        <ol class="auth-trail" aria-label="What happens to a complaint">
+          <li><span>Received</span><small>Logged with a tracking ID</small></li>
+          <li><span>Routed</span><small>Sent to the right department</small></li>
+          <li><span>Assigned</span><small>An officer takes the case</small></li>
+          <li><span>Resolved</span><small>You confirm the outcome</small></li>
+        </ol>
+    </div>
 
         <div class="right-panel">
 
             <form id="loginForm" autocomplete="off">
 
-                <h2>Secure CivicFlow Login</h2>
+                <h2>Log in</h2>
 
-                <div class="input-box">
-                    <span class="field-icon" aria-hidden="true">✉</span>
+                <div class="input-box"><label for="email">Email address</label>
                     <input
                         type="email"
                         id="email"
                         name="login_email"
-                        placeholder="Email Address"
+                        placeholder="name@example.com"
                         autocomplete="off"
                         required>
                 </div>
 
-                <div class="input-box">
-                    <span class="field-icon" aria-hidden="true">🔒</span>
+                <div class="input-box"><label for="password">Password</label>
                     <input
                         type="password"
                         id="password"
-                        placeholder="Password"
+                        placeholder=""
                         autocomplete="current-password"
                         required>
                 </div>
 
-                <button type="submit">
-
-                    Login
-
-                </button>
+                <button type="submit">Log in</button>
 
                 <p class="forgot-password-link">
                     <a href="forgot_password.html">Forgot Password?</a>

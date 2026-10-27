@@ -1,9 +1,9 @@
 /* R28 — citizen-only sticky navigation and shared chat. */
-.citizen-shared-nav{position:sticky!important;top:0;z-index:1100;background:#0f172a;color:#f8fafc;min-height:68px;padding:12px clamp(14px,3vw,40px);display:flex;align-items:center;justify-content:space-between;gap:16px;box-shadow:0 4px 20px rgba(0,0,0,.12)}
+.citizen-shared-nav{position:sticky!important;top:0;z-index:1100;background:#12271c;color:#f9fbfa;min-height:68px;padding:12px clamp(14px,3vw,40px);display:flex;align-items:center;justify-content:space-between;gap:16px;box-shadow:0 4px 20px rgba(0,0,0,.12)}
 .citizen-shared-brand{display:flex;align-items:center;gap:9px;text-decoration:none!important;color:#fff!important;font-size:18px;font-weight:800;white-space:nowrap}
 .citizen-shared-links{display:flex;align-items:center;gap:clamp(8px,1.5vw,22px);flex-wrap:wrap}
-.citizen-shared-links a,.citizen-shared-links button{color:#e2e8f0!important;text-decoration:none;font-size:13px;font-weight:650;white-space:nowrap;background:none;border:0;padding:8px;cursor:pointer}
-.citizen-shared-links a:hover,.citizen-shared-links button:hover{color:#93c5fd!important}
+.citizen-shared-links a,.citizen-shared-links button{color:#e4eee9!important;text-decoration:none;font-size:13px;font-weight:650;white-space:nowrap;background:none;border:0;padding:8px;cursor:pointer}
+.citizen-shared-links a:hover,.citizen-shared-links button:hover{color:#8bdbbe!important}
 .citizen-shared-links button{display:flex;align-items:center;gap:6px}
 /* Existing page-level navbar retained where present, but the shared citizen nav stays on top. */
 .citizen-shared-nav ~ .navbar,.citizen-shared-nav ~ .incident-nav{position:relative!important;top:auto!important}

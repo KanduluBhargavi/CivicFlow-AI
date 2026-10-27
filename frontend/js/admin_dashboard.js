@@ -240,7 +240,7 @@ function renderHotspotMap(){
     // Tiny deterministic visual separation keeps same-coordinate reports individually clickable.
     const angle=(stack*137.508)*Math.PI/180, offset=stack===0?0:0.00010*Math.ceil(stack/6);
     const point=[lat+Math.sin(angle)*offset,lon+Math.cos(angle)*offset];
-    const p=String(c.priority||'').toLowerCase(); const color=p==='critical'?'#991b1b':p==='high'?'#dc2626':p==='medium'?'#ea8a0a':'#2563eb';
+    const p=String(c.priority||'').toLowerCase(); const color=p==='critical'?'#991b1b':p==='high'?'#dc2626':p==='medium'?'#ea8a0a':'#257658';
     L.circleMarker(point,{radius:6,color:'#fff',weight:1.5,fillColor:color,fillOpacity:.9}).addTo(hotspotLayer).bindPopup(`<strong>Complaint #${Number(c.complaint_id)||''}</strong><br>${esc(c.title||'Complaint')}<br><strong>Priority:</strong> ${esc(c.priority||'Unknown')}<br><strong>Status:</strong> ${esc(c.display_status||c.status||'Unknown')}<br><strong>Department:</strong> ${esc(c.department||'Unassigned')}<br><strong>Area / Block:</strong> ${esc(c.area||'Not provided')}<br><strong>Address:</strong> ${esc(c.address||'Not provided')}<br><strong>Location:</strong> ${esc(c.district||'District not specified')}, ${esc(c.state||'State not specified')}<br><small>Marker may be slightly offset when multiple reports share identical coordinates. Saved coordinates reflect the submission's stored location; district-centroid coordinates are not exact address points.</small>`);
     bounds.push(point);
   });

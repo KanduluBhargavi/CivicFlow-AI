@@ -11,7 +11,7 @@ body{
     background:
     radial-gradient(circle at top left,#2563eb22,transparent 35%),
     radial-gradient(circle at bottom right,#10b98122,transparent 35%),
-    #f4f8fc;
+    #f0faf6;
 
     min-height:100vh;
 
@@ -49,7 +49,7 @@ LEFT PANEL
 
 .left-panel{
 
-    background:linear-gradient(135deg,#183153,#2563eb,#10b981);
+    background:linear-gradient(135deg,#0d251c,#257658,#458c33);
 
     position:relative;
 
@@ -157,7 +157,7 @@ RIGHT PANEL
 
     line-height:60px;
 
-    color:#0f172a;
+    color:#12271c;
 
     margin-bottom:35px;
 }
@@ -184,7 +184,7 @@ INPUT
 
     transform:translateY(-50%);
 
-    color:#2563eb;
+    color:#257658;
 
     z-index:2;
 }
@@ -202,7 +202,7 @@ INPUT
 
     border-radius:15px;
 
-    background:#eef4ff;
+    background:#edf9f5;
 
     padding-left:52px;
 
@@ -218,7 +218,7 @@ INPUT
 
     background:white;
 
-    box-shadow:0 0 0 3px rgba(37,99,235,.2);
+    box-shadow:0 0 0 3px rgba(37,118,88,.2);
 }
 
 /*==========================
@@ -235,7 +235,7 @@ button{
 
     border-radius:15px;
 
-    background:linear-gradient(135deg,#2563eb,#10b981);
+    background:linear-gradient(135deg,#257658,#458c33);
 
     color:white;
 
@@ -254,7 +254,7 @@ button:hover{
 
     transform:translateY(-3px);
 
-    box-shadow:0 20px 35px rgba(37,99,235,.25);
+    box-shadow:0 20px 35px rgba(37,118,88,.25);
 }
 
 /*==========================
@@ -274,14 +274,14 @@ LOGIN LINK
 
     text-decoration:none;
 
-    color:#2563eb;
+    color:#257658;
 
     font-weight:600;
 }
 
 #registerForm a:hover{
 
-    color:#10b981;
+    color:#458c33;
 }
 
 /*==========================
@@ -318,7 +318,7 @@ RESPONSIVE
 
     margin-bottom:20px;
 
-    background:#0ea5e9;
+    background:#20664c;
 
     color:white;
 
@@ -340,7 +340,7 @@ RESPONSIVE
 
 .location-btn:hover{
 
-    background:#0284c7;
+    background:#174936;
 
 }
 .input-box textarea{
@@ -355,7 +355,7 @@ RESPONSIVE
 
     border-radius:15px;
 
-    background:#eef4ff;
+    background:#edf9f5;
 
     padding:18px 18px 18px 52px;
 
@@ -374,9 +374,9 @@ html.dark body {
     background:
         radial-gradient(circle at top left, #2563eb30, transparent 35%),
         radial-gradient(circle at bottom right, #10b98120, transparent 35%),
-        #080d18;
+        #040b08;
 
-    color: #f8fafc;
+    color: #f9fbfa;
 }
 
 
@@ -385,7 +385,7 @@ html.dark body {
    ========================= */
 
 html.dark .auth-container {
-    background: #111827;
+    background: #14241c;
     box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
 }
 
@@ -398,9 +398,9 @@ html.dark .left-panel {
     background:
         linear-gradient(
             135deg,
-            #0f172a,
-            #1d4ed8,
-            #047857
+            #12271c,
+            #1f644b,
+            #29591d
         );
 }
 
@@ -410,7 +410,7 @@ html.dark .left-panel {
    ========================= */
 
 html.dark .right-panel {
-    background: #111827;
+    background: #14241c;
 }
 
 
@@ -419,7 +419,7 @@ html.dark .right-panel {
    ========================= */
 
 html.dark #registerForm h2 {
-    color: #f8fafc;
+    color: #f9fbfa;
 }
 
 
@@ -430,9 +430,9 @@ html.dark #registerForm h2 {
 html.dark .input-box input,
 html.dark .input-box select,
 html.dark .input-box textarea {
-    background: #1e293b;
-    color: #f8fafc;
-    border: 1px solid rgba(148, 163, 184, 0.15);
+    background: #22372d;
+    color: #f9fbfa;
+    border: 1px solid rgba(153,179,166,0.15);
 }
 
 
@@ -440,14 +440,14 @@ html.dark .input-box textarea {
 
 html.dark .input-box input::placeholder,
 html.dark .input-box textarea::placeholder {
-    color: #94a3b8;
+    color: #99b3a6;
 }
 
 
 /* Input icons */
 
 html.dark .input-box i {
-    color: #38bdf8;
+    color: #2d926d;
 }
 
 
@@ -456,9 +456,9 @@ html.dark .input-box i {
 html.dark .input-box input:focus,
 html.dark .input-box select:focus,
 html.dark .input-box textarea:focus {
-    background: #172033;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
-    border-color: #2563eb;
+    background: #1b3025;
+    box-shadow: 0 0 0 3px rgba(37,118,88,0.3);
+    border-color: #257658;
 }
 
 
@@ -467,12 +467,12 @@ html.dark .input-box textarea:focus {
    ========================= */
 
 html.dark .input-box select {
-    color: #f8fafc;
+    color: #f9fbfa;
 }
 
 html.dark .input-box select option {
-    background: #1e293b;
-    color: #f8fafc;
+    background: #22372d;
+    color: #f9fbfa;
 }
 
 
@@ -481,11 +481,11 @@ html.dark .input-box select option {
    ========================= */
 
 html.dark .location-btn {
-    background: linear-gradient(135deg, #0284c7, #2563eb);
+    background: linear-gradient(135deg, #174936, #257658);
 }
 
 html.dark .location-btn:hover {
-    background: linear-gradient(135deg, #0369a1, #1d4ed8);
+    background: linear-gradient(135deg, #123b2c, #1f644b);
 }
 
 
@@ -494,15 +494,15 @@ html.dark .location-btn:hover {
    ========================= */
 
 html.dark #registerForm p {
-    color: #94a3b8;
+    color: #99b3a6;
 }
 
 html.dark #registerForm a {
-    color: #60a5fa;
+    color: #5acca2;
 }
 
 html.dark #registerForm a:hover {
-    color: #34d399;
+    color: #62a951;
 }
 
 
@@ -511,12 +511,12 @@ html.dark #registerForm a:hover {
    ========================= */
 
 html.dark button {
-    background: linear-gradient(135deg, #2563eb, #059669);
-    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.15);
+    background: linear-gradient(135deg, #257658, #337024);
+    box-shadow: 0 8px 25px rgba(37,118,88,0.15);
 }
 
 html.dark button:hover {
-    box-shadow: 0 20px 35px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 20px 35px rgba(37,118,88,0.3);
 }
 
 
@@ -525,14 +525,14 @@ html.dark button:hover {
    ========================= */
 
 html.dark ::selection {
-    background: #2563eb;
+    background: #257658;
     color: white;
 }
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 1000px #263247 inset !important;
+    -webkit-box-shadow: 0 0 0 1000px #2a4337 inset !important;
     -webkit-text-fill-color: #ffffff !important;
     transition: background-color 5000s ease-in-out 0s;
 }
@@ -549,33 +549,33 @@ input:-webkit-autofill:active {
     border-radius: 16px;
     display: grid;
     place-items: center;
-    background: #dbeafe;
-    color: #1d4ed8;
+    background: #d7f3e9;
+    color: #1f644b;
     font-size: 24px;
     margin-bottom: 16px;
 }
 
 .verification-kicker {
     display: block;
-    color: #2563eb;
+    color: #257658;
     font-size: 12px;
     font-weight: 800;
-    letter-spacing: .12em;
+    letter-spacing:.01em;
     margin-bottom: 8px;
 }
 
 .verification-copy {
-    color: #64748b;
+    color: #698678;
     line-height: 1.6;
     margin-bottom: 22px;
 }
 
 .verification-copy strong {
-    color: #334155;
+    color: #375144;
 }
 
 .verification-expiry {
-    color: #64748b;
+    color: #698678;
     font-size: 13px;
     margin: -8px 0 16px;
 }
@@ -587,7 +587,7 @@ input:-webkit-autofill:active {
     gap: 8px;
     flex-wrap: wrap;
     margin-top: 16px;
-    color: #cbd5e1;
+    color: #ceded6;
 }
 
 .text-action-btn {
@@ -596,7 +596,7 @@ input:-webkit-autofill:active {
     padding: 4px;
     margin: 0;
     background: transparent;
-    color: #2563eb;
+    color: #257658;
     font-size: 13px;
     box-shadow: none;
 }
@@ -604,11 +604,11 @@ input:-webkit-autofill:active {
 .text-action-btn:hover {
     transform: none;
     box-shadow: none;
-    color: #059669;
+    color: #337024;
 }
 
 .text-action-btn:disabled {
-    color: #94a3b8;
+    color: #99b3a6;
     cursor: not-allowed;
 }
 
@@ -616,7 +616,7 @@ input:-webkit-autofill:active {
     min-height: 20px;
     text-align: center;
     margin-top: 14px;
-    color: #047857;
+    color: #29591d;
     font-size: 13px;
     font-weight: 600;
 }
@@ -626,23 +626,23 @@ input:-webkit-autofill:active {
 }
 
 #registrationOtp {
-    letter-spacing: .28em;
+    letter-spacing:.01em;
     font-size: 21px;
     font-weight: 800;
 }
 
 html.dark .verification-copy,
 html.dark .verification-expiry {
-    color: #94a3b8;
+    color: #99b3a6;
 }
 
 html.dark .verification-copy strong {
-    color: #e2e8f0;
+    color: #e4eee9;
 }
 
 html.dark .verification-badge {
-    background: #172554;
-    color: #93c5fd;
+    background: #0d251c;
+    color: #8bdbbe;
 }
 
 
@@ -657,34 +657,34 @@ html.dark .verification-badge {
     margin: 0 0 18px;
     border-radius: 18px;
     font-size: 28px;
-    background: linear-gradient(135deg, rgba(37,99,235,.12), rgba(16,185,129,.12));
-    color: #2563eb;
+    background: linear-gradient(135deg, rgba(37,118,88,.12), rgba(69,140,51,.12));
+    color: #257658;
 }
 
 .verification-kicker {
     display: block;
     margin-bottom: 10px;
-    color: #2563eb;
+    color: #257658;
     font-size: 12px;
     font-weight: 800;
-    letter-spacing: .12em;
+    letter-spacing:.01em;
 }
 
 .verification-copy {
-    color: #64748b;
+    color: #698678;
     line-height: 1.7;
     margin-bottom: 20px;
 }
 
-.verification-copy strong { color: #0f172a; }
+.verification-copy strong { color: #12271c; }
 .verification-expiry {
     margin: -4px 0 14px;
-    color: #64748b;
+    color: #698678;
     font-size: 13px;
 }
 
 #registrationOtp {
-    letter-spacing: .22em;
+    letter-spacing:.01em;
     font-size: 20px;
     font-weight: 700;
 }
@@ -699,7 +699,7 @@ html.dark .verification-badge {
 }
 
 .verification-actions > span {
-    color: #94a3b8;
+    color: #99b3a6;
     font-weight: 700;
 }
 
@@ -710,9 +710,9 @@ html.dark .verification-badge {
     margin-top: 0 !important;
     padding: 10px 16px !important;
     border-radius: 999px !important;
-    border: 1px solid rgba(37,99,235,.2) !important;
-    background: rgba(37,99,235,.08) !important;
-    color: #2563eb !important;
+    border: 1px solid rgba(37,118,88,.2) !important;
+    background: rgba(37,118,88,.08) !important;
+    color: #257658 !important;
     font-size: 14px !important;
     font-weight: 700 !important;
     box-shadow: none !important;
@@ -721,16 +721,16 @@ html.dark .verification-badge {
 .text-action-btn:hover {
     transform: translateY(-1px) !important;
     box-shadow: none !important;
-    background: rgba(16,185,129,.12) !important;
-    border-color: rgba(16,185,129,.32) !important;
-    color: #047857 !important;
+    background: rgba(69,140,51,.12) !important;
+    border-color: rgba(69,140,51,.32) !important;
+    color: #29591d !important;
 }
 
 .text-action-btn:disabled {
     opacity: 1 !important;
-    background: rgba(148,163,184,.12) !important;
-    border-color: rgba(148,163,184,.18) !important;
-    color: #64748b !important;
+    background: rgba(153,179,166,.12) !important;
+    border-color: rgba(153,179,166,.18) !important;
+    color: #698678 !important;
     cursor: not-allowed !important;
 }
 
@@ -740,30 +740,30 @@ html.dark .verification-badge {
     text-align: center;
     font-size: 14px;
     font-weight: 700;
-    color: #047857;
+    color: #29591d;
 }
 
 .verification-message.error { color: #dc2626; }
 
 html.dark .verification-copy,
-html.dark .verification-expiry { color: #94a3b8; }
-html.dark .verification-copy strong { color: #f8fafc; }
+html.dark .verification-expiry { color: #99b3a6; }
+html.dark .verification-copy strong { color: #f9fbfa; }
 html.dark .verification-badge {
-    background: linear-gradient(135deg, rgba(37,99,235,.18), rgba(16,185,129,.18));
-    color: #93c5fd;
+    background: linear-gradient(135deg, rgba(37,118,88,.18), rgba(69,140,51,.18));
+    color: #8bdbbe;
 }
 html.dark .text-action-btn {
-    background: rgba(37,99,235,.18) !important;
-    color: #93c5fd !important;
-    border-color: rgba(96,165,250,.25) !important;
+    background: rgba(37,118,88,.18) !important;
+    color: #8bdbbe !important;
+    border-color: rgba(90,204,162,.25) !important;
 }
 html.dark .text-action-btn:hover {
-    background: rgba(16,185,129,.18) !important;
-    color: #6ee7b7 !important;
-    border-color: rgba(110,231,183,.22) !important;
+    background: rgba(69,140,51,.18) !important;
+    color: #8cc77d !important;
+    border-color: rgba(140,199,125,.22) !important;
 }
 html.dark .text-action-btn:disabled {
-    background: rgba(51,65,85,.55) !important;
-    color: #94a3b8 !important;
-    border-color: rgba(71,85,105,.55) !important;
+    background: rgba(55,81,68,.55) !important;
+    color: #99b3a6 !important;
+    border-color: rgba(75,101,88,.55) !important;
 }

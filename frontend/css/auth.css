@@ -19,7 +19,7 @@ body{
     background:
     radial-gradient(circle at top left,#1e40af33,transparent 30%),
     radial-gradient(circle at bottom right,#10b98133,transparent 30%),
-    #f4f8fc;
+    #f0faf6;
 
     overflow:hidden;
 
@@ -49,7 +49,7 @@ body{
 
     position:relative;
 
-    background:linear-gradient(135deg,#183153,#2563eb,#10b981);
+    background:linear-gradient(135deg,#0d251c,#257658,#458c33);
 
     display:flex;
 
@@ -157,7 +157,7 @@ body{
 
     font-size:36px;
 
-    color:#183153;
+    color:#0d251c;
 
     margin-bottom:40px;
 
@@ -181,7 +181,7 @@ body{
 
     transform:translateY(-50%);
 
-    color:#2563eb;
+    color:#257658;
 
 }
 
@@ -195,7 +195,7 @@ body{
 
     outline:none;
 
-    background:#f4f8fc;
+    background:#f0faf6;
 
     border-radius:15px;
 
@@ -209,7 +209,7 @@ body{
 
     background:white;
 
-    box-shadow:0 0 0 3px rgba(37,99,235,.18);
+    box-shadow:0 0 0 3px rgba(37,118,88,.18);
 
 }
 
@@ -223,7 +223,7 @@ button{
 
     border-radius:15px;
 
-    background:linear-gradient(135deg,#2563eb,#10b981);
+    background:linear-gradient(135deg,#257658,#458c33);
 
     color:white;
 
@@ -241,7 +241,7 @@ button:hover{
 
     transform:translateY(-3px);
 
-    box-shadow:0 15px 30px rgba(37,99,235,.25);
+    box-shadow:0 15px 30px rgba(37,118,88,.25);
 
 }
 
@@ -257,7 +257,7 @@ button:hover{
 
 #loginForm a{
 
-    color:#2563eb;
+    color:#257658;
 
     font-weight:600;
 
@@ -267,7 +267,7 @@ button:hover{
 
 #loginForm a:hover{
 
-    color:#10b981;
+    color:#458c33;
 
 }
 /* =========================================================
@@ -278,15 +278,15 @@ html.dark body {
     background:
         radial-gradient(
             circle at top left,
-            rgba(37,99,235,.18),
+            rgba(37,118,88,.18),
             transparent 30%
         ),
         radial-gradient(
             circle at bottom right,
-            rgba(16,185,129,.12),
+            rgba(69,140,51,.12),
             transparent 30%
         ),
-        #080d1a;
+        #040c09;
 }
 
 
@@ -295,12 +295,12 @@ html.dark body {
    ========================= */
 
 html.dark .auth-container {
-    background:#111827;
+    background:#14241c;
 
     box-shadow:
         0 30px 70px rgba(0,0,0,.5);
 
-    border:1px solid #1f2937;
+    border:1px solid #22342b;
 }
 
 
@@ -309,7 +309,7 @@ html.dark .auth-container {
    ========================= */
 
 html.dark .right-panel {
-    background:#111827;
+    background:#14241c;
 }
 
 
@@ -318,7 +318,7 @@ html.dark .right-panel {
    ========================= */
 
 html.dark #loginForm h2 {
-    color:#f8fafc;
+    color:#f9fbfa;
 }
 
 
@@ -327,28 +327,28 @@ html.dark #loginForm h2 {
    ========================= */
 
 html.dark .input-box i {
-    color:#60a5fa;
+    color:#5acca2;
 }
 
 html.dark .input-box input {
-    background:#1e293b;
+    background:#22372d;
 
-    color:#f1f5f9;
+    color:#f2f8f5;
 
-    border:1px solid #334155;
+    border:1px solid #375144;
 }
 
 html.dark .input-box input::placeholder {
-    color:#94a3b8;
+    color:#99b3a6;
 }
 
 html.dark .input-box input:focus {
-    background:#172033;
+    background:#1b3025;
 
-    border-color:#3b82f6;
+    border-color:#2e936e;
 
     box-shadow:
-        0 0 0 3px rgba(37,99,235,.20);
+        0 0 0 3px rgba(37,118,88,.20);
 }
 
 
@@ -357,15 +357,15 @@ html.dark .input-box input:focus {
    ========================= */
 
 html.dark #loginForm p {
-    color:#94a3b8;
+    color:#99b3a6;
 }
 
 html.dark #loginForm a {
-    color:#60a5fa;
+    color:#5acca2;
 }
 
 html.dark #loginForm a:hover {
-    color:#34d399;
+    color:#62a951;
 }
 
 
@@ -377,24 +377,24 @@ html.dark button {
     background:
         linear-gradient(
             135deg,
-            #2563eb,
-            #059669
+            #257658,
+            #337024
         );
 
     box-shadow:
-        0 10px 25px rgba(37,99,235,.15);
+        0 10px 25px rgba(37,118,88,.15);
 }
 
 html.dark button:hover {
     background:
         linear-gradient(
             135deg,
-            #3b82f6,
-            #10b981
+            #2e936e,
+            #458c33
         );
 
     box-shadow:
-        0 15px 35px rgba(37,99,235,.30);
+        0 15px 35px rgba(37,118,88,.30);
 }
 
 
@@ -408,8 +408,8 @@ html.dark .left-panel {
     background:
         linear-gradient(
             135deg,
-            #0b1b33,
-            #1d4ed8,
-            #047857
+            #071610,
+            #1f644b,
+            #29591d
         );
 }

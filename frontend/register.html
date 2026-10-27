@@ -15,6 +15,12 @@
 <link rel="stylesheet" href="css/responsive.css">
 <link rel="stylesheet" href="css/ui-consistency.css?v=20261009">
 <link rel="stylesheet" href="css/civic-ui-r3.css?v=3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Public+Sans:ital,wght@0,400..700;1,400..600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Public+Sans:ital,wght@0,400..700;1,400..600&display=swap"></noscript>
+<link rel="stylesheet" href="css/civicflow-theme.css?v=1">
+<link rel="stylesheet" href="css/auth-civic.css?v=1">
 </head>
 
 <body>
@@ -23,9 +29,10 @@
 
     <div class="left-panel">
 
+        <a class="auth-brand" href="index.html" aria-label="CivicFlow AI home"><svg class="cf-mark" viewBox="0 0 40 40" width="34" height="34" aria-hidden="true"><rect class="m-bg" width="40" height="40" rx="10"/><path class="m-route" d="M11 28c0-8 9-5 9-11s6-5 9-5"/><circle class="m-a" cx="11" cy="28" r="3"/><circle class="m-b" cx="29" cy="12" r="3.8"/></svg><span>CivicFlow <b>AI</b></span></a>
         <div class="left-content">
 
-            <h1>Create Account</h1>
+            <h1>Make one account. Follow every complaint.</h1>
 
             <p>
 
@@ -34,70 +41,65 @@
             </p>
 
         </div>
-
+        <ol class="auth-trail" aria-label="What happens to a complaint">
+          <li><span>Received</span><small>Logged with a tracking ID</small></li>
+          <li><span>Routed</span><small>Sent to the right department</small></li>
+          <li><span>Assigned</span><small>An officer takes the case</small></li>
+          <li><span>Resolved</span><small>You confirm the outcome</small></li>
+        </ol>
     </div>
 
     <div class="right-panel">
 
         <form id="registerForm" autocomplete="off">
 
-            <h2>Citizen Registration</h2>
+            <h2>Create your account</h2>
 
-            <div class="input-box">
-                <span class="field-icon" aria-hidden="true">👤</span>
-                <input type="text" id="full_name" placeholder="Full Name" autocomplete="off" required>
+            <div class="input-box"><label for="full_name">Full name</label>
+                <input type="text" id="full_name" placeholder="" autocomplete="off" required>
             </div>
 
-            <div class="input-box">
-                <span class="field-icon" aria-hidden="true">✉</span>
-                <input type="email" id="email" name="registerForm" placeholder="Email" autocomplete="off" required>
+            <div class="input-box"><label for="email">Email</label>
+                <input type="email" id="email" name="registerForm" placeholder="name@example.com" autocomplete="off" required>
             </div>
 
-            <div class="input-box">
-                <span class="field-icon" aria-hidden="true">☎</span>
-                <input type="text" id="phone" placeholder="Phone Number" required>
+            <div class="input-box"><label for="phone">Phone number</label>
+                <input type="text" id="phone" placeholder="" required>
             </div>
 
-            <div class="input-box">
-                <span class="field-icon" aria-hidden="true">🔒</span>
-                <input type="password" id="password" placeholder="Password" autocomplete="new-password" required>
+            <div class="input-box"><label for="password">Password</label>
+                <input type="password" id="password" placeholder="" autocomplete="new-password" required>
             </div>
 
-            <div class="input-box">
-                <span class="field-icon" aria-hidden="true">⌖</span>
+            <div class="input-box"><label for="state">State</label>
                 <select id="state" required><option value="">Select State</option></select>
             </div>
 
-            <div class="input-box">
-                <span class="field-icon" aria-hidden="true">▦</span>
-               <input type="text" id="district" list="districtOptions" placeholder="Select or type district" autocomplete="off" required>
+            <div class="input-box"><label for="district">District</label>
+               <input type="text" id="district" list="districtOptions" placeholder="" autocomplete="off" required>
 <datalist id="districtOptions"></datalist>
             </div>
-            <div class="input-box">
-    <span class="field-icon" aria-hidden="true">⌖</span>
-    <input type="text" id="area" placeholder="Area / Locality">
+            <div class="input-box"><label for="area">Area or locality</label>
+    <input type="text" id="area" placeholder="">
 </div>
 
-<div class="input-box">
-    <span class="field-icon" aria-hidden="true">⌖</span>
-    <input type="text" id="landmark" placeholder="Nearby Landmark">
+<div class="input-box"><label for="landmark">Nearby landmark</label>
+    <input type="text" id="landmark" placeholder="">
 </div>
 
-<div class="input-box">
-    <span class="field-icon" aria-hidden="true">⌂</span>
-    <textarea id="address" placeholder="Address" rows="3"></textarea>
+<div class="input-box"><label for="address">Address</label>
+    <textarea id="address" placeholder="" rows="3"></textarea>
 </div>
 
-<div class="input-box">
-    <span class="field-icon" aria-hidden="true">#</span>
-    <input type="text" id="pincode" placeholder="Pincode">
+<div class="input-box"><label for="pincode">Pincode</label>
+    <input type="text" id="pincode" placeholder="">
 </div>
 
 <input type="hidden" id="latitude">
 <input type="hidden" id="longitude">
 
 <button type="button" id="locationBtn" class="location-btn">
-    📍 Use Current Location
+    Use my current location
 </button>
            
 
@@ -125,7 +127,6 @@
         <form id="registrationOtpForm" class="registration-otp-form" autocomplete="off" style="display:none;">
 
             <div class="verification-badge">✉</div>
-            <span class="verification-kicker">EMAIL VERIFICATION</span>
             <h2>Verify Your Email</h2>
 
             <p class="verification-copy">
@@ -134,8 +135,7 @@
                 Your account will be created only after verification.
             </p>
 
-            <div class="input-box">
-                <span class="field-icon" aria-hidden="true">#</span>
+            <div class="input-box"><label for="registrationOtp">Verification code</label>
                 <input
                     type="text"
                     id="registrationOtp"
@@ -143,7 +143,7 @@
                     maxlength="6"
                     pattern="[0-9]{6}"
                     autocomplete="one-time-code"
-                    placeholder="Enter 6-digit OTP"
+                    placeholder="6-digit code"
                     required>
             </div>
 

@@ -1,0 +1,74 @@
+/* ==========================================================================
+   AUTH PAGES (login, register, forgot password)
+   Full-height split: a deep-neem panel with the complaint trail, paper on the right.
+   ========================================================================== */
+html body { display: block !important; padding: 0 !important; min-height: 100vh; overflow: auto !important; background: var(--cf-bg) !important; }
+.auth-container {
+  width: 100% !important; max-width: none !important; height: auto !important; min-height: 100vh !important;
+  display: grid !important; grid-template-columns: minmax(360px, 42%) 1fr !important;
+  background: transparent !important; border-radius: 0 !important; box-shadow: none !important; overflow: visible !important;
+}
+
+/* left: deep neem with contour lines */
+.left-panel {
+  position: sticky !important; top: 0; height: 100vh; align-self: start;
+  background: #123b2a !important; color: #eef3e8 !important;
+  display: flex !important; flex-direction: column !important; justify-content: space-between !important; align-items: stretch !important;
+  padding: clamp(28px, 4vw, 56px) !important; overflow: hidden; isolation: isolate;
+}
+html.dark .left-panel { background: #0a1a12 !important; border-right: 1px solid var(--cf-line); }
+.left-panel::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; background: #f0b431; opacity: .1; pointer-events: none;
+  -webkit-mask: url("../images/contours.svg") 30% center / cover no-repeat; mask: url("../images/contours.svg") 30% center / cover no-repeat;
+}
+.left-panel .overlay, .left-panel::after { display: none !important; }
+.auth-brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: #f4f6ee; font-family: var(--cf-font-display); font-size: 21px; font-weight: 700; letter-spacing: -.02em; width: fit-content; }
+.auth-brand b { color: #f0b431; font-weight: 700; }
+.auth-brand .cf-mark .m-bg { fill: #f0b431; } .auth-brand .cf-mark .m-route { stroke: #123b2a; } .auth-brand .cf-mark .m-a { fill: #123b2a; } .auth-brand .cf-mark .m-b { fill: #fff; }
+.left-content { position: static !important; padding: 0 !important; max-width: 30rem; margin-block: auto; text-align: left !important; }
+.left-content h1 { color: #f6f8f0 !important; font-size: clamp(32px, 3.4vw, 48px) !important; line-height: 1.08 !important; letter-spacing: -.03em; margin: 0 0 18px !important; }
+.left-content p { color: #bfd0c3 !important; font-size: 17px !important; line-height: 1.6 !important; margin: 0 !important; max-width: 38ch; }
+
+/* the trail: real sequence, so it earns its markers */
+.auth-trail { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; position: relative; max-width: 30rem; }
+.auth-trail li { position: relative; padding: 0 0 18px 30px; display: grid; gap: 1px; }
+.auth-trail li::before { content: ""; position: absolute; left: 0; top: 5px; width: 12px; height: 12px; border-radius: 50%; border: 2px solid #f0b431; background: #123b2a; z-index: 1; }
+html.dark .auth-trail li::before { background: #0a1a12; }
+.auth-trail li:not(:last-child)::after { content: ""; position: absolute; left: 5px; top: 19px; bottom: -5px; width: 2px; background: rgba(240,180,49,.35); }
+.auth-trail li:last-child { padding-bottom: 0; }
+.auth-trail li:last-child::before { background: #f0b431; }
+.auth-trail span { font-weight: 650; color: #f4f6ee; font-size: 15.5px; }
+.auth-trail small { color: #a9bdae; font-size: 14px; }
+
+/* right: the form */
+.right-panel { padding: clamp(28px, 5vw, 64px) clamp(20px, 5vw, 72px) !important; display: flex !important; align-items: center !important; justify-content: center !important; background: var(--cf-bg) !important; min-height: 100vh; }
+.right-panel form { width: 100% !important; max-width: 420px !important; margin: 0 auto !important; padding: 0 !important; background: none !important; box-shadow: none !important; border: 0 !important; display: grid; gap: 16px; }
+.right-panel h2 { font-size: clamp(28px, 3vw, 36px) !important; letter-spacing: -.03em; margin: 0 0 6px !important; text-align: left !important; color: var(--cf-ink) !important; }
+.right-panel p { color: var(--cf-muted) !important; font-size: 15px; margin: 0; max-width: none; text-align: left !important; }
+.right-panel p a, .right-panel .back-link a { color: var(--cf-primary) !important; font-weight: 650; text-decoration: underline; text-underline-offset: .2em; }
+.right-panel .forgot-password-link { margin-top: -4px; }
+.right-panel .input-box { position: relative; display: grid; gap: 6px; margin: 0 !important; padding: 0 !important; background: none !important; border: 0 !important; box-shadow: none !important; }
+.right-panel .input-box label { font-size: 14px; font-weight: 650; color: var(--cf-ink-2); }
+.right-panel input:not([type="hidden"]), .right-panel select, .right-panel textarea { width: 100%; padding: 12px 14px !important; min-height: 48px; font-size: 16px !important; }
+.right-panel textarea { min-height: 88px; resize: vertical; }
+.right-panel form > button[type="submit"], .right-panel #loginBtn { width: 100%; min-height: 50px; padding: 14px 18px !important; font-size: 16px !important; margin-top: 6px; cursor: pointer; }
+.right-panel .location-btn { width: 100%; min-height: 46px; padding: 10px 14px !important; justify-content: center; text-align: center; font-weight: 600; cursor: pointer; }
+.right-panel .verification-badge, .right-panel .reset-badge { display: none !important; }
+.right-panel .verification-actions, .right-panel .reset-actions { display: flex; align-items: center; gap: 10px; color: var(--cf-muted); }
+.right-panel .text-action-btn, .right-panel .reset-text-btn { background: none !important; border: 0 !important; color: var(--cf-primary) !important; font-weight: 650; cursor: pointer; padding: 6px 0 !important; min-height: 0; text-decoration: underline; text-underline-offset: .2em; }
+.right-panel .verification-message, .right-panel .reset-message { min-height: 1.2em; font-size: 14.5px; }
+.right-panel .verification-expiry, .right-panel .reset-expiry { font-size: 14px; }
+
+@media (max-width: 880px) {
+  .auth-container { grid-template-columns: 1fr !important; }
+  .left-panel { position: relative !important; height: auto; padding: 22px 20px 26px !important; gap: 22px; }
+  .left-content { margin-block: 0; }
+  .left-content h1 { font-size: 28px !important; margin-bottom: 10px !important; }
+  .left-content p { font-size: 15.5px !important; }
+  .auth-trail { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .auth-trail li { padding: 18px 0 0 0; }
+  .auth-trail li::before { top: 0; }
+  .auth-trail li:not(:last-child)::after { left: 14px; top: 5px; bottom: auto; width: calc(100% - 6px); height: 2px; }
+  .auth-trail small { display: none; }
+  .right-panel { min-height: 0; align-items: flex-start !important; padding: 28px 20px 48px !important; }
+}

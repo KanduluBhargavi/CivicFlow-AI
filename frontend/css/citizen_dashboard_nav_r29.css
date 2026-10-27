@@ -1,18 +1,18 @@
 /* R29: dashboard-identical citizen navbar on citizen pages only. */
 body > .citizen-dashboard-nav {
  position:sticky !important; top:0 !important; z-index:1100 !important;
- min-height:70px; height:auto; width:100%; background:#0f172a !important;
+ min-height:70px; height:auto; width:100%; background:#12271c !important;
  color:#fff !important; display:flex !important; justify-content:space-between !important;
  align-items:center !important; padding:12px 40px !important; gap:16px;
  box-shadow:0 4px 20px rgba(0,0,0,.12); box-sizing:border-box;
 }
 body > .citizen-dashboard-nav .logo {font-size:24px;font-weight:700;display:flex;align-items:center;gap:10px;color:#fff}
 body > .citizen-dashboard-nav .nav-right {display:flex;align-items:center;gap:20px;margin-left:auto;flex-wrap:wrap}
-body > .citizen-dashboard-nav .welcome {color:#e2e8f0;font-weight:500}
+body > .citizen-dashboard-nav .welcome {color:#e4eee9;font-weight:500}
 body > .citizen-dashboard-nav #logoutBtn {padding:10px 20px;background:#ef4444;color:#fff;border:0;border-radius:8px;cursor:pointer}
-body > .citizen-dashboard-nav #navContactSupport {background:transparent;color:#e2e8f0;display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(148,163,184,.35);border-radius:9px;padding:9px 12px;cursor:pointer}
+body > .citizen-dashboard-nav #navContactSupport {background:transparent;color:#e4eee9;display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(153,179,166,.35);border-radius:9px;padding:9px 12px;cursor:pointer}
 body > .citizen-dashboard-nav #themeToggle {cursor:pointer}
-html.dark body > .citizen-dashboard-nav {background:#080d1a !important;color:#f8fafc !important}
+html.dark body > .citizen-dashboard-nav {background:#040c09 !important;color:#f9fbfa !important}
 @media(max-width:760px){body > .citizen-dashboard-nav{padding:10px 14px !important;gap:8px;flex-wrap:wrap}body > .citizen-dashboard-nav .logo{font-size:18px}body > .citizen-dashboard-nav .nav-right{gap:8px}body > .citizen-dashboard-nav #navContactSupport span{display:none}body > .citizen-dashboard-nav .welcome{font-size:12px}body > .citizen-dashboard-nav #logoutBtn{padding:8px 10px}}
 
 
@@ -43,7 +43,7 @@ body > .citizen-dashboard-nav .citizen-nav-link {
   gap: 7px;
   padding: 10px 11px;
   border-radius: 10px;
-  color: #d4deef !important;
+  color: #d7ece2 !important;
   font-size: 13px;
   font-weight: 650;
   line-height: 1.2;
@@ -54,11 +54,11 @@ body > .citizen-dashboard-nav .citizen-nav-link {
 }
 body > .citizen-dashboard-nav .citizen-nav-link:hover,
 body > .citizen-dashboard-nav .citizen-nav-link:focus-visible {
-  background: rgba(96, 165, 250, .17);
+  background: rgba(90,204,162,.17);
   color: #ffffff !important;
 }
 body > .citizen-dashboard-nav .citizen-nav-link.is-active {
-  background: linear-gradient(110deg, #2563eb, #0f9e96);
+  background: linear-gradient(110deg, #257658, #b6800c);
   color: #ffffff !important;
 }
 body > .citizen-dashboard-nav .nav-right { gap: 10px; flex: 0 0 auto; }

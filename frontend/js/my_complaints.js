@@ -17,15 +17,15 @@ function renderEmptyState(title = "No complaints yet", message = "You have not s
     emptyState.style.display = "flex";
     emptyState.innerHTML = `
         <svg class="empty-state-illustration" viewBox="0 0 220 180" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect x="30" y="28" width="160" height="116" rx="18" fill="#EFF6FF"/>
-            <rect x="52" y="48" width="116" height="12" rx="6" fill="#93C5FD"/>
-            <rect x="52" y="72" width="88" height="10" rx="5" fill="#BFDBFE"/>
-            <rect x="52" y="92" width="102" height="10" rx="5" fill="#DBEAFE"/>
-            <rect x="52" y="112" width="74" height="10" rx="5" fill="#DBEAFE"/>
-            <circle cx="168" cy="132" r="26" fill="#DCFCE7"/>
-            <path d="M156 132l8 8 16-18" stroke="#10B981" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M89 18c8 0 14 6 14 14s-6 14-14 14-14-6-14-14 6-14 14-14z" fill="#2563EB" opacity=".12"/>
-            <path d="M129 148c0 8-6 14-14 14s-14-6-14-14 6-14 14-14 14 6 14 14z" fill="#2563EB" opacity=".1"/>
+            <rect x="30" y="28" width="160" height="116" rx="18" fill="#eefaf5"/>
+            <rect x="52" y="48" width="116" height="12" rx="6" fill="#8bdbbe"/>
+            <rect x="52" y="72" width="88" height="10" rx="5" fill="#bae9d8"/>
+            <rect x="52" y="92" width="102" height="10" rx="5" fill="#d7f3e9"/>
+            <rect x="52" y="112" width="74" height="10" rx="5" fill="#d7f3e9"/>
+            <circle cx="168" cy="132" r="26" fill="#d8eed2"/>
+            <path d="M156 132l8 8 16-18" stroke="#458c33" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M89 18c8 0 14 6 14 14s-6 14-14 14-14-6-14-14 6-14 14-14z" fill="#257658" opacity=".12"/>
+            <path d="M129 148c0 8-6 14-14 14s-14-6-14-14 6-14 14-14 14 6 14 14z" fill="#257658" opacity=".1"/>
         </svg>
         <h3>${title}</h3>
         <p>${message}</p>
@@ -38,7 +38,7 @@ function renderEmptyState(title = "No complaints yet", message = "You have not s
 
 async function loadComplaints() {
     const table = document.getElementById("complaintsTable");
-    table.innerHTML = `<tr><td colspan="7" style="padding:24px; color:#64748b;">Loading your complaints...</td></tr>`;
+    table.innerHTML = `<tr><td colspan="7" style="padding:24px; color:#698678;">Loading your complaints...</td></tr>`;
 
     try {
         const response = await fetch(`${API_BASE}/my-complaints`, {

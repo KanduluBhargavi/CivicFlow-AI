@@ -1,82 +1,82 @@
 /* CivicFlow landing page — unified theme layer. Loaded after all legacy CSS. */
 html.dark body.landing-refined {
-  --bg: #091326;
-  --dark: #edf5ff;
-  --dark-soft: #15243b;
-  --ink: #e7eefc;
-  --ink-soft: #b7c7dd;
-  --line: #34445d;
-  background: #091326 !important;
-  color: #e7eefc !important;
+  --bg: #05110d;
+  --dark: #ecf9f4;
+  --dark-soft: #1a3628;
+  --ink: #e2f6ef;
+  --ink-soft: #bcd8ca;
+  --line: #395848;
+  background: #05110d !important;
+  color: #e2f6ef !important;
 }
 html.dark body.landing-refined :is(.dashboard,.features,.departments,.journey,.faq,.user-feedback-section) {
-  background: #0c182b !important;
-  color: #e7eefc !important;
+  background: #07130e !important;
+  color: #e2f6ef !important;
 }
 html.dark body.landing-refined :is(.dashboard,.departments,.journey,.faq,.user-feedback-section) .section-head :is(h1,h2,h3,p),
 html.dark body.landing-refined .feedback-section-header :is(h2,p),
 html.dark body.landing-refined .section-head:not(.section-head--light) :is(h2,.section-sub) {
-  color: #f2f6ff !important;
+  color: #f1fbf7 !important;
 }
 html.dark body.landing-refined :is(.dashboard,.departments,.journey,.faq,.user-feedback-section) .section-head .section-sub,
 html.dark body.landing-refined .feedback-section-header p {
-  color: #b7c7dd !important;
+  color: #bcd8ca !important;
 }
 html.dark body.landing-refined :is(.dashboard,.departments,.journey,.faq) .eyebrow,
 html.dark body.landing-refined .feedback-tag {
-  color: #8ebdff !important;
+  color: #88dabc !important;
 }
 html.dark body.landing-refined .command,
 html.dark body.landing-refined .how-to-use {
-  background: #0a1428 !important;
-  color: #e7eefc !important;
+  background: #06120d !important;
+  color: #e2f6ef !important;
 }
 html.dark body.landing-refined :is(.command,.how-to-use) .section-head :is(h2,.section-sub) {
-  color: #f8fbff !important;
+  color: #f8fdfb !important;
 }
 html.dark body.landing-refined :is(.stat-card,.feature-card,.why-card,.dept-card,.state-item,.user-feedback-card,.timeline__item,.accordion__item) {
-  background: #16243b !important;
-  border-color: #34445d !important;
-  color: #e7eefc !important;
+  background: #1b3629 !important;
+  border-color: #395848 !important;
+  color: #e2f6ef !important;
 }
 html.dark body.landing-refined :is(.stat-card,.feature-card,.why-card,.dept-card,.state-item,.user-feedback-card,.timeline__item) :is(h2,h3,h4,strong,.stat-card__value,.dept-header,.feedback-message,.feedback-user h4,.timeline__content h3) {
-  color: #f5f8ff !important;
+  color: #f4fcf9 !important;
 }
 html.dark body.landing-refined :is(.stat-card,.feature-card,.why-card,.dept-card,.state-item,.user-feedback-card,.timeline__item) :is(p,small,.stat-card__label,.timeline__content p,.feedback-user span) {
-  color: #c2cfe0 !important;
+  color: #c6dcd1 !important;
 }
 html.dark body.landing-refined .user-feedback-section .feedback-login-message,
 html.dark body.landing-refined .user-feedback-section .feedback-login-message p,
 html.dark body.landing-refined .user-feedback-section .loading-feedback,
 html.dark body.landing-refined .user-feedback-section .no-feedback {
-  color: #cbd5e1 !important;
+  color: #ceded6 !important;
 }
 html.dark body.landing-refined .faq .accordion__trigger,
 html.dark body.landing-refined .faq .accordion__panel p {
-  color: #e2e8f0 !important;
+  color: #e4eee9 !important;
 }
 html.dark body.landing-refined .footer {
-  background: #07101f !important;
-  color: #cbd5e1 !important;
+  background: #040e0a !important;
+  color: #ceded6 !important;
 }
 html.dark body.landing-refined .footer__col h4,
 html.dark body.landing-refined .footer .brand__text,
 html.dark body.landing-refined .footer .brand__text--light { color: #ffffff !important; }
 html.dark body.landing-refined .footer__col a,
-html.dark body.landing-refined .footer__brand p { color: #cbd5e1 !important; }
+html.dark body.landing-refined .footer__brand p { color: #ceded6 !important; }
 html.dark body.landing-refined .dept-bar,
-html.dark body.landing-refined .state-rank-track { background: #283953 !important; }
-html.dark body.landing-refined .journey .timeline__marker { background: #0d203b !important; }
+html.dark body.landing-refined .state-rank-track { background: #2d4e3e !important; }
+html.dark body.landing-refined .journey .timeline__marker { background: #081a13 !important; }
 html.dark body.landing-refined .journey .timeline-line,
-html.dark body.landing-refined .journey .journey-line { background-color: #34445d !important; }
-html.dark body.landing-refined .feature-card__index { color: #8ebdff !important; }
-html.dark body.landing-refined .footer__bottom { border-color: #334155 !important; }
-html.dark body.landing-refined .landing-navbar { background: rgba(7,16,31,.96) !important; }
-html.dark body.landing-refined .landing-feature-strip { background: #13243b !important; }
-html.dark body.landing-refined .landing-feature-strip :is(h3,strong) { color: #f5f8ff !important; }
-html.dark body.landing-refined .landing-feature-strip p { color: #c2cfe0 !important; }
+html.dark body.landing-refined .journey .journey-line { background-color: #395848 !important; }
+html.dark body.landing-refined .feature-card__index { color: #88dabc !important; }
+html.dark body.landing-refined .footer__bottom { border-color: #375144 !important; }
+html.dark body.landing-refined .landing-navbar { background: rgba(4,14,10,.96) !important; }
+html.dark body.landing-refined .landing-feature-strip { background: #0a1a14 !important; }
+html.dark body.landing-refined .landing-feature-strip :is(h3,strong) { color: #f4fcf9 !important; }
+html.dark body.landing-refined .landing-feature-strip p { color: #c6dcd1 !important; }
 @media(max-width:800px) {
-  html.dark body.landing-refined .landing-nav-links { background: #101e33 !important; }
+  html.dark body.landing-refined .landing-nav-links { background: #091711 !important; }
 }
 
 /* R5: heading alignment and review spacing only */
@@ -153,27 +153,27 @@ html.dark body.landing-refined .faq .accordion {
   box-shadow: 0 18px 40px rgba(0,0,0,0.22) !important;
 }
 html:not(.dark) body.landing-refined .faq .accordion {
-  background: rgba(10,24,43,0.03) !important;
-  border: 1px solid rgba(10,24,43,0.08) !important;
-  box-shadow: 0 12px 28px rgba(15,23,42,0.08) !important;
+  background: rgba(6,19,14,0.03) !important;
+  border: 1px solid rgba(6,19,14,0.08) !important;
+  box-shadow: 0 12px 28px rgba(18,39,28,0.08) !important;
 }
 /* Public service-level report */
 .public-sla {
   margin: 3rem auto;
   padding: clamp(1.25rem, 3vw, 2.5rem);
-  border: 1px solid rgba(100, 116, 139, .22);
+  border: 1px solid rgba(105,134,120,.22);
   border-radius: 24px;
   background: rgba(255, 255, 255, .72);
-  box-shadow: 0 16px 44px rgba(15, 23, 42, .08);
+  box-shadow: 0 16px 44px rgba(18,39,28,.08);
 }
-.public-sla__meta, .public-sla__note { color: #64748b; font-size: .92rem; }
+.public-sla__meta, .public-sla__note { color: #698678; font-size: .92rem; }
 .public-sla__table-wrap { overflow-x: auto; margin-top: 1rem; }
 .public-sla__table { width: 100%; min-width: 850px; border-collapse: collapse; text-align: left; }
-.public-sla__table th, .public-sla__table td { padding: .85rem .75rem; border-bottom: 1px solid rgba(100, 116, 139, .18); }
-.public-sla__table th { color: #334155; font-size: .82rem; }
-.public-sla__table td { color: #475569; }
-.public-sla__table tbody tr:hover { background: rgba(59, 130, 246, .05); }
+.public-sla__table th, .public-sla__table td { padding: .85rem .75rem; border-bottom: 1px solid rgba(105,134,120,.18); }
+.public-sla__table th { color: #375144; font-size: .82rem; }
+.public-sla__table td { color: #4b6558; }
+.public-sla__table tbody tr:hover { background: rgba(46,147,110,.05); }
 .public-sla__note { margin: 1rem 0 0; }
-html.dark .public-sla, body.dark .public-sla { background: rgba(15, 23, 42, .82); border-color: rgba(148, 163, 184, .2); }
-html.dark .public-sla__table th, body.dark .public-sla__table th { color: #e2e8f0; }
-html.dark .public-sla__table td, body.dark .public-sla__table td { color: #cbd5e1; }
+html.dark .public-sla, body.dark .public-sla { background: rgba(18,39,28,.82); border-color: rgba(153,179,166,.2); }
+html.dark .public-sla__table th, body.dark .public-sla__table th { color: #e4eee9; }
+html.dark .public-sla__table td, body.dark .public-sla__table td { color: #ceded6; }

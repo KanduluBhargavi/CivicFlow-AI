@@ -213,7 +213,7 @@ function renderDepartmentIncidentMap(alerts, complaints) {
         const angle=stack*137.508*Math.PI/180,offset=stack===0?0:0.00010*Math.ceil(stack/6);
         const point=[lat+Math.sin(angle)*offset,lon+Math.cos(angle)*offset];
         const priority=String(c.priority||'low').toLowerCase();
-        const color=priority==='critical'?'#991b1b':priority==='high'?'#dc2626':priority==='medium'?'#ea8a0a':'#2563eb';
+        const color=priority==='critical'?'#991b1b':priority==='high'?'#dc2626':priority==='medium'?'#ea8a0a':'#257658';
         const id=Number(c.complaint_id)||0;
         L.circleMarker(point,{radius:6,color:'#fff',weight:1.5,fillColor:color,fillOpacity:.92}).addTo(departmentIncidentLayer)
           .bindPopup(`<strong>Complaint #${id}</strong><br>${escHtml(c.title||'Complaint')}<br><strong>Priority:</strong> ${escHtml(c.priority||'Unknown')}<br><strong>Status:</strong> ${escHtml(c.display_status||c.status||'Unknown')}<br><strong>Area / Block:</strong> ${escHtml(c.area||'Not provided')}<br><strong>Address:</strong> ${escHtml(c.address||'Not provided')}<br><strong>Location:</strong> ${escHtml(c.district||'District not specified')}, ${escHtml(c.state||'State not specified')}<br><small>Marker may be slightly offset when multiple reports share identical coordinates. District-centroid coordinates are not exact address points.</small>`);
@@ -229,17 +229,17 @@ function renderDepartmentSurgeAlerts(payload) {
     const alerts = Array.isArray(payload?.alerts) ? payload.alerts : [];
     renderDepartmentIncidentMap(alerts, Array.isArray(payload?.department_complaints) ? payload.department_complaints : []);
     if (!alerts.length) {
-        list.innerHTML = '<p style="margin:0;color:var(--muted,#64748b)">No emerging incident alerts for this department right now. Alerts require 3 different citizens in 24 hours, or 2 including a Critical report.</p>';
+        list.innerHTML = '<p style="margin:0;color:var(--muted,#698678)">No emerging incident alerts for this department right now. Alerts require 3 different citizens in 24 hours, or 2 including a Critical report.</p>';
         return;
     }
     list.innerHTML = alerts.map(a => {
         const critical = String(a.highest_priority || '').toLowerCase() === 'critical';
         return `<article style="border:1px solid ${critical ? '#ef4444' : '#f59e0b'};border-radius:12px;padding:14px;background:var(--card-bg,#fff)">
           <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap"><strong>${escHtml(a.title || 'Possible growing incident')}</strong><span style="font-weight:700;color:${critical ? '#dc2626' : '#b45309'}">${escHtml(a.highest_priority || 'Priority unknown')}</span></div>
-          <p style="margin:8px 0;color:var(--muted,#64748b)">${escHtml(a.district || 'District not specified')}, ${escHtml(a.state || '')}</p>
+          <p style="margin:8px 0;color:var(--muted,#698678)">${escHtml(a.district || 'District not specified')}, ${escHtml(a.state || '')}</p>
           <div style="display:flex;gap:14px;flex-wrap:wrap"><span><b>${Number(a.reports_last_24h)||0}</b> reports / 24h</span><span><b>${Number(a.distinct_reporters_last_24h)||0}</b> different citizens</span><span><b>${Number(a.unresolved_reports)||0}</b> unresolved</span><span><b>${Number(a.total_reports)||0}</b> linked total</span></div>
           <p style="margin:10px 0 0">${escHtml(a.alert_reason || 'Review this incident cluster.')}</p>
-          <small style="display:block;margin-top:8px;color:var(--muted,#64748b)">Early-warning signal only; verify details before treating this as a confirmed incident.${a.location_available ? '' : ' No usable coordinates are available, so this alert is not pinned on the map.'}</small>
+          <small style="display:block;margin-top:8px;color:var(--muted,#698678)">Early-warning signal only; verify details before treating this as a confirmed incident.${a.location_available ? '' : ' No usable coordinates are available, so this alert is not pinned on the map.'}</small>
         </article>`;
     }).join('');
 }
@@ -551,7 +551,7 @@ function escapeLocationHtml(value) {
         .replaceAll("<", "&lt;")
         .replaceAll(">", "&gt;")
         .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
+        .replaceAll("'", "&#113729;");
 }
 
 function toggleLocationDistrict(index) {

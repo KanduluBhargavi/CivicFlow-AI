@@ -1,0 +1,107 @@
+/* ==========================================================================
+   CIVICFLOW AI — PAGES LAYER  (loads after civicflow-theme.css)
+   Earthy palette applied to admin, department, track, complaint form,
+   feedback, profile and detail pages. Tokens only: no hardcoded colours.
+   Motion: one short rise-in per page, press feedback, nothing loops.
+   ========================================================================== */
+
+/* ---------- entrance: content rises once, staggered ---------- */
+@keyframes cf-rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.content > *, .container > *, main > .panel, .metric-grid > *, .stats > .card, .tab-panel.active > * {
+  animation: cf-rise .5s var(--cf-ease) both;
+}
+.content > :nth-child(2), .metric-grid > :nth-child(2), .stats > .card:nth-child(2) { animation-delay: .05s; }
+.content > :nth-child(3), .metric-grid > :nth-child(3), .stats > .card:nth-child(3) { animation-delay: .1s; }
+.content > :nth-child(4), .metric-grid > :nth-child(4) { animation-delay: .15s; }
+.content > :nth-child(n+5) { animation-delay: .2s; }
+
+/* ---------- admin ---------- */
+body > .admin-nav, .admin-nav {
+  background: var(--cf-bg-2) !important; color: var(--cf-ink) !important;
+  border-bottom: 1px solid var(--cf-line) !important; box-shadow: none !important;
+}
+.admin-nav .admin-brand, .admin-brand { color: var(--cf-ink) !important; }
+.admin-nav .brand__text small, .admin-brand small { color: var(--cf-muted) !important; }
+.admin-nav .nav-actions button, .admin-nav .nav-actions a { color: var(--cf-ink) !important; }
+.notification-bell { background: transparent !important; border-color: var(--cf-line-2) !important; color: var(--cf-ink) !important; border-radius: var(--cf-r-sm) !important; }
+.notification-bell:hover { background: var(--cf-surface-3) !important; }
+.nav-notification-count { background: var(--cf-critical) !important; color: var(--cf-surface) !important; }
+.notification-menu, html.dark .notification-menu { background: var(--cf-surface) !important; color: var(--cf-ink) !important; border: 1px solid var(--cf-line-2) !important; border-radius: var(--cf-r) !important; box-shadow: var(--cf-shadow-lg) !important; }
+.notification-menu-item:hover, html.dark .notification-menu-item:hover { background: var(--cf-surface-2) !important; }
+
+.tab-btn, .subtab {
+  background: transparent !important; color: var(--cf-ink-2) !important; border: 0 !important; border-radius: var(--cf-r-sm) !important;
+  font-weight: 600; position: relative; cursor: pointer; transition: background .16s var(--cf-ease), color .16s var(--cf-ease), transform .16s var(--cf-ease);
+}
+.tab-btn:hover, .subtab:hover { background: var(--cf-surface-3) !important; color: var(--cf-ink) !important; }
+.tab-btn:active, .subtab:active { transform: scale(.97); }
+.tab-btn.active, .subtab.active { background: var(--cf-surface) !important; color: var(--cf-ink) !important; box-shadow: inset 0 0 0 1px var(--cf-line) !important; }
+.tab-btn.active::after, .subtab.active::after { content: ""; position: absolute; left: 12px; right: 12px; bottom: 3px; height: 3px; border-radius: 3px; background: var(--cf-accent); }
+
+.metric-grid article, .hotspot-summary article, .map-analysis, .map-analysis-stat, .integration-details > div, html.dark .metric-grid article, html.dark .hotspot-summary article, html.dark .map-analysis, html.dark .map-analysis-stat {
+  background: var(--cf-surface) !important; color: var(--cf-ink) !important; border: 1px solid var(--cf-line) !important; border-radius: var(--cf-r) !important; box-shadow: var(--cf-shadow-sm) !important;
+}
+.metric-grid article strong, .metric-grid article b { font-family: var(--cf-font-display); letter-spacing: -.03em; color: var(--cf-ink); }
+.panel-head h2, .panel-head h3 { color: var(--cf-ink) !important; }
+.live-chip { background: var(--cf-primary-soft) !important; color: var(--cf-primary) !important; border: 1px solid var(--cf-line-2) !important; border-radius: 999px !important; }
+.bar-track { background: var(--cf-surface-3) !important; border-radius: 999px; }
+.bar-track i { background: var(--cf-primary) !important; border-radius: 999px; transition: width .7s var(--cf-ease); }
+#adminHotspotMap { background: var(--cf-surface-3) !important; border: 1px solid var(--cf-line); }
+.level-1 { background: var(--cf-medium-soft) !important; color: var(--cf-medium) !important; }
+.level-2 { background: var(--cf-high-soft) !important; color: var(--cf-high) !important; }
+.level-3 { background: var(--cf-critical-soft) !important; color: var(--cf-critical) !important; }
+.integration-chip.ready, html.dark .integration-chip.ready { background: var(--cf-low-soft) !important; color: var(--cf-low) !important; }
+.integration-chip.pending, html.dark .integration-chip.pending { background: var(--cf-accent-soft) !important; color: var(--cf-accent-2) !important; }
+.delete-complaint-btn, html.dark .delete-complaint-btn { background: transparent !important; color: var(--cf-critical) !important; border: 1px solid color-mix(in srgb, var(--cf-critical) 45%, transparent) !important; border-radius: var(--cf-r-sm) !important; }
+.delete-complaint-btn:hover { background: var(--cf-critical-soft) !important; }
+.close-escalation-btn, html.dark .close-escalation-btn { background: var(--cf-primary-soft) !important; color: var(--cf-primary) !important; }
+.search, .filter-row input, .filter-row select { background: var(--cf-surface) !important; border: 1px solid var(--cf-line-2) !important; color: var(--cf-ink) !important; border-radius: var(--cf-r-sm) !important; }
+
+/* ---------- department ---------- */
+.section-kicker, .info-card__eyebrow, .accountability-heading small {
+  color: var(--cf-accent-2) !important; font-weight: 700; font-size: 12.5px; letter-spacing: .06em; text-transform: uppercase;
+}
+.officer-create-panel, html.dark .officer-create-panel, .quick-info, .quick-info--polished, .accountability-note, .oversight-card.warning, .oversight-card.danger {
+  background: var(--cf-surface) !important; color: var(--cf-ink) !important; border: 1px solid var(--cf-line) !important; border-radius: var(--cf-r) !important; box-shadow: none !important;
+}
+.accountability-note { background: var(--cf-surface-2) !important; border-left: 3px solid var(--cf-accent) !important; }
+.oversight-card.warning { border-left: 4px solid var(--cf-high) !important; }
+.oversight-card.danger { border-left: 4px solid var(--cf-critical) !important; }
+.officer-field label { color: var(--cf-ink-2) !important; }
+.field-help { color: var(--cf-muted) !important; }
+.officer-profile-dialog { background: var(--cf-surface) !important; color: var(--cf-ink) !important; border: 1px solid var(--cf-line-2) !important; border-radius: var(--cf-r-lg) !important; box-shadow: var(--cf-shadow-lg) !important; }
+.notification-item, html.dark .notification-item { background: var(--cf-surface) !important; color: var(--cf-ink) !important; border-bottom: 1px solid var(--cf-line) !important; }
+.notification-item.at-risk, html.dark .notification-item.at-risk { border-left: 3px solid var(--cf-high) !important; }
+.notification-item.breached, html.dark .notification-item.breached { border-left: 3px solid var(--cf-critical) !important; }
+.notification-item.citizen-confirmed, html.dark .notification-item.citizen-confirmed { border-left: 3px solid var(--cf-low) !important; background: var(--cf-low-soft) !important; }
+.notification-item.citizen-reopen, html.dark .notification-item.citizen-reopen { border-left: 3px solid var(--cf-accent) !important; background: var(--cf-accent-soft) !important; }
+.see-more-btn, .officer-profile-close { background: transparent !important; color: var(--cf-ink) !important; border: 1px solid var(--cf-line-2) !important; border-radius: var(--cf-r-sm) !important; }
+.see-more-btn:hover { background: var(--cf-surface-3) !important; }
+.table-scroll, .table-wrap { border: 1px solid var(--cf-line); border-radius: var(--cf-r); background: var(--cf-surface); }
+
+/* ---------- complaint form, details, incidents, track, feedback, profile ---------- */
+.language-detect-box, html.dark .language-detect-box { background: var(--cf-primary-soft) !important; color: var(--cf-ink) !important; border: 1px solid var(--cf-line-2) !important; border-radius: var(--cf-r) !important; }
+.location-btn, html.dark .location-btn { background: transparent !important; color: var(--cf-ink) !important; border: 1px solid var(--cf-line-2) !important; border-radius: var(--cf-r-sm) !important; box-shadow: none !important; }
+.location-btn:hover { background: var(--cf-surface-3) !important; }
+.live-handling-card, .incident-hero, .hero-primary {
+  background: var(--cf-surface) !important; color: var(--cf-ink) !important; border: 1px solid var(--cf-line) !important; border-top: 4px solid var(--cf-accent) !important; border-radius: var(--cf-r) !important;
+}
+.hero-primary h1, .hero-primary h2, .hero-primary p, .incident-hero h1, .incident-hero p { color: var(--cf-ink) !important; }
+.timeline-item::before, .timeline li::before, .tl-dot { background: var(--cf-primary) !important; border-color: var(--cf-surface) !important; }
+.timeline::before, .timeline-line { background: var(--cf-line-2) !important; }
+.progress-fill, .progress > span, .progress-bar > span { background: var(--cf-primary) !important; }
+.help-option { background: var(--cf-surface) !important; border: 1px solid var(--cf-line) !important; border-radius: var(--cf-r) !important; color: var(--cf-ink) !important; transition: transform .16s var(--cf-ease), border-color .16s var(--cf-ease); }
+.help-option:hover { transform: translateY(-2px); border-color: var(--cf-accent) !important; }
+.help-option-icon, .contact-big-icon, .help-header-icon { background: var(--cf-primary-soft) !important; color: var(--cf-primary) !important; border-radius: var(--cf-r-sm) !important; }
+.chat-message.support-message { background: var(--cf-surface-2) !important; color: var(--cf-ink) !important; border: 1px solid var(--cf-line); }
+.chat-message.user-message { background: var(--cf-primary) !important; color: var(--cf-on-primary) !important; }
+.online-dot { background: var(--cf-low) !important; }
+.star-rating label:hover, .star-rating input:checked ~ label, .rating-star.active { color: var(--cf-accent-2) !important; }
+
+/* generic press feedback for every actionable control */
+button:not(:disabled):active, a.primary-btn:active, a.secondary-btn:active { transform: scale(.98); }
+
+/* leaflet maps follow the palette without recolouring tiles */
+.leaflet-container { background: var(--cf-surface-3) !important; font-family: var(--cf-font-body) !important; }
+.leaflet-popup-content-wrapper, .leaflet-popup-tip { background: var(--cf-surface) !important; color: var(--cf-ink) !important; border-radius: var(--cf-r) !important; box-shadow: var(--cf-shadow-lg) !important; }
+html.dark .leaflet-tile-pane { filter: sepia(.25) brightness(.8) contrast(1.05) saturate(.7); }

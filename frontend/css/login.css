@@ -11,7 +11,7 @@ body{
     background:
     radial-gradient(circle at top left,#2563eb22,transparent 35%),
     radial-gradient(circle at bottom right,#10b98122,transparent 35%),
-    #f4f8fc;
+    #f0faf6;
 
     min-height:100vh;
 
@@ -49,7 +49,7 @@ LEFT PANEL
 
 .left-panel{
 
-    background:linear-gradient(135deg,#183153,#2563eb,#10b981);
+    background:linear-gradient(135deg,#0d251c,#257658,#458c33);
 
     display:flex;
 
@@ -155,7 +155,7 @@ RIGHT PANEL
 
     font-size:50px;
 
-    color:#0f172a;
+    color:#12271c;
 
     margin-bottom:40px;
 }
@@ -182,7 +182,7 @@ INPUT BOX
 
     transform:translateY(-50%);
 
-    color:#2563eb;
+    color:#257658;
 
     z-index:2;
 }
@@ -199,7 +199,7 @@ INPUT BOX
 
     border-radius:15px;
 
-    background:#eef4ff;
+    background:#edf9f5;
 
     padding-left:52px;
 
@@ -212,7 +212,7 @@ INPUT BOX
 
     background:white;
 
-    box-shadow:0 0 0 3px rgba(37,99,235,.18);
+    box-shadow:0 0 0 3px rgba(37,118,88,.18);
 }
 
 /*==========================
@@ -229,7 +229,7 @@ button{
 
     border-radius:15px;
 
-    background:linear-gradient(135deg,#2563eb,#10b981);
+    background:linear-gradient(135deg,#257658,#458c33);
 
     color:white;
 
@@ -246,7 +246,7 @@ button:hover{
 
     transform:translateY(-3px);
 
-    box-shadow:0 20px 35px rgba(37,99,235,.25);
+    box-shadow:0 20px 35px rgba(37,118,88,.25);
 }
 
 /*==========================
@@ -264,7 +264,7 @@ REGISTER LINK
 
 #loginForm a{
 
-    color:#2563eb;
+    color:#257658;
 
     font-weight:600;
 
@@ -273,7 +273,7 @@ REGISTER LINK
 
 #loginForm a:hover{
 
-    color:#10b981;
+    color:#458c33;
 }
 
 /*==========================
@@ -307,83 +307,83 @@ RESPONSIVE
 
 html.dark body {
     background:
-        radial-gradient(circle at top left, rgba(37, 99, 235, 0.18), transparent 35%),
-        radial-gradient(circle at bottom right, rgba(16, 185, 129, 0.12), transparent 35%),
-        #0b1120;
-    color: #f8fafc;
+        radial-gradient(circle at top left, rgba(37,118,88,0.18), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(69,140,51,0.12), transparent 35%),
+        #0e1d16;
+    color: #f9fbfa;
 }
 
 /* Main login container */
 html.dark .auth-container {
-    background: #111827;
+    background: #14241c;
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
 }
 
 /* Right side */
 html.dark .right-panel {
-    background: #111827;
+    background: #14241c;
 }
 
 /* Login heading */
 html.dark #loginForm h2 {
-    color: #f8fafc;
+    color: #f9fbfa;
 }
 
 /* Input fields */
 html.dark .input-box input {
-    background: #1e293b;
-    color: #f8fafc;
-    border: 1px solid rgba(148, 163, 184, 0.12);
+    background: #22372d;
+    color: #f9fbfa;
+    border: 1px solid rgba(153,179,166,0.12);
 }
 
 html.dark .input-box input::placeholder {
-    color: #94a3b8;
+    color: #99b3a6;
 }
 
 html.dark .input-box input:focus {
-    background: #1e293b;
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
+    background: #22372d;
+    border-color: #257658;
+    box-shadow: 0 0 0 3px rgba(37,118,88,0.25);
 }
 
 /* Input icons */
 html.dark .input-box i {
-    color: #60a5fa;
+    color: #5acca2;
 }
 
 /* Register text */
 html.dark #loginForm p {
-    color: #94a3b8;
+    color: #99b3a6;
 }
 
 html.dark #loginForm a {
-    color: #60a5fa;
+    color: #5acca2;
 }
 
 html.dark #loginForm a:hover {
-    color: #34d399;
+    color: #62a951;
 }
 
 /* Login button */
 html.dark button {
-    background: linear-gradient(135deg, #2563eb, #10b981);
+    background: linear-gradient(135deg, #257658, #458c33);
 }
 
 /* Mobile */
 @media (max-width: 1000px) {
     html.dark .auth-container {
-        background: #111827;
+        background: #14241c;
     }
 
     html.dark .right-panel {
-        background: #111827;
+        background: #14241c;
     }
 }
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 1000px #263247 inset !important;
+    -webkit-box-shadow: 0 0 0 1000px #2a4337 inset !important;
     -webkit-text-fill-color: #ffffff !important;
     transition: background-color 5000s ease-in-out 0s;
 }
@@ -394,7 +394,7 @@ input:-webkit-autofill:active {
     margin: 12px 0 0 !important;
 }
 .forgot-password-link a {
-    color: #2563eb;
+    color: #257658;
     font-weight: 600;
     text-decoration: none;
 }

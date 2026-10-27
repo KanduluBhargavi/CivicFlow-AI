@@ -1045,7 +1045,7 @@ def my_complaints(
             "assigned_officer": assignment.full_name if assignment else None,
             "priority": c.priority,
             "created_at": c.created_at,
-            "summary": c.ai_summary
+            "summary": summarize_complaint(c.translated_text or c.description)
         })
 
     return data
@@ -1107,7 +1107,7 @@ def complaint_details(
     } for item in translation_feedback],
     "department": complaint.predicted_department,
     "priority": complaint.priority,
-    "summary": complaint.ai_summary,
+    "summary": summarize_complaint(complaint.translated_text or complaint.description),
     "sentiment": complaint.sentiment,
     "is_duplicate": complaint.is_duplicate,
     "duplicate_of": complaint.duplicate_of_id,

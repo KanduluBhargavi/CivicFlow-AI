@@ -10,16 +10,17 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/design-system.css">
 <link rel="stylesheet" href="css/product-v2.css">
-<link rel="stylesheet" href="css/landing-hero-v4.css">
 <link rel="stylesheet" href="css/responsive.css">
 <link rel="stylesheet" href="css/ui-consistency.css?v=20261009">
-<link rel="stylesheet" href="css/landing-dark-unified.css?v=20261009-r4">
 <link rel="stylesheet" href="css/civic-ui-r3.css?v=3">
 <link rel="stylesheet" href="css/landing-information-r13.css?v=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Public+Sans:ital,wght@0,400..700;1,400..600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Public+Sans:ital,wght@0,400..700;1,400..600&display=swap"></noscript>
+<link rel="stylesheet" href="css/civicflow-theme.css?v=1">
+<link rel="stylesheet" href="css/landing-civic.css?v=1">
 </head>
 
 <body class="landing-refined">
@@ -29,24 +30,26 @@
 <header class="navbar landing-navbar" id="navbar">
   <div class="navbar__inner landing-navbar__inner">
 
-    <a href="#top" class="brand landing-brand" aria-label="CivicFlow home">
-      <span class="landing-brand__mark" aria-hidden="true"><img src="images/civicflow-logo.svg" alt="" width="40" height="40"></span>
-<span class="landing-brand__text">CivicFlow <b>AI</b></span>
+    <a href="#top" class="brand landing-brand" aria-label="CivicFlow AI home">
+      <span class="landing-brand__mark" aria-hidden="true"><svg class="cf-mark" viewBox="0 0 40 40" width="36" height="36"><rect class="m-bg" width="40" height="40" rx="10"/><path class="m-route" d="M11 28c0-8 9-5 9-11s6-5 9-5"/><circle class="m-a" cx="11" cy="28" r="3"/><circle class="m-b" cx="29" cy="12" r="3.8"/></svg></span>
+      <span class="landing-brand__text">CivicFlow <b>AI</b></span>
     </a>
 
     <nav class="nav-links landing-nav-links" id="navLinks" aria-label="Primary navigation">
       <a class="is-active" href="#top">Home</a>
-      <a href="login.html?next=track">Track Complaint</a>
+      <a href="login.html?next=track">Track a complaint</a>
       <a href="#departments">Departments</a>
-      <a href="#about">About</a>
-      <a href="#journey">How It Works</a>
+      <a href="#about">Live figures</a>
+      <a href="#journey">How it works</a>
       <a href="#faq">FAQs</a>
+      <a class="nav-only-mobile" href="login.html">Log in</a>
+      <a class="nav-only-mobile" href="register.html">Create account</a>
     </nav>
 
     <div class="navbar__actions landing-navbar__actions">
-      <button id="themeToggle" class="theme-toggle landing-theme-toggle" type="button" aria-label="Toggle dark mode">🌙</button>
-      <a href="login.html" class="landing-login">Login</a>
-      <a href="register.html" class="landing-signup">Sign Up <span>→</span></a>
+      <button id="themeToggle" class="theme-toggle landing-theme-toggle" type="button" aria-label="Toggle dark mode"></button>
+      <a href="login.html" class="landing-login">Log in</a>
+      <a href="register.html" class="landing-signup">Create account</a>
       <button class="nav-toggle landing-nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -57,102 +60,53 @@
 
 <main id="main">
 
-<section class="hero landing-hero" id="top">
-  <div class="landing-hero__wash landing-hero__wash--one"></div>
-  <div class="landing-hero__wash landing-hero__wash--two"></div>
-
+<section class="hero landing-hero cf-contours" id="top">
   <div class="landing-hero__inner">
 
     <div class="landing-hero__copy">
-
-      <div class="landing-pill">
-        <span class="landing-pill__icon">⌂</span>
-        <span>Safer</span><i></i><span>Cleaner</span><i></i><span>More Accountable Cities</span>
-      </div>
-
-      <h1 class="landing-hero__heading">
-        A smarter way to
-        <span>build better cities.</span>
-      </h1>
+      <h1 class="landing-hero__heading">Say it in your own language. It reaches the right desk.</h1>
 
       <p class="landing-hero__paragraph">
-        Report civic issues, follow complaint progress, and stay connected with the department handling your case.
-        CivicFlow combines multilingual support, AI-assisted routing, priority intelligence and transparent tracking in one public-service workflow.
+        CivicFlow reads your complaint in any of 22 language choices, sends it to the department that handles it,
+        and shows you every step until the case is closed.
       </p>
 
       <div class="landing-hero__actions">
-        <a href="login.html?next=lodge" class="landing-primary-cta">
-          <span class="landing-cta-icon">↗</span>
-          Report a Complaint
-          <b>→</b>
-        </a>
-
-        <a href="login.html?next=track" class="landing-secondary-cta">
-          <span class="landing-search-icon">⌕</span>
-          Track Complaint
-        </a>
+        <a href="login.html?next=lodge" class="landing-primary-cta">Report a complaint</a>
+        <a href="login.html?next=track" class="landing-secondary-cta">Track a complaint</a>
       </div>
 
-      <div class="landing-capabilities">
-        <div class="landing-capability">
-          <span class="landing-capability__icon landing-capability__icon--blue">◎</span>
-          <div><strong>8</strong><small>AI-routed departments</small></div>
-        </div>
-        <span class="landing-capability__divider"></span>
-        <div class="landing-capability">
-          <span class="landing-capability__icon landing-capability__icon--purple">文</span>
-          <div><strong>22</strong><small>Language choices</small></div>
-        </div>
-        <span class="landing-capability__divider"></span>
-        <div class="landing-capability">
-          <span class="landing-capability__icon landing-capability__icon--green">✓</span>
-          <div><strong>Live</strong><small>Complaint tracking</small></div>
-        </div>
-      </div>
+      <ul class="landing-facts" aria-label="Platform facts">
+        <li><strong>8</strong> departments receive routed complaints</li>
+        <li><strong>22</strong> language choices on the form</li>
+        <li><strong>1</strong> tracking ID for every case</li>
+      </ul>
     </div>
 
-    <div class="landing-hero__visual" aria-label="Smart city community illustration">
-      <div class="landing-art-halo"></div>
-      <img class="landing-city-art" src="images/civicflow-city-hero.png" alt="Illustrated clean smart city and community" fetchpriority="high" decoding="async">
+    <aside class="docket" aria-label="Example of how CivicFlow handles a complaint">
+      <header class="docket__head">
+        <span>Example complaint</span>
+        <b>CF-2026-004217</b>
+      </header>
 
-      <div class="landing-float-card landing-float-card--clean">
-        <span class="landing-float-icon landing-float-icon--green">◆</span>
-        <div><strong>Multilingual Intake</strong><small>Indian-language complaints supported</small></div>
+      <div class="docket__body">
+        <p class="docket__orig" lang="te">మా వీధిలో నీటి పైపు మూడు రోజులుగా లీక్ అవుతోంది. రోడ్డంతా నీరు నిలిచిపోయింది.</p>
+
+        <p class="docket__tr">
+          <span class="docket__lang">Telugu to English</span>
+          The water pipe on our street has been leaking for three days. Water has pooled across the road.
+        </p>
+
+        <dl class="docket__steps">
+          <div class="docket__step"><dt>Department</dt><dd>Water Supply</dd></div>
+          <div class="docket__step"><dt>Priority</dt><dd><span class="cf-priority" data-p="high">High</span><span class="docket__why">Water is being lost on a public road</span></dd></div>
+          <div class="docket__step"><dt>Assigned to</dt><dd>Ward officer<span class="docket__why">Response clock started</span></dd></div>
+        </dl>
       </div>
 
-      <div class="landing-float-card landing-float-card--routing">
-        <span class="landing-float-icon landing-float-icon--amber">⚡</span>
-        <div><strong>AI Department Routing</strong><small>Sent to the responsible department</small></div>
-      </div>
+      <div class="docket__stamp" aria-hidden="true">Received</div>
+    </aside>
 
-      <div class="landing-float-card landing-float-card--community">
-        <span class="landing-float-icon landing-float-icon--blue">●●</span>
-        <div><strong>Live Complaint Tracking</strong><small>Follow assignment, progress and resolution</small></div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="landing-feature-strip">
-    <article>
-      <span class="landing-feature-icon landing-feature-icon--mint">⌘</span>
-      <div><h3>AI Powered</h3><p>Department routing and priority classification.</p></div>
-    </article>
-    <span class="landing-feature-separator"></span>
-    <article>
-      <span class="landing-feature-icon landing-feature-icon--purple">文</span>
-      <div><h3>Multilingual</h3><p>Indian-language grievance submission support.</p></div>
-    </article>
-    <span class="landing-feature-separator"></span>
-    <article>
-      <span class="landing-feature-icon landing-feature-icon--green">◷</span>
-      <div><h3>Real-time Updates</h3><p>Track every stage of the complaint lifecycle.</p></div>
-    </article>
-    <span class="landing-feature-separator"></span>
-    <article>
-      <span class="landing-feature-icon landing-feature-icon--blue">◎</span>
-      <div><h3>Community Incidents</h3><p>Related reports grouped with privacy preserved.</p></div>
-    </article>
   </div>
 </section>
 
@@ -160,7 +114,6 @@
   <section class="dashboard" id="about">
     <div class="section-inner">
       <div class="section-head">
-        <p class="eyebrow eyebrow--dark"><span class="eyebrow__dot"></span>Live National Dashboard</p>
         <h2>The grievance network, at a glance</h2>
         <p class="section-sub">Figures update continuously as complaints are lodged, classified and resolved across the country.</p>
       </div>
@@ -211,7 +164,6 @@
 
   <section class="public-sla section-inner" id="service-levels" aria-labelledby="public-sla-title">
     <div class="section-head">
-      <p class="eyebrow eyebrow--dark"><span class="eyebrow__dot"></span>PUBLIC ACCOUNTABILITY</p>
       <h2 id="public-sla-title">Service levels by district</h2>
       <p class="section-sub">Aggregated results for the last 90 days. Resolution time uses cases with recorded assignment and resolution timestamps; open overdue cases use the same priority-based SLA targets as department operations.</p>
     </div>
@@ -230,10 +182,6 @@
 <div class="section-inner" id="features">
 
   <div class="section-head">
-    <p class="eyebrow eyebrow--dark">
-      <span class="eyebrow__dot"></span>
-      HOW CIVICFLOW WORKS
-    </p>
 
     <h2>Your complaint. Our system. Better public service.</h2>
 
@@ -362,7 +310,6 @@
   <section class="command" id="command">
     <div class="section-inner">
       <div class="section-head section-head--light">
-        <p class="eyebrow"><span class="eyebrow__dot"></span>National Command Center</p>
         <h2>Complaint activity, mapped by area</h2>
         <p class="section-sub section-sub--light">Explore approximate complaint activity across India. Public map markers group reports by locality and do not show individual complaint details.</p>
       </div>
@@ -395,18 +342,18 @@
 <!-- Informational sections: no additional API requests -->
 <section class="info-band" id="departments" aria-labelledby="issues-title">
   <div class="section-inner" id="reportable-issues">
-    <div class="section-head"><p class="eyebrow eyebrow--dark">REPORT CIVIC ISSUES</p><h2 id="issues-title">What can you report?</h2><p class="section-sub">Tell the right team what is happening in your neighbourhood. Choose the category that best describes your issue when submitting.</p></div>
+    <div class="section-head"><h2 id="issues-title">What can you report?</h2><p class="section-sub">Tell the right team what is happening in your neighbourhood. Choose the category that best describes your issue when submitting.</p></div>
     <div class="info-grid issues-grid">
       <article class="info-tile issue-performance-card" tabindex="0" data-department="Water Supply" role="button" aria-pressed="false" aria-label="Water Supply: show complaint count">
         <div class="department-flip-stage"><div class="department-flip-rotor">
           <div class="department-face department-face--front">
-            <span class="info-symbol" aria-hidden="true">💧</span>
+            <span class="info-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3.5 4.2 6 7 6 10.2A6 6 0 0 1 6 13.2C6 10 8.5 7.200 12 3Z"/></svg></span>
             <h3>Water Supply</h3>
             <p>Water interruptions, leaks and water quality concerns.</p>
             <span class="department-flip-hint">Hover or tap to see department activity <span aria-hidden="true">↻</span></span>
           </div>
           <div class="department-face department-face--back">
-            <span class="department-back-eyebrow">DEPARTMENT ACTIVITY</span>
+            <span class="department-back-eyebrow">Recorded complaints</span>
             <strong class="issue-performance-count">Loading counts…</strong>
             
             <span class="department-back-share">Share of listed department reports: —</span>
@@ -419,13 +366,13 @@
       <article class="info-tile issue-performance-card" tabindex="0" data-department="Sanitation" role="button" aria-pressed="false" aria-label="Sanitation: show complaint count">
         <div class="department-flip-stage"><div class="department-flip-rotor">
           <div class="department-face department-face--front">
-            <span class="info-symbol" aria-hidden="true">🧹</span>
+            <span class="info-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M7 20l1-8h8l1 8M9 12V5a3 3 0 0 1 6 0v7"/></svg></span>
             <h3>Sanitation</h3>
             <p>Waste collection, drainage and sanitation problems.</p>
             <span class="department-flip-hint">Hover or tap to see department activity <span aria-hidden="true">↻</span></span>
           </div>
           <div class="department-face department-face--back">
-            <span class="department-back-eyebrow">DEPARTMENT ACTIVITY</span>
+            <span class="department-back-eyebrow">Recorded complaints</span>
             <strong class="issue-performance-count">Loading counts…</strong>
             
             <span class="department-back-share">Share of listed department reports: —</span>
@@ -438,13 +385,13 @@
       <article class="info-tile issue-performance-card" tabindex="0" data-department="Roads & Transport" role="button" aria-pressed="false" aria-label="Roads & Transport: show complaint count">
         <div class="department-flip-stage"><div class="department-flip-rotor">
           <div class="department-face department-face--front">
-            <span class="info-symbol" aria-hidden="true">🛣️</span>
+            <span class="info-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3 5 21M15 3l4 18M12 4v3M12 11v3M12 18v3"/></svg></span>
             <h3>Roads & Transport</h3>
             <p>Potholes, damaged roads and transport infrastructure.</p>
             <span class="department-flip-hint">Hover or tap to see department activity <span aria-hidden="true">↻</span></span>
           </div>
           <div class="department-face department-face--back">
-            <span class="department-back-eyebrow">DEPARTMENT ACTIVITY</span>
+            <span class="department-back-eyebrow">Recorded complaints</span>
             <strong class="issue-performance-count">Loading counts…</strong>
             
             <span class="department-back-share">Share of listed department reports: —</span>
@@ -457,13 +404,13 @@
       <article class="info-tile issue-performance-card" tabindex="0" data-department="Electricity" role="button" aria-pressed="false" aria-label="Electricity: show complaint count">
         <div class="department-flip-stage"><div class="department-flip-rotor">
           <div class="department-face department-face--front">
-            <span class="info-symbol" aria-hidden="true">💡</span>
+            <span class="info-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.500 10.900c.700.600 1 1.300 1 2.100h5c0-.800.300-1.500 1-2.100A6 6 0 0 0 12 3Z"/></svg></span>
             <h3>Electricity</h3>
             <p>Power outages, streetlight failures and electrical hazards.</p>
             <span class="department-flip-hint">Hover or tap to see department activity <span aria-hidden="true">↻</span></span>
           </div>
           <div class="department-face department-face--back">
-            <span class="department-back-eyebrow">DEPARTMENT ACTIVITY</span>
+            <span class="department-back-eyebrow">Recorded complaints</span>
             <strong class="issue-performance-count">Loading counts…</strong>
             
             <span class="department-back-share">Share of listed department reports: —</span>
@@ -476,13 +423,13 @@
       <article class="info-tile issue-performance-card" tabindex="0" data-department="Healthcare" role="button" aria-pressed="false" aria-label="Healthcare: show complaint count">
         <div class="department-flip-stage"><div class="department-flip-rotor">
           <div class="department-face department-face--front">
-            <span class="info-symbol" aria-hidden="true">🏥</span>
+            <span class="info-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M12 9v7M8.500 12.500h7"/></svg></span>
             <h3>Healthcare</h3>
             <p>Healthcare access and public health service concerns.</p>
             <span class="department-flip-hint">Hover or tap to see department activity <span aria-hidden="true">↻</span></span>
           </div>
           <div class="department-face department-face--back">
-            <span class="department-back-eyebrow">DEPARTMENT ACTIVITY</span>
+            <span class="department-back-eyebrow">Recorded complaints</span>
             <strong class="issue-performance-count">Loading counts…</strong>
             
             <span class="department-back-share">Share of listed department reports: —</span>
@@ -495,13 +442,13 @@
       <article class="info-tile issue-performance-card" tabindex="0" data-department="Police" role="button" aria-pressed="false" aria-label="Police: show complaint count">
         <div class="department-flip-stage"><div class="department-flip-rotor">
           <div class="department-face department-face--front">
-            <span class="info-symbol" aria-hidden="true">🛡️</span>
+            <span class="info-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5c0 4.500 3 8 7 10 4-2 7-5.500 7-10V6l-7-3Z"/></svg></span>
             <h3>Police</h3>
             <p>Public safety, policing and community security.</p>
             <span class="department-flip-hint">Hover or tap to see department activity <span aria-hidden="true">↻</span></span>
           </div>
           <div class="department-face department-face--back">
-            <span class="department-back-eyebrow">DEPARTMENT ACTIVITY</span>
+            <span class="department-back-eyebrow">Recorded complaints</span>
             <strong class="issue-performance-count">Loading counts…</strong>
             
             <span class="department-back-share">Share of listed department reports: —</span>
@@ -514,13 +461,13 @@
       <article class="info-tile issue-performance-card" tabindex="0" data-department="Education" role="button" aria-pressed="false" aria-label="Education: show complaint count">
         <div class="department-flip-stage"><div class="department-flip-rotor">
           <div class="department-face department-face--front">
-            <span class="info-symbol" aria-hidden="true">📚</span>
+            <span class="info-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h6a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H5V4ZM19 4h-6v16a2 2 0 0 1 2-2h4V4Z"/></svg></span>
             <h3>Education</h3>
             <p>School facilities, teachers and education services.</p>
             <span class="department-flip-hint">Hover or tap to see department activity <span aria-hidden="true">↻</span></span>
           </div>
           <div class="department-face department-face--back">
-            <span class="department-back-eyebrow">DEPARTMENT ACTIVITY</span>
+            <span class="department-back-eyebrow">Recorded complaints</span>
             <strong class="issue-performance-count">Loading counts…</strong>
             
             <span class="department-back-share">Share of listed department reports: —</span>
@@ -533,13 +480,13 @@
       <article class="info-tile issue-performance-card" tabindex="0" data-department="Municipal Corporation" role="button" aria-pressed="false" aria-label="Municipal Corporation: show complaint count">
         <div class="department-flip-stage"><div class="department-flip-rotor">
           <div class="department-face department-face--front">
-            <span class="info-symbol" aria-hidden="true">🏙️</span>
+            <span class="info-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V9l6-3v15M10 21V4l10 4v13M3 21h18M7 12h0M7 16h0M14 11h2M14 15h2"/></svg></span>
             <h3>Municipal Corporation</h3>
             <p>Civic facilities, local infrastructure and municipal services.</p>
             <span class="department-flip-hint">Hover or tap to see department activity <span aria-hidden="true">↻</span></span>
           </div>
           <div class="department-face department-face--back">
-            <span class="department-back-eyebrow">DEPARTMENT ACTIVITY</span>
+            <span class="department-back-eyebrow">Recorded complaints</span>
             <strong class="issue-performance-count">Loading counts…</strong>
             
             <span class="department-back-share">Share of listed department reports: —</span>
@@ -559,10 +506,6 @@
   <div class="section-inner">
 
     <div class="section-head">
-      <p class="eyebrow eyebrow--dark">
-        <span class="eyebrow__dot"></span>
-        HOW IT WORKS
-      </p>
 
       <h2>The complaint journey</h2>
 
@@ -714,24 +657,24 @@
 
 <section class="info-band info-band--soft" id="accessibility" aria-labelledby="access-title">
   <div class="section-inner info-split">
-    <div class="info-copy"><p class="eyebrow eyebrow--dark">ACCESS FOR EVERY CITIZEN</p><h2 id="access-title">Explain it in your language</h2><p>Write complaints in your preferred language. CivicFlow preserves the original text and attempts an English processing copy for department staff.</p><p>Voice input depends on browser and language support. When you record your voice, Listen Back lets you hear your original recording before submission.</p></div>
-    <div class="info-highlight"><span class="info-symbol" aria-hidden="true">🌐</span><h3>Language-friendly reporting</h3><p>Original-language complaint</p><div class="info-arrow" aria-hidden="true">↓</div><p>Translation for department processing, where available</p><small>Speech recognition and translation quality can vary by language.</small></div>
+    <div class="info-copy"><h2 id="access-title">Explain it in your language</h2><p>Write complaints in your preferred language. CivicFlow preserves the original text and attempts an English processing copy for department staff.</p><p>Voice input depends on browser and language support. When you record your voice, Listen Back lets you hear your original recording before submission.</p></div>
+    <div class="info-highlight"><span class="info-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></span><h3>Language-friendly reporting</h3><p>Original-language complaint</p><div class="info-arrow" aria-hidden="true">↓</div><p>Translation for department processing, where available</p><small>Speech recognition and translation quality can vary by language.</small></div>
   </div>
 </section>
 <section class="info-band" id="community-incidents" aria-labelledby="incidents-title">
   <div class="section-inner info-split">
-    <div class="info-copy"><p class="eyebrow eyebrow--dark">COMMUNITY INCIDENTS</p><h2 id="incidents-title">See the wider picture</h2><p>Related complaint reports can reveal recurring civic problems. CivicFlow checks complaint meaning to suggest similarities, while location-based incident summaries help departments identify affected areas.</p><p>A similarity score is not proof that two complaints describe the same incident. Different issues—such as dirty water and no water supply—should remain distinguishable.</p></div>
-    <div class="info-highlight"><span class="info-symbol" aria-hidden="true">📍</span><h3>One area. Better context.</h3><p>Individual citizen reports</p><div class="info-arrow" aria-hidden="true">↓</div><p>Related-issue review and area-level insights</p><small>Citizen identities and private complaint details should not be exposed publicly.</small></div>
+    <div class="info-copy"><h2 id="incidents-title">See the wider picture</h2><p>Related complaint reports can reveal recurring civic problems. CivicFlow checks complaint meaning to suggest similarities, while location-based incident summaries help departments identify affected areas.</p><p>A similarity score is not proof that two complaints describe the same incident. Different issues—such as dirty water and no water supply—should remain distinguishable.</p></div>
+    <div class="info-highlight"><span class="info-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.200 7-11.500A7 7 0 0 0 5 9.500C5 14.800 12 21 12 21Z"/><circle cx="12" cy="9.500" r="2.500"/></svg></span><h3>One area. Better context.</h3><p>Individual citizen reports</p><div class="info-arrow" aria-hidden="true">↓</div><p>Related-issue review and area-level insights</p><small>Citizen identities and private complaint details should not be exposed publicly.</small></div>
   </div>
 </section>
 <section class="info-band info-band--soft" id="citizen-rights" aria-labelledby="rights-title">
   <div class="section-inner">
-    <div class="section-head"><p class="eyebrow eyebrow--dark">TRANSPARENCY & ACCOUNTABILITY</p><h2 id="rights-title">Know what happens next</h2><p class="section-sub">A complaint is more than a submission. You should be able to understand its progress and respond to the outcome.</p></div>
+    <div class="section-head"><h2 id="rights-title">Know what happens next</h2><p class="section-sub">A complaint is more than a submission. You should be able to understand its progress and respond to the outcome.</p></div>
     <div class="info-grid rights-grid">
-      <article class="info-tile"><span class="info-symbol" aria-hidden="true">🔎</span><h3>Track your case</h3><p>Follow status changes and see when your complaint reaches the responsible team.</p></article>
-      <article class="info-tile"><span class="info-symbol" aria-hidden="true">👤</span><h3>Officer accountability</h3><p>Department workflows record assignments, actions and progress updates.</p></article>
-      <article class="info-tile"><span class="info-symbol" aria-hidden="true">✅</span><h3>Review the resolution</h3><p>Confirm whether the issue was actually resolved, or request another review within the available dispute process.</p></article>
-      <article class="info-tile"><span class="info-symbol" aria-hidden="true">🔐</span><h3>Evidence awareness</h3><p>Share relevant supporting material. Avoid unnecessary personal information and review the complaint before submission.</p></article>
+      <article class="info-tile"><span class="info-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.200-4.200"/></svg></span><h3>Track your case</h3><p>Follow status changes and see when your complaint reaches the responsible team.</p></article>
+      <article class="info-tile"><span class="info-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.500"/><path d="M5 20a7 7 0 0 1 14 0"/></svg></span><h3>Officer accountability</h3><p>Department workflows record assignments, actions and progress updates.</p></article>
+      <article class="info-tile"><span class="info-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12.500 3 3 5-6"/></svg></span><h3>Review the resolution</h3><p>Confirm whether the issue was actually resolved, or request another review within the available dispute process.</p></article>
+      <article class="info-tile"><span class="info-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><h3>Evidence awareness</h3><p>Share relevant supporting material. Avoid unnecessary personal information and review the complaint before submission.</p></article>
     </div>
   </div>
 </section>
@@ -747,11 +690,6 @@
 ========================================================= -->
 
 <div class="section-head section-head--light">
-
-    <p class="eyebrow">
-        <span class="eyebrow__dot"></span>
-        HOW TO USE CIVICFLOW
-    </p>
 
     <h2>
         Submit your complaint in a few simple steps
@@ -798,7 +736,7 @@
                 cy="20"
                 r="17"
                 fill="none"
-                stroke="#60a5fa"
+                stroke="#5acca2"
                 stroke-width="3"
             />
 
@@ -807,7 +745,7 @@
                 cy="20"
                 r="10"
                 fill="none"
-                stroke="#2563eb"
+                stroke="#257658"
                 stroke-width="3"
             />
 
@@ -815,7 +753,7 @@
                 cx="20"
                 cy="20"
                 r="4"
-                fill="#2563eb"
+                fill="#257658"
             />
 
         </svg>
@@ -884,7 +822,7 @@
                         cy="20"
                         r="17"
                         fill="none"
-                        stroke="#60a5fa"
+                        stroke="#5acca2"
                         stroke-width="3"
                     />
 
@@ -893,7 +831,7 @@
                         cy="20"
                         r="10"
                         fill="none"
-                        stroke="#2563eb"
+                        stroke="#257658"
                         stroke-width="3"
                     />
 
@@ -901,7 +839,7 @@
                         cx="20"
                         cy="20"
                         r="4"
-                        fill="#2563eb"
+                        fill="#257658"
                     />
 
                 </svg>
@@ -1204,7 +1142,6 @@
   <section class="faq" id="faq">
     <div class="section-inner section-inner--narrow">
       <div class="section-head">
-        <p class="eyebrow eyebrow--dark"><span class="eyebrow__dot"></span>Frequently Asked</p>
         <h2>Questions, answered</h2>
       </div>
 
@@ -1266,11 +1203,6 @@
  <section class="user-feedback-section" id="feedback">
 
 <div class="feedback-section-header">
-
-    <span class="feedback-tag">
-        <i class="fa-solid fa-heart"></i>
-        USER EXPERIENCES
-    </span>
 
     <h2>What Our Users Say</h2>
 

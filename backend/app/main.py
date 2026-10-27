@@ -192,7 +192,7 @@ async def security_headers(request: Request, call_next):
     response.headers["X-Content-Type-Options"] = "nosniff"
     response.headers["X-Frame-Options"] = "DENY"
     response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
-    response.headers["Permissions-Policy"] = "geolocation=(self), camera=(), microphone=()"
+    response.headers["Permissions-Policy"] = "geolocation=(self), camera=(), microphone=(self)"
     response.headers["Cross-Origin-Opener-Policy"] = "same-origin"
     return response
 # Uploads are NOT public static files: a valid signed token (issued inside
@@ -226,12 +226,29 @@ app.include_router(support_routes.router)
 app.include_router(voice_router)
 
 
-@app.get("/")
+_FRONTEND_MOUNTED = False
+
+
+@app.get("/", include_in_schema=False)
 def home():
-    return {
-        "message": "Welcome to CivicFlow AI Backend",
-        "status":"Running Successfully"
-    }
+    from fastapi.responses import FileResponse
+
+    frontend_dir = os.getenv(
+        "FRONTEND_DIR",
+        os.path.abspath(
+            os.path.join(os.path.dirname(__file__), "..", "..", "frontend")
+        )
+    )
+
+    index_file = os.path.join(frontend_dir, "index.html")
+
+    if os.path.isfile(index_file):
+        return FileResponse(index_file, media_type="text/html")
+
+    raise HTTPException(
+        status_code=500,
+        detail=f"Frontend index.html not found: {index_file}"
+    )
 
 @app.get("/health")
 def health():
@@ -245,3 +262,16 @@ def health():
         raise HTTPException(status_code=503, detail="Database health check failed")
     finally:
         db.close()
+
+
+# Serve frontend assets (CSS, JavaScript, images, and HTML).
+# Keep this mount last so the existing API routes retain priority.
+_frontend_dir = os.getenv(
+    "FRONTEND_DIR",
+    os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "frontend")),
+)
+if os.path.isfile(os.path.join(_frontend_dir, "index.html")):
+    app.mount("/", StaticFiles(directory=_frontend_dir, html=True), name="frontend")
+    print(f"[frontend] serving {_frontend_dir} at /", flush=True)
+else:
+    print(f"[frontend] NOT FOUND: {_frontend_dir}", flush=True)

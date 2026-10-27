@@ -172,7 +172,7 @@ async function reverseGeocode(lat, lon) {
 
     const setStatus = (message, isError = false) => {
         status.textContent = message;
-        status.style.color = isError ? "#b91c1c" : "var(--text-secondary, #475569)";
+        status.style.color = isError ? "#b91c1c" : "var(--text-secondary, #4b6558)";
     };
 
     function updateCandidateCoordinates(lat, lon, userMoved = false) {

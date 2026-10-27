@@ -11,7 +11,7 @@
     <title>Complaint Details | CivicFlow AI</title>
 
     <link rel="stylesheet"
-          href="css/department_details.css?v=20261022-assignment-display-1">
+          href="css/department_details.css?v=20261025-sla-summary-fix">
     <link rel="stylesheet" href="css/department_guide.css?v=20261022-role-guide-2">
 
     <link rel="stylesheet"
@@ -22,6 +22,11 @@
 <link rel="stylesheet" href="css/responsive.css">
 <link rel="stylesheet" href="css/ui-consistency.css?v=20261009">
 <link rel="stylesheet" href="css/civic-ui-r3.css?v=3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Public+Sans:ital,wght@0,400..700;1,400..600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Public+Sans:ital,wght@0,400..700;1,400..600&display=swap"></noscript>
+<link rel="stylesheet" href="css/civicflow-theme.css?v=1">
 </head>
 
 <body>
@@ -257,10 +262,10 @@
                     <span class="sla-state" id="slaState">-</span>
                 </div>
                 <div class="sla-metrics">
-                    <div><span>Target</span><strong id="slaTarget">-</strong></div>
-                    <div><span>Deadline</span><strong id="slaDeadline">-</strong></div>
-                    <div><span>Time remaining</span><strong id="slaRemaining">-</strong></div>
-                    <div><span>Auto-assignment to officer</span><strong id="officerAssignmentDue">-</strong></div>
+                    <div><span>Resolution deadline</span><strong id="slaDeadline">-</strong></div>
+                    <div><span>Time left to resolve</span><strong id="slaRemaining">-</strong></div>
+                    <div><span>Department Head assignment deadline</span><strong id="officerAssignmentDue">-</strong></div>
+                    <div><span>Time left to assign an officer</span><strong id="officerAssignmentRemaining">-</strong></div>
                 </div>
                 <p class="sla-basis" id="slaBasis" aria-live="polite"></p>
                 <div class="sla-track"><span id="slaProgress"></span></div>
@@ -555,7 +560,7 @@
 
 <script src="js/api.js?v=20261021-api-routing-2"></script>
 
-<script src="js/department_details.js?v=20261022-assignment-display-1"></script>
+<script src="js/department_details.js?v=20261025-sla-summary-fix"></script>
 <script src="js/department_guide.js?v=20261022-role-guide-2"></script>
 
 </body>

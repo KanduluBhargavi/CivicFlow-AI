@@ -130,13 +130,16 @@ def _ensure_english_translation(complaint, db):
     # on every page load.
     stored = (complaint.translated_text or "").strip()
     if stored and is_usable_english_translation(original, stored):
-        # Repair an old non-English summary if necessary.
+        # Rebuild legacy summaries with the current operational summarizer. This
+        # also replaces old summaries that are valid English but omit the issue,
+        # duration, or requested action (for example, a rhetorical question only).
+        refreshed_summary = summarize_complaint(stored)
         current_summary = (complaint.ai_summary or "").strip()
-        if not current_summary or not is_usable_english_translation(original, current_summary):
-            complaint.ai_summary = summarize_complaint(stored)
+        if current_summary != refreshed_summary:
+            complaint.ai_summary = refreshed_summary
             db.commit()
             db.refresh(complaint)
-        return {"text": stored, "status": "stored_translation", "repaired": False}
+        return {"text": stored, "status": "stored_translation", "repaired": current_summary != refreshed_summary}
 
     # Production read path: never contact an external translation provider here.
     # Translation belongs to complaint ingestion / explicit repair jobs, not GET requests.

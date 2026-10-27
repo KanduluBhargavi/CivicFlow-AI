@@ -1,7 +1,7 @@
 .back-btn{
     padding:10px 18px;
     border:none;
-    background:#2563eb;
+    background:#257658;
     color:white;
     border-radius:8px;
     cursor:pointer;
@@ -9,13 +9,13 @@
 }
 
 .back-btn:hover{
-    background:#1d4ed8;
+    background:#1f644b;
 }
 .track-btn{
 
 padding:8px 18px;
 
-background:#2563eb;
+background:#257658;
 
 color:#fff;
 
@@ -31,7 +31,7 @@ font-weight:600;
 
 .track-btn:hover{
 
-background:#1d4ed8;
+background:#1f644b;
 
 }
 .view-btn,
@@ -61,7 +61,7 @@ gap:8px;
 
 .view-btn{
 
-background:#2563eb;
+background:#257658;
 
 color:white;
 
@@ -69,17 +69,17 @@ color:white;
 
 .view-btn:hover{
 
-background:#1d4ed8;
+background:#1f644b;
 
 transform:translateY(-2px);
 
-box-shadow:0 8px 18px rgba(37,99,235,.3);
+box-shadow:0 8px 18px rgba(37,118,88,.3);
 
 }
 
 .track-btn{
 
-background:#10b981;
+background:#458c33;
 
 color:white;
 
@@ -87,11 +87,11 @@ color:white;
 
 .track-btn:hover{
 
-background:#059669;
+background:#337024;
 
 transform:translateY(-2px);
 
-box-shadow:0 8px 18px rgba(16,185,129,.3);
+box-shadow:0 8px 18px rgba(69,140,51,.3);
 
 }
 /* =========================================================
@@ -102,8 +102,8 @@ html.dark body {
     background:
         radial-gradient(circle at top left, #2563eb20, transparent 35%),
         radial-gradient(circle at bottom right, #10b98118, transparent 35%),
-        #080d18;
-    color: #f8fafc;
+        #040b08;
+    color: #f9fbfa;
 }
 
 
@@ -112,12 +112,12 @@ html.dark body {
    ========================= */
 
 html.dark .back-btn {
-    background: #2563eb;
+    background: #257658;
     color: #fff;
 }
 
 html.dark .back-btn:hover {
-    background: #1d4ed8;
+    background: #1f644b;
 }
 
 
@@ -126,13 +126,13 @@ html.dark .back-btn:hover {
    ========================= */
 
 html.dark .track-btn {
-    background: #059669;
+    background: #337024;
     color: #fff;
 }
 
 html.dark .track-btn:hover {
-    background: #047857;
-    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.25);
+    background: #29591d;
+    box-shadow: 0 8px 20px rgba(69,140,51,0.25);
 }
 
 
@@ -141,13 +141,13 @@ html.dark .track-btn:hover {
    ========================= */
 
 html.dark .view-btn {
-    background: #2563eb;
+    background: #257658;
     color: #fff;
 }
 
 html.dark .view-btn:hover {
-    background: #1d4ed8;
-    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+    background: #1f644b;
+    box-shadow: 0 8px 20px rgba(37,118,88,0.3);
 }
 
 /* =========================
@@ -198,11 +198,11 @@ html.dark .flag-frustrated {
 .page-header h2 {
     margin-bottom: 6px;
     font-size: 34px;
-    color: #0f172a;
+    color: #12271c;
 }
 
 .page-header p {
-    color: #64748b;
+    color: #698678;
     line-height: 1.6;
 }
 
@@ -210,7 +210,7 @@ html.dark .flag-frustrated {
     background: rgba(255,255,255,.92);
     border-radius: 18px;
     overflow: hidden;
-    box-shadow: 0 16px 32px rgba(15,23,42,.08);
+    box-shadow: 0 16px 32px rgba(18,39,28,.08);
 }
 
 .empty-state {
@@ -221,8 +221,8 @@ html.dark .flag-frustrated {
     min-height: 430px;
     padding: 40px 24px;
     border-radius: 24px;
-    background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(239,246,255,.95));
-    box-shadow: 0 16px 34px rgba(15,23,42,.08);
+    background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(238,250,245,.95));
+    box-shadow: 0 16px 34px rgba(18,39,28,.08);
     text-align: center;
 }
 
@@ -234,13 +234,13 @@ html.dark .flag-frustrated {
 
 .empty-state h3 {
     font-size: 28px;
-    color: #0f172a;
+    color: #12271c;
     margin-bottom: 10px;
 }
 
 .empty-state p {
     max-width: 560px;
-    color: #64748b;
+    color: #698678;
     line-height: 1.7;
     margin-bottom: 20px;
 }
@@ -259,26 +259,26 @@ html.dark .flag-frustrated {
     padding: 12px 18px;
     min-width: 180px;
     border-radius: 999px;
-    background: linear-gradient(135deg, #2563eb, #10b981);
+    background: linear-gradient(135deg, #257658, #458c33);
     color: white;
     text-decoration: none;
     font-weight: 700;
-    box-shadow: 0 14px 28px rgba(37,99,235,.2);
+    box-shadow: 0 14px 28px rgba(37,118,88,.2);
 }
 
 .empty-secondary-btn {
-    background: rgba(37,99,235,.08);
-    color: #2563eb;
+    background: rgba(37,118,88,.08);
+    color: #257658;
     box-shadow: none;
 }
 
-html.dark .page-header h2 { color: #f8fafc; }
-html.dark .page-header p { color: #94a3b8; }
-html.dark .table-card { background: rgba(15,23,42,.88); box-shadow: 0 20px 40px rgba(0,0,0,.26); }
+html.dark .page-header h2 { color: #f9fbfa; }
+html.dark .page-header p { color: #99b3a6; }
+html.dark .table-card { background: rgba(18,39,28,.88); box-shadow: 0 20px 40px rgba(0,0,0,.26); }
 html.dark .empty-state {
-    background: linear-gradient(180deg, rgba(15,23,42,.96), rgba(15,23,42,.92));
+    background: linear-gradient(180deg, rgba(18,39,28,.96), rgba(18,39,28,.92));
     box-shadow: 0 20px 40px rgba(0,0,0,.28);
 }
-html.dark .empty-state h3 { color: #f8fafc; }
-html.dark .empty-state p { color: #94a3b8; }
-html.dark .empty-secondary-btn { background: rgba(37,99,235,.16); color: #93c5fd; }
+html.dark .empty-state h3 { color: #f9fbfa; }
+html.dark .empty-state p { color: #99b3a6; }
+html.dark .empty-secondary-btn { background: rgba(37,118,88,.16); color: #8bdbbe; }
