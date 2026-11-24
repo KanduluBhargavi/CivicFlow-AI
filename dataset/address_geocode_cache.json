@@ -91,5 +91,19 @@
     "provider": "OpenStreetMap Nominatim",
     "search_query": "Bhawanipatna, Kalahandi, Odisha, India",
     "cached": false
+  },
+  "eb04053e90c5c6ce80f7c8515897a69c95d047e061996eb3df26fcda3a517d3a": {
+    "latitude": 19.0650444,
+    "longitude": 83.816788,
+    "display_name": "Raghunath Nagar, Gunupur, Rayagada, Odisha, 765022, India",
+    "match_level": "locality_approximate",
+    "result_type": "hamlet",
+    "resolved_state": "Odisha",
+    "resolved_district": "Rayagada",
+    "warnings": [
+      "The street/address text did not match, so this point uses your separate locality and landmark fields. It may be approximate; zoom in and move the pin to the incident location."
+    ],
+    "provider": "OpenStreetMap Nominatim",
+    "cached": false
   }
 }

@@ -1,0 +1,20 @@
+description,priority,source,annotation_note
+Insufficient water supply issue in my locality.,Medium,curated_synthetic,Curated synthetic training example for class-boundary coverage; requires officer review against local service policy.
+There is insufficient water supply in my locality today.,Medium,curated_synthetic,Curated synthetic training example for class-boundary coverage; requires officer review against local service policy.
+The water supply in my locality is insufficient.,Medium,curated_synthetic,Curated synthetic training example for class-boundary coverage; requires officer review against local service policy.
+Water supply is low in my locality today.,Medium,curated_synthetic,Curated synthetic training example for class-boundary coverage; requires officer review against local service policy.
+Water supply is irregular in my area.,Medium,curated_synthetic,Curated synthetic training example for class-boundary coverage; requires officer review against local service policy.
+No water supply for about one hour.,Medium,curated_synthetic,Curated synthetic training example for class-boundary coverage; requires officer review against local service policy.
+Water supply stopped for one hour today.,Medium,curated_synthetic,Curated synthetic training example for class-boundary coverage; requires officer review against local service policy.
+Water has been unavailable for around an hour.,Medium,curated_synthetic,Curated synthetic training example for class-boundary coverage; requires officer review against local service policy.
+No water in my house for an hour this morning.,Medium,curated_synthetic,Curated synthetic training example for class-boundary coverage; requires officer review against local service policy.
+Temporary water supply interruption for two hours.,Medium,curated_synthetic,Curated synthetic training example for class-boundary coverage; requires officer review against local service policy.
+Water flow is low from the tap today.,Medium,curated_synthetic,Curated synthetic training example for class-boundary coverage; requires officer review against local service policy.
+Water pressure is slightly low in my building.,Medium,curated_synthetic,Curated synthetic training example for class-boundary coverage; requires officer review against local service policy.
+No water supply across the entire locality for three days.,High,curated_synthetic,Curated synthetic training example for class-boundary coverage; requires officer review against local service policy.
+No drinking water at the hospital for three days.,High,curated_synthetic,Curated synthetic training example for class-boundary coverage; requires officer review against local service policy.
+Contaminated water is making residents ill.,High,curated_synthetic,Curated synthetic training example for class-boundary coverage; requires officer review against local service policy.
+The main water pipe burst and flooded the entire street.,High,curated_synthetic,Curated synthetic training example for class-boundary coverage; requires officer review against local service policy.
+water no water. no water for about 1 hour fix it,Medium,user_feedback,User flagged this one-hour interruption as overestimated at High.
+"water related issues. in my locality, there is insufficient water supply issue",Medium,user_feedback,User flagged this vague localized supply issue as overestimated at High.
+no water for 5mins,Medium,user_feedback,User screenshot showed this brief five-minute interruption labeled High and asked why; labeled Medium as real user feedback.

@@ -36,10 +36,14 @@ ok &= check("routine garbage complaint is not public-health hazard",
             fresh["score"] < 50 and fresh["factors"] == [])
 more = run(affected_count=12, report_count=6)
 ok &= check("more affected people raises score", more["score"] > fresh["score"] + 8)
-ok &= check("12 affected + 6 reports pushes Medium -> High", more["priority"] == "High")
+ok &= check("12 affected + 6 reports raise the situational score without overriding ML Medium",
+            more["priority"] == "Medium" and more["score_band"] == "High"
+            and "situational_score_for_officer_review" in more["label_adjustments"])
 aging = [run(age_hours=h)["score"] for h in (10, 50, 80, 120, 200)]
 ok &= check("score never decreases as time passes", aging == sorted(aging))
-ok &= check("long SLA breach raises Medium -> High", run(age_hours=200, since_update_hours=150)["priority"] == "High")
+long_open = run(age_hours=200, since_update_hours=150)
+ok &= check("long SLA breach raises situational score without overriding ML Medium",
+            long_open["score"] > fresh["score"] and long_open["priority"] == "Medium")
 ok &= check("reopen raises score", run(reopen_count=2)["score"] > fresh["score"] + 10)
 ok &= check("worsening wording raises score",
             run(text="The pothole is getting worse and wider every day")["score"] > fresh["score"])
@@ -135,8 +139,11 @@ ok &= check("DB: raw score band is exposed separately from adjusted label",
 c.created_at = now - timedelta(days=10); db.commit()
 before = c.priority_score; pe.refresh_priorities(db, [c])
 ok &= check("DB: ageing 10 days raises score further", c.priority_score > before)
-ok &= check("DB: actual priority change is logged as an event",
-            db.query(ComplaintEvent).filter_by(complaint_id=c.complaint_id, event_type="priority_change").count() >= 1)
+# An ML base-label change must still be persisted and logged.
+c.priority_factors = '{"base":{"priority":"High","probs":{"High":0.9,"Medium":0.1},"critical":false,"high_floor":false},"score":null,"score_band":null,"label_adjustments":[],"factors":[]}'
+c.priority = "Medium"; db.commit(); pe.refresh_priorities(db, [c])
+ok &= check("DB: ML priority change is logged as an event",
+            c.priority == "High" and db.query(ComplaintEvent).filter_by(complaint_id=c.complaint_id, event_type="priority_change").count() >= 1)
 db.add(ComplaintEvent(complaint_id=c.complaint_id, event_type="citizen_reopen", title="r", actor="x")); db.commit()
 before = c.priority_score; pe.refresh_priorities(db, [c])
 ok &= check("DB: citizen reopen raises score", c.priority_score > before)
@@ -144,7 +151,7 @@ c.status = "Resolved"; frozen = (c.priority, c.priority_score); db.commit()
 pe.refresh_priorities(db, [c])
 ok &= check("DB: resolved complaints are frozen", (c.priority, c.priority_score) == frozen)
 bd = pe.priority_breakdown(c)
-ok &= check("DB: breakdown exposes factors", bool(bd["factors"]) and bd["ml_base_priority"] == "Medium")
+ok &= check("DB: breakdown exposes factors", bool(bd["factors"]) and bd["ml_base_priority"] == "High")
 ok &= check("DB: explanation score stays synchronized", "raw score" in (c.priority_reason or ""))
 if not ok:
     raise SystemExit("priority engine tests failed")

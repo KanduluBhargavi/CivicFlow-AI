@@ -210,6 +210,62 @@ def _load_priority_frame() -> pd.DataFrame:
     return df.reset_index(drop=True)
 
 
+def _load_priority_external() -> pd.DataFrame:
+    """Load real labeled urgency/severity corpora as bounded training-only data.
+
+    CivicDex urgency and CivicComp annotated severity are normalized to the
+    application's Low/Medium/High labels. The larger annotated corpus is
+    stratified-downsampled to 500 rows so it cannot overwhelm in-domain data.
+    """
+    civicdex = pd.read_csv(DATASET_DIR / 'civicdex_adapted.csv').dropna(
+        subset=['english_gloss', 'urgency']).copy()
+    civicdex['description'] = civicdex['english_gloss'].astype(str).str.replace(
+        r'\s+', ' ', regex=True).str.strip()
+    civicdex['priority'] = civicdex['urgency'].astype(str).str.strip().str.title()
+    civicdex['source'] = 'civicdex'
+    civicdex = civicdex[civicdex['priority'].isin(['Low', 'Medium', 'High'])]
+    civicdex = civicdex[['description', 'priority', 'source']]
+
+    annotated = pd.read_csv(DATASET_DIR / 'annotated_complaints_with_severity.csv').dropna(
+        subset=['text_en', 'severity']).copy()
+    title = annotated['complaint_title'].fillna('').astype(str).str.strip()
+    body = annotated['text_en'].astype(str).str.strip()
+    annotated['description'] = (title + '. ' + body).str.replace(
+        r'\s+', ' ', regex=True).str.strip(' .')
+    annotated['priority'] = annotated['severity'].astype(str).str.strip().str.title()
+    annotated['source'] = 'annotated_severity'
+    annotated = annotated[annotated['priority'].isin(['Low', 'Medium', 'High'])]
+    # Preserve the in-domain class proportions while sampling deterministically.
+    target_counts = _load_priority_frame()['priority'].value_counts(normalize=True)
+    cap = 500
+    annotated = pd.concat([
+        group.sample(n=min(len(group), max(1, round(cap * target_counts.get(label, 0)))),
+                     random_state=RANDOM_STATE)
+        for label, group in annotated.groupby('priority')
+    ], ignore_index=True)
+    annotated = annotated[['description', 'priority', 'source']]
+
+    feedback_path = DATASET_DIR / 'priority_supplement.csv'
+    if feedback_path.exists():
+        feedback = pd.read_csv(feedback_path)
+        if {'description', 'priority', 'source'}.issubset(feedback.columns):
+            feedback = feedback[feedback['source'].astype(str).eq('user_feedback')].copy()
+            feedback['priority'] = feedback['priority'].astype(str).str.strip().str.title()
+            feedback = feedback[feedback['priority'].isin(['Low', 'Medium', 'High'])]
+            feedback = feedback[['description', 'priority']].assign(source='user_feedback')
+        else:
+            feedback = pd.DataFrame(columns=['description', 'priority', 'source'])
+    else:
+        feedback = pd.DataFrame(columns=['description', 'priority', 'source'])
+
+    external = pd.concat([civicdex, annotated, feedback], ignore_index=True)
+    external = external[external['description'].astype(str).str.len() >= 3].copy()
+    external['group'] = external['description'].map(_priority_group_key)
+    # Remove duplicates across external corpora; keep one row per text group.
+    external = external.drop_duplicates('group').reset_index(drop=True)
+    return external
+
+
 def _priority_vectorizer():
     return FeatureUnion([
         ('word_tfidf', TfidfVectorizer(
@@ -253,7 +309,11 @@ def train_priority():
     sys.path.insert(0, str(ROOT / 'backend'))
 
     df = _load_priority_frame()
+    external = _load_priority_external()
     X, y, groups = df['description'].values, df['priority'].values, df['group'].values
+    X_external = external['description'].astype(str).values
+    y_external = external['priority'].astype(str).values
+    external_groups = external['group'].astype(str).values
 
     cv = StratifiedGroupKFold(n_splits=5, shuffle=True, random_state=RANDOM_STATE)
     folds = list(cv.split(X, y, groups))
@@ -262,11 +322,14 @@ def train_priority():
         pred = np.empty(len(df), dtype=object)
         for tr, te in folds:
             vec = _priority_vectorizer()
-            A = _priority_features(vec, X[tr], fit=True)
+            # Keep external duplicates of this validation fold out of training.
+            test_groups = set(groups[te])
+            keep_external = np.array([g not in test_groups for g in external_groups])
+            fit_x = np.concatenate([X[tr], X_external[keep_external]])
+            fit_y = np.concatenate([y[tr], y_external[keep_external]])
+            A = _priority_features(vec, fit_x, fit=True)
             B = _priority_features(vec, X[te])
-            if name == 'ComplementNB':  # NB needs non-negative features (urgency feats already are)
-                pass
-            pred[te] = _priority_candidates()[name].fit(A, y[tr]).predict(B)
+            pred[te] = _priority_candidates()[name].fit(A, fit_y).predict(B)
         rows.append({
             'model': name,
             'cv_accuracy': float(accuracy_score(y, pred)),
@@ -281,16 +344,22 @@ def train_priority():
     # Untouched grouped hold-out for the reported headline numbers.
     tr, te = next(GroupShuffleSplit(n_splits=1, test_size=0.20, random_state=RANDOM_STATE).split(X, y, groups))
     vec = _priority_vectorizer()
-    A = _priority_features(vec, X[tr], fit=True)
+    holdout_groups = set(groups[te])
+    keep_external = np.array([g not in holdout_groups for g in external_groups])
+    holdout_fit_x = np.concatenate([X[tr], X_external[keep_external]])
+    holdout_fit_y = np.concatenate([y[tr], y_external[keep_external]])
+    A = _priority_features(vec, holdout_fit_x, fit=True)
     B = _priority_features(vec, X[te])
-    held = _priority_candidates()[winner].fit(A, y[tr])
+    held = _priority_candidates()[winner].fit(A, holdout_fit_y)
     pred = held.predict(B)
     classes = list(held.classes_)
 
     # Deployed model: refit on all data.
     vectorizer = _priority_vectorizer()
-    Xall = _priority_features(vectorizer, X, fit=True)
-    model = _priority_candidates()[winner].fit(Xall, y)
+    final_fit_x = np.concatenate([X, X_external])
+    final_fit_y = np.concatenate([y, y_external])
+    Xall = _priority_features(vectorizer, final_fit_x, fit=True)
+    model = _priority_candidates()[winner].fit(Xall, final_fit_y)
 
     from app.services.urgency_features import FEATURE_VERSION, NAMES
     metrics = {
@@ -306,6 +375,9 @@ def train_priority():
         'classification_report': classification_report(y[te], pred, output_dict=True, zero_division=0),
         'classes': classes,
         'clean_rows': int(len(df)),
+        'external_training_rows': int(len(external)),
+        'external_training_sources': {k: int(v) for k, v in external['source'].value_counts().items()},
+        'external_training_distribution': {k: int(v) for k, v in external['priority'].value_counts().items()},
         'unique_complaint_groups': int(df['group'].nunique()),
         'train_rows': int(len(tr)),
         'test_rows': int(len(te)),
@@ -315,8 +387,8 @@ def train_priority():
         'class_distribution': {k: int(v) for k, v in df['priority'].value_counts().items()},
         'candidate_models': comparison.to_dict(orient='records'),
         'probability_support': bool(hasattr(model, 'predict_proba')),
-        'source_columns_used': ['description', 'priority'],
-        'note': 'Features = word(1-3)+char(3-5) TF-IDF followed by hand-built urgency features (urgency_features.py).',
+        'source_columns_used': ['priority_dataset.description', 'priority_dataset.priority', 'civicdex_adapted.english_gloss', 'civicdex_adapted.urgency', 'annotated_complaints_with_severity.complaint_title', 'annotated_complaints_with_severity.text_en', 'annotated_complaints_with_severity.severity'],
+        'note': 'External CivicDex and annotated severity rows are training-only, label-mapped to Low/Medium/High, deduplicated, bounded, and excluded from matching held-out groups. Features = word(1-3)+char(3-5) TF-IDF plus urgency features.',
     }
     fig, ax = plt.subplots(figsize=(8, 6))
     ConfusionMatrixDisplay.from_predictions(

@@ -1,43 +1,43 @@
 {
-  "selected_model": "SGDClassifier",
+  "selected_model": "LogisticRegression",
   "selection_metric": "5-fold grouped (leak-free) CV macro-F1 across four model families",
-  "cv_macro_f1": 0.7794440552160434,
-  "cv_accuracy": 0.786509040333797,
-  "accuracy": 0.8021201413427562,
-  "macro_f1": 0.7948467099139952,
-  "weighted_f1": 0.8017271631991332,
-  "macro_precision": 0.8123237301376608,
-  "macro_recall": 0.7826065997971549,
+  "cv_macro_f1": 0.7718961123968487,
+  "cv_accuracy": 0.7788595271210014,
+  "accuracy": 0.7985865724381626,
+  "macro_f1": 0.7899948293243891,
+  "weighted_f1": 0.7976630460269878,
+  "macro_precision": 0.7970197263884046,
+  "macro_recall": 0.7845299659482242,
   "classification_report": {
     "High": {
-      "precision": 0.8440366972477065,
-      "recall": 0.8440366972477065,
-      "f1-score": 0.8440366972477065,
+      "precision": 0.8333333333333334,
+      "recall": 0.8715596330275229,
+      "f1-score": 0.852017937219731,
       "support": 109.0
     },
     "Low": {
-      "precision": 0.8372093023255814,
-      "recall": 0.6923076923076923,
-      "f1-score": 0.7578947368421053,
+      "precision": 0.7872340425531915,
+      "recall": 0.7115384615384616,
+      "f1-score": 0.7474747474747475,
       "support": 52.0
     },
     "Medium": {
-      "precision": 0.7557251908396947,
-      "recall": 0.8114754098360656,
-      "f1-score": 0.782608695652174,
+      "precision": 0.7704918032786885,
+      "recall": 0.7704918032786885,
+      "f1-score": 0.7704918032786885,
       "support": 122.0
     },
-    "accuracy": 0.8021201413427562,
+    "accuracy": 0.7985865724381626,
     "macro avg": {
-      "precision": 0.8123237301376608,
-      "recall": 0.7826065997971549,
-      "f1-score": 0.7948467099139952,
+      "precision": 0.7970197263884046,
+      "recall": 0.7845299659482242,
+      "f1-score": 0.7899948293243891,
       "support": 283.0
     },
     "weighted avg": {
-      "precision": 0.804711508845841,
-      "recall": 0.8021201413427562,
-      "f1-score": 0.8017271631991332,
+      "precision": 0.7977720973360399,
+      "recall": 0.7985865724381626,
+      "f1-score": 0.7976630460269878,
       "support": 283.0
     }
   },
@@ -47,17 +47,29 @@
     "Medium"
   ],
   "clean_rows": 1438,
+  "external_training_rows": 1110,
+  "external_training_sources": {
+    "civicdex": 613,
+    "annotated_severity": 494,
+    "user_feedback": 3
+  },
+  "external_training_distribution": {
+    "Medium": 479,
+    "High": 473,
+    "Low": 158
+  },
   "unique_complaint_groups": 1238,
   "train_rows": 1155,
   "test_rows": 283,
-  "feature_count": 30069,
-  "urgency_feature_version": 1,
+  "feature_count": 84405,
+  "urgency_feature_version": 5,
   "urgency_feature_names": [
     "safety",
     "health",
     "vulnerable",
     "outage",
     "urgent",
+    "short_duration",
     "duration",
     "scale",
     "mitigate",
@@ -74,34 +86,39 @@
   },
   "candidate_models": [
     {
+      "model": "LogisticRegression",
+      "cv_accuracy": 0.7788595271210014,
+      "cv_macro_f1": 0.7718961123968487,
+      "cv_weighted_f1": 0.778825022402463
+    },
+    {
       "model": "SGDClassifier",
-      "cv_accuracy": 0.786509040333797,
-      "cv_macro_f1": 0.7794440552160434,
-      "cv_weighted_f1": 0.7862834203339691
+      "cv_accuracy": 0.7795549374130737,
+      "cv_macro_f1": 0.7699958988631298,
+      "cv_weighted_f1": 0.7793694160021986
     },
     {
       "model": "LinearSVC",
-      "cv_accuracy": 0.780250347705146,
-      "cv_macro_f1": 0.7744449817013034,
-      "cv_weighted_f1": 0.7799456438467121
-    },
-    {
-      "model": "LogisticRegression",
-      "cv_accuracy": 0.7795549374130737,
-      "cv_macro_f1": 0.7708276241060542,
-      "cv_weighted_f1": 0.7793919405115957
+      "cv_accuracy": 0.7739916550764951,
+      "cv_macro_f1": 0.7599578911425945,
+      "cv_weighted_f1": 0.773117350395693
     },
     {
       "model": "ComplementNB",
-      "cv_accuracy": 0.7552155771905424,
-      "cv_macro_f1": 0.7446624494550611,
-      "cv_weighted_f1": 0.7540492813526956
+      "cv_accuracy": 0.7468706536856745,
+      "cv_macro_f1": 0.7402026094106171,
+      "cv_weighted_f1": 0.745599096261542
     }
   ],
   "probability_support": true,
   "source_columns_used": [
-    "description",
-    "priority"
+    "priority_dataset.description",
+    "priority_dataset.priority",
+    "civicdex_adapted.english_gloss",
+    "civicdex_adapted.urgency",
+    "annotated_complaints_with_severity.complaint_title",
+    "annotated_complaints_with_severity.text_en",
+    "annotated_complaints_with_severity.severity"
   ],
-  "note": "Features = word(1-3)+char(3-5) TF-IDF followed by hand-built urgency features (urgency_features.py)."
+  "note": "External CivicDex and annotated severity rows are training-only, label-mapped to Low/Medium/High, deduplicated, bounded, and excluded from matching held-out groups. Features = word(1-3)+char(3-5) TF-IDF plus urgency features."
 }

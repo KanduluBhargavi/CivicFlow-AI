@@ -221,7 +221,7 @@ def compute_dynamic_priority(ctx: dict) -> dict:
         else:
             age_hours = max(float(ctx.get("age_hours") or 0), 0.0)
             if age_hours >= 48:
-                add("Long open without comparable history", min(4.0, age_hours / 120.0), "no text-matched repair-time target is available yet")
+                add("Long open without comparable history", min(10.0, age_hours / 20.0), "no text-matched repair-time target is available yet")
         if not approved_extension_active:
             stale = float(ctx.get("since_update_hours") or 0)
             if stale > 120:
@@ -240,26 +240,24 @@ def compute_dynamic_priority(ctx: dict) -> dict:
     score = max(0.0, min(100.0, score))
 
     score_band = band(score)
-    level = score_band
+    level = base
     label_adjustments = []
-    # Critical is reserved for explicit emergencies.
-    if level == "Critical" and not (critical or emergency or sig["danger"] >= 0.6):
-        level = "High"
-        label_adjustments.append("score_capped_without_explicit_emergency")
     if critical or emergency:
         level = "Critical"
         label_adjustments.append("explicit_critical_or_verified_emergency")
-    if ctx.get("high_floor") and ORDER.index(level) < ORDER.index("High"):
+    elif ctx.get("high_floor") and ORDER.index(level) < ORDER.index("High"):
         level = "High"
         label_adjustments.append("high_risk_safety_floor")
-    # Never fall below the ML base class. The numeric score remains the raw
-    # situational score; expose its band and any label adjustment separately.
-    if ORDER.index(level) < ORDER.index(base):
-        level = base
+    elif ORDER.index(score_band) > ORDER.index(level):
+        # Cluster counts and elapsed time remain visible in the score and factors;
+        # they do not override the learned class for routine complaints.
+        label_adjustments.append("situational_score_for_officer_review")
+    elif ORDER.index(score_band) < ORDER.index(level):
         label_adjustments.append("ml_base_priority_floor")
 
     top = sorted((f for f in factors if f["points"] > 0), key=lambda f: -f["points"])[:3]
-    reason = f"{level} priority: ML base {base}; raw score {score:.1f} ({score_band} band)" + (
+    review_text = "; situational score shown for officer review" if "situational_score_for_officer_review" in label_adjustments else ""
+    reason = f"{level} priority: ML base {base}{review_text}; raw score {score:.1f} ({score_band} band)" + (
         "; " + ", ".join(f"{f['factor'].lower()} (+{f['points']:g})" for f in top) if top else "")
     return {
         "priority": level,
@@ -284,8 +282,10 @@ def _load_state(complaint) -> dict:
 
 def initial_state(priority_result: dict) -> str:
     """Serialise the ML result so later recomputation keeps the model's view."""
+    from app.services.urgency_features import FEATURE_VERSION
     return json.dumps({
         "base": {
+            "model_feature_version": FEATURE_VERSION,
             "priority": priority_result.get("base_priority") or priority_result.get("priority"),
             "probs": priority_result.get("probabilities") or {},
             "critical": bool(priority_result.get("critical_override")),
@@ -344,11 +344,24 @@ def refresh_priorities(db, complaints, commit=True) -> int:
         cluster = c.incident_cluster_id or c.complaint_id
         state = _load_state(c)
         base_state = state.get("base") or {}
-        base_priority = base_state.get("priority") or c.base_priority or (
-            c.priority if c.priority in ORDER else "Medium")
         created = _aware(c.created_at) or now
         updated = last_update.get(c.complaint_id) or created
         text = " ".join(filter(None, [c.translated_title or c.title, c.translated_text or c.description]))
+        from app.services.urgency_features import FEATURE_VERSION
+        if base_state.get("model_feature_version") != FEATURE_VERSION:
+            from app.services.ai_service import predict_priority_details
+            refreshed = predict_priority_details(text, c.predicted_department)
+            base_state = {
+                "model_feature_version": FEATURE_VERSION,
+                "priority": refreshed.get("base_priority") or refreshed.get("priority"),
+                "probs": refreshed.get("probabilities") or {},
+                "critical": bool(refreshed.get("critical_override")),
+                "high_floor": bool(refreshed.get("high_risk_reasons")),
+            }
+            state["base"] = base_state
+            c.priority_confidence = refreshed.get("confidence")
+        base_priority = base_state.get("priority") or c.base_priority or (
+            c.priority if c.priority in ORDER else "Medium")
         resolution_sla = sla_info(c, db)
         result = compute_dynamic_priority({
             "base_priority": base_priority,
