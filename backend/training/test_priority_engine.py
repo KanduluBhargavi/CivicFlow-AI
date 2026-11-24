@@ -112,7 +112,7 @@ from app.database import Base  # noqa: E402
 from app.models.complaint import Complaint  # noqa: E402
 from app.models.complaint_event import ComplaintEvent  # noqa: E402
 from app.models.complaint_support import ComplaintSupport  # noqa: E402
-import app.models.user, app.models.department, app.models.complaint_assignment, app.models.complaint_escalation  # noqa: E402,F401
+import app.models.user, app.models.department, app.models.complaint_assignment, app.models.complaint_escalation, app.models.complaint_delay_request  # noqa: E402,F401
 from app.services import priority_engine as pe  # noqa: E402
 
 eng = create_engine("sqlite:///:memory:")
@@ -124,7 +124,7 @@ c = Complaint(citizen_id=1, department_id=None, title="Garbage", description="Ga
               predicted_department="Sanitation", created_at=now, incident_cluster_id=None)
 db.add(c); db.flush(); c.incident_cluster_id = c.complaint_id
 c.base_priority = "Medium"
-c.priority_factors = '{"base": {"priority": "Medium", "probs": {"Low": 0.1, "Medium": 0.8, "High": 0.1}, "critical": false, "high_floor": false}}'
+c.priority_factors = '{"base": {"model_feature_version": 5, "priority": "Medium", "probs": {"Low": 0.1, "Medium": 0.8, "High": 0.1}, "critical": false, "high_floor": false}}'
 db.commit()
 pe.refresh_priorities(db, [c]); s0 = c.priority_score
 ok &= check("DB: initial refresh keeps Medium", c.priority == "Medium")
@@ -140,7 +140,7 @@ c.created_at = now - timedelta(days=10); db.commit()
 before = c.priority_score; pe.refresh_priorities(db, [c])
 ok &= check("DB: ageing 10 days raises score further", c.priority_score > before)
 # An ML base-label change must still be persisted and logged.
-c.priority_factors = '{"base":{"priority":"High","probs":{"High":0.9,"Medium":0.1},"critical":false,"high_floor":false},"score":null,"score_band":null,"label_adjustments":[],"factors":[]}'
+c.priority_factors = '{"base":{"model_feature_version":5,"priority":"High","probs":{"High":0.9,"Medium":0.1},"critical":false,"high_floor":false},"score":null,"score_band":null,"label_adjustments":[],"factors":[]}'
 c.priority = "Medium"; db.commit(); pe.refresh_priorities(db, [c])
 ok &= check("DB: ML priority change is logged as an event",
             c.priority == "High" and db.query(ComplaintEvent).filter_by(complaint_id=c.complaint_id, event_type="priority_change").count() >= 1)
