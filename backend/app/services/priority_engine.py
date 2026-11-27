@@ -26,14 +26,35 @@ frozen.
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import math
 import re
+from pathlib import Path
 from collections import defaultdict
 from datetime import datetime, timezone
 
 # Diagnostic marker: confirms which priority-engine implementation Python imported.
-PRIORITY_ENGINE_FIX_VERSION = "2026-10-17-r4"
+PRIORITY_ENGINE_FIX_VERSION = "2026-11-27-r5"
+
+
+def _priority_artifact_version():
+    """Fingerprint deployed priority artifacts so persisted predictions refresh after retraining."""
+    model_dir = Path(__file__).resolve().parents[3] / "models"
+    digest = hashlib.sha256()
+    for name in ("priority_model.pkl", "priority_vectorizer.pkl"):
+        path = model_dir / name
+        digest.update(name.encode("utf-8"))
+        try:
+            with path.open("rb") as artifact:
+                for chunk in iter(lambda: artifact.read(1024 * 1024), b""):
+                    digest.update(chunk)
+        except OSError:
+            digest.update(b"missing")
+    return digest.hexdigest()
+
+
+PRIORITY_MODEL_VERSION = _priority_artifact_version()
 
 from app.services.sla_service import sla_info
 ANCHORS = {"Low": 22.0, "Medium": 48.0, "High": 72.0}
@@ -286,6 +307,7 @@ def initial_state(priority_result: dict) -> str:
     return json.dumps({
         "base": {
             "model_feature_version": FEATURE_VERSION,
+            "priority_model_version": PRIORITY_MODEL_VERSION,
             "priority": priority_result.get("base_priority") or priority_result.get("priority"),
             "probs": priority_result.get("probabilities") or {},
             "critical": bool(priority_result.get("critical_override")),
@@ -348,11 +370,13 @@ def refresh_priorities(db, complaints, commit=True) -> int:
         updated = last_update.get(c.complaint_id) or created
         text = " ".join(filter(None, [c.translated_title or c.title, c.translated_text or c.description]))
         from app.services.urgency_features import FEATURE_VERSION
-        if base_state.get("model_feature_version") != FEATURE_VERSION:
+        if (base_state.get("model_feature_version") != FEATURE_VERSION
+                or base_state.get("priority_model_version") != PRIORITY_MODEL_VERSION):
             from app.services.ai_service import predict_priority_details
             refreshed = predict_priority_details(text, c.predicted_department)
             base_state = {
                 "model_feature_version": FEATURE_VERSION,
+                "priority_model_version": PRIORITY_MODEL_VERSION,
                 "priority": refreshed.get("base_priority") or refreshed.get("priority"),
                 "probs": refreshed.get("probabilities") or {},
                 "critical": bool(refreshed.get("critical_override")),

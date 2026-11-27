@@ -894,6 +894,30 @@ html.dark .duplicate-id-list .related-complaint-card { background:#2a1d0d; borde
 html.dark .related-complaint-card__top strong, html.dark .related-why { color:#fed7aa; }
 
 
+.related-filter { display:flex; align-items:center; flex-wrap:wrap; gap:9px; margin:12px 0 4px; }
+.related-filter label { font-weight:700; }
+.related-filter select { min-height:40px; max-width:100%; padding:7px 34px 7px 11px; border:1px solid #ceded6; border-radius:9px; background:#f9fbfa; color:#22342b; font:inherit; }
+.related-filter-empty { padding:12px 0; color:#698678; }
+html.dark .related-filter select { border-color:#375144; background:#14241c; color:#e6eae8; }
+html.dark .related-filter-empty { color:#99b3a6; }
+@media(max-width:520px) { .related-filter { align-items:stretch; flex-direction:column; } .related-filter select { width:100%; } }
+.related-complaint-group { margin: 18px 0 22px; }
+.related-complaint-group > h4 { margin: 0 0 10px; font-size: 1rem; color: var(--text-primary, #e2e8f0); }
+.related-complaint-group .duplicate-id-list { margin-top: 0; }
+.related-complaint-group .related-complaint-card { display:flex; flex-direction:column; gap:7px; }
+.related-location, .related-complaint-card small { margin:0; line-height:1.5; overflow-wrap:anywhere; }
+.related-complaint-actions { display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-top:5px; }
+.related-open-link, .related-link-button { min-height:36px; display:inline-flex; align-items:center; justify-content:center; border-radius:8px; padding:7px 11px; font:inherit; font-size:.88rem; font-weight:700; cursor:pointer; }
+.related-open-link { color:#073b2e; background:#62c59c; text-decoration:none; }
+.related-link-button { color:inherit; background:transparent; border:1px solid currentColor; }
+.related-link-button:disabled { opacity:.55; cursor:wait; }
+.related-linked-label { font-size:.88rem; font-weight:700; opacity:.8; }
+html.dark .related-complaint-group > h4 { color:#e2e8f0; }
+@media (max-width:640px) {
+    .related-complaint-actions { align-items:stretch; flex-direction:column; }
+    .related-open-link, .related-link-button { width:100%; }
+}
+
 .escalation-control {
     border: 1px solid rgba(245,158,11,.22);
     background: linear-gradient(180deg, rgba(255,251,235,.72), rgba(255,255,255,.96));

@@ -9,7 +9,7 @@
 
 <title>CivicFlow AI | Dashboard</title>
 
-<link rel="stylesheet" href="css/dashboard.css?v=20261022-performance-pip-1">
+<link rel="stylesheet" href="css/dashboard.css?v=20261128-login-draft-1">
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" media="print" onload="this.media='all'">
@@ -514,7 +514,20 @@ No complaints yet.
 <script src="js/api.js?v=20261021-api-routing-2"></script>
 
 <script src="js/dashboard.js"></script>
+<script src="js/complaint_draft_prompt.js?v=20261128-login-draft-1"></script>
 
+<div id="complaintDraftPrompt" class="complaint-draft-overlay" hidden>
+  <section class="complaint-draft-dialog" role="dialog" aria-modal="true" aria-labelledby="complaintDraftTitle" aria-describedby="complaintDraftDescription">
+    <span class="complaint-draft-kicker">Saved on this device</span>
+    <h2 id="complaintDraftTitle">Unfinished complaint found</h2>
+    <p id="complaintDraftDescription">You have a saved complaint that was not submitted. Would you like to continue it?</p>
+    <p id="complaintDraftMediaNote" class="complaint-draft-media-note" hidden>A selected photo or video is not saved by the browser. You’ll need to attach it again.</p>
+    <div class="complaint-draft-actions">
+      <button type="button" id="restoreComplaintDraft">Continue complaint</button>
+      <button type="button" id="discardComplaintDraft" class="secondary">Discard draft</button>
+    </div>
+  </section>
+</div>
 <script src="js/citizen_notifications.js"></script>
 <script>
 /* Dashboard navbar offset uses the real navbar height (including mobile wrap). */

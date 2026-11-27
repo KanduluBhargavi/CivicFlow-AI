@@ -56,6 +56,20 @@ from app.services.ai_service import (
     summarize_complaint, get_department_id, suggest_reroute_department,
     get_language_name, find_duplicate, analyze_sentiment
 )
+class SimilarComplaintCheckRequest(BaseModel):
+    title: str
+    description: str
+    language_hint: str = "auto"
+    state: str
+    district: str
+    area: str
+    pincode: str
+    landmark: str | None = None
+    latitude: float | None = None
+    longitude: float | None = None
+    location_source: str = "unresolved"
+
+
 UPLOAD_FOLDER = "uploads"
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
@@ -423,6 +437,109 @@ def geocode_complaint_address(
     return {"success": True, "result": result}
 
 
+@router.post("/complaints/similar-check")
+def check_my_similar_complaint(
+    payload: SimilarComplaintCheckRequest,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    """Suggest the citizen's own likely matching report before submission."""
+    text = (payload.description or payload.title or "").strip()
+    if not text:
+        return {"matches": []}
+
+    language_hint = payload.language_hint if payload.language_hint not in {"", "auto"} else None
+    language = detect_language(text, language_hint)
+    if language == "unknown":
+        language = detect_language(payload.title or "", language_hint)
+    translated = translate_text(text, language, return_status=True)
+    match_text = translated.get("text") if translated.get("success") else text
+
+    previous = (
+        db.query(Complaint)
+        .filter(Complaint.citizen_id == current_user.user_id)
+        .order_by(Complaint.created_at.desc())
+        .limit(300)
+        .all()
+    )
+    target_state = " ".join((payload.state or "").casefold().split())
+    target_district = " ".join((payload.district or "").casefold().split())
+    previous = [
+        c for c in previous
+        if " ".join((c.state or "").casefold().split()) == target_state
+        and " ".join((c.district or "").casefold().split()) == target_district
+    ]
+    candidate_payloads = [
+        {
+            "complaint_id": c.complaint_id,
+            "text": c.translated_text or c.description,
+            "area": c.translated_area or c.area,
+            "pincode": c.pincode,
+            "landmark": c.translated_landmark or c.landmark,
+            "latitude": c.latitude,
+            "longitude": c.longitude,
+            "location_source": c.location_source,
+            "created_at": c.created_at,
+        }
+        for c in previous
+    ]
+    def normalized(value):
+        return " ".join(str(value or "").casefold().split())
+
+    submitted_text = normalized(text)
+    submitted_area = normalized(payload.area)
+    submitted_pin = normalized(payload.pincode)
+    exact_match = next((c for c in previous if (
+        submitted_text
+        and submitted_text in {
+            normalized(c.description),
+            normalized(c.translated_text),
+            normalized(c.title),
+            normalized(c.translated_title),
+        }
+        and (
+            (submitted_pin and submitted_pin == normalized(c.pincode))
+            or (submitted_area and submitted_area == normalized(c.translated_area or c.area))
+        )
+    )), None)
+    if exact_match:
+        result = {
+            "match_id": exact_match.complaint_id,
+            "similarity": 1.0,
+            "confidence": 1.0,
+            "classification": "high",
+            "reason": "Exact complaint text and matching locality or PIN code",
+        }
+    else:
+        result = find_duplicate(match_text, candidate_payloads, {
+        "area": payload.area,
+        "pincode": payload.pincode,
+        "landmark": payload.landmark,
+        "latitude": payload.latitude,
+        "longitude": payload.longitude,
+        "location_source": payload.location_source,
+        })
+    if result.get("classification") == "none" or not result.get("match_id"):
+        return {"matches": []}
+
+    match = next((c for c in previous if c.complaint_id == result["match_id"]), None)
+    if match is None:
+        return {"matches": []}
+    return {"matches": [{
+        "complaint_id": match.complaint_id,
+        "title": match.title,
+        "status": match.status,
+        "priority": match.priority,
+        "created_at": match.created_at,
+        "area": match.translated_area or match.area,
+        "district": match.district,
+        "similarity": result.get("similarity", 0.0),
+        "confidence": result.get("confidence", 0.0),
+        "reason": result.get("reason", "Similar issue and locality"),
+        "is_resolved": (match.status or "").strip().casefold() in {"resolved", "closed", "completed"},
+    }]}
+
+
 @router.post("/complaints")
 def create_complaint(
 
@@ -452,6 +569,10 @@ def create_complaint(
 
     location_source_input: str = Form("unresolved", alias="location_source"),
 
+    submission_intent: str = Form("normal"),
+
+    related_complaint_id: int = Form(None),
+
     file: UploadFile = File(None),
 
     current_user: User = Depends(get_current_user),
@@ -476,6 +597,22 @@ def create_complaint(
         if not description:
             raise HTTPException(status_code=422, detail="Describe the issue, or attach media and add a short title/caption.")
 
+        submission_intent = (submission_intent or "normal").strip().lower()
+        if submission_intent not in {"normal", "separate", "recurrence"}:
+            raise HTTPException(status_code=422, detail="Invalid submission choice. Please review the possible previous report again.")
+        related_previous = None
+        if submission_intent in {"separate", "recurrence"}:
+            if not related_complaint_id:
+                raise HTTPException(status_code=422, detail="Choose the previous report that this decision refers to.")
+            related_previous = db.query(Complaint).filter(
+                Complaint.complaint_id == related_complaint_id,
+                Complaint.citizen_id == current_user.user_id,
+            ).first()
+            if related_previous is None:
+                raise HTTPException(status_code=404, detail="The selected previous report was not found in your account.")
+            if submission_intent == "recurrence" and (related_previous.status or "").strip().casefold() not in {"resolved", "closed", "completed"}:
+                raise HTTPException(status_code=409, detail="A recurrence can only refer to a report marked resolved. Open the current report or submit this as a separate incident.")
+
         # Retry-safe guard: detect recently submitted identical complaint content
         # BEFORE any expensive translation, model calls or upload processing.
         from datetime import timedelta
@@ -489,7 +626,7 @@ def create_complaint(
             Complaint.district == district,
             Complaint.created_at >= datetime.now(timezone.utc) - timedelta(minutes=2),
         ).order_by(Complaint.complaint_id.desc()).first()
-        if recently_saved:
+        if recently_saved and submission_intent == "normal":
             raise HTTPException(status_code=409, detail=f"This complaint was already submitted recently (#{recently_saved.complaint_id}). Check My Complaints before submitting again.")
 
 
@@ -671,18 +808,111 @@ def create_complaint(
             for c in open_complaints
         ]
 
-        duplicate_result = find_duplicate(
-            translated_text,
-            duplicate_candidates,
-            {
-                "area": area,
-                "pincode": pincode,
-                "landmark": landmark,
-                "latitude": final_latitude,
-                "longitude": final_longitude,
-                "location_source": location_source,
+        duplicate_location = {
+            "area": area,
+            "pincode": pincode,
+            "landmark": landmark,
+            "latitude": final_latitude,
+            "longitude": final_longitude,
+            "location_source": location_source,
+        }
+        duplicate_result = find_duplicate(translated_text, duplicate_candidates, duplicate_location)
+
+        if submission_intent == "separate":
+            # The citizen explicitly confirmed this is a distinct event; do not
+            # silently attach it to another open incident.
+            duplicate_result = {
+                "is_duplicate": False, "duplicate_of": None, "match_id": None,
+                "similarity": 0.0, "confidence": 0.0, "classification": "none",
+                "reason": "The citizen confirmed this is a separate event.", "distance_m": None,
             }
-        )
+        elif submission_intent == "recurrence":
+            prior_candidate = {
+                "complaint_id": related_previous.complaint_id,
+                "text": related_previous.translated_text or related_previous.description,
+                "area": related_previous.translated_area or related_previous.area,
+                "pincode": related_previous.pincode,
+                "landmark": related_previous.translated_landmark or related_previous.landmark,
+                "latitude": related_previous.latitude,
+                "longitude": related_previous.longitude,
+                "location_source": related_previous.location_source,
+                "created_at": related_previous.created_at,
+            }
+            recurrence_match = find_duplicate(translated_text, [prior_candidate], duplicate_location)
+            if recurrence_match.get("classification") == "none":
+                raise HTTPException(status_code=422, detail="The selected resolved report does not match this issue and location closely enough. Submit this as a new complaint instead.")
+            duplicate_result = {
+                **recurrence_match,
+                "is_duplicate": False,
+                "duplicate_of": None,
+                "match_id": related_previous.complaint_id,
+                "classification": "recurrence",
+                "reason": f"The citizen confirmed that the issue returned after complaint #{related_previous.complaint_id} was resolved.",
+            }
+
+        if submission_intent == "normal":
+            # The browser pre-check improves the user experience, but this API
+            # guard ensures an unavailable or stale frontend cannot silently
+            # create another same-citizen report for the same issue/location.
+            own_previous = (
+                db.query(Complaint)
+                .filter(
+                    Complaint.citizen_id == current_user.user_id,
+                    Complaint.state == state,
+                    Complaint.district == district,
+                )
+                .order_by(Complaint.created_at.desc())
+                .limit(300)
+                .all()
+            )
+            own_candidates = [
+                {
+                    "complaint_id": c.complaint_id,
+                    "text": c.translated_text or c.description,
+                    "area": c.translated_area or c.area,
+                    "pincode": c.pincode,
+                    "landmark": c.translated_landmark or c.landmark,
+                    "latitude": c.latitude,
+                    "longitude": c.longitude,
+                    "location_source": c.location_source,
+                    "created_at": c.created_at,
+                }
+                for c in own_previous
+            ]
+            norm = lambda value: " ".join(str(value or "").casefold().split())
+            exact_previous = next((c for c in own_previous if (
+                norm(translated_text) and norm(translated_text) in {
+                    norm(c.translated_text), norm(c.description), norm(c.title), norm(c.translated_title)
+                } and (
+                    (norm(pincode) and norm(pincode) == norm(c.pincode))
+                    or (norm(area) and norm(area) == norm(c.translated_area or c.area))
+                )
+            )), None)
+            own_match = (
+                {"match_id": exact_previous.complaint_id, "similarity": 1.0, "confidence": 1.0,
+                 "classification": "high", "reason": "Exact complaint text and matching locality or PIN code"}
+                if exact_previous else find_duplicate(translated_text, own_candidates, duplicate_location)
+            )
+            if own_match.get("classification") != "none" and own_match.get("match_id"):
+                previous_match = next((c for c in own_previous if c.complaint_id == own_match["match_id"]), None)
+                if previous_match:
+                    raise HTTPException(status_code=409, detail={
+                        "code": "possible_repeat",
+                        "message": "You may have already reported this issue. Review your earlier report before submitting another.",
+                        "match": {
+                            "complaint_id": previous_match.complaint_id,
+                            "title": previous_match.title,
+                            "status": previous_match.status,
+                            "priority": previous_match.priority,
+                            "created_at": previous_match.created_at.isoformat() if previous_match.created_at else None,
+                            "area": previous_match.translated_area or previous_match.area,
+                            "district": previous_match.district,
+                            "similarity": own_match.get("similarity", 0.0),
+                            "confidence": own_match.get("confidence", 0.0),
+                            "reason": own_match.get("reason", "Similar issue and locality"),
+                            "is_resolved": (previous_match.status or "").strip().casefold() in {"resolved", "closed", "completed"},
+                        },
+                    })
 
         # Only HIGH-confidence matches are auto-grouped. Possible matches
         # are stored for officer review but remain independent complaints.
@@ -867,7 +1097,15 @@ def create_complaint(
             detail=f"AI routed this complaint to {predicted_department} with {priority} priority.",
             actor="CivicFlow AI"
         ))
-        if duplicate_result["classification"] != "none":
+        if duplicate_result["classification"] == "recurrence":
+            db.add(ComplaintEvent(
+                complaint_id=new_complaint.complaint_id,
+                event_type="recurrence_reported",
+                title="Citizen reported that the issue returned",
+                detail=f"The citizen reported a recurrence of resolved complaint #{related_previous.complaint_id}. This is a new incident; the previous report remains resolved.",
+                actor="CivicFlow AI",
+            ))
+        elif duplicate_result["classification"] != "none":
             db.add(ComplaintEvent(
                 complaint_id=new_complaint.complaint_id,
                 event_type="duplicate_check",
@@ -989,7 +1227,11 @@ def create_complaint(
             duplicate_result["is_duplicate"],
 
             "duplicate_of":
-            duplicate_result["duplicate_of"]
+            duplicate_result["duplicate_of"],
+
+            "is_recurrence": submission_intent == "recurrence",
+
+            "recurrence_of": related_previous.complaint_id if submission_intent == "recurrence" else None
 
         }
 

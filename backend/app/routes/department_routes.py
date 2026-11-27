@@ -18,6 +18,7 @@ from app.models.complaint import Complaint
 from pydantic import BaseModel
 from app.models.complaint_event import ComplaintEvent
 from app.models.complaint_assignment import ComplaintAssignment
+from app.models.complaint_support import ComplaintSupport
 from app.models.user import User
 from app.models.department import Department
 from app.models.complaint_escalation import ComplaintEscalation
@@ -43,6 +44,7 @@ from app.utils.workflow_status import complaint_display_status, assignee_display
 from app.utils.complaint_titles import display_operational_title
 from datetime import datetime, timezone, timedelta
 import re
+from collections import defaultdict
 from app.utils.media import signed_media_url
 import logging
 import statistics
@@ -63,6 +65,10 @@ class OfficerDelayRequestPayload(BaseModel):
 class DelayRequestReviewPayload(BaseModel):
     decision: str
     note: str | None = None
+
+class LinkRelatedComplaintRequest(BaseModel):
+    related_complaint_id: int
+
 
 router = APIRouter(prefix="/department", tags=["Department"])
 
@@ -160,6 +166,21 @@ def _actor_role(current_department):
 
 def _actor_user_id(current_department):
     return getattr(current_department, "_actor_user_id", None)
+
+
+def _area_key(value):
+    return re.sub(r"\s+", " ", str(value or "")).strip().casefold()
+
+
+def _same_locality(first, second):
+    first_state, first_district = normalize_location(first.state, first.district)
+    second_state, second_district = normalize_location(second.state, second.district)
+    return bool(
+        _area_key(first.translated_area or first.area)
+        and _area_key(first.translated_area or first.area) == _area_key(second.translated_area or second.area)
+        and first_district and first_district.casefold() == second_district.casefold()
+        and first_state and second_state and first_state.casefold() == second_state.casefold()
+    )
 
 
 def _assignment_for(complaint_id, db):
@@ -751,6 +772,118 @@ def get_complaint_semantic_matches(
         Complaint.incident_cluster_id == linked_incident_id
     ).count()
 
+    matched_complaints = [item["complaint"] for item in semantic_matches]
+    linked_complaints = db.query(Complaint).filter(
+        Complaint.incident_cluster_id == linked_incident_id,
+        Complaint.complaint_id != complaint.complaint_id,
+    ).order_by(Complaint.created_at.desc()).all()
+    matched_ids = list({
+        c.complaint_id for c in matched_complaints + linked_complaints
+    })
+    assignments = {}
+    assignment_officers = {}
+    if matched_ids:
+        assignment_rows = (
+            db.query(ComplaintAssignment.complaint_id, User.full_name, ComplaintAssignment.officer_id)
+            .outerjoin(User, User.user_id == ComplaintAssignment.officer_id)
+            .filter(ComplaintAssignment.complaint_id.in_(matched_ids))
+            .all()
+        )
+        assignments = {row[0]: row[1] for row in assignment_rows}
+        assignment_officers = {row[0]: row[2] for row in assignment_rows}
+    if _actor_role(current_department) == "officer" and linked_complaints:
+        linked_complaints = [
+            c for c in linked_complaints
+            if assignment_officers.get(c.complaint_id) == _actor_user_id(current_department)
+        ]
+    latest_events = {}
+    if matched_ids:
+        latest_events = dict(
+            db.query(ComplaintEvent.complaint_id, func.max(ComplaintEvent.created_at))
+            .filter(ComplaintEvent.complaint_id.in_(matched_ids))
+            .group_by(ComplaintEvent.complaint_id)
+            .all()
+        )
+    cluster_ids = list({c.incident_cluster_id or c.complaint_id for c in matched_complaints + linked_complaints})
+    report_counts = dict(
+        db.query(Complaint.incident_cluster_id, func.count(Complaint.complaint_id))
+        .filter(Complaint.incident_cluster_id.in_(cluster_ids))
+        .group_by(Complaint.incident_cluster_id)
+        .all()
+    ) if cluster_ids else {}
+    reporter_ids = defaultdict(set)
+    for cluster_id, citizen_id in (
+        db.query(Complaint.incident_cluster_id, Complaint.citizen_id)
+        .filter(Complaint.incident_cluster_id.in_(cluster_ids), Complaint.citizen_id.isnot(None))
+        .all()
+    ) if cluster_ids else []:
+        reporter_ids[cluster_id].add(citizen_id)
+    for cluster_id, citizen_id in (
+        db.query(ComplaintSupport.incident_cluster_id, ComplaintSupport.citizen_id)
+        .filter(ComplaintSupport.incident_cluster_id.in_(cluster_ids))
+        .all()
+    ) if cluster_ids else []:
+        reporter_ids[cluster_id].add(citizen_id)
+
+    def location_context(candidate):
+        if _same_locality(complaint, candidate):
+            return "Same locality", True, None
+        trusted = {"gps", "user_confirmed_map_pin"}
+        candidate_lat, candidate_lon = candidate.latitude, candidate.longitude
+        anchor_lat, anchor_lon = complaint.latitude, complaint.longitude
+        coordinates_valid = (
+            candidate_lat is not None and candidate_lon is not None
+            and -90 <= float(candidate_lat) <= 90 and -180 <= float(candidate_lon) <= 180
+        )
+        anchor_valid = (
+            anchor_lat is not None and anchor_lon is not None
+            and -90 <= float(anchor_lat) <= 90 and -180 <= float(anchor_lon) <= 180
+        )
+        if anchor_valid and coordinates_valid and complaint.location_source in trusted and candidate.location_source in trusted:
+            from math import radians, sin, cos, asin, sqrt
+            lat1, lon1, lat2, lon2 = map(radians, (float(anchor_lat), float(anchor_lon), float(candidate_lat), float(candidate_lon)))
+            dlat, dlon = lat2-lat1, lon2-lon1
+            a = sin(dlat/2)**2 + cos(lat1)*cos(lat2)*sin(dlon/2)**2
+            distance = int(round(6371000 * 2 * asin(sqrt(min(1.0, a)))))
+            if distance <= 1000:
+                return f"Within {distance} m · confirmed location", True, distance
+        if complaint.pincode and candidate.pincode and complaint.pincode.strip() == candidate.pincode.strip():
+            return "Same PIN code · locality not confirmed", False, None
+        if complaint.district and candidate.district and complaint.district.strip().casefold() == candidate.district.strip().casefold():
+            return "Same district · different / unknown locality", False, None
+        return "Different / unknown locality", False, None
+
+    semantic_by_id = {item["complaint"].complaint_id: item for item in semantic_matches}
+    all_candidates = {c.complaint_id: c for c in matched_complaints + linked_complaints}
+    enriched_matches = []
+    for candidate in all_candidates.values():
+        item = semantic_by_id.get(candidate.complaint_id)
+        cluster_id = candidate.incident_cluster_id or candidate.complaint_id
+        location_label, is_nearby, distance_m = location_context(candidate)
+        latest_update = latest_events.get(candidate.complaint_id) or candidate.created_at
+        created_at = candidate.created_at
+        now = datetime.now(timezone.utc)
+        if created_at and created_at.tzinfo is None:
+            created_at = created_at.replace(tzinfo=timezone.utc)
+        age_days = max(0, (now - created_at).days) if created_at else None
+        enriched_matches.append({
+            "complaint": candidate,
+            "similarity": item["similarity"] if item else None,
+            "is_direct_match": item is not None,
+            "location_label": location_label,
+            "is_nearby": is_nearby,
+            "distance_m": distance_m,
+            "locality": candidate.translated_area or candidate.area,
+            "district": candidate.district,
+            "pincode": candidate.pincode,
+            "assigned_officer": assignments.get(candidate.complaint_id),
+            "age_days": age_days,
+            "latest_update_at": latest_update,
+            "incident_report_count": report_counts.get(cluster_id, 1),
+            "affected_count": len(reporter_ids.get(cluster_id, set())),
+            "already_linked": cluster_id == (complaint.incident_cluster_id or complaint.complaint_id),
+        })
+
     return {
         "incident_total_reports": incident_report_count or 1,
         "duplicate_analysis": (
@@ -787,10 +920,129 @@ def get_complaint_semantic_matches(
                     item["complaint"],
                     item["similarity"],
                 ) + " Location is excluded from this semantic match.",
+                "location_label": item["location_label"],
+                "is_nearby": item["is_nearby"],
+                "distance_m": item["distance_m"],
+                "locality": item["locality"],
+                "district": item["district"],
+                "pincode": item["pincode"],
+                "assigned_officer": item["assigned_officer"],
+                "age_days": item["age_days"],
+                "latest_update_at": item["latest_update_at"],
+                "incident_report_count": item["incident_report_count"],
+                "affected_count": item["affected_count"],
+                "already_linked": item["already_linked"],
             }
-            for item in semantic_matches
+            for item in enriched_matches if item["is_direct_match"]
+        ],
+        "linked_reports": [
+            {
+                "complaint_id": item["complaint"].complaint_id,
+                "title": display_operational_title(item["complaint"].translated_title or item["complaint"].title, item["complaint"].predicted_department, item["complaint"].translated_text or item["complaint"].description),
+                "status": item["complaint"].status,
+                "priority": item["complaint"].priority,
+                "created_at": item["complaint"].created_at,
+                "similarity": item["similarity"],
+                "is_direct_match": item["is_direct_match"],
+                "location_label": item["location_label"],
+                "locality": item["locality"],
+                "district": item["district"],
+                "pincode": item["pincode"],
+                "assigned_officer": item["assigned_officer"],
+                "age_days": item["age_days"],
+                "latest_update_at": item["latest_update_at"],
+                "incident_report_count": item["incident_report_count"],
+                "affected_count": item["affected_count"],
+                "already_linked": True,
+            }
+            for item in enriched_matches if item["already_linked"]
         ],
     }
+
+
+@router.post("/complaint/{complaint_id}/link-related")
+def link_related_complaint(
+    complaint_id: int,
+    payload: LinkRelatedComplaintRequest,
+    current_department: Department = Depends(get_current_department),
+    db: Session = Depends(get_db),
+):
+    """Human-confirmed merge of two nearby, directly text-matched incidents."""
+    anchor = db.query(Complaint).filter(
+        Complaint.complaint_id == complaint_id,
+        Complaint.department_id == current_department.department_id,
+    ).first()
+    related = db.query(Complaint).filter(
+        Complaint.complaint_id == payload.related_complaint_id,
+        Complaint.department_id == current_department.department_id,
+    ).first()
+    if not anchor or not related:
+        raise HTTPException(status_code=404, detail="Complaint not found in this department")
+    _ensure_officer_can_access(anchor, current_department, db)
+    _ensure_officer_can_access(related, current_department, db)
+    if anchor.complaint_id == related.complaint_id:
+        raise HTTPException(status_code=400, detail="Choose a different complaint")
+
+    direct_matches = semantic_similar_complaints(db, anchor)
+    if not any(item["complaint"].complaint_id == related.complaint_id for item in direct_matches):
+        raise HTTPException(status_code=409, detail="This complaint is not a current direct text match")
+
+    nearby = _same_locality(anchor, related)
+    trusted = {"gps", "user_confirmed_map_pin"}
+    valid_coords = (
+        anchor.latitude is not None and anchor.longitude is not None
+        and related.latitude is not None and related.longitude is not None
+        and -90 <= float(anchor.latitude) <= 90 and -180 <= float(anchor.longitude) <= 180
+        and -90 <= float(related.latitude) <= 90 and -180 <= float(related.longitude) <= 180
+    )
+    if not nearby and valid_coords and anchor.location_source in trusted and related.location_source in trusted:
+        from math import radians, sin, cos, asin, sqrt
+        lat1, lon1, lat2, lon2 = map(radians, (float(anchor.latitude), float(anchor.longitude), float(related.latitude), float(related.longitude)))
+        dlat, dlon = lat2-lat1, lon2-lon1
+        a = sin(dlat/2)**2 + cos(lat1)*cos(lat2)*sin(dlon/2)**2
+        nearby = 6371000 * 2 * asin(sqrt(min(1.0, a))) <= 1000
+    if not nearby:
+        raise HTTPException(status_code=422, detail="Reports can only be linked when the locality matches or both confirmed locations are within 1 km")
+
+    anchor_cluster = anchor.incident_cluster_id or anchor.complaint_id
+    related_cluster = related.incident_cluster_id or related.complaint_id
+    if anchor_cluster == related_cluster:
+        return {"message": "These reports are already linked", "incident_cluster_id": anchor_cluster}
+
+    new_cluster = min(anchor_cluster, related_cluster)
+    old_clusters = {anchor_cluster, related_cluster}
+    members = db.query(Complaint).filter(Complaint.incident_cluster_id.in_(old_clusters)).all()
+    if not any(member.complaint_id == anchor.complaint_id for member in members):
+        members.append(anchor)
+    if not any(member.complaint_id == related.complaint_id for member in members):
+        members.append(related)
+    for member in members:
+        member.incident_cluster_id = new_cluster
+        db.add(ComplaintEvent(
+            complaint_id=member.complaint_id,
+            event_type="incident_linked",
+            title="Linked to a related incident",
+            detail=f"An authorized department user linked this report to incident #{new_cluster} after reviewing issue text and location.",
+            actor=_actor_name(current_department),
+        ))
+
+    supports = db.query(ComplaintSupport).filter(ComplaintSupport.incident_cluster_id.in_(old_clusters)).all()
+    supporters = {}
+    for support in supports:
+        supporters.setdefault(support.citizen_id, support)
+    duplicate_supports = [support for support in supports if supporters[support.citizen_id] is not support]
+    for support in duplicate_supports:
+        db.delete(support)
+    if duplicate_supports:
+        db.flush()
+    for support in supports:
+        if support not in duplicate_supports:
+            support.incident_cluster_id = new_cluster
+
+    db.commit()
+    refresh_cluster(db, anchor)
+    db.commit()
+    return {"message": "Reports linked after review", "incident_cluster_id": new_cluster, "linked_report_count": len(members)}
 
 @router.put("/update-status/{complaint_id}")
 def update_status(

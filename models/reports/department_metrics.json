@@ -1,69 +1,69 @@
 {
-  "accuracy": 0.9392712550607287,
-  "macro_f1": 0.9340609240834128,
-  "weighted_f1": 0.938593846249492,
-  "macro_precision": 0.9369650198789193,
-  "macro_recall": 0.9344484508547009,
+  "accuracy": 0.9433198380566802,
+  "macro_f1": 0.9339889933783335,
+  "weighted_f1": 0.9426722896445509,
+  "macro_precision": 0.9355644152997316,
+  "macro_recall": 0.9342806567071272,
   "classification_report": {
     "Education": {
-      "precision": 0.9714285714285714,
-      "recall": 1.0,
-      "f1-score": 0.9855072463768116,
+      "precision": 0.9411764705882353,
+      "recall": 0.9411764705882353,
+      "f1-score": 0.9411764705882353,
       "support": 34.0
     },
     "Electricity": {
-      "precision": 1.0,
+      "precision": 0.9655172413793104,
       "recall": 1.0,
-      "f1-score": 1.0,
-      "support": 30.0
+      "f1-score": 0.9824561403508771,
+      "support": 28.0
     },
     "Healthcare": {
       "precision": 1.0,
       "recall": 1.0,
       "f1-score": 1.0,
-      "support": 43.0
+      "support": 51.0
     },
     "Municipal Corporation": {
-      "precision": 0.9583333333333334,
-      "recall": 0.8846153846153846,
-      "f1-score": 0.92,
-      "support": 26.0
+      "precision": 0.8571428571428571,
+      "recall": 0.8571428571428571,
+      "f1-score": 0.8571428571428571,
+      "support": 21.0
     },
     "Police": {
-      "precision": 0.7741935483870968,
-      "recall": 0.8888888888888888,
-      "f1-score": 0.8275862068965517,
-      "support": 27.0
+      "precision": 0.918918918918919,
+      "recall": 0.9444444444444444,
+      "f1-score": 0.9315068493150684,
+      "support": 36.0
     },
     "Roads & Transport": {
-      "precision": 0.88,
-      "recall": 0.7333333333333333,
-      "f1-score": 0.8,
-      "support": 30.0
+      "precision": 0.9565217391304348,
+      "recall": 0.8148148148148148,
+      "f1-score": 0.88,
+      "support": 27.0
     },
     "Sanitation": {
-      "precision": 0.9117647058823529,
-      "recall": 0.96875,
-      "f1-score": 0.9393939393939394,
-      "support": 32.0
+      "precision": 0.9166666666666666,
+      "recall": 0.9166666666666666,
+      "f1-score": 0.9166666666666666,
+      "support": 24.0
     },
     "Water Supply": {
-      "precision": 1.0,
+      "precision": 0.9285714285714286,
       "recall": 1.0,
-      "f1-score": 1.0,
-      "support": 25.0
+      "f1-score": 0.9629629629629629,
+      "support": 26.0
     },
-    "accuracy": 0.9392712550607287,
+    "accuracy": 0.9433198380566802,
     "macro avg": {
-      "precision": 0.9369650198789193,
-      "recall": 0.9344484508547009,
-      "f1-score": 0.9340609240834128,
+      "precision": 0.9355644152997316,
+      "recall": 0.9342806567071272,
+      "f1-score": 0.9339889933783335,
       "support": 247.0
     },
     "weighted avg": {
-      "precision": 0.9409916376110323,
-      "recall": 0.9392712550607287,
-      "f1-score": 0.938593846249492,
+      "precision": 0.943661975461865,
+      "recall": 0.9433198380566802,
+      "f1-score": 0.9426722896445509,
       "support": 247.0
     }
   },
@@ -77,48 +77,65 @@
     "Sanitation",
     "Water Supply"
   ],
-  "clean_rows": 1231,
-  "removed_contradictory_texts": 7,
-  "train_rows": 984,
   "test_rows": 247,
+  "feature_count": 5938,
   "selected_model": "LogisticRegression",
-  "selection_metric": "3-fold stratified cross-validation mean macro-F1",
-  "cv_macro_f1_mean": 0.9150586835637488,
-  "cv_macro_f1_std": 0.0145972338465307,
-  "candidate_models": [
+  "selection_metric": "3-fold StratifiedGroupKFold macro-F1; source weight selected only on CivicFlow training rows",
+  "cv_macro_f1_mean": 0.9016567518283672,
+  "cv_macro_f1_std": 0.019465974968430704,
+  "clean_rows": 1231,
+  "train_rows": 984,
+  "removed_contradictory_texts": 7,
+  "hf_rows_used": 4500,
+  "hf_source_weight_vs_civicflow": 1.0,
+  "hf_mapped_categories": {
+    "Roads and Public Works": "Roads & Transport",
+    "Electricity and Street Lighting": "Electricity",
+    "Public Transport": "Roads & Transport",
+    "Municipal Services": "Municipal Corporation",
+    "Sanitation and Solid Waste": "Sanitation",
+    "Water Supply and Irrigation": "Water Supply",
+    "Public Health and Hospitals": "Healthcare",
+    "Education and Scholarships": "Education",
+    "Police and Public Safety": "Police"
+  },
+  "source_weight_candidates": [
     {
-      "model": "LogisticRegression",
-      "cv_accuracy_mean": 0.9207317073170732,
-      "cv_accuracy_std": 0.0114074920328473,
-      "cv_macro_f1_mean": 0.9150586835637488,
-      "cv_macro_f1_std": 0.0145972338465307,
-      "cv_weighted_f1_mean": 0.9193899961936236
+      "hf_total_weight_vs_civicflow": 0.0,
+      "grouped_cv_macro_f1_mean": 0.8932378809867779,
+      "grouped_cv_macro_f1_std": 0.01625164575477944
     },
     {
-      "model": "LinearSVC",
-      "cv_accuracy_mean": 0.9197154471544716,
-      "cv_accuracy_std": 0.0100604623339549,
-      "cv_macro_f1_mean": 0.9135947749716316,
-      "cv_macro_f1_std": 0.0122428342122618,
-      "cv_weighted_f1_mean": 0.9184629837738356
+      "hf_total_weight_vs_civicflow": 0.025,
+      "grouped_cv_macro_f1_mean": 0.8791317693712051,
+      "grouped_cv_macro_f1_std": 0.021191610609743342
     },
     {
-      "model": "ComplementNB",
-      "cv_accuracy_mean": 0.915650406504065,
-      "cv_accuracy_std": 0.0080020405223697,
-      "cv_macro_f1_mean": 0.9102953689093196,
-      "cv_macro_f1_std": 0.0100083241716341,
-      "cv_weighted_f1_mean": 0.9144581321532804
+      "hf_total_weight_vs_civicflow": 0.05,
+      "grouped_cv_macro_f1_mean": 0.8828017489002183,
+      "grouped_cv_macro_f1_std": 0.021479370294630547
     },
     {
-      "model": "SGDClassifier",
-      "cv_accuracy_mean": 0.9085365853658536,
-      "cv_accuracy_std": 0.0129348801436563,
-      "cv_macro_f1_mean": 0.901872826750572,
-      "cv_macro_f1_std": 0.0143196803860292,
-      "cv_weighted_f1_mean": 0.906892418734872
+      "hf_total_weight_vs_civicflow": 0.1,
+      "grouped_cv_macro_f1_mean": 0.8868619386362263,
+      "grouped_cv_macro_f1_std": 0.02143564527096341
+    },
+    {
+      "hf_total_weight_vs_civicflow": 0.25,
+      "grouped_cv_macro_f1_mean": 0.8921267655205317,
+      "grouped_cv_macro_f1_std": 0.019135786885867
+    },
+    {
+      "hf_total_weight_vs_civicflow": 0.5,
+      "grouped_cv_macro_f1_mean": 0.8976963285561977,
+      "grouped_cv_macro_f1_std": 0.020858085605868007
+    },
+    {
+      "hf_total_weight_vs_civicflow": 1.0,
+      "grouped_cv_macro_f1_mean": 0.9016567518283672,
+      "grouped_cv_macro_f1_std": 0.019465974968430704
     }
   ],
-  "feature_representation": "word TF-IDF (1-2 grams) + character TF-IDF (3-5 grams)",
-  "probability_support": true
+  "probability_support": true,
+  "training_data_note": "Only the nine HF categories mapped above are used; the model still predicts CivicFlow's existing eight operational departments."
 }

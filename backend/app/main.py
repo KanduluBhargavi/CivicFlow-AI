@@ -121,15 +121,21 @@ def _start_priority_refresh_loop():
         from app.database import SessionLocal
         from app.services.priority_engine import refresh_priorities
         while True:
-            time.sleep(minutes * 60)
-            db = SessionLocal()
+            db = None
             try:
-                refresh_priorities(db, db.query(Complaint).filter(Complaint.status != "Resolved").all())
+                db = SessionLocal()
+                open_complaints = db.query(Complaint).filter(Complaint.status != "Resolved").all()
+                changed = refresh_priorities(db, open_complaints)
+                if changed:
+                    print(f"[priority-refresh] updated {changed} open complaint priority label(s)", flush=True)
             except Exception as exc:  # never let the monitor kill the API
                 print(f"[priority-refresh] skipped: {exc}", flush=True)
-                db.rollback()
+                if db is not None:
+                    db.rollback()
             finally:
-                db.close()
+                if db is not None:
+                    db.close()
+            time.sleep(minutes * 60)
 
     threading.Thread(target=loop, daemon=True, name="priority-refresh").start()
 

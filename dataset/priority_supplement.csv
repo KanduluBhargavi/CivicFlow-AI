@@ -17,4 +17,6 @@ Contaminated water is making residents ill.,High,curated_synthetic,Curated synth
 The main water pipe burst and flooded the entire street.,High,curated_synthetic,Curated synthetic training example for class-boundary coverage; requires officer review against local service policy.
 water no water. no water for about 1 hour fix it,Medium,user_feedback,User flagged this one-hour interruption as overestimated at High.
 "water related issues. in my locality, there is insufficient water supply issue",Medium,user_feedback,User flagged this vague localized supply issue as overestimated at High.
-no water for 5mins,Medium,user_feedback,User screenshot showed this brief five-minute interruption labeled High and asked why; labeled Medium as real user feedback.
+no water for 5 mins,Low,user_feedback,User-reviewed correction: a five-minute water interruption is Low priority; not an independently collected citizen record.
+There is no water for five minutes,Low,user_feedback,Paraphrase augmentation of the user-reviewed five-minute Low correction; not an independently observed complaint.
+No water supply for 5 minutes,Low,user_feedback,Paraphrase augmentation of the user-reviewed five-minute Low correction; not an independently observed complaint.

@@ -183,48 +183,117 @@ function renderSemanticMatches(data) {
     if (!duplicateSection || !duplicateList || !duplicateAnalysis) return;
 
     const duplicateGroup = data?.duplicate_group || [];
-    const da = data?.duplicate_analysis || {};
+    const linkedReports = data?.linked_reports || [];
     const incidentReports = Number(data?.incident_total_reports || 1);
 
     duplicateList.innerHTML = "";
     duplicateAnalysis.innerHTML = "";
 
-    if (!duplicateGroup.length) {
+    if (!duplicateGroup.length && !linkedReports.length) {
         duplicateSection.style.display = "none";
         return;
     }
 
     duplicateSection.style.display = "block";
-    const label = isOfficer
-        ? `Direct semantic matches assigned to you · ${duplicateGroup.length}`
-        : `Direct semantic matches · ${duplicateGroup.length}`;
-
+    const nearby = duplicateGroup.filter(item => !item.already_linked && item.is_nearby);
+    const elsewhere = duplicateGroup.filter(item => !item.already_linked && !item.is_nearby);
     duplicateAnalysis.innerHTML = `
         <div class="dup-score-card">
-            <strong>${label}</strong>
-            <span class="dup-cluster-note">${isOfficer
-                ? "Only direct text matches assigned to your account are shown. This count is separate from the larger linked-incident total."
-                : "These are direct Sentence-BERT matches to this complaint. Similarity is pairwise, not a transitive cluster."}</span>
-            <span><b>${duplicateGroup.length} direct text match(es)</b></span>
-            <span>${incidentReports} report(s) are linked in the persisted incident cluster. The ${duplicateGroup.length} cards below are only the direct text matches for this complaint; clusters can include reports linked through other direct matches.</span>
-            <span>These suggestions compare meaning, not proof of the same incident. Confirm issue type and location before grouping.</span>
+            <strong>Related reports · ${isOfficer ? "assigned to you" : "same department"}</strong>
+            <span class="dup-cluster-note">${linkedReports.length} report(s) shown from the saved incident · ${nearby.length} nearby unlinked report(s) · ${elsewhere.length} text-similar report(s) elsewhere · ${duplicateGroup.length} direct text match(es).</span>
+            <span>The saved incident contains ${incidentReports} report(s), including this complaint. Direct text matches are a separate count; linked incident members may be connected through another reviewed report.</span>
+            <span>Text similarity finds related wording; it does not prove the same event. Only reports with matching locality or confirmed locations within 1 km can be linked here after officer review.</span>
         </div>`;
+    duplicateAnalysis.insertAdjacentHTML("beforeend", `
+        <div class="related-filter">
+            <label for="relatedComplaintFilter">Show</label>
+            <select id="relatedComplaintFilter">
+                <option value="all">All related reports</option>
+                <option value="linked">Already in this incident (${linkedReports.length})</option>
+                <option value="nearby">Same locality / nearby (${nearby.length})</option>
+                <option value="elsewhere">Similar wording elsewhere (${elsewhere.length})</option>
+            </select>
+        </div>`);
 
-    duplicateGroup.forEach(d => {
-        const card = document.createElement("a");
+    const addGroup = (heading, items, allowLink) => {
+        if (!items.length) return;
+        const group = document.createElement("section");
+        group.className = "related-complaint-group";
+        const title = document.createElement("h4");
+        title.textContent = `${heading} · ${items.length}`;
+        group.appendChild(title);
+        const cards = document.createElement("div");
+        cards.className = "duplicate-id-list";
+        items.forEach(d => {
+        const card = document.createElement("article");
         card.className = "related-complaint-card";
-        card.href = `department_complaint_details.html?id=${d.complaint_id}`;
-        const pct = Math.round((d.similarity || 0) * 100);
+        const pct = d.similarity === null || d.similarity === undefined ? null : Math.round(d.similarity * 100);
+        const location = [d.locality, d.district, d.pincode].filter(Boolean).join(", ") || "Location unavailable";
+        const meta = [
+            d.status || "Status unavailable",
+            d.priority ? `${d.priority} priority` : "",
+            d.assigned_officer ? `Officer: ${d.assigned_officer}` : "Unassigned",
+            d.age_days !== null && d.age_days !== undefined && Number.isFinite(Number(d.age_days)) ? `${d.age_days} day(s) since filed` : "Age unavailable",
+            `Incident: ${d.incident_report_count || 1} report(s), ${d.affected_count || 0} affected citizen(s)`
+        ].filter(Boolean).join(" · ");
         card.innerHTML = `
             <div class="related-complaint-head related-complaint-card__top">
                 <strong>#${d.complaint_id} · ${escHtml(d.title || "Complaint")}</strong>
-                <span>${pct}% similar</span>
+                <span>${d.is_direct_match === false ? "Linked · no direct text match" : `${pct}% text match`}</span>
             </div>
-            <p class="related-why">${conciseDuplicateReason(d)}</p>
-            <small>${[d.priority || "", d.status || ""].filter(Boolean).join(" · ")}</small>
+            <p class="related-location"><b>${escHtml(d.location_label || "Location unknown")}</b> · ${escHtml(location)}</p>
+            <p class="related-why">${escHtml(d.is_direct_match === false ? "This report is in the saved incident group, but its text was not a direct semantic match to the current complaint." : conciseDuplicateReason(d))}</p>
+            <small>${escHtml(meta)}</small>
+            <small>Latest update: ${escHtml(formatFriendlyDate(d.latest_update_at))}</small>
+            <div class="related-complaint-actions">
+                <a class="related-open-link" href="department_complaint_details.html?id=${encodeURIComponent(d.complaint_id)}">Open report</a>
+                ${allowLink && !d.already_linked ? `<button type="button" class="related-link-button" data-related-complaint="${Number(d.complaint_id)}">Link reports after review</button>` : (d.already_linked ? `<span class="related-linked-label">Already in this incident</span>` : "")}
+            </div>
         `;
-        duplicateList.appendChild(card);
-    });
+        cards.appendChild(card);
+        });
+        group.appendChild(cards);
+        duplicateList.appendChild(group);
+    };
+
+    const relatedFilter = document.getElementById("relatedComplaintFilter");
+    const renderFilteredGroups = () => {
+        duplicateList.innerHTML = "";
+        const selected = relatedFilter?.value || "all";
+        if (selected === "all" || selected === "linked") addGroup("Already linked to this incident", linkedReports, false);
+        if (selected === "all" || selected === "nearby") addGroup("Same locality / nearby", nearby, true);
+        if (selected === "all" || selected === "elsewhere") addGroup("Similar wording · location not confirmed", elsewhere, false);
+        if (!duplicateList.childElementCount) {
+            const empty = document.createElement("p");
+            empty.className = "related-filter-empty";
+            empty.textContent = "No reports in this group.";
+            duplicateList.appendChild(empty);
+        }
+
+        duplicateList.querySelectorAll(".related-link-button").forEach(button => {
+            button.addEventListener("click", async () => {
+                const relatedId = Number(button.dataset.relatedComplaint);
+                if (!relatedId || !window.confirm(`Link complaint #${relatedId} to this incident? Review the issue and location first.`)) return;
+                button.disabled = true;
+                try {
+                    const response = await fetch(`${API_BASE}/department/complaint/${complaintId}/link-related`, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+                        body: JSON.stringify({ related_complaint_id: relatedId })
+                    });
+                    const result = await response.json().catch(() => ({}));
+                    if (!response.ok) throw new Error(result.detail || "Could not link reports");
+                    window.alert("Reports linked. Their incident history and impact counts are now grouped.");
+                    loadSemanticMatches();
+                } catch (error) {
+                    window.alert(error.message || "Could not link reports");
+                    button.disabled = false;
+                }
+            });
+        });
+    };
+    relatedFilter?.addEventListener("change", renderFilteredGroups);
+    renderFilteredGroups();
 }
 
 async function loadSemanticMatches() {

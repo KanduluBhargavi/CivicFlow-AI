@@ -26,7 +26,26 @@ function completeLogin(data) {
     const params = new URLSearchParams(window.location.search);
     const next = params.get("next");
 
-    if (next === "lodge") {
+    // Offer an unfinished complaint as soon as a citizen signs in.
+    let hasSavedComplaint = false;
+    try {
+        const encoded = data.access_token.split(".")[1];
+        const base64 = encoded.replace(/-/g, "+").replace(/_/g, "/");
+        const tokenPayload = JSON.parse(atob(base64 + "=".repeat((4 - base64.length % 4) % 4)));
+        const identity = String(tokenPayload.sub || "").trim().toLowerCase();
+        if (identity) {
+            let hash = 2166136261;
+            for (let i = 0; i < identity.length; i++) hash = Math.imul(hash ^ identity.charCodeAt(i), 16777619);
+            const draftKey = `civicflow:complaint-draft:${(hash >>> 0).toString(36)}`;
+            hasSavedComplaint = Boolean(JSON.parse(localStorage.getItem(draftKey) || "null")?.values);
+        }
+    } catch (error) {
+        console.warn("Could not check for an unfinished complaint after login.", error);
+    }
+
+    if (hasSavedComplaint) {
+        window.location.href = `dashboard.html?showComplaintDraft=1${next === "lodge" ? "&next=lodge" : ""}`;
+    } else if (next === "lodge") {
         window.location.href = "complaint.html";
     } else if (next === "track") {
         window.location.href = "my_complaints.html";

@@ -569,7 +569,224 @@ complaintMediaInput?.addEventListener("change", () => {
     preview.hidden = false;
 });
 
+function complaintDraftKey() {
+    try {
+        const token = localStorage.getItem("access_token") || "";
+        const encodedPayload = token.split(".")[1];
+        if (!encodedPayload) return null;
+        const base64 = encodedPayload.replace(/-/g, "+").replace(/_/g, "/");
+        const payload = JSON.parse(atob(base64 + "=".repeat((4 - base64.length % 4) % 4)));
+        const identity = String(payload.sub || "").trim().toLowerCase();
+        if (!identity) return null;
+        let hash = 2166136261;
+        for (let i = 0; i < identity.length; i++) hash = Math.imul(hash ^ identity.charCodeAt(i), 16777619);
+        return `civicflow:complaint-draft:${(hash >>> 0).toString(36)}`;
+    } catch (error) {
+        console.warn("Could not identify the current citizen for draft storage.", error);
+        return null;
+    }
+}
+
+const complaintDraftStorageKey = complaintDraftKey();
+let complaintDraftSaveTimer = null;
+
+function getComplaintDraftValues() {
+    return {
+        title: document.getElementById("title")?.value || "",
+        description: document.getElementById("description")?.value || "",
+        languageHint: document.getElementById("languageHint")?.value || "auto",
+        state: document.getElementById("state")?.value || "",
+        district: document.getElementById("district")?.value || "",
+        area: document.getElementById("area")?.value || "",
+        landmark: document.getElementById("landmark")?.value || "",
+        address: document.getElementById("address")?.value || "",
+        pincode: document.getElementById("pincode")?.value || "",
+        latitude: document.getElementById("latitude")?.value || "",
+        longitude: document.getElementById("longitude")?.value || "",
+        locationSource: document.getElementById("locationSource")?.value || "unresolved",
+        hadMedia: Boolean(document.getElementById("media")?.files?.length),
+    };
+}
+
+function saveComplaintDraft() {
+    if (!complaintDraftStorageKey) return;
+    const values = getComplaintDraftValues();
+    if (![values.title, values.description, values.area, values.address].some(value => value.trim())) {
+        localStorage.removeItem(complaintDraftStorageKey);
+        return;
+    }
+    try {
+        localStorage.setItem(complaintDraftStorageKey, JSON.stringify({ version: 1, savedAt: new Date().toISOString(), values }));
+    } catch (error) {
+        console.warn("Unable to save this complaint draft on the device.", error);
+    }
+}
+
+function scheduleComplaintDraftSave() {
+    clearTimeout(complaintDraftSaveTimer);
+    complaintDraftSaveTimer = setTimeout(saveComplaintDraft, 350);
+}
+
+function initializeComplaintDraft() {
+    const form = document.getElementById("complaintForm");
+    const prompt = document.getElementById("complaintDraftPrompt");
+    if (!form || !complaintDraftStorageKey) return;
+    const fields = ["title", "description", "languageHint", "state", "district", "area", "landmark", "address", "pincode", "latitude", "longitude", "locationSource", "media"];
+    fields.map(id => document.getElementById(id)).filter(Boolean).forEach(field => {
+        field.addEventListener("input", scheduleComplaintDraftSave);
+        field.addEventListener("change", scheduleComplaintDraftSave);
+    });
+    window.addEventListener("beforeunload", saveComplaintDraft);
+
+    let draft;
+    try {
+        draft = JSON.parse(localStorage.getItem(complaintDraftStorageKey) || "null");
+    } catch {
+        localStorage.removeItem(complaintDraftStorageKey);
+        return;
+    }
+    if (!draft?.values || !prompt) return;
+
+    const savedAt = draft.savedAt ? new Date(draft.savedAt) : null;
+    const description = document.getElementById("complaintDraftDescription");
+    if (description && savedAt && !Number.isNaN(savedAt.getTime())) {
+        description.textContent = `You have a saved complaint from ${savedAt.toLocaleString()} that was not submitted. Would you like to continue it?`;
+    }
+    const mediaNote = document.getElementById("complaintDraftMediaNote");
+    if (mediaNote) mediaNote.hidden = !draft.values.hadMedia;
+    prompt.hidden = false;
+
+    document.getElementById("discardComplaintDraft")?.addEventListener("click", () => {
+        localStorage.removeItem(complaintDraftStorageKey);
+        prompt.hidden = true;
+        form.reset();
+    }, { once: true });
+
+    document.getElementById("restoreComplaintDraft")?.addEventListener("click", async () => {
+        const state = document.getElementById("state");
+        for (let attempt = 0; state && draft.values.state && attempt < 25; attempt++) {
+            if (Array.from(state.options).some(option => option.value === draft.values.state)) break;
+            await new Promise(resolve => setTimeout(resolve, 100));
+        }
+        if (state) {
+            state.value = draft.values.state || "";
+            state.dispatchEvent(new Event("change", { bubbles: true }));
+        }
+        const ordered = ["district", "title", "description", "languageHint", "area", "landmark", "address", "pincode", "latitude", "longitude", "locationSource"];
+        ordered.forEach(id => {
+            const field = document.getElementById(id);
+            if (field && draft.values[id] !== undefined) field.value = draft.values[id];
+        });
+        document.getElementById("languageHint")?.dispatchEvent(new Event("change", { bubbles: true }));
+        ["title", "description", "district", "area", "landmark", "address", "pincode"].forEach(id => {
+            document.getElementById(id)?.dispatchEvent(new Event("input", { bubbles: true }));
+        });
+        prompt.hidden = true;
+        document.getElementById("title")?.focus();
+        scheduleComplaintDraftSave();
+    }, { once: true });
+
+    if (new URLSearchParams(window.location.search).get("resumeDraft") === "1") {
+        prompt.hidden = true;
+        document.getElementById("restoreComplaintDraft")?.click();
+    } else {
+        prompt.hidden = false;
+    }
+}
+
+if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initializeComplaintDraft, { once: true }); else initializeComplaintDraft();
+
 let civicSubmitInFlight = false;
+let pendingDuplicateDecision = null;
+
+function showDuplicateCheckUnavailable() {
+    const panel = document.getElementById("duplicateReviewPanel");
+    const title = document.getElementById("duplicateReviewTitle");
+    const intro = document.getElementById("duplicateReviewIntro");
+    const list = document.getElementById("duplicateReviewMatches");
+    if (!panel || !title || !intro || !list) return;
+    title.textContent = "We couldn't check your previous reports";
+    intro.textContent = "The duplicate check is temporarily unavailable. You can retry, or choose to submit without the check.";
+    list.replaceChildren();
+    const actions = document.createElement("div");
+    actions.className = "citizen-duplicate-match__actions";
+    const retry = document.createElement("button");
+    retry.type = "button";
+    retry.textContent = "Retry check";
+    retry.addEventListener("click", () => {
+        panel.hidden = true;
+        document.getElementById("complaintForm").requestSubmit();
+    });
+    const proceed = document.createElement("button");
+    proceed.type = "button";
+    proceed.className = "secondary";
+    proceed.textContent = "Submit anyway";
+    proceed.addEventListener("click", () => {
+        pendingDuplicateDecision = { intent: "normal", skipCheck: true };
+        panel.hidden = true;
+        document.getElementById("complaintForm").requestSubmit();
+    });
+    actions.append(retry, proceed);
+    list.append(actions);
+    panel.hidden = false;
+    panel.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+function showPossibleRepeat(matches) {
+    const panel = document.getElementById("duplicateReviewPanel");
+    const intro = document.getElementById("duplicateReviewIntro");
+    const list = document.getElementById("duplicateReviewMatches");
+    if (!panel || !intro || !list) return;
+    list.replaceChildren();
+    document.getElementById("duplicateReviewTitle").textContent = "You may have reported this issue before";
+    intro.textContent = "We found a report you previously filed with similar issue and location details. Check its status before continuing.";
+
+    matches.forEach(match => {
+        const resolved = Boolean(match.is_resolved);
+        const card = document.createElement("article");
+        card.className = "citizen-duplicate-match";
+        const heading = document.createElement("h4");
+        heading.textContent = `Complaint #${match.complaint_id} · ${match.title || "Your earlier report"}`;
+        const meta = document.createElement("p");
+        const filedAt = match.created_at ? new Date(match.created_at).toLocaleString() : "date unavailable";
+        meta.textContent = `${match.status || "Status unavailable"} · ${match.priority || "Priority unavailable"} priority · filed ${filedAt}`;
+        const explanation = document.createElement("p");
+        explanation.textContent = resolved
+            ? "This report was marked resolved. If the same problem has returned, submit a recurrence; the previous report will remain resolved."
+            : "This report is still open. If this is the same ongoing problem, view the existing report. Continue separately only if this is a different incident.";
+        const actions = document.createElement("div");
+        actions.className = "citizen-duplicate-match__actions";
+        const view = document.createElement("a");
+        view.href = `complaint_details.html?id=${encodeURIComponent(match.complaint_id)}`;
+        view.target = "_blank";
+        view.rel = "noopener";
+        view.textContent = "View previous report";
+        const choose = (intent, label, secondary = false) => {
+            const button = document.createElement("button");
+            button.type = "button";
+            button.textContent = label;
+            if (secondary) button.className = "secondary";
+            button.addEventListener("click", () => {
+                pendingDuplicateDecision = { intent, complaintId: Number(match.complaint_id) };
+                panel.hidden = true;
+                document.getElementById("complaintForm").requestSubmit();
+            });
+            return button;
+        };
+        actions.append(view);
+        if (resolved) actions.append(choose("recurrence", "The issue returned — report recurrence"));
+        actions.append(choose("separate", "This is a separate incident", true));
+        card.append(heading, meta, explanation, actions);
+        list.append(card);
+    });
+    panel.hidden = false;
+    panel.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+document.getElementById("dismissDuplicateReview")?.addEventListener("click", () => {
+    const panel = document.getElementById("duplicateReviewPanel");
+    if (panel) panel.hidden = true;
+});
 document.getElementById("complaintForm").addEventListener("submit", async function (e) {
 
     e.preventDefault();
@@ -607,6 +824,8 @@ document.getElementById("complaintForm").addEventListener("submit", async functi
     formData.append("address", document.getElementById("address").value);
     formData.append("landmark", document.getElementById("landmark").value);
     formData.append("pincode", document.getElementById("pincode").value);
+    formData.append("submission_intent", pendingDuplicateDecision?.intent || "normal");
+    if (pendingDuplicateDecision?.complaintId) formData.append("related_complaint_id", pendingDuplicateDecision.complaintId);
 
     // formData.append(
     //     "latitude",
@@ -646,6 +865,43 @@ document.getElementById("complaintForm").addEventListener("submit", async functi
     if (submitButton) { submitButton.disabled = true; submitButton.dataset.oldLabel = submitButton.textContent; submitButton.textContent = "Submitting… please wait"; }
     try {
 
+        if (!pendingDuplicateDecision) {
+            const checkPayload = {
+                title: complaintTitle,
+                description: descriptionInput || complaintTitle,
+                language_hint: document.getElementById("languageHint")?.value || "auto",
+                state: document.getElementById("state").value,
+                district: document.getElementById("district").value,
+                area: document.getElementById("area").value,
+                landmark: document.getElementById("landmark").value,
+                pincode: document.getElementById("pincode").value,
+                latitude: document.getElementById("latitude").value || null,
+                longitude: document.getElementById("longitude").value || null,
+                location_source: document.getElementById("locationSource")?.value || "unresolved",
+            };
+            try {
+                const checkResponse = await fetch(`${API_BASE}/complaints/similar-check`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+                    body: JSON.stringify(checkPayload),
+                });
+                if (!checkResponse.ok) {
+                    console.warn("Possible-repeat check returned HTTP", checkResponse.status);
+                    showDuplicateCheckUnavailable();
+                    return;
+                }
+                const checkData = await checkResponse.json();
+                if (checkData.matches?.length) {
+                    showPossibleRepeat(checkData.matches);
+                    return;
+                }
+            } catch (checkError) {
+                console.warn("Possible-repeat check unavailable.", checkError);
+                showDuplicateCheckUnavailable();
+                return;
+            }
+        }
+
         const response = await fetch(`${API_BASE}/complaints`, {
 
             method: "POST",
@@ -665,13 +921,18 @@ document.getElementById("complaintForm").addEventListener("submit", async functi
             alert("Complaint Submitted Successfully!");
 
             document.getElementById("complaintForm").reset();
+            if (complaintDraftStorageKey) localStorage.removeItem(complaintDraftStorageKey);
+            pendingDuplicateDecision = null;
 
             window.location.href = "dashboard.html";
 
         } else {
-
-            alert(data.detail || data.message || "Submission Failed");
-
+            const detail = data.detail;
+            if (detail?.code === "possible_repeat" && detail.match) {
+                showPossibleRepeat([detail.match]);
+            } else {
+                alert(typeof detail === "string" ? detail : (data.message || "Submission Failed"));
+            }
         }
 
     } catch (err) {
@@ -681,6 +942,7 @@ document.getElementById("complaintForm").addEventListener("submit", async functi
         alert("Unable to reach the CivicFlow server. Check My Complaints before retrying to avoid a duplicate submission.");
 
     } finally {
+        pendingDuplicateDecision = null;
         civicSubmitInFlight = false;
         if (submitButton) { submitButton.disabled = false; submitButton.textContent = submitButton.dataset.oldLabel || "Submit Complaint"; }
     }
